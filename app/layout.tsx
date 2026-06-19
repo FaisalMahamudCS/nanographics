@@ -1,18 +1,23 @@
 import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
-import { Geist, Geist_Mono } from 'next/font/google'
+import { Archivo, Space_Grotesk } from 'next/font/google'
 import './globals.css'
 
-const geistSans = Geist({ variable: '--font-geist-sans', subsets: ['latin'] })
-const geistMono = Geist_Mono({
-  variable: '--font-geist-mono',
+const archivo = Archivo({
+  variable: '--font-archivo',
   subsets: ['latin'],
+  weight: ['300', '400', '500', '600', '700', '800', '900'],
+})
+
+const spaceGrotesk = Space_Grotesk({
+  variable: '--font-space-grotesk',
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '600', '700'],
 })
 
 export const metadata: Metadata = {
   title: 'NanoGraphic | Design & Branding Agency',
   description: 'Professional design agency offering branding, packaging, and web development services',
-  generator: 'v0.app',
   icons: {
     icon: [
       {
@@ -46,8 +51,8 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={`${geistSans.variable} ${geistMono.variable} dark`}>
-      <body className="font-sans antialiased bg-background text-foreground">
+    <html lang="en" className={`${archivo.variable} ${spaceGrotesk.variable} dark scroll-smooth`}>
+      <body className="font-sans antialiased bg-[#050507] text-foreground">
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>

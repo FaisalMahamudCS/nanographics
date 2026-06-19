@@ -1,0 +1,65 @@
+<svg viewBox="0 0 200 240" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="nanoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#22d3ee"/>
+      <stop offset="100%" stop-color="#06b6d4"/>
+    </linearGradient>
+  </defs>
+
+  <!-- 
+    NanoGraphic Interlocking NG Hexagonal Knot Logo
+    Two hexagons overlap vertically, with N and G letters
+    woven through them in an over-under pattern.
+  -->
+
+  <!-- ===== BACK LAYER ===== -->
+
+  <!-- Upper hexagon - back segments (behind the G crossover) -->
+  <!-- Top-right edge -->
+  <line x1="100" y1="15" x2="160" y2="50" stroke="url(#nanoGrad)" stroke-width="16" stroke-linecap="round"/>
+  <!-- Right edge upper hex -->
+  <line x1="160" y1="50" x2="160" y2="110" stroke="url(#nanoGrad)" stroke-width="16" stroke-linecap="round"/>
+  
+  <!-- Lower hexagon - back segments (behind the N crossover) -->
+  <!-- Bottom-left edge -->
+  <line x1="100" y1="225" x2="40" y2="190" stroke="url(#nanoGrad)" stroke-width="16" stroke-linecap="round"/>
+  <!-- Left edge lower hex -->
+  <line x1="40" y1="190" x2="40" y2="130" stroke="url(#nanoGrad)" stroke-width="16" stroke-linecap="round"/>
+
+  <!-- ===== MIDDLE LAYER - The interlock crossings ===== -->
+  
+  <!-- N diagonal stroke (goes from upper-left down to lower-right) -->
+  <!-- Upper part of N: top-left going down -->
+  <line x1="40" y1="50" x2="40" y2="110" stroke="url(#nanoGrad)" stroke-width="16" stroke-linecap="round"/>
+  <line x1="40" y1="50" x2="100" y2="15" stroke="url(#nanoGrad)" stroke-width="16" stroke-linecap="round"/>
+  
+  <!-- N diagonal crossing over the lower hex top-right -->
+  <line x1="40" y1="110" x2="160" y2="130" stroke="url(#nanoGrad)" stroke-width="16" stroke-linecap="round"/>
+
+  <!-- ===== FRONT LAYER ===== -->
+  
+  <!-- Lower hexagon - front segments (in front of N) -->
+  <!-- Top-right of lower hex -->
+  <line x1="160" y1="130" x2="160" y2="190" stroke="url(#nanoGrad)" stroke-width="16" stroke-linecap="round"/>
+  <!-- Bottom-right edge -->
+  <line x1="160" y1="190" x2="100" y2="225" stroke="url(#nanoGrad)" stroke-width="16" stroke-linecap="round"/>
+
+  <!-- G inner bar -->
+  <line x1="100" y1="165" x2="130" y2="165" stroke="url(#nanoGrad)" stroke-width="16" stroke-linecap="round"/>
+  
+  <!-- G continuation going up and crossing OVER upper hex bottom -->
+  <line x1="100" y1="225" x2="100" y2="165" stroke="url(#nanoGrad)" stroke-width="16" stroke-linecap="round"/>
+
+  <!-- Upper hexagon bottom-left (behind G vertical) - drawn earlier, now G goes over -->
+  <line x1="40" y1="110" x2="100" y2="145" stroke="url(#nanoGrad)" stroke-width="16" stroke-linecap="round"/>
+  
+  <!-- Upper hexagon bottom-right -->
+  <line x1="160" y1="110" x2="100" y2="145" stroke="url(#nanoGrad)" stroke-width="16" stroke-linecap="round"/>
+
+  <!-- Lower hexagon top-left -->
+  <line x1="40" y1="130" x2="100" y2="95" stroke="url(#nanoGrad)" stroke-width="16" stroke-linecap="round"/>
+  
+  <!-- N vertical right side going down into lower hex -->
+  <line x1="160" y1="130" x2="160" y2="190" stroke="url(#nanoGrad)" stroke-width="16" stroke-linecap="round"/>
+
+</svg>
