@@ -12,7 +12,7 @@ export default function Page() {
   const [activeSection, setActiveSection] = useState('home')
 
   useEffect(() => {
-    const sections = ['home', 'work', 'services', 'registration']
+    const sections = ['home', 'work', 'real-projects', 'services', 'registration']
     
     const observers = sections.map((id) => {
       const el = document.getElementById(id)

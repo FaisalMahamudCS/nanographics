@@ -56,12 +56,12 @@ export default function Testimonials() {
           
           {/* Left Description Column */}
           <div className="flex-1 text-center lg:text-left text-white max-w-xl">
-            <span className="text-[#06b6d4] text-xs font-semibold tracking-[0.25em] mb-4 uppercase block font-heading">
+            <span className="text-[#00ffff] text-xs font-semibold tracking-[0.25em] mb-4 uppercase block font-heading">
               TESTIMONIALS
             </span>
             <h2 className="text-4xl md:text-6xl font-black uppercase tracking-tight leading-[0.95] font-heading mb-6">
               What clients say <br className="hidden md:block"/>
-              <span className="text-gradient bg-clip-text text-transparent bg-gradient-to-r from-[#10b981] to-[#06b6d4]">
+              <span className="text-gradient bg-clip-text text-transparent bg-gradient-to-r from-[#00ffff] to-[#0088ff]">
                 about our studio
               </span>
             </h2>
@@ -79,7 +79,7 @@ export default function Testimonials() {
                 {column1.map((item, idx) => (
                   <div 
                     key={idx} 
-                    className="p-6 md:p-8 rounded-[1.75rem] border border-white/5 bg-white/[0.02] backdrop-blur-xl shadow-xl w-full text-white hover:bg-white/[0.06] hover:border-cyan-500/20 transition-all duration-300 group cursor-pointer"
+                    className="p-6 md:p-8 rounded-none border border-white/5 bg-white/[0.02] backdrop-blur-xl shadow-xl w-full text-white hover:bg-white/[0.06] hover:border-[#00ffff]/20 transition-all duration-300 group cursor-pointer"
                   >
                     <div className="text-xs md:text-sm leading-relaxed text-white/70 font-light">
                       “{item.quote}”
@@ -88,10 +88,10 @@ export default function Testimonials() {
                       <img 
                         src={item.avatar} 
                         alt={item.name} 
-                        className="h-10 w-10 rounded-full object-cover border border-[#06b6d4]/40 group-hover:scale-105 transition-transform"
+                        className="h-10 w-10 rounded-none object-cover border border-[#00ffff]/40 group-hover:scale-105 transition-transform"
                       />
                       <div className="flex flex-col text-left">
-                        <div className="font-heading font-bold text-xs md:text-sm text-white group-hover:text-[#06b6d4] transition-colors">
+                        <div className="font-heading font-bold text-xs md:text-sm text-white group-hover:text-[#00ffff] transition-colors">
                           {item.name}
                         </div>
                         <div className="text-[9px] text-white/40 tracking-wider font-semibold uppercase mt-0.5">
@@ -110,7 +110,7 @@ export default function Testimonials() {
                 {column2.map((item, idx) => (
                   <div 
                     key={idx} 
-                    className="p-6 md:p-8 rounded-[1.75rem] border border-white/5 bg-white/[0.02] backdrop-blur-xl shadow-xl w-full text-white hover:bg-white/[0.06] hover:border-cyan-500/20 transition-all duration-300 group cursor-pointer"
+                    className="p-6 md:p-8 rounded-none border border-white/5 bg-white/[0.02] backdrop-blur-xl shadow-xl w-full text-white hover:bg-white/[0.06] hover:border-[#00ffff]/20 transition-all duration-300 group cursor-pointer"
                   >
                     <div className="text-xs md:text-sm leading-relaxed text-white/70 font-light">
                       “{item.quote}”
@@ -119,10 +119,10 @@ export default function Testimonials() {
                       <img 
                         src={item.avatar} 
                         alt={item.name} 
-                        className="h-10 w-10 rounded-full object-cover border border-[#06b6d4]/40 group-hover:scale-105 transition-transform"
+                        className="h-10 w-10 rounded-none object-cover border border-[#00ffff]/40 group-hover:scale-105 transition-transform"
                       />
                       <div className="flex flex-col text-left">
-                        <div className="font-heading font-bold text-xs md:text-sm text-white group-hover:text-[#06b6d4] transition-colors">
+                        <div className="font-heading font-bold text-xs md:text-sm text-white group-hover:text-[#00ffff] transition-colors">
                           {item.name}
                         </div>
                         <div className="text-[9px] text-white/40 tracking-wider font-semibold uppercase mt-0.5">

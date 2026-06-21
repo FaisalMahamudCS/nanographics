@@ -180,31 +180,82 @@ export default function Hero() {
   return (
     <div ref={containerRef} className="relative w-full bg-[#050507] text-white overflow-hidden">
       
-      {/* Background Squiggle Clip-Path SVG definitions */}
-      <svg className="absolute w-0 h-0 pointer-events-none">
-        <defs>
-          <clipPath id="clip-squiggle" clipPathUnits="objectBoundingBox">
-            <path d="M0.434125 0.00538712C0.56323 -0.00218488 0.714575 -0.000607013 0.814404 0.00302954L0.802642 0.163537C0.813884 0.167475 0.824927 0.172002 0.835358 0.177236C0.869331 0.194281 0.909224 0.225945 0.90824 0.27348C0.907177 0.324883 0.858912 0.354946 0.822651 0.36933C0.857426 0.376783 0.894591 0.387558 0.925837 0.404287C0.968002 0.426862 1.00569 0.464702 0.999287 0.515878C0.993163 0.564818 0.950731 0.597642 0.904098 0.615682C0.88204 0.624216 0.858239 0.62992 0.834803 0.633808C0.858076 0.639299 0.881603 0.646639 0.90267 0.656757C0.946271 0.677698 0.986875 0.715485 0.978905 0.768037C0.972241 0.811979 0.93615 0.843109 0.895204 0.862035C0.858032 0.879217 0.815169 0.887544 0.778534 0.892219C0.704792 0.901628 0.614366 0.901003 0.535183 0.899176C0.508115 0.898551 0.482286 0.89779 0.45773 0.897065C0.404798 0.895504 0.357781 0.894117 0.317008 0.894657C0.301552 0.894862 0.289265 0.895348 0.279749 0.895976C0.251913 0.937168 0.226467 0.980907 0.216015 1L0 0.941216C0.0140558 0.915539 0.051354 0.851547 0.0902557 0.797766C0.118421 0.758828 0.1722 0.745373 0.200402 0.740217C0.168437 0.733484 0.134299 0.723597 0.105102 0.708076C0.0614715 0.684884 0.0263696 0.64687 0.0325498 0.596965C0.0385804 0.548267 0.0803829 0.515256 0.12709 0.496909C0.146901 0.489127 0.168128 0.483643 0.189242 0.479724C0.163739 0.476035 0.137977 0.471053 0.115188 0.463936C0.0874831 0.455285 0.00855855 0.424854 0.016569 0.357817C0.0231721 0.302559 0.0838593 0.276249 0.116031 0.266164C0.149646 0.255625 0.188201 0.2505 0.221821 0.247468C0.208809 0.243824 0.195905 0.239492 0.183801 0.234287C0.152543 0.220846 0.101565 0.189547 0.105449 0.136312C0.108467 0.0949629 0.144168 0.0682612 0.171101 0.0543099C0.197578 0.0405945 0.227933 0.032236 0.25348 0.0267029C0.305656 0.0154021 0.370636 0.00911076 0.434125 0.00538712Z" />
-          </clipPath>
-          <clipPath id="differentone16" clipPathUnits="objectBoundingBox">
-            <path d="M0.911218 0.329658C0.917139 0.29671 0.914994 0.262818 0.904967 0.23088C0.894939 0.198941 0.877327 0.169906 0.853635 0.146256C0.829944 0.122605 0.800878 0.105043 0.768923 0.0950708C0.736967 0.0850983 0.703072 0.083012 0.670134 0.0889901C0.651042 0.0615242 0.625587 0.0390856 0.595943 0.0235895C0.566299 0.00809344 0.533346 0 0.499896 0C0.466446 0 0.433493 0.00809344 0.403849 0.0235895C0.374204 0.0390856 0.34875 0.0615242 0.329658 0.0889901C0.29675 0.0830893 0.262904 0.0852337 0.231005 0.0952406C0.199106 0.105248 0.1701 0.12282 0.14646 0.14646C0.12282 0.1701 0.105248 0.199106 0.0952406 0.231005C0.0852337 0.262904 0.0830893 0.29675 0.0889901 0.329658C0.0615242 0.34875 0.0390856 0.374204 0.0235895 0.403849C0.00809344 0.433493 0 0.466446 0 0.499896C0 0.533346 0.00809344 0.566299 0.0235895 0.595943C0.0390856 0.625587 0.0615242 0.651042 0.0889901 0.670134C0.0830405 0.703077 0.0851562 0.73697 0.0951563 0.768917C0.105156 0.800864 0.122744 0.829915 0.146414 0.853586C0.170085 0.877256 0.199136 0.894844 0.231083 0.904844C0.26303 0.914844 0.296923 0.916959 0.329866 0.91101C0.348958 0.938476 0.374413 0.960914 0.404057 0.97641C0.433701 0.991907 0.466654 1 0.500104 1C0.533554 1 0.566507 0.991907 0.596151 0.97641C0.625796 0.960914 0.65125 0.938476 0.670343 0.91101C0.70327 0.916921 0.737139 0.914776 0.769057 0.904759C0.800976 0.894741 0.829997 0.877149 0.853642 0.853483C0.877287 0.829818 0.894854 0.800782 0.904844 0.768854C0.914834 0.736927 0.916949 0.703056 0.91101 0.670134C0.938476 0.651042 0.960914 0.625587 0.97641 0.595943C0.991907 0.566299 1 0.533346 1 0.499896C1 0.466446 0.991907 0.433493 0.97641 0.403849C0.960914 0.374204 0.938476 0.34875 0.91101 0.329658H0.911218Z" />
-          </clipPath>
-        </defs>
-      </svg>
-
       {/* Grid Overlay background */}
       <div className="fixed inset-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:4.5rem_4.5rem] pointer-events-none z-0"></div>
       
+      {/* Masterclass Banner Promo — right below navbar */}
+      <div className="w-full pt-24 pb-0 z-20 relative">
+
+        {/* Label bar above banner */}
+        <div className="max-w-5xl mx-auto px-6 mb-3 flex items-center gap-4">
+          <div className="h-px flex-1 bg-gradient-to-r from-transparent via-[#00ffff]/30 to-transparent"></div>
+          <span className="flex items-center gap-2 text-[#00ffff] text-[10px] font-bold tracking-[0.35em] uppercase font-heading select-none">
+            <span className="inline-block w-1.5 h-1.5 bg-[#00ffff] rounded-full animate-pulse"></span>
+            Live Masterclass · Batch 4
+            <span className="inline-block w-1.5 h-1.5 bg-[#00ffff] rounded-full animate-pulse"></span>
+          </span>
+          <div className="h-px flex-1 bg-gradient-to-r from-transparent via-[#00ffff]/30 to-transparent"></div>
+        </div>
+
+        {/* Banner image frame */}
+        <div className="max-w-5xl mx-auto px-6">
+          <div className="border border-[#00ffff]/25 bg-[#0c0c0f] p-1 relative overflow-hidden group shadow-[0_0_60px_rgba(0,255,255,0.06)] hover:shadow-[0_0_80px_rgba(0,255,255,0.12)] transition-all duration-500">
+            {/* Corner accents */}
+            <div className="absolute top-0 left-0 w-6 h-6 border-t-2 border-l-2 border-[#00ffff]/70 z-10"></div>
+            <div className="absolute top-0 right-0 w-6 h-6 border-t-2 border-r-2 border-[#00ffff]/70 z-10"></div>
+            <div className="absolute bottom-0 left-0 w-6 h-6 border-b-2 border-l-2 border-[#00ffff]/70 z-10"></div>
+            <div className="absolute bottom-0 right-0 w-6 h-6 border-b-2 border-r-2 border-[#00ffff]/70 z-10"></div>
+
+            {/* Scanline overlay (aesthetic) */}
+            <div className="absolute inset-0 bg-[repeating-linear-gradient(0deg,transparent,transparent_2px,rgba(0,255,255,0.015)_2px,rgba(0,255,255,0.015)_4px)] pointer-events-none z-10 group-hover:opacity-0 transition-opacity duration-500"></div>
+
+            {/* The actual banner image */}
+            <div className="relative w-full overflow-hidden aspect-[16/7]">
+              <img 
+                src="/Banner Ai.png" 
+                alt="AI-Powered Packaging Design Masterclass — Batch 4 by Mujibur Rahman, CEO NanoGraphic" 
+                className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-[1.012]"
+              />
+              {/* Bottom gradient fade to integrate with page */}
+              <div className="absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-t from-[#050507] to-transparent z-10"></div>
+            </div>
+          </div>
+        </div>
+
+        {/* Info strip below banner */}
+        <div className="max-w-5xl mx-auto px-6 mt-0">
+          <div className="border-x border-b border-[#00ffff]/15 bg-[#08080a] grid grid-cols-2 md:grid-cols-4 divide-x divide-[#ffffff07]">
+            {[
+              { label: 'Registration Last Date', value: '05-August-2026' },
+              { label: 'Class Start', value: '09-August-2026' },
+              { label: 'Live Class On', value: 'Google Meet' },
+              { label: 'Mentor', value: 'Mujibur Rahman' },
+            ].map((item, i) => (
+              <div key={i} className="flex flex-col items-center justify-center py-3 px-4 gap-0.5">
+                <span className="text-[9px] font-bold text-white/30 uppercase tracking-[0.2em]">{item.label}</span>
+                <span className="text-xs font-bold text-[#00ffff] tracking-wide font-heading">{item.value}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Bottom neon divider line */}
+        <div className="max-w-5xl mx-auto px-6 mt-0">
+          <div className="h-px bg-gradient-to-r from-transparent via-[#00ffff]/40 to-transparent"></div>
+        </div>
+
+      </div>
+
       {/* 1. Hero Section */}
-      <section className="relative z-10 w-full min-h-screen flex flex-col items-center justify-center pt-36 pb-20 px-6">
-        <span className="text-[#06b6d4] font-semibold tracking-[0.25em] uppercase mb-8 text-xs md:text-sm tracking-[0.3em] opacity-90 font-heading">
+      <section className="relative z-10 w-full min-h-[85vh] flex flex-col items-center justify-center pt-16 pb-20 px-6">
+        <span className="text-[#00ffff] font-semibold tracking-[0.25em] uppercase mb-8 text-xs md:text-sm tracking-[0.3em] opacity-90 font-heading">
           Brand · Digital · Campaigns
         </span>
         
         <div className="relative w-full flex flex-col items-center mb-8">
           <h1 ref={heroTextRef} className="text-[clamp(4.2rem,17vw,240px)] font-black uppercase leading-[0.82] tracking-tighter text-center mix-blend-difference z-20 font-heading select-none">
             <span className="block overflow-hidden h-fit">
-              <span className="block text-gradient bg-clip-text text-transparent bg-gradient-to-r from-[#10b981] to-[#06b6d4] word-anim-inner">Nano</span>
+              <span className="block text-gradient bg-clip-text text-transparent bg-gradient-to-r from-[#00ffff] to-[#00bcff] word-anim-inner">Nano</span>
             </span>
             <span className="block overflow-hidden h-fit">
               <span className="block text-white word-anim-inner">Graphic</span>
@@ -217,7 +268,7 @@ export default function Hero() {
               ref={logoContainerRef}
               onMouseEnter={handleLogoMouseEnter}
               onMouseLeave={handleLogoMouseLeave}
-              className="w-36 h-36 md:w-[22rem] md:h-[22rem] rounded-full flex items-center justify-center hover:scale-105 transition-all duration-500 cursor-pointer filter drop-shadow-[0_0_15px_rgba(6,182,212,0.3)]"
+              className="w-36 h-36 md:w-[22rem] md:h-[22rem] rounded-none flex items-center justify-center hover:scale-105 transition-all duration-500 cursor-pointer filter drop-shadow-[0_0_15px_rgba(0,255,255,0.3)]"
             >
               <svg
                 viewBox="0 0 200 200"
@@ -226,8 +277,8 @@ export default function Hero() {
               >
                 <defs>
                   <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stopColor="#10b981" />
-                    <stop offset="100%" stopColor="#06b6d4" />
+                    <stop offset="0%" stopColor="#00ffff" />
+                    <stop offset="100%" stopColor="#0088ff" />
                   </linearGradient>
                 </defs>
 
@@ -271,13 +322,13 @@ export default function Hero() {
         <div className="mt-10 flex flex-col sm:flex-row gap-5 z-20">
           <button 
             onClick={scrollToWork}
-            className="cta-btn px-8 py-4 rounded-full bg-gradient-to-r from-[#10b981] to-[#06b6d4] text-black font-bold uppercase tracking-wider text-xs shadow-[0_0_20px_rgba(6,182,212,0.3)] hover:shadow-[0_0_35px_rgba(6,182,212,0.6)] hover:scale-105 transition-all duration-300 cursor-pointer"
+            className="cta-btn px-8 py-4 rounded-none bg-gradient-to-r from-[#00ffff] to-[#0088ff] text-black font-bold uppercase tracking-wider text-xs shadow-[0_0_20px_rgba(0,255,255,0.3)] hover:shadow-[0_0_35px_rgba(0,255,255,0.6)] hover:scale-105 transition-all duration-300 cursor-pointer"
           >
             See Our Work
           </button>
           <button 
             onClick={scrollToServices}
-            className="cta-btn px-8 py-4 rounded-full border border-white/10 text-white font-bold uppercase tracking-wider text-xs hover:bg-white/5 hover:border-white/30 transition-all duration-300 backdrop-blur-md cursor-pointer"
+            className="cta-btn px-8 py-4 rounded-none border border-white/10 text-white font-bold uppercase tracking-wider text-xs hover:bg-white/5 hover:border-[#00ffff]/30 transition-all duration-300 backdrop-blur-md cursor-pointer"
           >
             Our Services
           </button>
@@ -287,7 +338,7 @@ export default function Hero() {
       {/* 2. About / Philosophy Section */}
       <section ref={aboutRef} className="relative z-10 w-full py-32 px-6 border-t border-white/5 bg-[#08080a]">
         <div className="max-w-4xl mx-auto text-center">
-          <span className="text-[#06b6d4] font-semibold tracking-[0.2em] uppercase text-xs mb-6 block font-heading">
+          <span className="text-[#00ffff] font-semibold tracking-[0.2em] uppercase text-xs mb-6 block font-heading">
             OUR PHILOSOPHY
           </span>
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold uppercase text-white mb-8 tracking-tight font-heading leading-tight">
@@ -306,28 +357,45 @@ export default function Hero() {
           </p>
         </div>
 
-        {/* Dynamic Squiggly Images Grid */}
-        <div className="max-w-4xl mx-auto grid grid-cols-2 gap-8 pt-12 h-64 md:h-96">
-          <figure 
-            className="about-img-box w-full h-full rounded-3xl overflow-hidden shadow-2xl transition-all duration-500 hover:scale-[1.03] group cursor-pointer"
-            style={{ clipPath: 'url(#clip-squiggle)' }}
-          >
-            <img 
-              src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1000&auto=format&fit=crop" 
-              alt="Studio team" 
-              className="object-cover w-full h-full rotate-3 group-hover:rotate-0 transition-transform duration-700 ease-out filter brightness-75 group-hover:brightness-100"
-            />
-          </figure>
-          <figure 
-            className="about-img-box w-full h-full rounded-3xl overflow-hidden shadow-2xl transition-all duration-500 hover:scale-[1.03] group cursor-pointer"
-            style={{ clipPath: 'url(#differentone16)' }}
-          >
-            <img 
-              src="https://images.unsplash.com/photo-1558655146-d09347e92766?q=80&w=1000&auto=format&fit=crop" 
-              alt="Creative process" 
-              className="object-cover w-full h-full -rotate-3 group-hover:rotate-0 transition-transform duration-700 ease-out filter brightness-75 group-hover:brightness-100"
-            />
-          </figure>
+        {/* Square & Aesthetic Grid Layout */}
+        <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 pt-12">
+          <div className="flex flex-col gap-4">
+            <figure 
+              className="about-img-box w-full aspect-[4/3] overflow-hidden border border-white/10 bg-[#0c0c0f] p-1 shadow-2xl transition-all duration-500 hover:border-[#00ffff]/60 hover:scale-[1.01] group cursor-pointer"
+            >
+              <div className="w-full h-full overflow-hidden relative">
+                <div className="absolute inset-0 bg-[#00ffff]/5 z-10 mix-blend-overlay opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <img 
+                  src="/docx_image5.png" 
+                  alt="Factory production press machinery" 
+                  className="object-cover w-full h-full transition-transform duration-700 ease-out filter brightness-75 group-hover:brightness-95 group-hover:scale-105"
+                />
+              </div>
+            </figure>
+            <div className="flex justify-between items-center px-1">
+              <span className="text-[10px] font-bold text-white/40 tracking-wider uppercase">01 / MANUFACTURING</span>
+              <span className="text-xs font-semibold text-white/70">Worldly Rotogravure Press</span>
+            </div>
+          </div>
+          
+          <div className="flex flex-col gap-4 md:mt-12">
+            <figure 
+              className="about-img-box w-full aspect-[4/3] overflow-hidden border border-white/10 bg-[#0c0c0f] p-1 shadow-2xl transition-all duration-500 hover:border-[#00ffff]/60 hover:scale-[1.01] group cursor-pointer"
+            >
+              <div className="w-full h-full overflow-hidden relative">
+                <div className="absolute inset-0 bg-[#00ffff]/5 z-10 mix-blend-overlay opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <img 
+                  src="/docx_image1.png" 
+                  alt="Creative team board meeting" 
+                  className="object-cover w-full h-full transition-transform duration-700 ease-out filter brightness-75 group-hover:brightness-95 group-hover:scale-105"
+                />
+              </div>
+            </figure>
+            <div className="flex justify-between items-center px-1">
+              <span className="text-[10px] font-bold text-white/40 tracking-wider uppercase">02 / CONSULTATION</span>
+              <span className="text-xs font-semibold text-white/70">Client Boardroom Collaboration</span>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -336,7 +404,7 @@ export default function Hero() {
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col md:flex-row items-end justify-between mb-20">
             <div>
-              <span className="text-[#06b6d4] font-semibold tracking-widest uppercase text-xs mb-4 block font-heading">
+              <span className="text-[#00ffff] font-semibold tracking-widest uppercase text-xs mb-4 block font-heading">
                 THE CREATORS
               </span>
               <h2 className="text-4xl md:text-6xl font-bold uppercase tracking-tight text-white leading-none font-heading">
@@ -350,24 +418,23 @@ export default function Hero() {
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 lg:gap-10">
             {[
-              { name: "Alex Rivera", role: "Creative Director", img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=500&auto=format&fit=crop", style: 'clip-squiggle' },
-              { name: "Sarah Chen", role: "Lead Designer", img: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=500&auto=format&fit=crop", style: 'differentone16' },
-              { name: "David Kim", role: "Motion Specialist", img: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=500&auto=format&fit=crop", style: 'clip-squiggle' },
-              { name: "Emma Watson", role: "Product Engineer", img: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=500&auto=format&fit=crop", style: 'differentone16' }
+              { name: "Alex Rivera", role: "Creative Director", img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=500&auto=format&fit=crop" },
+              { name: "Sarah Chen", role: "Lead Designer", img: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=500&auto=format&fit=crop" },
+              { name: "David Kim", role: "Motion Specialist", img: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=500&auto=format&fit=crop" },
+              { name: "Emma Watson", role: "Product Engineer", img: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=500&auto=format&fit=crop" }
             ].map((member, idx) => (
               <div key={idx} className="team-card group cursor-pointer text-center">
                 <div 
-                  className="relative w-full aspect-[4/5] overflow-hidden bg-[#111] mb-6 shadow-xl transition-transform duration-500 group-hover:scale-[1.03]"
-                  style={{ clipPath: `url(#${member.style})` }}
+                  className="relative w-full aspect-[4/5] overflow-hidden bg-[#111] mb-6 p-1 border border-white/5 shadow-xl transition-all duration-500 group-hover:border-[#00ffff]/40 group-hover:scale-[1.02]"
                 >
-                  <div className="absolute inset-0 bg-[#06b6d4]/10 mix-blend-overlay opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10"></div>
+                  <div className="absolute inset-0 bg-[#00ffff]/10 mix-blend-overlay opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10"></div>
                   <img 
                     src={member.img} 
                     alt={member.name} 
                     className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" 
                   />
                 </div>
-                <h3 className="text-lg font-bold text-white uppercase tracking-wide group-hover:text-[#06b6d4] transition-colors font-heading">
+                <h3 className="text-lg font-bold text-white uppercase tracking-wide group-hover:text-[#00ffff] transition-colors font-heading">
                   {member.name}
                 </h3>
                 <p className="text-white/40 text-[10px] font-bold tracking-widest uppercase mt-1">

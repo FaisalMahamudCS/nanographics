@@ -6,26 +6,26 @@ const projects = [
   {
     title: 'Food Company',
     description: 'Brand Identity & Packaging',
-    scope: 'Brand Strategy, Label Design, Sustainable Box Packaging',
-    image: 'https://images.unsplash.com/photo-1555939594-58d7cb561ad1?q=80&w=1000&auto=format&fit=crop',
+    scope: 'Printed flexible packaging rolls for snacks, biscuits, and beverages.',
+    image: '/docx_image3.png',
   },
   {
     title: 'Oil Company',
-    description: 'Corporate Branding',
-    scope: 'Identity Redesign, Corporate Website, Guidelines Manual',
-    image: 'https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1000&auto=format&fit=crop',
+    description: 'Corporate cylinders & film',
+    scope: 'High strength, clarity-optimized rotogravure cylinders & film packaging.',
+    image: '/docx_image2.png',
   },
   {
-    title: 'Tech Startup',
-    description: 'Digital Product Design',
-    scope: 'UI/UX Design System, SaaS Dashboard App, Marketing Site',
-    image: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1000&auto=format&fit=crop',
+    title: 'Poster Make',
+    description: 'Industrial Print Campaigns',
+    scope: 'Marketing collateral, factory process posters, and showroom branding.',
+    image: '/docx_image5.png',
   },
   {
-    title: 'Fashion Label',
-    description: 'Lookbook & Campaign',
-    scope: 'Art Direction, Motion Graphics, Social Media Kit',
-    image: 'https://images.unsplash.com/photo-1445205170230-053b83016050?q=80&w=1000&auto=format&fit=crop',
+    title: 'Logo Make',
+    description: 'Vector Brand Identity',
+    scope: 'Precision vector logo marks, type systems, and complete branding manuals.',
+    image: '/nano-graphic-logo.svg',
   }
 ]
 
@@ -37,13 +37,13 @@ export default function Work() {
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="mb-20">
-          <span className="text-[#06b6d4] text-xs font-semibold tracking-[0.25em] mb-4 uppercase block font-heading">
+          <span className="text-[#00ffff] text-xs font-semibold tracking-[0.25em] mb-4 uppercase block font-heading">
             PORTFOLIO
           </span>
           <h2 className="text-5xl lg:text-7xl font-black mb-6 uppercase tracking-tighter leading-none font-heading">
             <span className="text-white">Selected</span>
             <br />
-            <span className="text-gradient bg-clip-text text-transparent bg-gradient-to-r from-[#10b981] to-[#06b6d4]">
+            <span className="text-gradient bg-clip-text text-transparent bg-gradient-to-r from-[#00ffff] to-[#0088ff]">
               Work
             </span>
           </h2>
@@ -67,7 +67,7 @@ export default function Work() {
                 onMouseEnter={() => setHoveredIndex(index)}
                 onMouseLeave={() => setHoveredIndex(null)}
                 style={{ flex: flexValue }}
-                className="relative cursor-pointer overflow-hidden rounded-[2rem] bg-[#0c0c0f] border border-white/5 opacity-80 hover:opacity-100 transition-all duration-500 ease-in-out group"
+                className="relative cursor-pointer overflow-hidden rounded-none bg-[#0c0c0f] border border-white/5 opacity-80 hover:opacity-100 transition-all duration-500 ease-in-out group"
               >
                 {/* Background Image */}
                 <div className="absolute inset-0 bg-[#050507]/45 z-10 transition-opacity duration-500 group-hover:opacity-20" />
@@ -79,10 +79,10 @@ export default function Work() {
 
                 {/* Info Overlay Content */}
                 <div className="absolute inset-0 flex flex-col justify-end p-8 z-20 bg-gradient-to-t from-black/85 via-black/30 to-transparent">
-                  <span className="text-[#06b6d4] text-[10px] font-bold tracking-widest uppercase mb-1">
+                  <span className="text-[#00ffff] text-[10px] font-bold tracking-widest uppercase mb-1">
                     {project.description}
                   </span>
-                  <h3 className="text-2xl font-bold text-white uppercase tracking-tight font-heading group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-[#10b981] group-hover:to-[#06b6d4] transition-colors duration-300">
+                  <h3 className="text-2xl font-bold text-white uppercase tracking-tight font-heading group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-[#00ffff] group-hover:to-[#0088ff] transition-colors duration-300">
                     {project.title}
                   </h3>
 
@@ -91,7 +91,7 @@ export default function Work() {
                     <p className="text-white/60 text-xs font-light leading-relaxed max-w-sm mb-4">
                       {project.scope}
                     </p>
-                    <button className="px-5 py-2.5 rounded-full bg-gradient-to-r from-[#10b981] to-[#06b6d4] text-black text-[9px] font-bold uppercase tracking-widest cursor-pointer shadow-md active:scale-95 transition-all">
+                    <button className="px-5 py-2.5 rounded-none bg-gradient-to-r from-[#00ffff] to-[#0088ff] text-black text-[9px] font-bold uppercase tracking-widest cursor-pointer shadow-md active:scale-95 transition-all">
                       View Project
                     </button>
                   </div>
@@ -106,7 +106,7 @@ export default function Work() {
           {projects.map((project, index) => (
             <div
               key={index}
-              className="snap-center shrink-0 w-[85%] aspect-[4/3] rounded-3xl overflow-hidden bg-[#0c0c0f] border border-white/5 relative"
+              className="snap-center shrink-0 w-[85%] aspect-[4/3] rounded-none overflow-hidden bg-[#0c0c0f] border border-white/5 relative"
             >
               <div className="absolute inset-0 bg-[#050507]/30 z-10" />
               <img 
@@ -115,7 +115,7 @@ export default function Work() {
                 className="w-full h-full object-cover filter brightness-[0.8]"
               />
               <div className="absolute inset-0 flex flex-col justify-end p-6 z-20 bg-gradient-to-t from-black/80 to-transparent">
-                <span className="text-[#06b6d4] text-[9px] font-bold tracking-widest uppercase mb-1">
+                <span className="text-[#00ffff] text-[9px] font-bold tracking-widest uppercase mb-1">
                   {project.description}
                 </span>
                 <h3 className="text-xl font-bold text-white uppercase tracking-tight font-heading">
@@ -126,90 +126,109 @@ export default function Work() {
           ))}
         </div>
 
-        {/* Branding Design Section */}
-        <div className="mt-20 pt-20 border-t border-white/5">
+        {/* Branding Design Section (Real Projects trigger point) */}
+        <div id="real-projects" className="scroll-mt-28 mt-20 pt-20 border-t border-white/5">
+          {/* Client Collaboration Categories & Working With */}
           <div className="mb-16">
             <h3 className="text-3xl lg:text-4xl font-bold mb-4 uppercase tracking-tighter font-heading text-white">
-              Brand Identity Systems
+              Working With
             </h3>
             <p className="text-white/50 text-xs md:text-sm font-light max-w-xl leading-relaxed">
-              Design systems utilizing vibrant primary colors and deep contrast boundaries to build high-end visual hierarchies for luxury and corporate institutions.
+              We collaborate with diverse industrial sectors to deliver retail-ready packaging design and precision cylinder print plates.
             </p>
           </div>
 
-          {/* Cyan Color Feature */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-20">
-            {/* Primary Color */}
-            <div className="group rounded-3xl overflow-hidden border border-white/5 hover:border-cyan-500/20 transition-all duration-500 bg-[#0c0c0f] p-4">
-              <div className="h-40 bg-gradient-to-br from-[#10b981] to-[#06b6d4] rounded-2xl flex items-center justify-center relative shadow-lg">
-                <span className="text-black text-[10px] font-bold uppercase tracking-widest">Nano Gradient</span>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-24">
+            {[
+              { title: 'Export Company', desc: 'Global shipping standards & compliance' },
+              { title: 'Local Company', desc: 'Regional supply chains & retail distribution' },
+              { title: 'Oil Company', desc: 'Industrial lubricants & durability labels' },
+              { title: 'Food Company', desc: 'FDA-approved printed packaging rolls' }
+            ].map((client, idx) => (
+              <div key={idx} className="group border border-white/10 hover:border-[#00ffff]/40 transition-all duration-300 bg-[#0c0c0f] p-6 relative rounded-none">
+                <div className="absolute top-0 right-0 w-2 h-2 border-t border-r border-transparent group-hover:border-[#00ffff] transition-all"></div>
+                <p className="text-[#00ffff] font-bold text-base uppercase mb-2 font-heading tracking-tight">{client.title}</p>
+                <p className="text-white/40 text-[11px] font-light leading-snug">{client.desc}</p>
               </div>
-              <div className="pt-6 px-2">
-                <p className="text-white font-bold text-lg uppercase mb-1 font-heading">Brand Primary</p>
-                <p className="text-white/40 text-[10px] font-bold uppercase tracking-widest">#10b981 to #06b6d4</p>
+            ))}
+          </div>
+
+          {/* Company Logo Use Showcase */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-24">
+            <div className="border border-white/10 bg-[#0c0c0f] p-8 hover:border-[#00ffff]/30 transition-all group rounded-none">
+              <span className="text-[#00ffff] text-[10px] font-bold tracking-widest uppercase mb-2 block">
+                Brand Application
+              </span>
+              <h4 className="text-xl font-bold text-white uppercase mb-4 font-heading">
+                Oil Company Branding
+              </h4>
+              <p className="text-white/50 text-xs font-light leading-relaxed mb-6">
+                Applying core vector logos on metal cylinders, industrial containers, and heat-resistant transport sheets with absolute color fidelity.
+              </p>
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 border border-white/10 flex items-center justify-center bg-[#070709]">
+                  <span className="text-white font-mono text-xs">OIL</span>
+                </div>
+                <span className="text-white/40 text-[10px] font-semibold tracking-wider uppercase">Logo verified for industrial cylinders</span>
               </div>
             </div>
 
-            {/* 60% Application */}
-            <div className="group rounded-3xl overflow-hidden border border-white/5 hover:border-cyan-500/20 transition-all duration-500 bg-[#0c0c0f] p-4">
-              <div className="h-40 bg-[#06b6d4]/60 rounded-2xl flex items-center justify-center relative">
-                <span className="text-white text-[10px] font-bold uppercase tracking-widest drop-shadow-md">60% Usage</span>
-              </div>
-              <div className="pt-6 px-2">
-                <p className="text-white font-bold text-lg uppercase mb-1 font-heading">Digital Accent</p>
-                <p className="text-white/40 text-[10px] font-bold uppercase tracking-widest">Cyan Highlight</p>
-              </div>
-            </div>
-
-            {/* Accent Use */}
-            <div className="group rounded-3xl overflow-hidden border border-white/5 hover:border-cyan-500/20 transition-all duration-500 bg-[#0c0c0f] p-4">
-              <div className="h-40 bg-[#10b981]/20 rounded-2xl flex items-center justify-center relative border border-emerald-500/10">
-                <span className="text-[#10b981] text-[10px] font-bold uppercase tracking-widest">30% Accent</span>
-              </div>
-              <div className="pt-6 px-2">
-                <p className="text-white font-bold text-lg uppercase mb-1 font-heading">Tactile Accents</p>
-                <p className="text-white/40 text-[10px] font-bold uppercase tracking-widest">Emerald Muted</p>
+            <div className="border border-white/10 bg-[#0c0c0f] p-8 hover:border-[#00ffff]/30 transition-all group rounded-none">
+              <span className="text-[#00ffff] text-[10px] font-bold tracking-widest uppercase mb-2 block">
+                Retail Placement
+              </span>
+              <h4 className="text-xl font-bold text-white uppercase mb-4 font-heading">
+                Food Company Placement
+              </h4>
+              <p className="text-white/50 text-xs font-light leading-relaxed mb-6">
+                Optimizing brand logo display on printed packaging film rolls to ensure visibility, premium shelf presence, and barcode scanning compliance.
+              </p>
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 border border-white/10 flex items-center justify-center bg-[#070709]">
+                  <span className="text-white font-mono text-xs">FD</span>
+                </div>
+                <span className="text-white/40 text-[10px] font-semibold tracking-wider uppercase">Logo verified for flexible packaging film</span>
               </div>
             </div>
           </div>
 
-          {/* Packaging Design */}
-          <div className="mt-32">
+          {/* Products Packaging Section */}
+          <div className="mt-28 border-t border-white/5 pt-20">
             <h3 className="text-3xl lg:text-4xl font-bold mb-4 uppercase tracking-tighter font-heading text-white">
-              Packaging & Label Systems
+              Products Packaging All Work
             </h3>
             <p className="text-white/50 text-xs md:text-sm font-light max-w-xl leading-relaxed mb-12">
-              Bespoke packaging layouts crafted with detailed pre-press precision, marrying print technology requirements with luxury materials.
+              Explore our core packaging production workflows, combining digital design layout with high-speed physical print support.
             </p>
 
             <div className="grid md:grid-cols-2 gap-8">
-              <div className="rounded-3xl border border-white/5 overflow-hidden hover:border-cyan-500/20 transition-all duration-500 bg-[#0c0c0f] group p-4">
-                <div className="h-64 relative overflow-hidden rounded-2xl">
+              <div className="border border-white/10 bg-[#0c0c0f] hover:border-[#00ffff]/40 transition-all duration-500 group p-4 rounded-none">
+                <div className="h-64 relative overflow-hidden">
                   <div className="absolute inset-0 bg-[#050507]/20 z-10" />
                   <img 
-                    src="https://images.unsplash.com/photo-1603808033192-082d6919d3e1?q=80&w=1000&auto=format&fit=crop" 
-                    alt="Package Design" 
+                    src="/docx_image3.png" 
+                    alt="Packaging Design Film" 
                     className="w-full h-full object-cover opacity-80 group-hover:scale-102 transition-all duration-700" 
                   />
                 </div>
                 <div className="pt-6 px-2">
-                  <h4 className="font-bold text-xl text-white uppercase tracking-tight mb-2 font-heading group-hover:text-[#06b6d4] transition-colors">Tactile Print Finishes</h4>
-                  <p className="text-white/50 text-xs font-light">Embossing, hot-foil stamping, and matte-coated paper formulations.</p>
+                  <h4 className="font-bold text-xl text-white uppercase tracking-tight mb-2 font-heading group-hover:text-[#00ffff] transition-colors">Packaging Design</h4>
+                  <p className="text-white/50 text-xs font-light">Flexible film rolls, bags, and pouches designed for snacks, chips, spices, and confectionery products.</p>
                 </div>
               </div>
 
-              <div className="rounded-3xl border border-white/5 overflow-hidden hover:border-cyan-500/20 transition-all duration-500 bg-[#0c0c0f] group p-4">
-                <div className="h-64 relative overflow-hidden rounded-2xl">
+              <div className="border border-white/10 bg-[#0c0c0f] hover:border-[#00ffff]/40 transition-all duration-500 group p-4 rounded-none">
+                <div className="h-64 relative overflow-hidden">
                   <div className="absolute inset-0 bg-[#050507]/20 z-10" />
                   <img 
-                    src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?q=80&w=1000&auto=format&fit=crop" 
-                    alt="Label Design" 
+                    src="/docx_image2.png" 
+                    alt="Design and Print cylinders" 
                     className="w-full h-full object-cover opacity-80 group-hover:scale-102 transition-all duration-700" 
                   />
                 </div>
                 <div className="pt-6 px-2">
-                  <h4 className="font-bold text-xl text-white uppercase tracking-tight mb-2 font-heading group-hover:text-[#06b6d4] transition-colors">Industrial Bottle labels</h4>
-                  <p className="text-white/50 text-xs font-light">Premium adhesives, transparent synthetic structures, and rotogravure setup.</p>
+                  <h4 className="font-bold text-xl text-white uppercase tracking-tight mb-2 font-heading group-hover:text-[#00ffff] transition-colors">Design and Print Support</h4>
+                  <p className="text-white/50 text-xs font-light">High strength rotogravure cylinders setup, color proofing, and industrial print support.</p>
                 </div>
               </div>
             </div>

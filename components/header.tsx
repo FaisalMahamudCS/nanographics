@@ -17,8 +17,8 @@ export default function Header({ activeSection, setActiveSection }: HeaderProps)
     <svg ref={svgRef} className={className} viewBox="0 0 200 240" xmlns="http://www.w3.org/2000/svg">
       <defs>
         <linearGradient id="nanoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor="#22d3ee"/>
-          <stop offset="100%" stopColor="#06b6d4"/>
+          <stop offset="0%" stopColor="#00ffff"/>
+          <stop offset="100%" stopColor="#00cccc"/>
         </linearGradient>
         <filter id="glow">
           <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
@@ -50,6 +50,7 @@ export default function Header({ activeSection, setActiveSection }: HeaderProps)
   const navItems = [
     { label: 'Home', id: 'home' },
     { label: 'Work', id: 'work' },
+    { label: 'Real Projects', id: 'real-projects' },
     { label: 'Services', id: 'services' },
     { label: 'Registration', id: 'registration' },
     { label: 'Contact', id: 'contact' },
@@ -109,14 +110,14 @@ export default function Header({ activeSection, setActiveSection }: HeaderProps)
         className="fixed top-6 left-1/2 -translate-x-1/2 z-50 hidden md:block"
         style={{ opacity: 0 }}
       >
-        <nav className="flex items-center overflow-hidden rounded-full border border-white/10 bg-[#09090b]/80 text-white shadow-[0_8px_30px_rgb(0,0,0,0.4)] backdrop-blur-xl h-14 px-3 py-1.5 transition-all duration-300 hover:border-cyan-500/30">
+        <nav className="flex items-center overflow-hidden rounded-full border border-white/10 bg-[#09090b]/80 text-white shadow-[0_8px_30px_rgb(0,0,0,0.4)] backdrop-blur-xl h-14 px-3 py-1.5 transition-all duration-300 hover:border-[#00ffff]/30">
           {/* Logo */}
           <div 
             className="flex-shrink-0 flex items-center pr-4 border-r border-white/10 gap-2.5 cursor-pointer group"
             onClick={() => handleNavClick('home')}
           >
             <div className="flex items-center justify-center relative">
-              <div className="absolute inset-0 bg-cyan-500/20 blur-xl rounded-full group-hover:bg-cyan-500/40 transition-colors duration-500"></div>
+              <div className="absolute inset-0 bg-[#00ffff]/20 blur-xl rounded-full group-hover:bg-[#00ffff]/40 transition-colors duration-500"></div>
               <LogoIcon svgRef={logoRef} className="w-8 h-8 relative z-10 transition-transform duration-500 group-hover:scale-110" />
             </div>
             <span className="text-sm font-semibold tracking-wide text-white uppercase font-heading">
@@ -132,7 +133,7 @@ export default function Header({ activeSection, setActiveSection }: HeaderProps)
                 onClick={() => handleNavClick(item.id)}
                 className={`text-xs font-semibold uppercase tracking-widest px-4 py-2 rounded-full transition-all duration-300 cursor-pointer ${
                   activeSection === item.id
-                    ? 'bg-gradient-to-r from-[#10b981] to-[#06b6d4] text-black shadow-[0_0_15px_rgba(6,182,212,0.4)]'
+                    ? 'bg-[#00ffff] text-black shadow-[0_0_15px_rgba(0,255,255,0.4)]'
                     : 'text-white/60 hover:text-white hover:bg-white/5'
                 }`}
               >
@@ -151,7 +152,7 @@ export default function Header({ activeSection, setActiveSection }: HeaderProps)
             onClick={() => handleNavClick('home')}
           >
             <div className="flex items-center justify-center relative">
-              <div className="absolute inset-0 bg-cyan-500/20 blur-md rounded-full"></div>
+              <div className="absolute inset-0 bg-[#00ffff]/20 blur-md rounded-full"></div>
               <LogoIcon className="w-7 h-7 relative z-10" />
             </div>
             <span className="text-xs font-semibold tracking-wider text-white uppercase font-heading">
@@ -187,7 +188,7 @@ export default function Header({ activeSection, setActiveSection }: HeaderProps)
                 onClick={() => handleNavClick(item.id)}
                 className={`w-full text-center text-sm font-semibold uppercase tracking-widest py-3.5 rounded-xl transition-all cursor-pointer ${
                   activeSection === item.id
-                    ? 'bg-gradient-to-r from-[#10b981] to-[#06b6d4] text-black font-bold'
+                    ? 'bg-[#00ffff] text-black font-bold'
                     : 'text-white/60 hover:text-white hover:bg-white/5 border border-transparent'
                 }`}
               >
