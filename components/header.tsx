@@ -14,35 +14,24 @@ export default function Header({ activeSection, setActiveSection }: HeaderProps)
   const logoRef = useRef<SVGSVGElement>(null)
 
   const LogoIcon = ({ className = "w-8 h-8", svgRef }: { className?: string, svgRef?: React.RefObject<SVGSVGElement | null> }) => (
-    <svg ref={svgRef} className={className} viewBox="0 0 200 240" xmlns="http://www.w3.org/2000/svg">
+    <svg ref={svgRef} className={className} viewBox="0 0 276.89 239.96" xmlns="http://www.w3.org/2000/svg">
       <defs>
         <linearGradient id="nanoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
           <stop offset="0%" stopColor="#00ffff"/>
           <stop offset="100%" stopColor="#00cccc"/>
         </linearGradient>
         <filter id="glow">
-          <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+          <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
           <feMerge>
             <feMergeNode in="coloredBlur"/>
             <feMergeNode in="SourceGraphic"/>
           </feMerge>
         </filter>
       </defs>
-      <g stroke="url(#nanoGrad)" strokeWidth="16" strokeLinecap="round" filter="url(#glow)">
-        <line x1="100" y1="225" x2="40" y2="190" className="logo-line" />
-        <line x1="40" y1="190" x2="40" y2="130" className="logo-line" />
-        <line x1="100" y1="15" x2="160" y2="50" className="logo-line" />
-        <line x1="160" y1="50" x2="160" y2="110" className="logo-line" />
-        <line x1="40" y1="50" x2="40" y2="110" className="logo-line" />
-        <line x1="40" y1="50" x2="100" y2="15" className="logo-line" />
-        <line x1="40" y1="110" x2="160" y2="130" className="logo-line" />
-        <line x1="160" y1="130" x2="160" y2="190" className="logo-line" />
-        <line x1="160" y1="190" x2="100" y2="225" className="logo-line" />
-        <line x1="100" y1="165" x2="130" y2="165" className="logo-line" />
-        <line x1="100" y1="225" x2="100" y2="165" className="logo-line" />
-        <line x1="40" y1="110" x2="100" y2="145" className="logo-line" />
-        <line x1="160" y1="110" x2="100" y2="145" className="logo-line" />
-        <line x1="40" y1="130" x2="100" y2="95" className="logo-line" />
+      <g fill="url(#nanoGrad)" filter="url(#glow)">
+        <polygon className="logo-poly" points="185.17,65.12 185.17,114.14 184.13,113.53 171.08,105.85 171.08,73.16 170.21,72.65 157,64.87 156.36,64.49 142.91,56.57 142.5,56.34 128.82,64.46 128.69,64.55 114.86,72.75 114.74,72.68 114.74,83.29 100.65,74.99 100.65,64.81 101.01,64.6 114.74,56.45 114.83,56.4 128.66,48.18 128.82,48.28 128.82,48.09 142.47,39.98 142.91,40.24 156.33,48.14 157,48.53 170.18,56.29 171.08,56.82 184.03,64.45" />
+        <polygon className="logo-poly" points="199.55,169.9 199.25,170.07 198.07,170.77 185.17,178.44 184.24,178.98 171.08,186.8 170.43,187.18 157,195.16 156.6,195.39 142.91,203.52 142.78,203.61 128.92,195.44 128.82,195.39 115.07,187.29 114.74,187.09 101.21,179.13 100.65,178.8 100.65,102.92 114.74,111.2 114.74,170.74 115.04,170.92 128.82,179.04 128.82,179.13 128.89,179.08 142.75,187.23 142.91,187.14 156.56,179.03 157,178.78 170.39,170.82 157,162.94 157,146.26 171.04,154.06 171.08,154.08" />
+        <polygon className="logo-poly" points="213.34,81.7 213.34,163.42 211.89,162.56 199.25,155.13 198.04,154.41 185.17,146.83 184.19,146.26 171.08,138.54 170.33,138.1 157,130.25 156.48,129.95 142.91,121.95 142.62,121.79 128.82,113.66 128.82,113.6 128.76,113.63 114.92,105.48 114.74,105.37 101.06,97.32 100.65,97.08 87.21,89.17 86.57,88.79 86.57,170.51 73.51,162.82 72.48,162.21 72.48,81.54 73.36,81.02 86.57,73.17 87.18,72.81 100.65,80.73 101.03,80.96 114.74,89.03 114.74,89.21 114.89,89.11 128.74,97.27 128.82,97.31 142.59,105.42 142.91,105.61 156.45,113.58 157,113.91 170.3,121.74 171.08,122.19 184.16,129.89 185.17,130.49 198.01,138.05 199.25,138.77 199.25,73.4 211.74,80.76" />
       </g>
     </svg>
   )
@@ -64,11 +53,11 @@ export default function Header({ activeSection, setActiveSection }: HeaderProps)
       { y: 0, opacity: 1, duration: 1.2, ease: 'power4.out', delay: 0.5 }
     )
 
-    // GSAP Logo Animation - draw lines effect
+    // GSAP Logo Animation - scale and fade in polygons
     gsap.fromTo(
-      '.logo-line',
-      { strokeDasharray: 200, strokeDashoffset: 200 },
-      { strokeDashoffset: 0, duration: 2.5, ease: 'power3.inOut', stagger: 0.05, delay: 1 }
+      '.logo-poly',
+      { scale: 0.7, opacity: 0, transformOrigin: 'center' },
+      { scale: 1, opacity: 1, duration: 1.5, ease: 'power4.out', stagger: 0.15, delay: 1 }
     )
     
     // GSAP floating animation for logo
@@ -186,7 +175,7 @@ export default function Header({ activeSection, setActiveSection }: HeaderProps)
               <button
                 key={item.id}
                 onClick={() => handleNavClick(item.id)}
-                className={`w-full text-center text-sm font-semibold uppercase tracking-widest py-3.5 rounded-xl transition-all cursor-pointer ${
+                className={`w-full text-center text-sm font-semibold uppercase tracking-widest py-3.5 rounded-full transition-all cursor-pointer ${
                   activeSection === item.id
                     ? 'bg-[#00ffff] text-black font-bold'
                     : 'text-white/60 hover:text-white hover:bg-white/5 border border-transparent'

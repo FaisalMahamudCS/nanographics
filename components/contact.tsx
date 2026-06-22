@@ -121,7 +121,7 @@ export default function Contact() {
               {/* Submit Button */}
               <button
                 type="submit"
-                className="w-full px-8 py-5 bg-[#00ffff] text-black font-bold uppercase tracking-widest text-sm rounded-none hover:bg-[#33ffff] hover:shadow-[0_0_30px_rgba(0,255,255,0.4)] hover:-translate-y-1 transition-all duration-300 cursor-pointer"
+                className="w-full px-8 py-5 bg-[#00ffff] text-black font-bold uppercase tracking-widest text-sm rounded-full hover:bg-[#33ffff] hover:shadow-[0_0_30px_rgba(0,255,255,0.4)] hover:-translate-y-1 transition-all duration-300 cursor-pointer"
               >
                 Send Message
               </button>
@@ -179,7 +179,7 @@ export default function Contact() {
                   <a
                     key={social}
                     href="#"
-                    className="w-14 h-14 rounded-none border border-white/10 flex items-center justify-center text-white/50 hover:text-black hover:bg-[#00ffff] hover:border-[#00ffff] transition-all duration-300"
+                    className="w-14 h-14 rounded-full border border-white/10 flex items-center justify-center text-white/50 hover:text-black hover:bg-[#00ffff] hover:border-[#00ffff] transition-all duration-300"
                     aria-label={social}
                   >
                     <span className="text-sm font-bold uppercase">

@@ -8,7 +8,7 @@ const services = [
   {
     title: 'Branding Design',
     description: 'Logos, visual systems, tone of voice, and brand guidelines that give your business a clear, confident presence across every touchpoint.',
-    image: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=800&auto=format&fit=crop',
+    image: '/docx_image1.png',
     icon: 'M 30 60 L 100 20 L 170 60 L 170 140 L 100 180 L 30 140 Z',
     color: 'from-[#00ffff]/20 to-[#0088ff]/10'
   },
@@ -78,6 +78,47 @@ export default function Services() {
           ease: 'none'
         })
       })
+
+      // Entrance slide/fade animation for content and media in each card
+      cardsRef.current.forEach((card, index) => {
+        const isEven = index % 2 === 0
+        const content = card.querySelector('.card-content')
+        const media = card.querySelector('.card-media')
+        
+        if (content) {
+          gsap.fromTo(content,
+            { x: isEven ? -60 : 60, opacity: 0 },
+            {
+              scrollTrigger: {
+                trigger: card,
+                start: 'top 85%',
+                toggleActions: 'play none none none',
+              },
+              x: 0,
+              opacity: 1,
+              duration: 1.2,
+              ease: 'power3.out'
+            }
+          )
+        }
+        
+        if (media) {
+          gsap.fromTo(media,
+            { x: isEven ? 60 : -60, opacity: 0 },
+            {
+              scrollTrigger: {
+                trigger: card,
+                start: 'top 85%',
+                toggleActions: 'play none none none',
+              },
+              x: 0,
+              opacity: 1,
+              duration: 1.2,
+              ease: 'power3.out'
+            }
+          )
+        }
+      })
     }, containerRef)
 
     return () => ctx.revert()
@@ -86,7 +127,7 @@ export default function Services() {
   return (
     <section
       ref={containerRef}
-      className="relative w-full py-32 bg-[#050507] text-white"
+      className="relative w-full py-32 bg-[#050507] text-white overflow-hidden"
     >
       {/* Background patterns */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff02_1px,transparent_1px),linear-gradient(to_bottom,#ffffff02_1px,transparent_1px)] bg-[size:6rem_6rem] pointer-events-none z-0"></div>
@@ -124,13 +165,15 @@ export default function Services() {
                 className="w-full min-h-[50vh] md:h-[70vh] md:sticky flex items-center justify-center py-4 md:py-8"
                 style={{ top: `${topOffset}px`, zIndex: index + 10 }}
               >
-                <div className="card-inner relative w-full h-full rounded-none bg-[#0b0b0d] border border-white/5 overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.6)] flex flex-col md:flex-row items-stretch gap-6 md:gap-10 p-6 md:p-10 transition-colors duration-500 hover:border-[#00ffff]/20 group">
+                <div className={`card-inner relative w-full h-full rounded-none bg-[#0b0b0d] border border-white/5 overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.6)] flex flex-col ${
+                  index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
+                } items-stretch gap-6 md:gap-10 p-6 md:p-10 transition-colors duration-500 hover:border-[#00ffff]/20 group`}>
                   
                   {/* Subtle corner card glow */}
                   <div className={`absolute -right-20 -bottom-20 w-80 h-80 rounded-none bg-gradient-to-br ${service.color} blur-[80px] opacity-60 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none`}></div>
 
                   {/* Left content column */}
-                  <div className="flex-1 flex flex-col justify-between z-10 py-2">
+                  <div className="card-content flex-1 flex flex-col justify-between z-10 py-2">
                     <div className="space-y-6">
                       {/* Icon */}
                       <div className="w-14 h-14 rounded-none bg-white/5 border border-white/10 flex items-center justify-center text-[#00ffff] group-hover:bg-[#00ffff] group-hover:text-black transition-all duration-300 shadow-md">
@@ -152,14 +195,14 @@ export default function Services() {
 
                     {/* View project button */}
                     <div className="pt-8">
-                      <button className="px-6 py-3 rounded-none bg-white/5 border border-white/10 text-white font-semibold text-[10px] uppercase tracking-widest hover:bg-gradient-to-r hover:from-[#00ffff] hover:to-[#0088ff] hover:text-black hover:border-transparent transition-all duration-300 shadow-sm cursor-pointer active:scale-95">
+                      <button className="px-6 py-3 rounded-full bg-white/5 border border-white/10 text-white font-semibold text-[10px] uppercase tracking-widest hover:bg-gradient-to-r hover:from-[#00ffff] hover:to-[#0088ff] hover:text-black hover:border-transparent transition-all duration-300 shadow-sm cursor-pointer active:scale-95">
                         View Details
                       </button>
                     </div>
                   </div>
 
                   {/* Right full-bleed media column */}
-                  <div className="flex-1 relative rounded-none overflow-hidden min-h-[220px] md:min-h-0 bg-[#060608]">
+                  <div className="card-media flex-1 relative rounded-none overflow-hidden min-h-[220px] md:min-h-0 bg-[#060608]">
                     <div className="absolute inset-0 bg-[#050507]/40 z-10 transition-opacity duration-500 group-hover:opacity-10"></div>
                     <img 
                       src={service.image} 

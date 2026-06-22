@@ -1,25 +1,27 @@
 'use client'
 
-import React, { useState } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
 const projects = [
   {
     title: 'Food Company',
     description: 'Brand Identity & Packaging',
     scope: 'Printed flexible packaging rolls for snacks, biscuits, and beverages.',
-    image: '/docx_image3.png',
+    image: '/Print1.png',
   },
   {
     title: 'Oil Company',
     description: 'Corporate cylinders & film',
     scope: 'High strength, clarity-optimized rotogravure cylinders & film packaging.',
-    image: '/docx_image2.png',
+    image: '/Print2.png',
   },
   {
     title: 'Poster Make',
     description: 'Industrial Print Campaigns',
     scope: 'Marketing collateral, factory process posters, and showroom branding.',
-    image: '/docx_image5.png',
+    image: '/Printing.png',
   },
   {
     title: 'Logo Make',
@@ -31,9 +33,100 @@ const projects = [
 
 export default function Work() {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
+  const containerRef = useRef<HTMLDivElement>(null)
+  const workingWithGridRef = useRef<HTMLDivElement>(null)
+  const showcaseRef = useRef<HTMLDivElement>(null)
+  const productsRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger)
+    if (!containerRef.current) return
+
+    const ctx = gsap.context(() => {
+      // 1. Working With cards stagger animation
+      const cards = workingWithGridRef.current?.querySelectorAll('.working-card')
+      if (cards && cards.length > 0) {
+        gsap.fromTo(cards,
+          { y: 50, opacity: 0 },
+          {
+            scrollTrigger: {
+              trigger: workingWithGridRef.current,
+              start: 'top 85%',
+              toggleActions: 'play none none none',
+            },
+            y: 0,
+            opacity: 1,
+            duration: 1,
+            stagger: 0.15,
+            ease: 'power3.out'
+          }
+        )
+      }
+
+      // 2. Showcase cards: Left and Right slide in, one after another
+      const showcaseCards = showcaseRef.current?.querySelectorAll('.showcase-card')
+      if (showcaseCards && showcaseCards.length === 2) {
+        const leftCard = showcaseCards[0]
+        const rightCard = showcaseCards[1]
+
+        gsap.fromTo(leftCard,
+          { x: -80, opacity: 0 },
+          {
+            scrollTrigger: {
+              trigger: showcaseRef.current,
+              start: 'top 85%',
+              toggleActions: 'play none none none',
+            },
+            x: 0,
+            opacity: 1,
+            duration: 1.2,
+            ease: 'power3.out'
+          }
+        )
+
+        gsap.fromTo(rightCard,
+          { x: 80, opacity: 0 },
+          {
+            scrollTrigger: {
+              trigger: showcaseRef.current,
+              start: 'top 85%',
+              toggleActions: 'play none none none',
+            },
+            x: 0,
+            opacity: 1,
+            duration: 1.2,
+            delay: 0.25,
+            ease: 'power3.out'
+          }
+        )
+      }
+
+      // 3. Products Packaging cards stagger animation
+      const productCards = productsRef.current?.querySelectorAll('.product-card')
+      if (productCards && productCards.length > 0) {
+        gsap.fromTo(productCards,
+          { y: 50, opacity: 0 },
+          {
+            scrollTrigger: {
+              trigger: productsRef.current,
+              start: 'top 85%',
+              toggleActions: 'play none none none',
+            },
+            y: 0,
+            opacity: 1,
+            duration: 1,
+            stagger: 0.2,
+            ease: 'power3.out'
+          }
+        )
+      }
+    }, containerRef)
+
+    return () => ctx.revert()
+  }, [])
 
   return (
-    <section className="min-h-screen pt-32 pb-24 px-6 bg-[#050507] text-white">
+    <section ref={containerRef} className="min-h-screen pt-32 pb-24 px-6 bg-[#050507] text-white">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="mb-20">
@@ -91,7 +184,7 @@ export default function Work() {
                     <p className="text-white/60 text-xs font-light leading-relaxed max-w-sm mb-4">
                       {project.scope}
                     </p>
-                    <button className="px-5 py-2.5 rounded-none bg-gradient-to-r from-[#00ffff] to-[#0088ff] text-black text-[9px] font-bold uppercase tracking-widest cursor-pointer shadow-md active:scale-95 transition-all">
+                    <button className="px-5 py-2.5 rounded-full bg-gradient-to-r from-[#00ffff] to-[#0088ff] text-black text-[9px] font-bold uppercase tracking-widest cursor-pointer shadow-md active:scale-95 transition-all">
                       View Project
                     </button>
                   </div>
@@ -138,56 +231,95 @@ export default function Work() {
             </p>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-24">
+          <div ref={workingWithGridRef} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-24">
             {[
-              { title: 'Export Company', desc: 'Global shipping standards & compliance' },
-              { title: 'Local Company', desc: 'Regional supply chains & retail distribution' },
-              { title: 'Oil Company', desc: 'Industrial lubricants & durability labels' },
-              { title: 'Food Company', desc: 'FDA-approved printed packaging rolls' }
+              { title: 'Export Company', desc: 'Global shipping standards & compliance', img: '/port.png' },
+              { title: 'Local Company', desc: 'Regional supply chains & retail distribution', img: '/file_000000001e2c71fab1ca1db4e6b1949f.png' },
+              { title: 'Oil Company', desc: 'Industrial lubricants & durability labels', img: '/Print2.png' },
+              { title: 'Food Company', desc: 'FDA-approved printed packaging rolls', img: '/Print1.png' }
             ].map((client, idx) => (
-              <div key={idx} className="group border border-white/10 hover:border-[#00ffff]/40 transition-all duration-300 bg-[#0c0c0f] p-6 relative rounded-none">
-                <div className="absolute top-0 right-0 w-2 h-2 border-t border-r border-transparent group-hover:border-[#00ffff] transition-all"></div>
-                <p className="text-[#00ffff] font-bold text-base uppercase mb-2 font-heading tracking-tight">{client.title}</p>
-                <p className="text-white/40 text-[11px] font-light leading-snug">{client.desc}</p>
+              <div key={idx} className="working-card group relative overflow-hidden border border-white/10 hover:border-[#00ffff]/40 transition-all duration-500 bg-[#0c0c0f] min-h-[160px] flex flex-col justify-end p-6 rounded-none shadow-md">
+                {/* Background Image Layer */}
+                <div className="absolute inset-0 z-0">
+                  <img 
+                    src={client.img} 
+                    alt={client.title} 
+                    className="w-full h-full object-cover opacity-20 group-hover:opacity-40 group-hover:scale-105 transition-all duration-700 filter grayscale group-hover:grayscale-0"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0c0c0f] via-[#0c0c0f]/90 to-[#0c0c0f]/50" />
+                </div>
+                
+                {/* Content Layer */}
+                <div className="relative z-10">
+                  <div className="absolute top-[-24px] right-[-24px] w-2 h-2 border-t border-r border-transparent group-hover:border-[#00ffff] transition-all duration-300"></div>
+                  <p className="text-[#00ffff] font-bold text-base uppercase mb-1.5 font-heading tracking-tight group-hover:text-white transition-colors duration-300">{client.title}</p>
+                  <p className="text-white/60 text-[11px] font-light leading-snug group-hover:text-white/90 transition-colors duration-300">{client.desc}</p>
+                </div>
               </div>
             ))}
           </div>
 
           {/* Company Logo Use Showcase */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-24">
-            <div className="border border-white/10 bg-[#0c0c0f] p-8 hover:border-[#00ffff]/30 transition-all group rounded-none">
-              <span className="text-[#00ffff] text-[10px] font-bold tracking-widest uppercase mb-2 block">
-                Brand Application
-              </span>
-              <h4 className="text-xl font-bold text-white uppercase mb-4 font-heading">
-                Oil Company Branding
-              </h4>
-              <p className="text-white/50 text-xs font-light leading-relaxed mb-6">
-                Applying core vector logos on metal cylinders, industrial containers, and heat-resistant transport sheets with absolute color fidelity.
-              </p>
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 border border-white/10 flex items-center justify-center bg-[#070709]">
-                  <span className="text-white font-mono text-xs">OIL</span>
+          <div ref={showcaseRef} className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-24">
+            <div className="showcase-card border border-white/10 bg-[#0c0c0f] p-8 hover:border-[#00ffff]/30 transition-all group rounded-none relative overflow-hidden min-h-[300px] flex flex-col justify-between shadow-lg">
+              {/* Background Image */}
+              <div className="absolute inset-0 z-0">
+                <img 
+                  src="/Print2.png" 
+                  alt="Oil Company Branding Background" 
+                  className="w-full h-full object-cover opacity-25 group-hover:opacity-45 group-hover:scale-105 transition-all duration-700 filter brightness-50"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0c0c0f] via-[#0c0c0f]/90 to-transparent" />
+              </div>
+              
+              <div className="relative z-10">
+                <span className="text-[#00ffff] text-[10px] font-bold tracking-widest uppercase mb-2 block">
+                  Brand Application
+                </span>
+                <h4 className="text-xl font-bold text-white uppercase mb-4 font-heading group-hover:text-[#00ffff] transition-colors">
+                  Oil Company Branding
+                </h4>
+                <p className="text-white/50 text-xs font-light leading-relaxed mb-6 max-w-md group-hover:text-white/80 transition-colors">
+                  Applying core vector logos on metal cylinders, industrial containers, and heat-resistant transport sheets with absolute color fidelity.
+                </p>
+              </div>
+
+              <div className="relative z-10 flex items-center gap-3">
+                <div className="w-10 h-10 border border-white/10 flex items-center justify-center bg-[#070709] group-hover:border-[#00ffff]/30 transition-all duration-300">
+                  <span className="text-white font-mono text-xs font-bold text-gradient bg-clip-text text-transparent bg-gradient-to-r from-[#00ffff] to-[#0088ff]">OIL</span>
                 </div>
-                <span className="text-white/40 text-[10px] font-semibold tracking-wider uppercase">Logo verified for industrial cylinders</span>
+                <span className="text-white/40 text-[10px] font-semibold tracking-wider uppercase group-hover:text-white/70 transition-colors">Logo verified for industrial cylinders</span>
               </div>
             </div>
 
-            <div className="border border-white/10 bg-[#0c0c0f] p-8 hover:border-[#00ffff]/30 transition-all group rounded-none">
-              <span className="text-[#00ffff] text-[10px] font-bold tracking-widest uppercase mb-2 block">
-                Retail Placement
-              </span>
-              <h4 className="text-xl font-bold text-white uppercase mb-4 font-heading">
-                Food Company Placement
-              </h4>
-              <p className="text-white/50 text-xs font-light leading-relaxed mb-6">
-                Optimizing brand logo display on printed packaging film rolls to ensure visibility, premium shelf presence, and barcode scanning compliance.
-              </p>
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 border border-white/10 flex items-center justify-center bg-[#070709]">
-                  <span className="text-white font-mono text-xs">FD</span>
+            <div className="showcase-card border border-white/10 bg-[#0c0c0f] p-8 hover:border-[#00ffff]/30 transition-all group rounded-none relative overflow-hidden min-h-[300px] flex flex-col justify-between shadow-lg">
+              {/* Background Image */}
+              <div className="absolute inset-0 z-0">
+                <img 
+                  src="/Print1.png" 
+                  alt="Food Company Packaging Background" 
+                  className="w-full h-full object-cover opacity-25 group-hover:opacity-45 group-hover:scale-105 transition-all duration-700 filter brightness-50"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0c0c0f] via-[#0c0c0f]/90 to-transparent" />
+              </div>
+
+              <div className="relative z-10">
+                <span className="text-[#00ffff] text-[10px] font-bold tracking-widest uppercase mb-2 block">
+                  Retail Placement
+                </span>
+                <h4 className="text-xl font-bold text-white uppercase mb-4 font-heading group-hover:text-[#00ffff] transition-colors">
+                  Food Company Placement
+                </h4>
+                <p className="text-white/50 text-xs font-light leading-relaxed mb-6 max-w-md group-hover:text-white/80 transition-colors">
+                  Optimizing brand logo display on printed packaging film rolls to ensure visibility, premium shelf presence, and barcode scanning compliance.
+                </p>
+              </div>
+
+              <div className="relative z-10 flex items-center gap-3">
+                <div className="w-10 h-10 border border-white/10 flex items-center justify-center bg-[#070709] group-hover:border-[#00ffff]/30 transition-all duration-300">
+                  <span className="text-white font-mono text-xs font-bold text-gradient bg-clip-text text-transparent bg-gradient-to-r from-[#00ffff] to-[#0088ff]">FD</span>
                 </div>
-                <span className="text-white/40 text-[10px] font-semibold tracking-wider uppercase">Logo verified for flexible packaging film</span>
+                <span className="text-white/40 text-[10px] font-semibold tracking-wider uppercase group-hover:text-white/70 transition-colors">Logo verified for flexible packaging film</span>
               </div>
             </div>
           </div>
@@ -201,12 +333,12 @@ export default function Work() {
               Explore our core packaging production workflows, combining digital design layout with high-speed physical print support.
             </p>
 
-            <div className="grid md:grid-cols-2 gap-8">
-              <div className="border border-white/10 bg-[#0c0c0f] hover:border-[#00ffff]/40 transition-all duration-500 group p-4 rounded-none">
+            <div ref={productsRef} className="grid md:grid-cols-2 gap-8">
+              <div className="product-card border border-white/10 bg-[#0c0c0f] hover:border-[#00ffff]/40 transition-all duration-500 group p-4 rounded-none shadow-md">
                 <div className="h-64 relative overflow-hidden">
                   <div className="absolute inset-0 bg-[#050507]/20 z-10" />
                   <img 
-                    src="/docx_image3.png" 
+                    src="/Print1.png" 
                     alt="Packaging Design Film" 
                     className="w-full h-full object-cover opacity-80 group-hover:scale-102 transition-all duration-700" 
                   />
@@ -217,11 +349,11 @@ export default function Work() {
                 </div>
               </div>
 
-              <div className="border border-white/10 bg-[#0c0c0f] hover:border-[#00ffff]/40 transition-all duration-500 group p-4 rounded-none">
+              <div className="product-card border border-white/10 bg-[#0c0c0f] hover:border-[#00ffff]/40 transition-all duration-500 group p-4 rounded-none shadow-md">
                 <div className="h-64 relative overflow-hidden">
                   <div className="absolute inset-0 bg-[#050507]/20 z-10" />
                   <img 
-                    src="/docx_image2.png" 
+                    src="/Print2.png" 
                     alt="Design and Print cylinders" 
                     className="w-full h-full object-cover opacity-80 group-hover:scale-102 transition-all duration-700" 
                   />

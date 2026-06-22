@@ -183,8 +183,73 @@ export default function Hero() {
       {/* Grid Overlay background */}
       <div className="fixed inset-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:4.5rem_4.5rem] pointer-events-none z-0"></div>
       
-      {/* Masterclass Banner Promo — right below navbar */}
-      <div className="w-full pt-24 pb-0 z-20 relative">
+      {/* 1. Hero Section */}
+      <section className="relative z-10 w-full min-h-[85vh] flex flex-col items-center justify-center pt-32 pb-20 px-6">
+        <span className="text-[#00ffff] font-semibold tracking-[0.25em] uppercase mb-8 text-xs md:text-sm tracking-[0.3em] opacity-90 font-heading">
+          Brand · Digital · Campaigns
+        </span>
+        
+        <div className="relative w-full flex flex-col items-center mb-8">
+          <h1 ref={heroTextRef} className="text-[clamp(4.2rem,17vw,240px)] font-black uppercase leading-[0.82] tracking-tighter text-center mix-blend-difference z-20 font-heading select-none">
+            <span className="block overflow-hidden h-fit">
+              <span className="block text-gradient bg-clip-text text-transparent bg-gradient-to-r from-[#00ffff] to-[#0088ff] word-anim-inner">Nano</span>
+            </span>
+            <span className="block overflow-hidden h-fit">
+              <span className="block text-white word-anim-inner">Graphic</span>
+            </span>
+          </h1>
+
+          {/* Interlocking NG Logo in Center */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 pointer-events-auto mix-blend-screen">
+            <div 
+              ref={logoContainerRef}
+              onMouseEnter={handleLogoMouseEnter}
+              onMouseLeave={handleLogoMouseLeave}
+              className="w-36 h-36 md:w-[22rem] md:h-[22rem] rounded-none flex items-center justify-center hover:scale-105 transition-all duration-500 cursor-pointer filter drop-shadow-[0_0_15px_rgba(0,255,255,0.3)]"
+            >
+              <svg
+                viewBox="0 0 276.89 239.96"
+                className="w-full h-full"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <defs>
+                  <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stopColor="#00ffff" />
+                    <stop offset="100%" stopColor="#0088ff" />
+                  </linearGradient>
+                </defs>
+                <g fill="url(#logoGrad)">
+                  <polygon points="185.17,65.12 185.17,114.14 184.13,113.53 171.08,105.85 171.08,73.16 170.21,72.65 157,64.87 156.36,64.49 142.91,56.57 142.5,56.34 128.82,64.46 128.69,64.55 114.86,72.75 114.74,72.68 114.74,83.29 100.65,74.99 100.65,64.81 101.01,64.6 114.74,56.45 114.83,56.4 128.66,48.18 128.82,48.28 128.82,48.09 142.47,39.98 142.91,40.24 156.33,48.14 157,48.53 170.18,56.29 171.08,56.82 184.03,64.45" />
+                  <polygon points="199.55,169.9 199.25,170.07 198.07,170.77 185.17,178.44 184.24,178.98 171.08,186.8 170.43,187.18 157,195.16 156.6,195.39 142.91,203.52 142.78,203.61 128.92,195.44 128.82,195.39 115.07,187.29 114.74,187.09 101.21,179.13 100.65,178.8 100.65,102.92 114.74,111.2 114.74,170.74 115.04,170.92 128.82,179.04 128.82,179.13 128.89,179.08 142.75,187.23 142.91,187.14 156.56,179.03 157,178.78 170.39,170.82 157,162.94 157,146.26 171.04,154.06 171.08,154.08" />
+                  <polygon points="213.34,81.7 213.34,163.42 211.89,162.56 199.25,155.13 198.04,154.41 185.17,146.83 184.19,146.26 171.08,138.54 170.33,138.1 157,130.25 156.48,129.95 142.91,121.95 142.62,121.79 128.82,113.66 128.82,113.6 128.76,113.63 114.92,105.48 114.74,105.37 101.06,97.32 100.65,97.08 87.21,89.17 86.57,88.79 86.57,170.51 73.51,162.82 72.48,162.21 72.48,81.54 73.36,81.02 86.57,73.17 87.18,72.81 100.65,80.73 101.03,80.96 114.74,89.03 114.74,89.21 114.89,89.11 128.74,97.27 128.82,97.31 142.59,105.42 142.91,105.61 156.45,113.58 157,113.91 170.3,121.74 171.08,122.19 184.16,129.89 185.17,130.49 198.01,138.05 199.25,138.77 199.25,73.4 211.74,80.76" />
+                </g>
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        <p ref={heroSubtextRef} className="mt-14 max-w-xl text-center text-sm md:text-lg font-light text-white/60 leading-relaxed z-20">
+          A design agency for bold brands—identity, digital, and campaigns crafted to feel unmistakably yours.
+        </p>
+
+        <div className="mt-10 flex flex-col sm:flex-row gap-5 z-20">
+          <button 
+            onClick={scrollToWork}
+            className="cta-btn px-8 py-4 rounded-full bg-gradient-to-r from-[#00ffff] to-[#0088ff] text-black font-bold uppercase tracking-wider text-xs shadow-[0_0_20px_rgba(0,255,255,0.3)] hover:shadow-[0_0_35px_rgba(0,255,255,0.6)] hover:scale-105 transition-all duration-300 cursor-pointer"
+          >
+            See Our Work
+          </button>
+          <button 
+            onClick={scrollToServices}
+            className="cta-btn px-8 py-4 rounded-full border border-white/10 text-white font-bold uppercase tracking-wider text-xs hover:bg-white/5 hover:border-[#00ffff]/30 transition-all duration-300 backdrop-blur-md cursor-pointer"
+          >
+            Our Services
+          </button>
+        </div>
+      </section>
+
+      {/* Masterclass Banner Promo — now second */}
+      <div className="w-full pt-0 pb-16 z-20 relative">
 
         {/* Label bar above banner */}
         <div className="max-w-5xl mx-auto px-6 mb-3 flex items-center gap-4">
@@ -245,95 +310,6 @@ export default function Hero() {
         </div>
 
       </div>
-
-      {/* 1. Hero Section */}
-      <section className="relative z-10 w-full min-h-[85vh] flex flex-col items-center justify-center pt-16 pb-20 px-6">
-        <span className="text-[#00ffff] font-semibold tracking-[0.25em] uppercase mb-8 text-xs md:text-sm tracking-[0.3em] opacity-90 font-heading">
-          Brand · Digital · Campaigns
-        </span>
-        
-        <div className="relative w-full flex flex-col items-center mb-8">
-          <h1 ref={heroTextRef} className="text-[clamp(4.2rem,17vw,240px)] font-black uppercase leading-[0.82] tracking-tighter text-center mix-blend-difference z-20 font-heading select-none">
-            <span className="block overflow-hidden h-fit">
-              <span className="block text-gradient bg-clip-text text-transparent bg-gradient-to-r from-[#00ffff] to-[#00bcff] word-anim-inner">Nano</span>
-            </span>
-            <span className="block overflow-hidden h-fit">
-              <span className="block text-white word-anim-inner">Graphic</span>
-            </span>
-          </h1>
-
-          {/* Interlocking NG Logo in Center */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 pointer-events-auto mix-blend-screen">
-            <div 
-              ref={logoContainerRef}
-              onMouseEnter={handleLogoMouseEnter}
-              onMouseLeave={handleLogoMouseLeave}
-              className="w-36 h-36 md:w-[22rem] md:h-[22rem] rounded-none flex items-center justify-center hover:scale-105 transition-all duration-500 cursor-pointer filter drop-shadow-[0_0_15px_rgba(0,255,255,0.3)]"
-            >
-              <svg
-                viewBox="0 0 200 200"
-                className="w-full h-full"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <defs>
-                  <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stopColor="#00ffff" />
-                    <stop offset="100%" stopColor="#0088ff" />
-                  </linearGradient>
-                </defs>
-
-                {/* Outer Hexagon */}
-                <polygon 
-                  points="100,20 170,60 170,140 100,180 30,140 30,60" 
-                  fill="none" 
-                  stroke="url(#logoGrad)" 
-                  strokeWidth="8" 
-                  strokeLinejoin="round" 
-                />
-
-                {/* Isometric Interlocking N */}
-                <path 
-                  d="M 65 140 L 65 75 L 115 125 L 115 80" 
-                  fill="none" 
-                  stroke="url(#logoGrad)" 
-                  strokeWidth="14" 
-                  strokeLinecap="round" 
-                  strokeLinejoin="round" 
-                />
-                
-                {/* Isometric Interlocking G */}
-                <path 
-                  d="M 140 85 L 140 145 L 85 145 L 85 110 L 115 110" 
-                  fill="none" 
-                  stroke="url(#logoGrad)" 
-                  strokeWidth="14" 
-                  strokeLinecap="round" 
-                  strokeLinejoin="round" 
-                />
-              </svg>
-            </div>
-          </div>
-        </div>
-
-        <p ref={heroSubtextRef} className="mt-14 max-w-xl text-center text-sm md:text-lg font-light text-white/60 leading-relaxed z-20">
-          A design agency for bold brands—identity, digital, and campaigns crafted to feel unmistakably yours.
-        </p>
-
-        <div className="mt-10 flex flex-col sm:flex-row gap-5 z-20">
-          <button 
-            onClick={scrollToWork}
-            className="cta-btn px-8 py-4 rounded-none bg-gradient-to-r from-[#00ffff] to-[#0088ff] text-black font-bold uppercase tracking-wider text-xs shadow-[0_0_20px_rgba(0,255,255,0.3)] hover:shadow-[0_0_35px_rgba(0,255,255,0.6)] hover:scale-105 transition-all duration-300 cursor-pointer"
-          >
-            See Our Work
-          </button>
-          <button 
-            onClick={scrollToServices}
-            className="cta-btn px-8 py-4 rounded-none border border-white/10 text-white font-bold uppercase tracking-wider text-xs hover:bg-white/5 hover:border-[#00ffff]/30 transition-all duration-300 backdrop-blur-md cursor-pointer"
-          >
-            Our Services
-          </button>
-        </div>
-      </section>
 
       {/* 2. About / Philosophy Section */}
       <section ref={aboutRef} className="relative z-10 w-full py-32 px-6 border-t border-white/5 bg-[#08080a]">
