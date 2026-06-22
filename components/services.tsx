@@ -15,7 +15,7 @@ const services = [
   {
     title: 'Packaging Design',
     description: 'Premium packaging design systems, layout configurations, and printed mockups tailored for high-quality retail presence.',
-    image: '/docx_image3.png',
+    image: '/Printing.png',
     icon: 'M 40 40 H 160 V 160 H 40 Z M 40 80 H 160',
     color: 'from-[#00ffff]/25 to-[#0044ff]/10'
   },
@@ -29,23 +29,24 @@ const services = [
   {
     title: 'Printing Support',
     description: 'High-end printing solutions and technical pre-press setup that ensure your layouts print perfectly on raw packaging film.',
-    image: '/docx_image5.png',
+    image: 'Print2.png',
     icon: 'M 40 160 H 160 V 80 H 40 Z M 60 40 H 140 V 80 H 60 Z',
     color: 'from-[#00ffff]/25 to-[#0022ff]/10'
   },
+
   {
-    title: 'Website Development',
+    title: 'Cylinder Make',
+    description: 'Precision cylinder making, 3D engraving setup, and industrial rotogravure modeling for high strength print production.',
+    image: '/Print2.png',
+    icon: 'M 40 60 C 40 40 160 40 160 60 V 140 C 160 160 40 160 40 140 Z M 40 60 C 40 80 160 80 160 60',
+    color: 'from-[#00ffff]/30 to-[#0066ff]/10'
+  },
+  {
+    title: 'AI Powered Website &Custom Software Development ',
     description: 'Modern, responsive website designs and seamless web development blending performance, interaction, and aesthetics.',
     image: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=800&auto=format&fit=crop',
     icon: 'M 20 60 H 180 V 140 H 20 Z M 20 60 L 100 100 L 180 60',
     color: 'from-[#00ffff]/20 to-[#0088ff]/10'
-  },
-  {
-    title: 'Cylinder Make',
-    description: 'Precision cylinder making, 3D engraving setup, and industrial rotogravure modeling for high strength print production.',
-    image: '/docx_image2.png',
-    icon: 'M 40 60 C 40 40 160 40 160 60 V 140 C 160 160 40 160 40 140 Z M 40 60 C 40 80 160 80 160 60',
-    color: 'from-[#00ffff]/30 to-[#0066ff]/10'
   },
 ]
 
@@ -61,7 +62,7 @@ export default function Services() {
       // Stacking card animation: shrink/fade cards as they are covered by subsequent ones
       cardsRef.current.forEach((card, index) => {
         if (index === services.length - 1) return // skip last card
-        
+
         const inner = card.querySelector('.card-inner')
         if (!inner) return
 
@@ -84,7 +85,7 @@ export default function Services() {
         const isEven = index % 2 === 0
         const content = card.querySelector('.card-content')
         const media = card.querySelector('.card-media')
-        
+
         if (content) {
           gsap.fromTo(content,
             { x: isEven ? -60 : 60, opacity: 0 },
@@ -101,7 +102,7 @@ export default function Services() {
             }
           )
         }
-        
+
         if (media) {
           gsap.fromTo(media,
             { x: isEven ? 60 : -60, opacity: 0 },
@@ -155,7 +156,7 @@ export default function Services() {
           {services.map((service, index) => {
             // Staggered top offsets on sticky view for desktop stacking
             const topOffset = 80 + index * 24 // Stagger overlaps nicely
-            
+
             return (
               <div
                 key={index}
@@ -168,7 +169,7 @@ export default function Services() {
                 <div className={`card-inner relative w-full h-full rounded-none bg-[#0b0b0d] border border-white/5 overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.6)] flex flex-col ${
                   index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
                 } items-stretch gap-6 md:gap-10 p-6 md:p-10 transition-colors duration-500 hover:border-[#00ffff]/20 group`}>
-                  
+
                   {/* Subtle corner card glow */}
                   <div className={`absolute -right-20 -bottom-20 w-80 h-80 rounded-none bg-gradient-to-br ${service.color} blur-[80px] opacity-60 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none`}></div>
 
@@ -186,7 +187,7 @@ export default function Services() {
                       <h3 className="text-2xl md:text-3xl font-bold uppercase tracking-tight text-white font-heading group-hover:text-[#00ffff] transition-colors duration-300">
                         {service.title}
                       </h3>
-                      
+
                       {/* Description */}
                       <p className="text-white/50 text-xs md:text-sm font-light leading-relaxed max-w-md">
                         {service.description}
@@ -204,9 +205,9 @@ export default function Services() {
                   {/* Right full-bleed media column */}
                   <div className="card-media flex-1 relative rounded-none overflow-hidden min-h-[220px] md:min-h-0 bg-[#060608]">
                     <div className="absolute inset-0 bg-[#050507]/40 z-10 transition-opacity duration-500 group-hover:opacity-10"></div>
-                    <img 
-                      src={service.image} 
-                      alt={service.title} 
+                    <img
+                      src={service.image}
+                      alt={service.title}
                       className="absolute inset-0 w-full h-full object-cover scale-[1.03] group-hover:scale-100 transition-transform duration-700 ease-out"
                     />
                   </div>
