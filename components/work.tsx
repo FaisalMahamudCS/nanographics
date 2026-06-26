@@ -150,10 +150,10 @@ export default function Work() {
           {projects.map((project, index) => {
             const isHovered = hoveredIndex === index
             const isAnyHovered = hoveredIndex !== null
-            
+
             // Set dynamic flex width for accordion expand/contract transition
             const flexValue = isHovered ? 4.5 : (isAnyHovered ? 1 : 2.5)
-            
+
             return (
               <div
                 key={index}
@@ -164,9 +164,9 @@ export default function Work() {
               >
                 {/* Background Image */}
                 <div className="absolute inset-0 bg-[#050507]/45 z-10 transition-opacity duration-500 group-hover:opacity-20" />
-                <img 
-                  src={project.image} 
-                  alt={project.title} 
+                <img
+                  src={project.image}
+                  alt={project.title}
                   className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105 filter brightness-[0.75] group-hover:brightness-[0.9]"
                 />
 
@@ -202,9 +202,9 @@ export default function Work() {
               className="snap-center shrink-0 w-[85%] aspect-[4/3] rounded-none overflow-hidden bg-[#0c0c0f] border border-white/5 relative"
             >
               <div className="absolute inset-0 bg-[#050507]/30 z-10" />
-              <img 
-                src={project.image} 
-                alt={project.title} 
+              <img
+                src={project.image}
+                alt={project.title}
                 className="w-full h-full object-cover filter brightness-[0.8]"
               />
               <div className="absolute inset-0 flex flex-col justify-end p-6 z-20 bg-gradient-to-t from-black/80 to-transparent">
@@ -231,24 +231,24 @@ export default function Work() {
             </p>
           </div>
 
-          <div ref={workingWithGridRef} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-24">
+          <div ref={workingWithGridRef} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-24">
             {[
               { title: 'Export Company', desc: 'Global shipping standards & compliance', img: '/port.png' },
               { title: 'Local Company', desc: 'Regional supply chains & retail distribution', img: '/file_000000001e2c71fab1ca1db4e6b1949f.png' },
               { title: 'Oil Company', desc: 'Industrial lubricants & durability labels', img: '/Banner/Banner/Oil Company.jpeg' },
-              { title: 'Food Company', desc: 'FDA-approved printed packaging rolls', img: '/Banner/Banner/Food Company.jpeg' }
+
             ].map((client, idx) => (
               <div key={idx} className="working-card group relative overflow-hidden border border-white/10 hover:border-[#00ffff]/40 transition-all duration-500 bg-[#0c0c0f] min-h-[160px] flex flex-col justify-end p-6 rounded-none shadow-md">
                 {/* Background Image Layer */}
                 <div className="absolute inset-0 z-0">
-                  <img 
-                    src={client.img} 
-                    alt={client.title} 
+                  <img
+                    src={client.img}
+                    alt={client.title}
                     className="w-full h-full object-cover opacity-20 group-hover:opacity-40 group-hover:scale-105 transition-all duration-700 filter grayscale group-hover:grayscale-0"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#0c0c0f] via-[#0c0c0f]/90 to-[#0c0c0f]/50" />
                 </div>
-                
+
                 {/* Content Layer */}
                 <div className="relative z-10">
                   <div className="absolute top-[-24px] right-[-24px] w-2 h-2 border-t border-r border-transparent group-hover:border-[#00ffff] transition-all duration-300"></div>
@@ -260,69 +260,7 @@ export default function Work() {
           </div>
 
           {/* Company Logo Use Showcase */}
-          <div ref={showcaseRef} className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-24">
-            <div className="showcase-card border border-white/10 bg-[#0c0c0f] p-8 hover:border-[#00ffff]/30 transition-all group rounded-none relative overflow-hidden min-h-[300px] flex flex-col justify-between shadow-lg">
-              {/* Background Image */}
-              <div className="absolute inset-0 z-0">
-                <img 
-                  src="/Banner/Banner/Oil Company.jpeg" 
-                  alt="Oil Company Branding Background" 
-                  className="w-full h-full object-cover opacity-25 group-hover:opacity-45 group-hover:scale-105 transition-all duration-700 filter brightness-50"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0c0c0f] via-[#0c0c0f]/90 to-transparent" />
-              </div>
-              
-              <div className="relative z-10">
-                <span className="text-[#00ffff] text-[10px] font-bold tracking-widest uppercase mb-2 block">
-                  Brand Application
-                </span>
-                <h4 className="text-xl font-bold text-white uppercase mb-4 font-heading group-hover:text-[#00ffff] transition-colors">
-                  Oil Company Branding
-                </h4>
-                <p className="text-white/50 text-xs font-light leading-relaxed mb-6 max-w-md group-hover:text-white/80 transition-colors">
-                  Applying core vector logos on metal cylinders, industrial containers, and heat-resistant transport sheets with absolute color fidelity.
-                </p>
-              </div>
 
-              <div className="relative z-10 flex items-center gap-3">
-                <div className="w-10 h-10 border border-white/10 flex items-center justify-center bg-[#070709] group-hover:border-[#00ffff]/30 transition-all duration-300">
-                  <span className="text-white font-mono text-xs font-bold text-gradient bg-clip-text text-transparent bg-gradient-to-r from-[#00ffff] to-[#0088ff]">OIL</span>
-                </div>
-                <span className="text-white/40 text-[10px] font-semibold tracking-wider uppercase group-hover:text-white/70 transition-colors">Logo verified for industrial cylinders</span>
-              </div>
-            </div>
-
-            <div className="showcase-card border border-white/10 bg-[#0c0c0f] p-8 hover:border-[#00ffff]/30 transition-all group rounded-none relative overflow-hidden min-h-[300px] flex flex-col justify-between shadow-lg">
-              {/* Background Image */}
-              <div className="absolute inset-0 z-0">
-                <img 
-                  src="/Banner/Banner/Food Company.jpeg" 
-                  alt="Food Company Packaging Background" 
-                  className="w-full h-full object-cover opacity-25 group-hover:opacity-45 group-hover:scale-105 transition-all duration-700 filter brightness-50"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0c0c0f] via-[#0c0c0f]/90 to-transparent" />
-              </div>
-
-              <div className="relative z-10">
-                <span className="text-[#00ffff] text-[10px] font-bold tracking-widest uppercase mb-2 block">
-                  Retail Placement
-                </span>
-                <h4 className="text-xl font-bold text-white uppercase mb-4 font-heading group-hover:text-[#00ffff] transition-colors">
-                  Food Company Placement
-                </h4>
-                <p className="text-white/50 text-xs font-light leading-relaxed mb-6 max-w-md group-hover:text-white/80 transition-colors">
-                  Optimizing brand logo display on printed packaging film rolls to ensure visibility, premium shelf presence, and barcode scanning compliance.
-                </p>
-              </div>
-
-              <div className="relative z-10 flex items-center gap-3">
-                <div className="w-10 h-10 border border-white/10 flex items-center justify-center bg-[#070709] group-hover:border-[#00ffff]/30 transition-all duration-300">
-                  <span className="text-white font-mono text-xs font-bold text-gradient bg-clip-text text-transparent bg-gradient-to-r from-[#00ffff] to-[#0088ff]">FD</span>
-                </div>
-                <span className="text-white/40 text-[10px] font-semibold tracking-wider uppercase group-hover:text-white/70 transition-colors">Logo verified for flexible packaging film</span>
-              </div>
-            </div>
-          </div>
 
           {/* Products Packaging Section */}
           <div className="mt-28 border-t border-white/5 pt-20">
@@ -337,10 +275,10 @@ export default function Work() {
               <div className="product-card border border-white/10 bg-[#0c0c0f] hover:border-[#00ffff]/40 transition-all duration-500 group p-4 rounded-none shadow-md">
                 <div className="h-64 relative overflow-hidden">
                   <div className="absolute inset-0 bg-[#050507]/20 z-10" />
-                  <img 
-                    src="/Banner/Banner/Packaging Design.png" 
-                    alt="Packaging Design Film" 
-                    className="w-full h-full object-cover opacity-80 group-hover:scale-102 transition-all duration-700" 
+                  <img
+                    src="/Banner/Banner/Packaging Design.png"
+                    alt="Packaging Design Film"
+                    className="w-full h-full object-cover opacity-80 group-hover:scale-102 transition-all duration-700"
                   />
                 </div>
                 <div className="pt-6 px-2">
@@ -352,10 +290,10 @@ export default function Work() {
               <div className="product-card border border-white/10 bg-[#0c0c0f] hover:border-[#00ffff]/40 transition-all duration-500 group p-4 rounded-none shadow-md">
                 <div className="h-64 relative overflow-hidden">
                   <div className="absolute inset-0 bg-[#050507]/20 z-10" />
-                  <img 
-                    src="/Banner/Banner/Design and Print Support2.png" 
-                    alt="Design and Print cylinders" 
-                    className="w-full h-full object-cover opacity-80 group-hover:scale-102 transition-all duration-700" 
+                  <img
+                    src="/Banner/Banner/Design and Print Support2.png"
+                    alt="Design and Print cylinders"
+                    className="w-full h-full object-cover opacity-80 group-hover:scale-102 transition-all duration-700"
                   />
                 </div>
                 <div className="pt-6 px-2">

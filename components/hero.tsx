@@ -4,6 +4,37 @@ import { useEffect, useRef } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
+const departments = [
+  {
+    title: 'Branding Design',
+    subtitle: 'Identity & Visual Systems',
+    description: 'Logos, visual systems, tone of voice, and brand guidelines that give your business a clear, confident presence across every touchpoint.',
+    image: 'https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?q=80&w=1200&auto=format&fit=crop',
+    color: 'from-[#00ffff]/20 to-[#0088ff]/10'
+  },
+  {
+    title: 'Thumbnail Design',
+    subtitle: 'High CTR Visuals',
+    description: 'Eye-catching thumbnails that boost click-through rates and make your content stand out in crowded feeds.',
+    image: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1200&auto=format&fit=crop',
+    color: 'from-[#a855f7]/20 to-[#6366f1]/10'
+  },
+  {
+    title: 'Video Editing',
+    subtitle: 'High-End Production',
+    description: 'Professional video editing that transforms raw footage into polished, engaging content ready for any platform.',
+    image: 'https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?q=80&w=1200&auto=format&fit=crop',
+    color: 'from-[#f43f5e]/20 to-[#d946ef]/10'
+  },
+  {
+    title: 'Motion Design',
+    subtitle: 'Dynamic Animation',
+    description: 'Dynamic animations and motion graphics that bring your brand to life and captivate your audience.',
+    image: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=1200&auto=format&fit=crop',
+    color: 'from-[#10b981]/20 to-[#3b82f6]/10'
+  }
+]
+
 export default function Hero() {
   const containerRef = useRef<HTMLDivElement>(null)
   const logoContainerRef = useRef<HTMLDivElement>(null)
@@ -11,6 +42,8 @@ export default function Hero() {
   const heroSubtextRef = useRef<HTMLParagraphElement>(null)
   const teamRef = useRef<HTMLDivElement>(null)
   const aboutRef = useRef<HTMLDivElement>(null)
+  const deptsRef = useRef<HTMLDivElement>(null)
+  const deptCardsRef = useRef<HTMLDivElement[]>([])
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger)
@@ -125,6 +158,61 @@ export default function Hero() {
         }
       )
 
+      // 4.5 Department stacking — exact GSAP stack pattern (reference impl)
+      const stackSection = deptsRef.current?.querySelector('.dept-stack-section')
+      const stackCards = Array.from(
+        deptsRef.current?.querySelectorAll('.dept-card') || []
+      ) as HTMLElement[]
+
+      if (stackSection && stackCards.length > 0) {
+        // Initial deck state — stacked with depth offsets
+        stackCards.forEach((card, i) => {
+          gsap.set(card, {
+            y: i * 18,
+            scale: 1 - i * 0.04,
+            zIndex: stackCards.length - i,
+          })
+        })
+
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: stackSection,
+            start: 'top top',
+            end: `+=${stackCards.length * 900}`,
+            scrub: 1,
+            pin: true,
+          },
+        })
+
+        stackCards.forEach((card, i) => {
+          if (i === stackCards.length - 1) return
+
+          // Current card flies off
+          tl.to(card, {
+            y: -900,
+            scale: 0.85,
+            rotation: -6,
+            opacity: 0,
+            duration: 1,
+            ease: 'none',
+          })
+
+          // Remaining cards advance one step forward
+          for (let j = i + 1; j < stackCards.length; j++) {
+            tl.to(
+              stackCards[j],
+              {
+                y: (j - i - 1) * 18,
+                scale: 1 - (j - i - 1) * 0.04,
+                duration: 1,
+                ease: 'none',
+              },
+              '<'
+            )
+          }
+        })
+      }
+
       // 5. Team Section Card animations
       const teamCards = gsap.utils.toArray('.team-card')
       gsap.fromTo(
@@ -179,16 +267,16 @@ export default function Hero() {
 
   return (
     <div ref={containerRef} className="relative w-full bg-[#050507] text-white overflow-hidden">
-      
+
       {/* Grid Overlay background */}
       <div className="fixed inset-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:4.5rem_4.5rem] pointer-events-none z-0"></div>
-      
+
       {/* 1. Hero Section */}
       <section className="relative z-10 w-full min-h-[85vh] flex flex-col items-center justify-center pt-32 pb-20 px-6">
         <span className="text-[#00ffff] font-semibold tracking-[0.25em] uppercase mb-8 text-xs md:text-sm tracking-[0.3em] opacity-90 font-heading">
           Brand · Digital · Campaigns
         </span>
-        
+
         <div className="relative w-full flex flex-col items-center mb-8">
           <h1 ref={heroTextRef} className="text-[clamp(4.2rem,17vw,240px)] font-black uppercase leading-[0.82] tracking-tighter text-center mix-blend-difference z-20 font-heading select-none">
             <span className="block overflow-hidden h-fit">
@@ -201,7 +289,7 @@ export default function Hero() {
 
           {/* Interlocking NG Logo in Center */}
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 pointer-events-auto mix-blend-screen">
-            <div 
+            <div
               ref={logoContainerRef}
               onMouseEnter={handleLogoMouseEnter}
               onMouseLeave={handleLogoMouseLeave}
@@ -233,13 +321,13 @@ export default function Hero() {
         </p>
 
         <div className="mt-10 flex flex-col sm:flex-row gap-5 z-20">
-          <button 
+          <button
             onClick={scrollToWork}
             className="cta-btn px-8 py-4 rounded-full bg-gradient-to-r from-[#00ffff] to-[#0088ff] text-black font-bold uppercase tracking-wider text-xs shadow-[0_0_20px_rgba(0,255,255,0.3)] hover:shadow-[0_0_35px_rgba(0,255,255,0.6)] hover:scale-105 transition-all duration-300 cursor-pointer"
           >
             See Our Work
           </button>
-          <button 
+          <button
             onClick={scrollToServices}
             className="cta-btn px-8 py-4 rounded-full border border-white/10 text-white font-bold uppercase tracking-wider text-xs hover:bg-white/5 hover:border-[#00ffff]/30 transition-all duration-300 backdrop-blur-md cursor-pointer"
           >
@@ -276,9 +364,9 @@ export default function Hero() {
 
             {/* The actual banner image */}
             <div className="relative w-full overflow-hidden aspect-[16/7]">
-              <img 
-                src="/Banner/Banner/Banner Ai.png" 
-                alt="AI-Powered Packaging Design Masterclass — Batch 4 by Mujibur Rahman, CEO NanoGraphic" 
+              <img
+                src="/Banner/Banner/Banner Ai.png"
+                alt="AI-Powered Packaging Design Masterclass — Batch 4 by Mujibur Rahman, CEO NanoGraphic"
                 className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-[1.012]"
               />
               {/* Bottom gradient fade to integrate with page */}
@@ -333,46 +421,87 @@ export default function Hero() {
           </p>
         </div>
 
-        {/* Square & Aesthetic Grid Layout */}
-        <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 pt-12">
-          <div className="flex flex-col gap-4">
-            <figure 
-              className="about-img-box w-full aspect-[4/3] overflow-hidden border border-white/10 bg-[#0c0c0f] p-1 shadow-2xl transition-all duration-500 hover:border-[#00ffff]/60 hover:scale-[1.01] group cursor-pointer"
-            >
-              <div className="w-full h-full overflow-hidden relative">
-                <div className="absolute inset-0 bg-[#00ffff]/5 z-10 mix-blend-overlay opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                <img 
-                  src="/docx_image5.png" 
-                  alt="Factory production press machinery" 
-                  className="object-cover w-full h-full transition-transform duration-700 ease-out filter brightness-75 group-hover:brightness-95 group-hover:scale-105"
-                />
+        {/* Center-aligned single layout after removing the second column */}
+     
+      </section>
+
+      {/* 2.5 Departments Stacking Section */}
+      <section ref={deptsRef} className="relative z-10 w-full bg-[#050507] text-white" id="what-we-do">
+
+        {/* Section Header — scrolls normally before the pinned stack */}
+        <div className="w-full shrink-0 flex flex-col items-center justify-center px-6 pt-20 pb-10 md:pt-28 md:pb-14 text-center">
+          <span className="text-[#00ffff] text-xs font-semibold tracking-[0.25em] uppercase font-heading block">
+            Capabilities
+          </span>
+          <h2 className="mt-4 text-4xl md:text-6xl font-bold uppercase text-white tracking-tight font-heading">
+            What we do
+          </h2>
+          <p className="mt-5 max-w-2xl text-sm md:text-lg font-light text-white/70 leading-relaxed">
+            NanoGraphic helps brands show up with clarity—crafting identity systems, digital experiences,
+            and campaign creative that feel bold, cohesive, and ready for the real world.
+          </p>
+        </div>
+
+        {/* Stack section — GSAP pins this and drives all card animations */}
+        <div className="dept-stack-section">
+          <div className="w-full h-screen flex items-center justify-center overflow-hidden relative">
+            {departments.map((dept, index) => (
+              <div
+                key={index}
+                className="dept-card absolute"
+                style={{ width: 'min(92vw, 860px)', height: 'min(78vh, 600px)' }}
+              >
+                {/* Card */}
+                <div className="relative w-full h-full rounded-[2rem] md:rounded-[2.5rem] overflow-hidden bg-[#0b0b0d] shadow-[0_20px_80px_rgba(0,0,0,0.85)] border border-white/[0.06]">
+
+                  {/* Accent bar */}
+                  <div className={`absolute top-0 left-0 right-0 h-[2px] z-20 bg-gradient-to-r ${dept.color}`} />
+
+                  {/* Background image */}
+                  <img
+                    src={dept.image}
+                    alt={dept.title}
+                    className="absolute inset-0 w-full h-full object-cover"
+                  />
+
+                  {/* Gradient overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/55 to-black/10" />
+
+                  {/* Card counter */}
+                  <div className="absolute top-6 left-7 z-20">
+                    <span className="text-[10px] font-bold tracking-[0.35em] uppercase text-white/30 font-heading">
+                      {String(index + 1).padStart(2, '0')} / {String(departments.length).padStart(2, '0')}
+                    </span>
+                  </div>
+
+                  {/* Content */}
+                  <div className="absolute bottom-0 left-0 right-0 p-8 md:p-10 text-center z-10">
+                    <p className="text-[#00ffff] text-[10px] font-bold tracking-[0.3em] uppercase font-heading mb-2">
+                      {dept.subtitle}
+                    </p>
+                    <h3 className="font-heading text-3xl md:text-5xl font-black text-white uppercase tracking-tight leading-none mb-3">
+                      {dept.title}
+                    </h3>
+                    <p className="text-white/65 text-sm md:text-base font-light max-w-md mx-auto leading-relaxed mb-6">
+                      {dept.description}
+                    </p>
+                    <button
+                      onClick={() => {
+                        const el = document.getElementById('contact')
+                        if (el) el.scrollIntoView({ behavior: 'smooth' })
+                      }}
+                      className="px-7 py-3.5 rounded-full bg-[#00ffff] text-black font-heading font-bold text-xs uppercase tracking-wide shadow-[0_0_20px_rgba(0,255,255,0.3)] hover:shadow-[0_0_35px_rgba(0,255,255,0.6)] hover:scale-105 transition-all cursor-pointer active:scale-95"
+                    >
+                      View Details
+                    </button>
+                  </div>
+
+                </div>
               </div>
-            </figure>
-            <div className="flex justify-between items-center px-1">
-              <span className="text-[10px] font-bold text-white/40 tracking-wider uppercase">01 / MANUFACTURING</span>
-              <span className="text-xs font-semibold text-white/70">Worldly Rotogravure Press</span>
-            </div>
-          </div>
-          
-          <div className="flex flex-col gap-4 md:mt-12">
-            <figure 
-              className="about-img-box w-full aspect-[4/3] overflow-hidden border border-white/10 bg-[#0c0c0f] p-1 shadow-2xl transition-all duration-500 hover:border-[#00ffff]/60 hover:scale-[1.01] group cursor-pointer"
-            >
-              <div className="w-full h-full overflow-hidden relative">
-                <div className="absolute inset-0 bg-[#00ffff]/5 z-10 mix-blend-overlay opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                <img 
-                  src="/docx_image1.png" 
-                  alt="Creative team board meeting" 
-                  className="object-cover w-full h-full transition-transform duration-700 ease-out filter brightness-75 group-hover:brightness-95 group-hover:scale-105"
-                />
-              </div>
-            </figure>
-            <div className="flex justify-between items-center px-1">
-              <span className="text-[10px] font-bold text-white/40 tracking-wider uppercase">02 / CONSULTATION</span>
-              <span className="text-xs font-semibold text-white/70">Client Boardroom Collaboration</span>
-            </div>
+            ))}
           </div>
         </div>
+
       </section>
 
       {/* 3. Team Section */}
@@ -400,14 +529,14 @@ export default function Hero() {
               { name: "Emma Watson", role: "Product Engineer", img: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=500&auto=format&fit=crop" }
             ].map((member, idx) => (
               <div key={idx} className="team-card group cursor-pointer text-center">
-                <div 
+                <div
                   className="relative w-full aspect-[4/5] overflow-hidden bg-[#111] mb-6 p-1 border border-white/5 shadow-xl transition-all duration-500 group-hover:border-[#00ffff]/40 group-hover:scale-[1.02]"
                 >
                   <div className="absolute inset-0 bg-[#00ffff]/10 mix-blend-overlay opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10"></div>
-                  <img 
-                    src={member.img} 
-                    alt={member.name} 
-                    className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" 
+                  <img
+                    src={member.img}
+                    alt={member.name}
+                    className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
                   />
                 </div>
                 <h3 className="text-lg font-bold text-white uppercase tracking-wide group-hover:text-[#00ffff] transition-colors font-heading">

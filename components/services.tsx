@@ -53,12 +53,33 @@ const services = [
 export default function Services() {
   const containerRef = useRef<HTMLDivElement>(null)
   const cardsRef = useRef<HTMLDivElement[]>([])
+  const titleRef = useRef<HTMLHeadingElement>(null)
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger)
     if (!containerRef.current) return
 
     const ctx = gsap.context(() => {
+      // Animation for the "Premium Design Solutions" heading lines
+      const titleWords = titleRef.current?.querySelectorAll('.services-title-word')
+      if (titleWords) {
+        gsap.fromTo(
+          titleWords,
+          { y: '100%' },
+          {
+            scrollTrigger: {
+              trigger: titleRef.current,
+              start: 'top 85%',
+              toggleActions: 'play none none none',
+            },
+            y: '0%',
+            duration: 1.2,
+            stagger: 0.2,
+            ease: 'power3.out'
+          }
+        )
+      }
+
       // Stacking card animation: shrink/fade cards as they are covered by subsequent ones
       cardsRef.current.forEach((card, index) => {
         if (index === services.length - 1) return // skip last card
@@ -139,11 +160,14 @@ export default function Services() {
           <span className="text-[#00ffff] text-xs font-semibold tracking-[0.25em] mb-4 uppercase block font-heading">
             WHAT WE DO
           </span>
-          <h2 className="text-5xl lg:text-7xl font-black leading-none uppercase tracking-tighter font-heading">
-            <span className="text-white">Premium Design</span>
-            <br />
-            <span className="text-gradient bg-clip-text text-transparent bg-gradient-to-r from-[#00ffff] to-[#0088ff] font-extrabold">
-              Solutions
+          <h2 ref={titleRef} className="text-5xl lg:text-7xl font-black leading-none uppercase tracking-tighter font-heading">
+            <span className="block overflow-hidden h-fit">
+              <span className="inline-block text-white services-title-word">Premium Design</span>
+            </span>
+            <span className="block overflow-hidden h-fit mt-2">
+              <span className="inline-block text-gradient bg-clip-text text-transparent bg-gradient-to-r from-[#00ffff] to-[#0088ff] font-extrabold services-title-word">
+                Solutions
+              </span>
             </span>
           </h2>
           <p className="text-sm md:text-base text-white/50 max-w-xl mx-auto font-light leading-relaxed mt-6">
