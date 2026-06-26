@@ -190,9 +190,9 @@ export default function Services() {
                 className="w-full min-h-[50vh] md:h-[70vh] md:sticky flex items-center justify-center py-4 md:py-8"
                 style={{ top: `${topOffset}px`, zIndex: index + 10 }}
               >
-                <div className={`card-inner relative w-full h-full rounded-none bg-[#0b0b0d] border border-white/5 overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.6)] flex flex-col ${
+                 <div className={`card-inner relative w-full h-full rounded-none bg-[#0b0b0d] border border-white/5 overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.6)] flex flex-col ${
                   index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
-                } items-stretch gap-6 md:gap-10 p-6 md:p-10 transition-colors duration-500 hover:border-[#00ffff]/20 group`}>
+                } items-center gap-6 md:gap-10 p-6 md:p-10 transition-colors duration-500 hover:border-[#00ffff]/20 group`}>
 
                   {/* Subtle corner card glow */}
                   <div className={`absolute -right-20 -bottom-20 w-80 h-80 rounded-none bg-gradient-to-br ${service.color} blur-[80px] opacity-60 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none`}></div>
@@ -226,13 +226,13 @@ export default function Services() {
                     </div>
                   </div>
 
-                  {/* Right full-bleed media column */}
-                  <div className="card-media flex-1 relative rounded-none overflow-hidden min-h-[220px] md:min-h-0 bg-[#060608]">
-                    <div className="absolute inset-0 bg-[#050507]/40 z-10 transition-opacity duration-500 group-hover:opacity-10"></div>
+                  {/* Right full-bleed media column with native 1499:1049 aspect ratio */}
+                  <div className="card-media flex-1 aspect-[1499/1049] relative rounded-none overflow-hidden bg-[#060608] w-full">
+                    <div className="absolute inset-0 bg-[#050507]/25 z-10 transition-opacity duration-500 group-hover:opacity-10 pointer-events-none"></div>
                     <img
                       src={service.image}
                       alt={service.title}
-                      className="absolute inset-0 w-full h-full object-cover scale-[1.03] group-hover:scale-100 transition-transform duration-700 ease-out"
+                      className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-102"
                     />
                   </div>
 

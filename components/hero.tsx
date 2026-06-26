@@ -367,7 +367,7 @@ export default function Hero() {
               <img
                 src="/Banner/Banner/Banner Ai.png"
                 alt="AI-Powered Packaging Design Masterclass — Batch 4 by Mujibur Rahman, CEO NanoGraphic"
-                className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-[1.012]"
+                className="w-full h-full object-contain transition-transform duration-700 group-hover:scale-[1.012]"
               />
               {/* Bottom gradient fade to integrate with page */}
               <div className="absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-t from-[#050507] to-transparent z-10"></div>
@@ -448,8 +448,7 @@ export default function Hero() {
             {departments.map((dept, index) => (
               <div
                 key={index}
-                className="dept-card absolute"
-                style={{ width: 'min(92vw, 860px)', height: 'min(78vh, 600px)' }}
+                className="dept-card absolute w-full max-w-5xl h-[75vh] md:h-[85vh] px-4 md:px-0"
               >
                 {/* Card */}
                 <div className="relative w-full h-full rounded-[2rem] md:rounded-[2.5rem] overflow-hidden bg-[#0b0b0d] shadow-[0_20px_80px_rgba(0,0,0,0.85)] border border-white/[0.06]">
@@ -457,12 +456,14 @@ export default function Hero() {
                   {/* Accent bar */}
                   <div className={`absolute top-0 left-0 right-0 h-[2px] z-20 bg-gradient-to-r ${dept.color}`} />
 
-                  {/* Background image */}
-                  <img
-                    src={dept.image}
-                    alt={dept.title}
-                    className="absolute inset-0 w-full h-full object-cover"
-                  />
+                  {/* Background image wrapper and image */}
+                  <div className="w-full h-full overflow-hidden transition-transform duration-500 ease-out group-hover:scale-105">
+                    <img
+                      src={dept.image}
+                      alt={dept.title}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
 
                   {/* Gradient overlay */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/55 to-black/10" />
@@ -530,7 +531,7 @@ export default function Hero() {
             ].map((member, idx) => (
               <div key={idx} className="team-card group cursor-pointer text-center">
                 <div
-                  className="relative w-full aspect-[4/5] overflow-hidden bg-[#111] mb-6 p-1 border border-white/5 shadow-xl transition-all duration-500 group-hover:border-[#00ffff]/40 group-hover:scale-[1.02]"
+                  className="relative w-full aspect-square overflow-hidden bg-[#111] mb-6 p-1 border border-white/5 shadow-xl transition-all duration-500 group-hover:border-[#00ffff]/40 group-hover:scale-[1.02]"
                 >
                   <div className="absolute inset-0 bg-[#00ffff]/10 mix-blend-overlay opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10"></div>
                   <img

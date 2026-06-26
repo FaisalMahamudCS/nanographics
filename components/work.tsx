@@ -21,7 +21,7 @@ const projects = [
     title: 'Poster Make',
     description: 'Industrial Print Campaigns',
     scope: 'Marketing collateral, factory process posters, and showroom branding.',
-    image: '/Banner/Banner/Design and Print Support2.png',
+    image: '/Banner/Banner/Printing Support.png',
   },
   {
     title: 'Logo Make',
@@ -199,7 +199,7 @@ export default function Work() {
           {projects.map((project, index) => (
             <div
               key={index}
-              className="snap-center shrink-0 w-[85%] aspect-[4/3] rounded-none overflow-hidden bg-[#0c0c0f] border border-white/5 relative"
+              className="snap-center shrink-0 w-[85%] aspect-[1500/1050] rounded-none overflow-hidden bg-[#0c0c0f] border border-white/5 relative"
             >
               <div className="absolute inset-0 bg-[#050507]/30 z-10" />
               <img
@@ -273,12 +273,12 @@ export default function Work() {
 
             <div ref={productsRef} className="grid md:grid-cols-2 gap-8">
               <div className="product-card border border-white/10 bg-[#0c0c0f] hover:border-[#00ffff]/40 transition-all duration-500 group p-4 rounded-none shadow-md">
-                <div className="h-64 relative overflow-hidden">
-                  <div className="absolute inset-0 bg-[#050507]/20 z-10" />
+                <div className="aspect-[3117/1402] relative overflow-hidden bg-[#050507]">
+                  <div className="absolute inset-0 bg-[#050507]/20 z-10 pointer-events-none" />
                   <img
-                    src="/Banner/Banner/Packaging Design.png"
+                    src="/Banner/Banner/Packaging Design2.png"
                     alt="Packaging Design Film"
-                    className="w-full h-full object-cover opacity-80 group-hover:scale-102 transition-all duration-700"
+                    className="w-full h-full object-cover opacity-85 group-hover:scale-102 transition-all duration-700"
                   />
                 </div>
                 <div className="pt-6 px-2">
@@ -288,12 +288,12 @@ export default function Work() {
               </div>
 
               <div className="product-card border border-white/10 bg-[#0c0c0f] hover:border-[#00ffff]/40 transition-all duration-500 group p-4 rounded-none shadow-md">
-                <div className="h-64 relative overflow-hidden">
-                  <div className="absolute inset-0 bg-[#050507]/20 z-10" />
+                <div className="aspect-[3117/1402] relative overflow-hidden bg-[#050507]">
+                  <div className="absolute inset-0 bg-[#050507]/20 z-10 pointer-events-none" />
                   <img
                     src="/Banner/Banner/Design and Print Support2.png"
                     alt="Design and Print cylinders"
-                    className="w-full h-full object-cover opacity-80 group-hover:scale-102 transition-all duration-700"
+                    className="w-full h-full object-cover opacity-85 group-hover:scale-102 transition-all duration-700"
                   />
                 </div>
                 <div className="pt-6 px-2">
