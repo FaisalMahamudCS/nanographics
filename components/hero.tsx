@@ -277,7 +277,7 @@ export default function Hero() {
             {/* The actual banner image */}
             <div className="relative w-full overflow-hidden aspect-[16/7]">
               <img 
-                src="/Banner Ai.png" 
+                src="/Banner/Banner/Banner Ai.png" 
                 alt="AI-Powered Packaging Design Masterclass — Batch 4 by Mujibur Rahman, CEO NanoGraphic" 
                 className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-[1.012]"
               />

@@ -9,25 +9,25 @@ const projects = [
     title: 'Food Company',
     description: 'Brand Identity & Packaging',
     scope: 'Printed flexible packaging rolls for snacks, biscuits, and beverages.',
-    image: '/Print1.png',
+    image: '/Banner/Banner/Food Company.jpeg',
   },
   {
     title: 'Oil Company',
     description: 'Corporate cylinders & film',
     scope: 'High strength, clarity-optimized rotogravure cylinders & film packaging.',
-    image: '/Print2.png',
+    image: '/Banner/Banner/Oil Company.jpeg',
   },
   {
     title: 'Poster Make',
     description: 'Industrial Print Campaigns',
     scope: 'Marketing collateral, factory process posters, and showroom branding.',
-    image: '/Printing.png',
+    image: '/Banner/Banner/Design and Print Support2.png',
   },
   {
     title: 'Logo Make',
     description: 'Vector Brand Identity',
     scope: 'Precision vector logo marks, type systems, and complete branding manuals.',
-    image: '/nano-graphic-logo.svg',
+    image: '/Banner/Banner/Branding Logo.png',
   }
 ]
 
@@ -235,8 +235,8 @@ export default function Work() {
             {[
               { title: 'Export Company', desc: 'Global shipping standards & compliance', img: '/port.png' },
               { title: 'Local Company', desc: 'Regional supply chains & retail distribution', img: '/file_000000001e2c71fab1ca1db4e6b1949f.png' },
-              { title: 'Oil Company', desc: 'Industrial lubricants & durability labels', img: '/Print2.png' },
-              { title: 'Food Company', desc: 'FDA-approved printed packaging rolls', img: '/Print1.png' }
+              { title: 'Oil Company', desc: 'Industrial lubricants & durability labels', img: '/Banner/Banner/Oil Company.jpeg' },
+              { title: 'Food Company', desc: 'FDA-approved printed packaging rolls', img: '/Banner/Banner/Food Company.jpeg' }
             ].map((client, idx) => (
               <div key={idx} className="working-card group relative overflow-hidden border border-white/10 hover:border-[#00ffff]/40 transition-all duration-500 bg-[#0c0c0f] min-h-[160px] flex flex-col justify-end p-6 rounded-none shadow-md">
                 {/* Background Image Layer */}
@@ -265,7 +265,7 @@ export default function Work() {
               {/* Background Image */}
               <div className="absolute inset-0 z-0">
                 <img 
-                  src="/Print2.png" 
+                  src="/Banner/Banner/Oil Company.jpeg" 
                   alt="Oil Company Branding Background" 
                   className="w-full h-full object-cover opacity-25 group-hover:opacity-45 group-hover:scale-105 transition-all duration-700 filter brightness-50"
                 />
@@ -296,7 +296,7 @@ export default function Work() {
               {/* Background Image */}
               <div className="absolute inset-0 z-0">
                 <img 
-                  src="/Print1.png" 
+                  src="/Banner/Banner/Food Company.jpeg" 
                   alt="Food Company Packaging Background" 
                   className="w-full h-full object-cover opacity-25 group-hover:opacity-45 group-hover:scale-105 transition-all duration-700 filter brightness-50"
                 />
@@ -338,7 +338,7 @@ export default function Work() {
                 <div className="h-64 relative overflow-hidden">
                   <div className="absolute inset-0 bg-[#050507]/20 z-10" />
                   <img 
-                    src="/Print1.png" 
+                    src="/Banner/Banner/Packaging Design.png" 
                     alt="Packaging Design Film" 
                     className="w-full h-full object-cover opacity-80 group-hover:scale-102 transition-all duration-700" 
                   />
@@ -353,7 +353,7 @@ export default function Work() {
                 <div className="h-64 relative overflow-hidden">
                   <div className="absolute inset-0 bg-[#050507]/20 z-10" />
                   <img 
-                    src="/Print2.png" 
+                    src="/Banner/Banner/Design and Print Support2.png" 
                     alt="Design and Print cylinders" 
                     className="w-full h-full object-cover opacity-80 group-hover:scale-102 transition-all duration-700" 
                   />

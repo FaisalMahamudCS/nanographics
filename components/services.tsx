@@ -8,28 +8,28 @@ const services = [
   {
     title: 'Branding Design',
     description: 'Logos, visual systems, tone of voice, and brand guidelines that give your business a clear, confident presence across every touchpoint.',
-    image: '/docx_image1.png',
+    image: '/Banner/Banner/Branding Design.png',
     icon: 'M 30 60 L 100 20 L 170 60 L 170 140 L 100 180 L 30 140 Z',
     color: 'from-[#00ffff]/20 to-[#0088ff]/10'
   },
   {
     title: 'Packaging Design',
     description: 'Premium packaging design systems, layout configurations, and printed mockups tailored for high-quality retail presence.',
-    image: '/Printing.png',
+    image: '/Banner/Banner/Packaging Design.png',
     icon: 'M 40 40 H 160 V 160 H 40 Z M 40 80 H 160',
     color: 'from-[#00ffff]/25 to-[#0044ff]/10'
   },
   {
     title: 'Video Editing',
     description: 'Dynamic animations, high-end video editing, and motion graphics that bring your industrial or corporate narrative to life.',
-    image: 'https://images.unsplash.com/photo-1558655146-d09347e92766?q=80&w=800&auto=format&fit=crop',
+    image: '/Banner/Banner/Video Editing.png',
     icon: 'M 60 40 L 160 100 L 60 160 Z',
     color: 'from-[#00ffff]/20 to-[#00ccff]/10'
   },
   {
     title: 'Printing Support',
     description: 'High-end printing solutions and technical pre-press setup that ensure your layouts print perfectly on raw packaging film.',
-    image: 'Print2.png',
+    image: '/Banner/Banner/Printing Support.png',
     icon: 'M 40 160 H 160 V 80 H 40 Z M 60 40 H 140 V 80 H 60 Z',
     color: 'from-[#00ffff]/25 to-[#0022ff]/10'
   },
@@ -37,14 +37,14 @@ const services = [
   {
     title: 'Cylinder Make',
     description: 'Precision cylinder making, 3D engraving setup, and industrial rotogravure modeling for high strength print production.',
-    image: '/Print2.png',
+    image: '/Banner/Banner/Cylinder Make.png',
     icon: 'M 40 60 C 40 40 160 40 160 60 V 140 C 160 160 40 160 40 140 Z M 40 60 C 40 80 160 80 160 60',
     color: 'from-[#00ffff]/30 to-[#0066ff]/10'
   },
   {
     title: 'AI Powered Website &Custom Software Development ',
     description: 'Modern, responsive website designs and seamless web development blending performance, interaction, and aesthetics.',
-    image: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=800&auto=format&fit=crop',
+    image: '/Banner/Banner/AI Powered Website &Custom Software Development.png',
     icon: 'M 20 60 H 180 V 140 H 20 Z M 20 60 L 100 100 L 180 60',
     color: 'from-[#00ffff]/20 to-[#0088ff]/10'
   },
