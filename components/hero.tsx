@@ -3,6 +3,7 @@
 import { useEffect, useRef } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { motion } from 'framer-motion'
 
 const departments = [
   {
@@ -272,10 +273,36 @@ export default function Hero() {
       <div className="fixed inset-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:4.5rem_4.5rem] pointer-events-none z-0"></div>
 
       {/* 1. Hero Section */}
-      <section className="relative z-10 w-full min-h-[85vh] flex flex-col items-center justify-center pt-32 pb-20 px-6">
-        <span className="text-[#00ffff] font-semibold tracking-[0.25em] uppercase mb-8 text-xs md:text-sm tracking-[0.3em] opacity-90 font-heading">
-          Brand · Digital · Campaigns
-        </span>
+      <section className="relative z-10 w-full min-h-[85vh] flex flex-col items-center justify-center pt-32 pb-20 px-6 group">
+        <div className="relative w-full max-w-5xl mx-auto mb-8 text-[#00ffff] font-semibold tracking-[0.25em] uppercase text-xs md:text-sm tracking-[0.3em] opacity-90 font-heading">
+          <span className="block mb-4">Brand · Digital · Campaigns</span>
+          <div className="relative h-12 w-full overflow-visible pointer-events-none">
+            {/* AI Icon — floats top → bottom */}
+            <motion.img
+              src="/Icon/Ai Icon.svg"
+              alt="AI Icon"
+              className="absolute left-[15%] top-0 h-10 w-10 md:h-14 md:w-14"
+              animate={{ y: [0, 30, 0] }}
+              transition={{
+                duration: 4,
+                ease: 'easeInOut',
+                repeat: Infinity,
+              }}
+            />
+            {/* Ps Icon — floats left → right */}
+            <motion.img
+              src="/Icon/Ps Icon.svg"
+              alt="Photoshop Icon"
+              className="absolute right-[15%] top-0 h-10 w-10 md:h-14 md:w-14"
+              animate={{ x: [0, 30, 0] }}
+              transition={{
+                duration: 5,
+                ease: 'easeInOut',
+                repeat: Infinity,
+              }}
+            />
+          </div>
+        </div>
 
         <div className="relative w-full flex flex-col items-center mb-8">
           <h1 ref={heroTextRef} className="text-[clamp(4.2rem,17vw,240px)] font-black uppercase leading-[0.82] tracking-tighter text-center mix-blend-difference z-20 font-heading select-none">
@@ -422,7 +449,7 @@ export default function Hero() {
         </div>
 
         {/* Center-aligned single layout after removing the second column */}
-     
+
       </section>
 
       {/* 2.5 Departments Stacking Section */}
