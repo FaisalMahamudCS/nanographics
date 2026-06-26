@@ -549,22 +549,34 @@ export default function Hero() {
             </p>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 lg:gap-10">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-10 max-w-4xl mx-auto">
             {[
-              { name: "Alex Rivera", role: "Creative Director", img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=500&auto=format&fit=crop" },
-              { name: "Sarah Chen", role: "Lead Designer", img: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=500&auto=format&fit=crop" },
-              { name: "David Kim", role: "Motion Specialist", img: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=500&auto=format&fit=crop" },
-              { name: "Emma Watson", role: "Product Engineer", img: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=500&auto=format&fit=crop" }
+              {
+                name: "Mujib Ur Rahman",
+                role: "Graphics Designer",
+                img: "/team/mujob.jpg"
+              },
+              {
+                name: "Umar Faruq Riad",
+                role: "Video Editor · Sound Compressor",
+                img: "/team/omar.jpg"
+              },
+
+              {
+                name: "Faisal Mahamud",
+                role: "Full Stack Software Engineer",
+                img: "/team/faisal.png"
+              },
             ].map((member, idx) => (
               <div key={idx} className="team-card group cursor-pointer text-center">
                 <div
-                  className="relative w-full aspect-square overflow-hidden bg-[#111] mb-6 p-1 border border-white/5 shadow-xl transition-all duration-500 group-hover:border-[#00ffff]/40 group-hover:scale-[1.02]"
+                  className="relative w-full aspect-square overflow-hidden bg-[#111] mb-6 p-1 border border-white/5 shadow-xl transition-all duration-500 group-hover:border-[#00ffff]/40 group-hover:scale-[1.02] rounded-[10px]"
                 >
-                  <div className="absolute inset-0 bg-[#00ffff]/10 mix-blend-overlay opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10"></div>
+                  <div className="absolute inset-0 bg-[#00ffff]/10 mix-blend-overlay opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10 rounded-[10px]"></div>
                   <img
                     src={member.img}
                     alt={member.name}
-                    className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
+                    className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700 rounded-[9px]"
                   />
                 </div>
                 <h3 className="text-lg font-bold text-white uppercase tracking-wide group-hover:text-[#00ffff] transition-colors font-heading">
@@ -576,6 +588,7 @@ export default function Hero() {
               </div>
             ))}
           </div>
+
         </div>
       </section>
     </div>

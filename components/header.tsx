@@ -2,6 +2,7 @@
 
 import React, { useEffect, useRef, useState } from 'react'
 import gsap from 'gsap'
+import Link from 'next/link'
 
 interface HeaderProps {
   activeSection: string
@@ -39,7 +40,6 @@ export default function Header({ activeSection, setActiveSection }: HeaderProps)
   const navItems = [
     { label: 'Home', id: 'home' },
     { label: 'Work', id: 'work' },
-    { label: 'Real Projects', id: 'real-projects' },
     { label: 'Services', id: 'services' },
     { label: 'Registration', id: 'registration' },
     { label: 'Contact', id: 'contact' },
@@ -129,6 +129,13 @@ export default function Header({ activeSection, setActiveSection }: HeaderProps)
                 {item.label}
               </button>
             ))}
+            {/* Package Course — special highlighted link */}
+            <Link
+              href="/package-course"
+              className="text-xs font-bold uppercase tracking-widest px-4 py-2 rounded-full border border-[#00ffff]/60 text-[#00ffff] hover:bg-[#00ffff] hover:text-black shadow-[0_0_12px_rgba(0,255,255,0.2)] hover:shadow-[0_0_20px_rgba(0,255,255,0.5)] transition-all duration-300 ml-1 whitespace-nowrap"
+            >
+              📦 Package Course
+            </Link>
           </div>
         </nav>
       </div>
@@ -184,6 +191,12 @@ export default function Header({ activeSection, setActiveSection }: HeaderProps)
                 {item.label}
               </button>
             ))}
+            <Link
+              href="/package-course"
+              className="w-full text-center text-sm font-bold uppercase tracking-widest py-3.5 rounded-full border border-[#00ffff]/60 text-[#00ffff] hover:bg-[#00ffff] hover:text-black transition-all cursor-pointer"
+            >
+              📦 Package Course
+            </Link>
           </div>
         )}
       </div>
