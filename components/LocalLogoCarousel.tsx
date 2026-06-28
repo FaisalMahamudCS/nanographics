@@ -38,6 +38,7 @@ const logos = [
   'Local Company logo-33.svg',
   'Local Company logo-34.svg',
   'Local Company logo-35.svg',
+  'Brand Logo.svg',
 ]
 
 // Duplicate the array so the scroll can loop seamlessly
@@ -52,7 +53,7 @@ export const LocalLogoCarousel: React.FC = () => {
       x: {
         repeat: Infinity,
         repeatType: 'loop',
-        duration: 30,
+        duration: 60,
         ease: 'linear',
       },
     },
@@ -77,7 +78,7 @@ export const LocalLogoCarousel: React.FC = () => {
             key={i}
             whileHover={{ rotate: 360 }}
             transition={{ duration: 0.8, ease: 'easeInOut' }}
-            className="flex-shrink-0 w-48 h-48 flex items-center justify-center rounded-full bg-[#111] shadow-[0_0_10px_rgba(0,255,255,0.2)]"
+            className="flex-shrink-0 w-48 h-48 flex items-center justify-center rounded-full bg-[#111] shadow-[0_0_20px_rgba(0,255,255,0.5)]"
           >
             <img
               src={`/Local Logo/${file}`}
