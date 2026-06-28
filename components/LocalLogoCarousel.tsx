@@ -76,7 +76,7 @@ export const LocalLogoCarousel: React.FC = () => {
         {duplicatedLogos.map((file, i) => (
           <motion.div
             key={i}
-            whileHover={{ rotate: 360 }}
+            whileHover={{ rotate: 360, scale: 1.05, filter: 'brightness(1.2)' }}
             transition={{ duration: 0.8, ease: 'easeInOut' }}
             className="flex-shrink-0 w-48 h-48 flex items-center justify-center rounded-full bg-[#111] shadow-[0_0_20px_rgba(0,255,255,0.5)]"
           >
