@@ -14,7 +14,7 @@ export default function Page() {
 
   useEffect(() => {
     const sections = ['home', 'work', 'real-projects', 'services', 'registration']
-    
+
     const observers = sections.map((id) => {
       const el = document.getElementById(id)
       if (!el) return null
@@ -28,10 +28,10 @@ export default function Page() {
             }
           })
         },
-        { 
-          threshold: 0.2, 
+        {
+          threshold: 0.2,
           // Offset to trigger when section enters the middle part of viewport
-          rootMargin: '-20% 0px -50% 0px' 
+          rootMargin: '-20% 0px -50% 0px'
         }
       )
 
@@ -51,24 +51,24 @@ export default function Page() {
   return (
     <div className="min-h-screen bg-[#050507] text-white overflow-x-hidden selection:bg-[#06b6d4] selection:text-black">
       <Header activeSection={activeSection} setActiveSection={setActiveSection} />
-      
+
       <main className="relative z-10 w-full">
         {/* Sections rendered in a single scrollable document */}
-        <LocalLogoCarousel />
         <div id="home" className="scroll-mt-20">
           <Hero />
         </div>
-        
+
         <div id="work" className="scroll-mt-20">
           <Work />
         </div>
-        
+
         <div id="services" className="scroll-mt-20">
           <Services />
         </div>
-        
+        <LocalLogoCarousel />
+
         <Testimonials />
-        
+
         <div id="registration" className="scroll-mt-20">
           <div id="contact" className="scroll-mt-20">
             <Contact />
