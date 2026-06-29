@@ -104,12 +104,14 @@ export default function PackageCoursePage() {
       </header>
 
       {/* HERO SECTION */}
-      <section className="relative z-10 min-h-[90vh] flex flex-col items-center justify-center px-6 pt-36 pb-20 text-center">
+      <section className="relative z-10 flex flex-col items-center px-6 pt-32 pb-16 text-center">
+
+        {/* Badge */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#00ffff]/10 border border-[#00ffff]/30 mb-8"
+          className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#00ffff]/10 border border-[#00ffff]/30 mb-6"
         >
           <Flame className="w-4 h-4 text-[#00ffff] animate-pulse" />
           <span className="text-[#00ffff] text-xs font-semibold tracking-wider uppercase font-heading">
@@ -117,13 +119,31 @@ export default function PackageCoursePage() {
           </span>
         </motion.div>
 
+        {/* Course Banner Image — primary hero visual */}
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.9, delay: 0.15 }}
+          className="w-full max-w-5xl mx-auto mb-10 relative"
+        >
+          <div className="absolute -inset-1 bg-gradient-to-r from-[#00ffff]/20 via-[#0088ff]/10 to-[#00ffff]/20 rounded-2xl blur-xl pointer-events-none" />
+          <div className="relative rounded-xl overflow-hidden border border-[#00ffff]/30 shadow-[0_0_80px_rgba(0,255,255,0.15)]">
+            <img
+              src="/docx_image1.png"
+              alt="Packaging Design Masterclass – Batch 4"
+              className="w-full h-auto object-cover"
+            />
+          </div>
+        </motion.div>
+
+        {/* Title */}
         <motion.h1
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.1 }}
-          className="text-[clamp(2.5rem,8vw,6.5rem)] font-black uppercase leading-[0.9] tracking-tighter mb-6 font-heading"
+          transition={{ duration: 0.8, delay: 0.3 }}
+          className="text-[clamp(2rem,6vw,5rem)] font-black uppercase leading-[0.9] tracking-tighter mb-5 font-heading"
         >
-          <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#00ffff] to-[#0088ff] drop-shadow-[0_0_30px_rgba(0,255,255,0.1)]">
+          <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#00ffff] to-[#0088ff]">
             Packaging Design
           </span>
           <br />
@@ -133,17 +153,18 @@ export default function PackageCoursePage() {
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.25 }}
-          className="max-w-2xl text-white/60 text-lg md:text-xl leading-relaxed mb-10 font-light"
+          transition={{ duration: 0.7, delay: 0.4 }}
+          className="max-w-2xl text-white/60 text-lg leading-relaxed mb-8 font-light"
         >
-          আপনি কি প্যাকেজিং ডিজাইন শিখে নিজের ক্যারিয়ার গড়তে চান? সম্পূর্ণ শুরু থেকে প্রেস-রেডি আউটপুট ফাইল তৈরির ইন্ডাস্ট্রিয়াল কাজের সব সিক্রেট নিয়ে সাজানো স্পেশাল কোর্স।
+          আপনি কি প্যাকেজিং ডিজাইন শিখে নিজের ক্যারিয়ার গড়তে চান? সম্পূর্ণ শুরু থেকে প্রেস-রেডি আউটপুট ফাইল তৈরির ইন্ডাস্ট্রিয়াল কাজের সব সিক্রেট নিয়ে সাজানো স্পেশাল কোর্স।
         </motion.p>
 
+        {/* CTA Buttons */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.35 }}
-          className="flex flex-col sm:flex-row gap-4 items-center mb-12"
+          transition={{ duration: 0.6, delay: 0.5 }}
+          className="flex flex-col sm:flex-row gap-4 items-center mb-10"
         >
           <a
             href="#register"
@@ -159,23 +180,26 @@ export default function PackageCoursePage() {
           </a>
         </motion.div>
 
+
+
         {/* Pricing Badge */}
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5, delay: 0.45 }}
-          className="inline-flex items-center gap-4 px-7 py-4 rounded-2xl border border-[#00ffff]/20 bg-[#07070a]/80 backdrop-blur-md shadow-2xl hover:border-[#00ffff]/40 transition-colors duration-300"
+          className="inline-flex items-center gap-5 px-8 py-4 border border-[#00ffff]/30 bg-gradient-to-r from-[#00ffff]/5 to-transparent backdrop-blur-md shadow-[0_0_20px_rgba(0,255,255,0.15)] hover:shadow-[0_0_30px_rgba(0,255,255,0.25)] hover:border-[#00ffff]/60 transition-all duration-300 rounded-full group"
         >
           <div className="flex flex-col text-left">
-            <span className="text-[#00ffff] text-3xl font-black font-heading leading-none">২০০০৳</span>
-            <span className="text-white/40 text-xs mt-1">Special Discount Fee</span>
+            <span className="text-[#00ffff] text-3xl font-black font-heading leading-none group-hover:scale-110 transition-transform origin-left">২০০০৳</span>
+            <span className="text-white/50 text-[10px] uppercase tracking-wider font-bold mt-1">Special Discount Fee</span>
           </div>
-          <div className="h-8 w-px bg-white/10" />
-          <p className="text-white/60 text-xs sm:text-sm text-left leading-snug font-medium">
-            সীমিত সিট! কোর্স শুরু হতে <br />আর অল্প কিছুদিন বাকি।
+          <div className="h-10 w-px bg-[#00ffff]/20" />
+          <p className="text-white/70 text-xs sm:text-sm text-left leading-snug font-medium">
+            <span className="text-white font-bold">সীমিত সিট!</span> কোর্স শুরু হতে <br />আর অল্প কিছুদিন বাকি।
           </p>
         </motion.div>
       </section>
+
 
       {/* COURSE DETAILS / FEATURES */}
       <section className="relative z-10 px-6 py-24 bg-[#07070a] border-y border-white/5">
