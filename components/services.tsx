@@ -226,13 +226,12 @@ export default function Services() {
                     </div>
                   </div>
 
-                  {/* Right full-bleed media column with native 1499:1049 aspect ratio */}
-                  <div className="card-media flex-1 aspect-[1499/1049] relative rounded-none overflow-hidden bg-[#060608] w-full">
-                    <div className="absolute inset-0 bg-[#050507]/25 z-10 transition-opacity duration-500 group-hover:opacity-10 pointer-events-none"></div>
+                  {/* Right full-bleed media column */}
+                  <div className="card-media flex-1 relative rounded-none overflow-hidden bg-[#060608] w-full flex items-center justify-center p-4">
                     <img
                       src={service.image}
                       alt={service.title}
-                      className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-102"
+                      className="w-full h-auto max-h-[50vh] object-contain transition-transform duration-700 ease-out group-hover:scale-[1.03]"
                     />
                   </div>
 

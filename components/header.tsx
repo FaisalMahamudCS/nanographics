@@ -18,14 +18,14 @@ export default function Header({ activeSection, setActiveSection }: HeaderProps)
     <svg ref={svgRef} className={className} viewBox="0 0 276.89 239.96" xmlns="http://www.w3.org/2000/svg">
       <defs>
         <linearGradient id="nanoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor="#00ffff"/>
-          <stop offset="100%" stopColor="#00cccc"/>
+          <stop offset="0%" stopColor="#00ffff" />
+          <stop offset="100%" stopColor="#00cccc" />
         </linearGradient>
         <filter id="glow">
-          <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+          <feGaussianBlur stdDeviation="3" result="coloredBlur" />
           <feMerge>
-            <feMergeNode in="coloredBlur"/>
-            <feMergeNode in="SourceGraphic"/>
+            <feMergeNode in="coloredBlur" />
+            <feMergeNode in="SourceGraphic" />
           </feMerge>
         </filter>
       </defs>
@@ -41,7 +41,6 @@ export default function Header({ activeSection, setActiveSection }: HeaderProps)
     { label: 'Home', id: 'home' },
     { label: 'Work', id: 'work' },
     { label: 'Services', id: 'services' },
-    { label: 'Registration', id: 'registration' },
     { label: 'Contact', id: 'contact' },
   ]
 
@@ -116,35 +115,39 @@ export default function Header({ activeSection, setActiveSection }: HeaderProps)
 
           {/* Navigation Links */}
           <div className="flex items-center gap-2 pl-3">
-            {navItems.slice(0, 3).map((item) => (
+            {navItems.slice(0, 2).map((item) => (
               <button
                 key={item.id}
                 onClick={() => handleNavClick(item.id)}
-                className={`text-xs font-semibold uppercase tracking-widest px-4 py-2 rounded-full transition-all duration-300 cursor-pointer ${
-                  activeSection === item.id
+                className={`text-xs font-semibold uppercase tracking-widest px-4 py-2 rounded-full transition-all duration-300 cursor-pointer ${activeSection === item.id
                     ? 'bg-[#00ffff] text-black shadow-[0_0_15px_rgba(0,255,255,0.4)]'
                     : 'text-white/60 hover:text-white hover:bg-white/5'
-                }`}
+                  }`}
               >
                 {item.label}
               </button>
             ))}
-            {/* Package Course — special highlighted link (before Registration) */}
+            {/* Package Course — special highlighted link */}
             <Link
               href="/package-course"
-              className="text-xs font-bold uppercase tracking-widest px-4 py-2 rounded-full border border-[#00ffff]/60 text-[#00ffff] hover:bg-[#00ffff] hover:text-black shadow-[0_0_12px_rgba(0,255,255,0.2)] hover:shadow-[0_0_20px_rgba(0,255,255,0.5)] transition-all duration-300 whitespace-nowrap"
+              className="text-xs font-bold uppercase tracking-widest px-4 py-2 rounded-full border border-[#00ffff]/60 text-[#00ffff] hover:bg-[#00ffff] hover:text-black shadow-[0_0_12px_rgba(0,255,255,0.2)] hover:shadow-[0_0_20px_rgba(0,255,255,0.5)] transition-all duration-300 ml-1 whitespace-nowrap"
             >
-             Course Details
+              Course Details
             </Link>
-            {navItems.slice(3).map((item) => (
+            <Link
+              href="/package-course#registration"
+              className="text-xs font-bold uppercase tracking-widest px-4 py-2 rounded-full border border-[#00ffff]/60 text-[#00ffff] hover:bg-[#00ffff] hover:text-black shadow-[0_0_12px_rgba(0,255,255,0.2)] hover:shadow-[0_0_20px_rgba(0,255,255,0.5)] transition-all duration-300 ml-1 whitespace-nowrap"
+            >
+              Registration
+            </Link>
+            {navItems.slice(2).map((item) => (
               <button
                 key={item.id}
                 onClick={() => handleNavClick(item.id)}
-                className={`text-xs font-semibold uppercase tracking-widest px-4 py-2 rounded-full transition-all duration-300 cursor-pointer ${
-                  activeSection === item.id
+                className={`text-xs font-semibold uppercase tracking-widest px-4 py-2 rounded-full transition-all duration-300 cursor-pointer ${activeSection === item.id
                     ? 'bg-[#00ffff] text-black shadow-[0_0_15px_rgba(0,255,255,0.4)]'
                     : 'text-white/60 hover:text-white hover:bg-white/5'
-                }`}
+                  }`}
               >
                 {item.label}
               </button>
@@ -191,15 +194,14 @@ export default function Header({ activeSection, setActiveSection }: HeaderProps)
         {/* Mobile Dropdown Menu */}
         {mobileMenuOpen && (
           <div className="absolute top-16 left-0 right-0 rounded-3xl border border-white/10 bg-[#09090b]/95 backdrop-blur-xl shadow-2xl p-6 flex flex-col gap-3 animate-in fade-in slide-in-from-top-4 duration-300">
-            {navItems.slice(0, 3).map((item) => (
+            {navItems.slice(0, 2).map((item) => (
               <button
                 key={item.id}
                 onClick={() => handleNavClick(item.id)}
-                className={`w-full text-center text-sm font-semibold uppercase tracking-widest py-3.5 rounded-full transition-all cursor-pointer ${
-                  activeSection === item.id
+                className={`w-full text-center text-sm font-semibold uppercase tracking-widest py-3.5 rounded-full transition-all cursor-pointer ${activeSection === item.id
                     ? 'bg-[#00ffff] text-black font-bold'
                     : 'text-white/60 hover:text-white hover:bg-white/5 border border-transparent'
-                }`}
+                  }`}
               >
                 {item.label}
               </button>
@@ -208,17 +210,16 @@ export default function Header({ activeSection, setActiveSection }: HeaderProps)
               href="/package-course"
               className="w-full text-center text-sm font-bold uppercase tracking-widest py-3.5 rounded-full border border-[#00ffff]/60 text-[#00ffff] hover:bg-[#00ffff] hover:text-black transition-all cursor-pointer"
             >
-              Course Details
+              📦 Package Course
             </Link>
-            {navItems.slice(3).map((item) => (
+            {navItems.slice(2).map((item) => (
               <button
                 key={item.id}
                 onClick={() => handleNavClick(item.id)}
-                className={`w-full text-center text-sm font-semibold uppercase tracking-widest py-3.5 rounded-full transition-all cursor-pointer ${
-                  activeSection === item.id
+                className={`w-full text-center text-sm font-semibold uppercase tracking-widest py-3.5 rounded-full transition-all cursor-pointer ${activeSection === item.id
                     ? 'bg-[#00ffff] text-black font-bold'
                     : 'text-white/60 hover:text-white hover:bg-white/5 border border-transparent'
-                }`}
+                  }`}
               >
                 {item.label}
               </button>

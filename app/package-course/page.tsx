@@ -131,7 +131,7 @@ export default function PackageCoursePage() {
             <img
               src="/Banner Ai.png"
               alt="Packaging Design Masterclass – Batch 4"
-              className="w-full h-auto object-cover"
+              className="w-full h-auto object-contain"
             />
           </div>
         </motion.div>
