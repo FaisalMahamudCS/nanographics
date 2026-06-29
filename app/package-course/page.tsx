@@ -4,21 +4,21 @@ import { useState } from 'react'
 import Link from 'next/link'
 import { Hind_Siliguri } from 'next/font/google'
 import { motion, AnimatePresence } from 'framer-motion'
-import { 
-  ArrowLeft, 
-  Search, 
-  HelpCircle, 
-  Calendar, 
-  Clock, 
-  Layers, 
-  Palette, 
-  FileText, 
-  Tv, 
-  Award, 
-  Users, 
-  ShieldCheck, 
-  Check, 
-  Smartphone, 
+import {
+  ArrowLeft,
+  Search,
+  HelpCircle,
+  Calendar,
+  Clock,
+  Layers,
+  Palette,
+  FileText,
+  Tv,
+  Award,
+  Users,
+  ShieldCheck,
+  Check,
+  Smartphone,
   FileCode,
   Flame
 } from 'lucide-react'
@@ -99,7 +99,7 @@ export default function PackageCoursePage() {
           className="flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#0a0a0c]/80 border border-white/10 backdrop-blur-md text-white/70 hover:text-white hover:border-[#00ffff]/40 hover:shadow-[0_0_15px_rgba(0,255,255,0.1)] transition-all duration-300 text-sm font-semibold cursor-pointer"
         >
           <ArrowLeft className="w-4 h-4 text-[#00ffff]" />
-          <span>Back to Studio</span>
+          <span>Home</span>
         </Link>
       </header>
 
@@ -203,9 +203,7 @@ export default function PackageCoursePage() {
                   <h3 className="text-lg font-bold text-white mb-2 group-hover:text-[#00ffff] transition-colors font-heading uppercase tracking-wide">
                     {feat.title}
                   </h3>
-                  <p className="text-white/50 text-sm leading-relaxed">
-                    {feat.desc}
-                  </p>
+
                 </div>
               )
             })}
@@ -215,7 +213,7 @@ export default function PackageCoursePage() {
 
       {/* QUESTIONS SECTION (NO ANSWERS) */}
       <section id="questions" className="relative z-10 px-6 py-28">
-        <div className="max-w-5xl mx-auto">
+        <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <span className="text-[#00ffff] font-semibold tracking-[0.25em] uppercase text-xs block mb-4 font-heading">
               Live Class Discussion Topics
@@ -241,7 +239,7 @@ export default function PackageCoursePage() {
                 className="w-full bg-transparent outline-none border-none text-white text-sm placeholder-white/30"
               />
               {searchQuery && (
-                <button 
+                <button
                   onClick={() => setSearchQuery('')}
                   className="text-xs text-white/40 hover:text-white uppercase tracking-wider cursor-pointer"
                 >
@@ -308,23 +306,23 @@ export default function PackageCoursePage() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
-              { 
-                icon: Calendar, 
-                label: 'দিন', 
-                value: 'রবিবার ও বুধবার', 
-                desc: 'সপ্তাহে ২ দিন লাইভ ক্লাস' 
+              {
+                icon: Calendar,
+                label: 'দিন',
+                value: 'রবিবার ও বুধবার',
+                desc: 'সপ্তাহে ২ দিন লাইভ ক্লাস'
               },
-              { 
-                icon: Clock, 
-                label: 'সময়', 
-                value: 'রাত ৮:৩০ - ১০:৩০', 
-                desc: 'প্রতিটি ক্লাস ২ ঘণ্টা' 
+              {
+                icon: Clock,
+                label: 'সময়',
+                value: 'রাত ৮:৩০ - ১০:৩০',
+                desc: 'প্রতিটি ক্লাস ২ ঘণ্টা'
               },
-              { 
-                icon: ShieldCheck, 
-                label: 'ক্লাস শুরু', 
-                value: '১৬ আগস্ট ২০২৬', 
-                desc: 'মোট ১৬+ স্পেশাল লাইভ ক্লাস' 
+              {
+                icon: ShieldCheck,
+                label: 'ক্লাস শুরু',
+                value: '১৬ আগস্ট ২০২৬',
+                desc: 'মোট ১৬+ স্পেশাল লাইভ ক্লাস'
               }
             ].map((item, index) => {
               const Icon = item.icon
@@ -354,9 +352,9 @@ export default function PackageCoursePage() {
 
       {/* REGISTRATION & PAYMENT */}
       <section id="register" className="relative z-10 px-6 py-28 border-t border-white/5">
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-16 items-start">
-            
+
             {/* Left: Instructions */}
             <div className="space-y-8 text-left">
               <div>
@@ -371,7 +369,7 @@ export default function PackageCoursePage() {
                 </p>
               </div>
 
-              <div className="space-y-6">
+              <div className="space-y-8">
                 <div className="flex gap-4 items-start">
                   <div className="w-10 h-10 rounded-full bg-[#00ffff]/10 border border-[#00ffff]/20 flex items-center justify-center shrink-0 font-bold text-[#00ffff] text-sm">
                     ১
@@ -437,7 +435,7 @@ export default function PackageCoursePage() {
             <div className="relative">
               <div className="absolute -inset-1 bg-gradient-to-br from-[#00ffff]/10 to-transparent rounded-none blur-xl pointer-events-none" />
               <div className="relative p-8 sm:p-10 rounded-none border border-white/10 bg-[#0a0a0c] backdrop-blur-md">
-                
+
                 <h3 className="text-2xl font-black text-white mb-2 font-heading uppercase">
                   Registration Form
                 </h3>
@@ -597,12 +595,12 @@ export default function PackageCoursePage() {
       {/* FOOTER */}
       <footer className="relative z-10 py-16 text-center text-white/30 border-t border-white/5 text-sm bg-[#030305]">
         <div className="max-w-7xl mx-auto px-6 flex flex-col items-center gap-6">
-          <Link 
-            href="/" 
+          <Link
+            href="/"
             className="flex items-center gap-2 text-white/50 hover:text-[#00ffff] transition-colors cursor-pointer text-sm font-semibold uppercase tracking-wider"
           >
             <ArrowLeft className="w-3.5 h-3.5" />
-            <span>Back to Studio Main Page</span>
+            <span>Home</span>
           </Link>
           <div className="h-px w-20 bg-white/10" />
           <p>© 2026 NanoGraphic Studio. All rights reserved.</p>

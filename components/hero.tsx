@@ -552,31 +552,31 @@ export default function Hero() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-10 max-w-4xl mx-auto">
             {[
               {
-                name: "Mujib Ur Rahman",
-                role: "Graphics Designer",
+                name: "Mujibur Rahman",
+                role: "Designer | Mentor | CEO (Nano Graphics)",
                 img: "/Photo3/Mujib.png"
               },
               {
-                name: "Umar Faruq Riad",
-                role: "Video Editor · Sound Compressor",
+                name: "Omar Faruq Riad",
+                role: "Video Editor | Music Compressor",
                 img: "/Photo3/Riad.png"
               },
 
               {
                 name: "Faisal Mahamud",
-                role: "Full Stack Software Engineer",
+                role: "Full Stack Software Engineer | AI Engineer",
                 img: "/Photo3/Fahim.png"
               },
             ].map((member, idx) => (
               <div key={idx} className="team-card group cursor-pointer text-center">
                 <div
-                  className="relative w-full aspect-square overflow-hidden bg-[#111] mb-6 p-1 border border-white/5 shadow-xl transition-all duration-500 group-hover:border-[#00ffff]/40 group-hover:scale-[1.02] rounded-[10px]"
+                  className="relative w-full overflow-hidden bg-[#111] mb-6 p-1 border border-white/5 shadow-xl transition-all duration-500 group-hover:border-[#00ffff]/40 group-hover:scale-[1.02] rounded-[10px]"
                 >
                   <div className="absolute inset-0 bg-[#00ffff]/10 mix-blend-overlay opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10 rounded-[10px]"></div>
                   <img
                     src={member.img}
                     alt={member.name}
-                    className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700 rounded-[9px]"
+                    className="w-full h-auto object-contain grayscale group-hover:grayscale-0 transition-all duration-700 rounded-[9px]"
                   />
                 </div>
                 <h3 className="text-lg font-bold text-white uppercase tracking-wide group-hover:text-[#00ffff] transition-colors font-heading">
