@@ -129,7 +129,7 @@ export default function PackageCoursePage() {
           <div className="absolute -inset-1 bg-gradient-to-r from-[#00ffff]/20 via-[#0088ff]/10 to-[#00ffff]/20 rounded-2xl blur-xl pointer-events-none" />
           <div className="relative rounded-xl overflow-hidden border border-[#00ffff]/30 shadow-[0_0_80px_rgba(0,255,255,0.15)]">
             <img
-              src="/docx_image1.png"
+              src="/Banner Ai.png"
               alt="Packaging Design Masterclass – Batch 4"
               className="w-full h-auto object-cover"
             />
@@ -213,25 +213,45 @@ export default function PackageCoursePage() {
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <motion.div 
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+            variants={{
+              hidden: { opacity: 0 },
+              visible: {
+                opacity: 1,
+                transition: { staggerChildren: 0.15 }
+              }
+            }}
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
+          >
             {features.map((feat, index) => {
               const Icon = feat.icon
               return (
-                <div
+                <motion.div
                   key={index}
-                  className="group p-8 rounded-none border border-white/5 bg-[#0a0a0c] hover:border-[#00ffff]/30 hover:bg-[#00ffff]/5 transition-all duration-300 flex flex-col items-start text-left cursor-pointer"
+                  variants={{
+                    hidden: { opacity: 0, y: 40 },
+                    visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.21, 0.47, 0.32, 0.98] } }
+                  }}
+                  whileHover={{ y: -8 }}
+                  className="group p-8 rounded-none border border-white/5 bg-[#0a0a0c] hover:border-[#00ffff]/30 hover:bg-[#00ffff]/5 transition-colors duration-300 flex flex-col items-start text-left cursor-pointer shadow-lg hover:shadow-[0_10px_30px_rgba(0,255,255,0.08)]"
                 >
-                  <div className="w-12 h-12 rounded-none bg-[#00ffff]/10 flex items-center justify-center mb-6 group-hover:bg-[#00ffff] transition-all duration-300">
-                    <Icon className="w-5 h-5 text-[#00ffff] group-hover:text-black transition-all duration-300" />
-                  </div>
+                  <motion.div 
+                    whileHover={{ scale: 1.15, rotate: 5 }}
+                    transition={{ type: "spring", stiffness: 300, damping: 15 }}
+                    className="w-12 h-12 rounded-none bg-[#00ffff]/10 flex items-center justify-center mb-6 group-hover:bg-[#00ffff] transition-colors duration-300"
+                  >
+                    <Icon className="w-5 h-5 text-[#00ffff] group-hover:text-black transition-colors duration-300" />
+                  </motion.div>
                   <h3 className="text-lg font-bold text-white mb-2 group-hover:text-[#00ffff] transition-colors font-heading uppercase tracking-wide">
                     {feat.title}
                   </h3>
-
-                </div>
+                </motion.div>
               )
             })}
-          </div>
+          </motion.div>
         </div>
       </section>
 
@@ -306,12 +326,30 @@ export default function PackageCoursePage() {
           </div>
 
           <div className="mt-16 text-center">
-            <div className="inline-flex items-center gap-3 px-6 py-4 rounded-full bg-[#00ffff]/5 border border-[#00ffff]/20">
-              <Check className="w-4 h-4 text-[#00ffff]" />
-              <span className="text-[#00ffff] font-semibold text-xs sm:text-sm">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              animate={{
+                boxShadow: ["0px 0px 0px rgba(0,255,255,0)", "0px 0px 30px rgba(0,255,255,0.15)", "0px 0px 0px rgba(0,255,255,0)"]
+              }}
+              transition={{
+                opacity: { duration: 0.6 },
+                y: { duration: 0.6 },
+                boxShadow: { duration: 3, repeat: Infinity, ease: "easeInOut" }
+              }}
+              className="inline-flex items-center gap-4 px-8 py-5 rounded-full bg-[#00ffff]/5 border border-[#00ffff]/25 backdrop-blur-md"
+            >
+              <motion.div
+                animate={{ scale: [1, 1.15, 1] }}
+                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+              >
+                <Check className="w-6 h-6 shrink-0 text-[#00ffff]" />
+              </motion.div>
+              <span className="text-[#00ffff] font-semibold text-lg md:text-xl">
                 সকল প্রশ্নের বিস্তারিত উত্তর ও সমাধান নিয়ে আপনাদের সাথে দেখা হবে লাইভ ক্লাসে।
               </span>
-            </div>
+            </motion.div>
           </div>
         </div>
       </section>
@@ -328,7 +366,19 @@ export default function PackageCoursePage() {
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <motion.div 
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+            variants={{
+              hidden: { opacity: 0 },
+              visible: {
+                opacity: 1,
+                transition: { staggerChildren: 0.15 }
+              }
+            }}
+            className="grid grid-cols-1 md:grid-cols-3 gap-6"
+          >
             {[
               {
                 icon: Calendar,
@@ -351,26 +401,35 @@ export default function PackageCoursePage() {
             ].map((item, index) => {
               const Icon = item.icon
               return (
-                <div
+                <motion.div
                   key={index}
-                  className="p-8 rounded-none border border-white/8 bg-[#0a0a0d] text-center flex flex-col items-center hover:border-white/20 transition-all duration-300"
+                  variants={{
+                    hidden: { opacity: 0, x: -30 },
+                    visible: { opacity: 1, x: 0, transition: { duration: 0.7, ease: [0.21, 0.47, 0.32, 0.98] } }
+                  }}
+                  whileHover={{ y: -5, scale: 1.02 }}
+                  className="p-8 rounded-none border border-white/5 bg-[#0a0a0d] text-center flex flex-col items-center hover:border-[#00ffff]/30 hover:bg-[#00ffff]/5 transition-colors duration-300 shadow-lg hover:shadow-[0_10px_30px_rgba(0,255,255,0.08)] cursor-pointer group"
                 >
-                  <div className="w-12 h-12 rounded-none bg-white/5 flex items-center justify-center mb-5">
-                    <Icon className="w-5 h-5 text-[#00ffff]" />
-                  </div>
+                  <motion.div 
+                    whileHover={{ scale: 1.15, rotate: 10 }}
+                    transition={{ type: "spring", stiffness: 300 }}
+                    className="w-12 h-12 rounded-none bg-white/5 flex items-center justify-center mb-5 group-hover:bg-[#00ffff]/20 transition-colors duration-300"
+                  >
+                    <Icon className="w-5 h-5 text-[#00ffff] group-hover:text-white transition-colors duration-300" />
+                  </motion.div>
                   <p className="text-white/40 text-xs tracking-widest uppercase font-semibold mb-2 font-heading">
                     {item.label}
                   </p>
-                  <p className="text-white font-extrabold text-xl mb-2 font-heading">
+                  <p className="text-white font-extrabold text-xl mb-2 font-heading group-hover:text-[#00ffff] transition-colors duration-300">
                     {item.value}
                   </p>
                   <p className="text-white/55 text-xs">
                     {item.desc}
                   </p>
-                </div>
+                </motion.div>
               )
             })}
-          </div>
+          </motion.div>
         </div>
       </section>
 

@@ -163,15 +163,15 @@ export default function Work() {
                 className="relative cursor-pointer overflow-hidden rounded-[10px] bg-[#0c0c0f] border border-white/5 opacity-80 hover:opacity-100 transition-all duration-500 ease-in-out group"
               >
                 {/* Background Image */}
-                <div className="absolute inset-0 bg-[#050507]/45 z-10 transition-opacity duration-500 group-hover:opacity-20" />
+                <div className="absolute inset-0 bg-transparent z-10 transition-opacity duration-500 group-hover:bg-[#050507]/10" />
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-full object-contain transition-transform duration-700 ease-out group-hover:scale-105 filter brightness-[0.75] group-hover:brightness-[0.9]"
+                  className="w-full h-full object-contain transition-transform duration-700 ease-out group-hover:scale-105"
                 />
 
                 {/* Info Overlay Content */}
-                <div className="absolute inset-0 flex flex-col justify-end p-8 z-20 bg-gradient-to-t from-black/85 via-black/30 to-transparent">
+                <div className="absolute inset-0 flex flex-col justify-end p-8 z-20 bg-gradient-to-t from-black/95 via-black/40 to-transparent">
                   <span className="text-[#00ffff] text-[10px] font-bold tracking-widest uppercase mb-1">
                     {project.description}
                   </span>
@@ -201,13 +201,12 @@ export default function Work() {
               key={index}
               className="snap-center shrink-0 w-[85%] aspect-[1500/1050] rounded-[10px] overflow-hidden bg-[#0c0c0f] border border-white/5 relative"
             >
-              <div className="absolute inset-0 bg-[#050507]/30 z-10" />
               <img
                 src={project.image}
                 alt={project.title}
-                className="w-full h-full object-contain filter brightness-[0.8]"
+                className="w-full h-full object-contain"
               />
-              <div className="absolute inset-0 flex flex-col justify-end p-6 z-20 bg-gradient-to-t from-black/80 to-transparent">
+              <div className="absolute inset-0 flex flex-col justify-end p-6 z-20 bg-gradient-to-t from-black/90 via-black/30 to-transparent">
                 <span className="text-[#00ffff] text-[9px] font-bold tracking-widest uppercase mb-1">
                   {project.description}
                 </span>
@@ -244,9 +243,9 @@ export default function Work() {
                   <img
                     src={client.img}
                     alt={client.title}
-                    className="w-full h-full object-contain opacity-20 group-hover:opacity-40 group-hover:scale-105 transition-all duration-700 filter grayscale group-hover:grayscale-0"
+                    className="w-full h-full object-contain opacity-70 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0c0c0f] via-[#0c0c0f]/90 to-[#0c0c0f]/50" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0c0c0f] via-[#0c0c0f]/80 to-transparent" />
                 </div>
 
                 {/* Content Layer */}
@@ -274,11 +273,10 @@ export default function Work() {
             <div ref={productsRef} className="grid md:grid-cols-2 gap-8">
               <div className="product-card border border-white/10 bg-[#0c0c0f] hover:border-[#00ffff]/40 transition-all duration-500 group p-4 rounded-[10px] shadow-md">
                 <div className="aspect-[3117/1402] relative overflow-hidden bg-[#050507]">
-                  <div className="absolute inset-0 bg-[#050507]/20 z-10 pointer-events-none" />
                   <img
                     src="/Banner/Banner/Packaging Design2.png"
                     alt="Packaging Design Film"
-                    className="w-full h-full object-contain opacity-85 group-hover:scale-102 transition-all duration:700"
+                    className="w-full h-full object-contain transition-all duration:700 group-hover:scale-[1.02]"
                   />
                 </div>
                 <div className="pt-6 px-2">
@@ -289,11 +287,10 @@ export default function Work() {
 
               <div className="product-card border border-white/10 bg-[#0c0c0f] hover:border-[#00ffff]/40 transition-all duration-500 group p-4 rounded-[10px] shadow-md">
                 <div className="aspect-[3117/1402] relative overflow-hidden bg-[#050507]">
-                  <div className="absolute inset-0 bg-[#050507]/20 z-10 pointer-events-none" />
                   <img
                     src="/Banner/Banner/Design and Print Support2.png"
                     alt="Design and Print cylinders"
-                    className="w-full h-full object-contain opacity-85 group-hover:scale-102 transition-all duration:700"
+                    className="w-full h-full object-contain transition-all duration:700 group-hover:scale-[1.02]"
                   />
                 </div>
                 <div className="pt-6 px-2">

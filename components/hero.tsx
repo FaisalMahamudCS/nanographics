@@ -52,6 +52,15 @@ export default function Hero() {
 
     const ctx = gsap.context(() => {
       // 1. Text Reveal Animation for Hero Title
+      gsap.to('.brand-tag-word', {
+        y: '0%',
+        opacity: 1,
+        duration: 0.8,
+        stagger: 0.1,
+        ease: 'power3.out',
+        delay: 0.1
+      })
+
       const wordAnims = heroTextRef.current?.querySelectorAll('.word-anim-inner')
       if (wordAnims) {
         gsap.fromTo(
@@ -62,7 +71,7 @@ export default function Hero() {
             duration: 1.2,
             stagger: 0.15,
             ease: 'power4.out',
-            delay: 0.2
+            delay: 0.3
           }
         )
       }
@@ -275,7 +284,11 @@ export default function Hero() {
       {/* 1. Hero Section */}
       <section className="relative z-10 w-full min-h-[85vh] flex flex-col items-center justify-center pt-32 pb-20 px-6 group">
         <div className="relative w-full max-w-5xl mx-auto mb-8 text-[#00ffff] font-semibold tracking-[0.25em] uppercase text-xs md:text-sm tracking-[0.3em] opacity-90 font-heading">
-          <span className="block mb-4">Brand · Digital · Campaigns</span>
+          <span className="flex justify-center gap-1.5 mb-4 overflow-hidden h-fit">
+            {['Brand', '·', 'Digital', '·', 'Campaigns'].map((word, i) => (
+               <span key={i} className="inline-block translate-y-full opacity-0 brand-tag-word">{word}</span>
+            ))}
+          </span>
           <div className="relative h-12 w-full overflow-visible pointer-events-none">
             {/* AI Icon — floats top → bottom */}
             <motion.img
@@ -305,22 +318,20 @@ export default function Hero() {
         </div>
 
         <div className="relative w-full flex flex-col items-center mb-8">
-          <h1 ref={heroTextRef} className="text-[clamp(4.2rem,17vw,240px)] font-black uppercase leading-[0.82] tracking-tighter text-center mix-blend-difference z-20 font-heading select-none">
+          <h1 ref={heroTextRef} className="text-[clamp(4.2rem,17vw,240px)] font-black uppercase leading-[0.82] tracking-tighter text-center z-20 font-heading select-none drop-shadow-2xl">
             <span className="block overflow-hidden h-fit">
               <span className="block text-gradient bg-clip-text text-transparent bg-gradient-to-r from-[#00ffff] to-[#0088ff] word-anim-inner">Nano</span>
             </span>
             <span className="block overflow-hidden h-fit">
-              <span className="block text-white word-anim-inner">Graphic</span>
+              <span className="block text-white word-anim-inner drop-shadow-[0_0_15px_rgba(255,255,255,0.2)]">Graphic</span>
             </span>
           </h1>
 
-          {/* Interlocking NG Logo in Center */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 pointer-events-auto mix-blend-screen">
+          {/* Interlocking NG Logo in Center (Subtle Background Glow) */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-0 pointer-events-none opacity-20 blur-[2px]">
             <div
               ref={logoContainerRef}
-              onMouseEnter={handleLogoMouseEnter}
-              onMouseLeave={handleLogoMouseLeave}
-              className="w-36 h-36 md:w-[22rem] md:h-[22rem] rounded-none flex items-center justify-center hover:scale-105 transition-all duration-500 cursor-pointer filter drop-shadow-[0_0_15px_rgba(0,255,255,0.3)]"
+              className="w-48 h-48 md:w-[26rem] md:h-[26rem] rounded-none flex items-center justify-center filter drop-shadow-[0_0_25px_rgba(0,255,255,0.4)]"
             >
               <svg
                 viewBox="0 0 276.89 239.96"
@@ -576,7 +587,7 @@ export default function Hero() {
                   <img
                     src={member.img}
                     alt={member.name}
-                    className="w-full h-auto object-contain grayscale group-hover:grayscale-0 transition-all duration-700 rounded-[9px]"
+                    className="w-full h-auto object-contain transition-all duration-700 rounded-[9px]"
                   />
                 </div>
                 <h3 className="text-lg font-bold text-white uppercase tracking-wide group-hover:text-[#00ffff] transition-colors font-heading">
