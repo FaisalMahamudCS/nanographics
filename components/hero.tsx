@@ -554,18 +554,18 @@ export default function Hero() {
               {
                 name: "Mujib Ur Rahman",
                 role: "Graphics Designer",
-                img: "/team/mujob.jpg"
+                img: "/Photo3/Mujib.png"
               },
               {
                 name: "Umar Faruq Riad",
                 role: "Video Editor · Sound Compressor",
-                img: "/team/omar.jpg"
+                img: "/Photo3/Riad.png"
               },
 
               {
                 name: "Faisal Mahamud",
                 role: "Full Stack Software Engineer",
-                img: "/team/faisal.png"
+                img: "/Photo3/Fahim.png"
               },
             ].map((member, idx) => (
               <div key={idx} className="team-card group cursor-pointer text-center">
