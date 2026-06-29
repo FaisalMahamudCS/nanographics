@@ -1,6 +1,6 @@
 import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
-import { Archivo, Space_Grotesk } from 'next/font/google'
+import { Archivo, Space_Grotesk, Hind_Siliguri } from 'next/font/google';
 import './globals.css'
 
 const archivo = Archivo({
@@ -14,6 +14,12 @@ const spaceGrotesk = Space_Grotesk({
   subsets: ['latin'],
   weight: ['300', '400', '500', '600', '700'],
 })
+
+const hindSiliguri = Hind_Siliguri({
+  subsets: ['bengali'],
+  weight: ['400', '600', '700'],
+  variable: '--font-hind-siliguri',
+});
 
 export const metadata: Metadata = {
   title: 'NanoGraphic | Design & Branding Agency',

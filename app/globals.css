@@ -196,3 +196,10 @@
   animation-play-state: paused;
 }
 
+/* Bengali text styling */
+[lang="bn"] {
+  font-family: var(--font-hind-siliguri);
+}
+.bangla {
+  font-family: var(--font-hind-siliguri);
+}

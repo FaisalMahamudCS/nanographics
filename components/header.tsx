@@ -41,6 +41,7 @@ export default function Header({ activeSection, setActiveSection }: HeaderProps)
     { label: 'Home', id: 'home' },
     { label: 'Work', id: 'work' },
     { label: 'Services', id: 'services' },
+    { label: 'Course Details', id: 'course-details' },
     { label: 'Registration', id: 'registration' },
     { label: 'Contact', id: 'contact' },
   ]
@@ -59,7 +60,7 @@ export default function Header({ activeSection, setActiveSection }: HeaderProps)
       { scale: 0.7, opacity: 0, transformOrigin: 'center' },
       { scale: 1, opacity: 1, duration: 1.5, ease: 'power4.out', stagger: 0.15, delay: 1 }
     )
-    
+
     // GSAP floating animation for logo
     if (logoRef.current) {
       gsap.to(logoRef.current, {
@@ -94,14 +95,14 @@ export default function Header({ activeSection, setActiveSection }: HeaderProps)
   return (
     <>
       {/* Desktop Floating Pill Navbar */}
-      <div 
-        ref={navRef} 
+      <div
+        ref={navRef}
         className="fixed top-6 left-1/2 -translate-x-1/2 z-50 hidden md:block"
         style={{ opacity: 0 }}
       >
         <nav className="flex items-center overflow-hidden rounded-full border border-white/10 bg-[#09090b]/80 text-white shadow-[0_8px_30px_rgb(0,0,0,0.4)] backdrop-blur-xl h-14 px-3 py-1.5 transition-all duration-300 hover:border-[#00ffff]/30">
           {/* Logo */}
-          <div 
+          <div
             className="flex-shrink-0 flex items-center pr-4 border-r border-white/10 gap-2.5 cursor-pointer group"
             onClick={() => handleNavClick('home')}
           >
@@ -120,7 +121,7 @@ export default function Header({ activeSection, setActiveSection }: HeaderProps)
               <button
                 key={item.id}
                 onClick={() => handleNavClick(item.id)}
-                className={`text-xs font-semibold uppercase tracking-widest px-4 py-2 rounded-full transition-all duration-300 cursor-pointer ${
+                className={`text-xs font-semibold uppercase tracking-widest px-4 py-2 rounded-full transition-all duration-300 whitespace-nowrap cursor-pointer ${
                   activeSection === item.id
                     ? 'bg-[#00ffff] text-black shadow-[0_0_15px_rgba(0,255,255,0.4)]'
                     : 'text-white/60 hover:text-white hover:bg-white/5'
@@ -129,21 +130,14 @@ export default function Header({ activeSection, setActiveSection }: HeaderProps)
                 {item.label}
               </button>
             ))}
-            {/* Package Course — special highlighted link */}
-            <Link
-              href="/package-course"
-              className="text-xs font-bold uppercase tracking-widest px-4 py-2 rounded-full border border-[#00ffff]/60 text-[#00ffff] hover:bg-[#00ffff] hover:text-black shadow-[0_0_12px_rgba(0,255,255,0.2)] hover:shadow-[0_0_20px_rgba(0,255,255,0.5)] transition-all duration-300 ml-1 whitespace-nowrap"
-            >
-              📦 Package Course
-            </Link>
-          </div>
+            {/* Package Course — special highlighted link */}          </div>
         </nav>
       </div>
 
       {/* Mobile Sticky Navbar */}
       <div className="md:hidden fixed top-4 left-4 right-4 z-50">
         <div className="flex items-center justify-between rounded-full border border-white/10 bg-[#09090b]/90 shadow-xl backdrop-blur-md h-14 pl-5 pr-2.5 transition-all duration-300">
-          <div 
+          <div
             className="flex items-center gap-2 cursor-pointer group"
             onClick={() => handleNavClick('home')}
           >
@@ -155,8 +149,8 @@ export default function Header({ activeSection, setActiveSection }: HeaderProps)
               NanoGraphic
             </span>
           </div>
-          <button 
-            aria-label="Open menu" 
+          <button
+            aria-label="Open menu"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             className="flex items-center justify-center h-10 w-10 rounded-full bg-white/5 border border-white/10 text-white active:scale-95 transition-all cursor-pointer hover:bg-white/10"
           >
