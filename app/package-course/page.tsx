@@ -187,7 +187,7 @@ export default function PackageCoursePage() {
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5, delay: 0.45 }}
-          className="inline-flex items-center gap-5 px-8 py-4 border border-[#00ffff]/30 bg-gradient-to-r from-[#00ffff]/5 to-transparent backdrop-blur-md shadow-[0_0_20px_rgba(0,255,255,0.15)] hover:shadow-[0_0_30px_rgba(0,255,255,0.25)] hover:border-[#00ffff]/60 transition-all duration-300 rounded-full group"
+          className="inline-flex items-center gap-5 px-8 py-4 border border-[#00ffff]/30 bg-gradient-to-r from-[#00ffff]/5 to-transparent backdrop-blur-md shadow-[0_0_20px_rgba(0,255,255,0.15)] hover:shadow-[0_0_30px_rgba(0,255,255,0.25)] hover:border-[#00ffff]/60 transition-all duration-300 rounded-full group mb-16"
         >
           <div className="flex flex-col text-left">
             <span className="text-[#00ffff] text-3xl font-black font-heading leading-none group-hover:scale-110 transition-transform origin-left">২০০০৳</span>
@@ -197,6 +197,63 @@ export default function PackageCoursePage() {
           <p className="text-white/70 text-xs sm:text-sm text-left leading-snug font-medium">
             <span className="text-white font-bold">সীমিত সিট!</span> কোর্স শুরু হতে <br />আর অল্প কিছুদিন বাকি।
           </p>
+        </motion.div>
+
+        {/* 3 Course Highlight Images */}
+        <motion.div 
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-50px" }}
+          variants={{
+            hidden: { opacity: 0 },
+            visible: {
+              opacity: 1,
+              transition: { staggerChildren: 0.2 }
+            }
+          }}
+          className="w-full max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 mt-16 perspective-[1000px]"
+        >
+          {/* Card 1 */}
+          <motion.div 
+            variants={{
+              hidden: { opacity: 0, y: 50, rotateX: 10 },
+              visible: { opacity: 1, y: 0, rotateX: 0, transition: { duration: 0.8, ease: [0.21, 0.47, 0.32, 0.98] } }
+            }}
+            whileHover={{ y: -10, scale: 1.02 }}
+            transition={{ type: "spring", stiffness: 300, damping: 20 }}
+            className="rounded-2xl overflow-hidden border border-[#00ffff]/10 shadow-[0_10px_30px_rgba(0,0,0,0.5)] hover:border-[#00ffff]/50 hover:shadow-[0_15px_40px_rgba(0,255,255,0.15)] transition-colors duration-500 group bg-[#060608] cursor-pointer relative"
+          >
+            <div className="absolute inset-0 bg-gradient-to-t from-[#00ffff]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10 pointer-events-none" />
+            <img src="/Course/Box Design.png" alt="Box Design" className="w-full h-auto object-cover group-hover:scale-110 transition-transform duration-700 ease-out" />
+          </motion.div>
+          
+          {/* Card 2 */}
+          <motion.div 
+            variants={{
+              hidden: { opacity: 0, y: 50, rotateX: 10 },
+              visible: { opacity: 1, y: 0, rotateX: 0, transition: { duration: 0.8, ease: [0.21, 0.47, 0.32, 0.98] } }
+            }}
+            whileHover={{ y: -10, scale: 1.02 }}
+            transition={{ type: "spring", stiffness: 300, damping: 20 }}
+            className="rounded-2xl overflow-hidden border border-[#00ffff]/10 shadow-[0_10px_30px_rgba(0,0,0,0.5)] hover:border-[#00ffff]/50 hover:shadow-[0_15px_40px_rgba(0,255,255,0.15)] transition-colors duration-500 group bg-[#060608] cursor-pointer relative"
+          >
+            <div className="absolute inset-0 bg-gradient-to-t from-[#00ffff]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10 pointer-events-none" />
+            <img src="/Course/Packet Design.png" alt="Packet Design" className="w-full h-auto object-cover group-hover:scale-110 transition-transform duration-700 ease-out" />
+          </motion.div>
+
+          {/* Card 3 */}
+          <motion.div 
+            variants={{
+              hidden: { opacity: 0, y: 50, rotateX: 10 },
+              visible: { opacity: 1, y: 0, rotateX: 0, transition: { duration: 0.8, ease: [0.21, 0.47, 0.32, 0.98] } }
+            }}
+            whileHover={{ y: -10, scale: 1.02 }}
+            transition={{ type: "spring", stiffness: 300, damping: 20 }}
+            className="rounded-2xl overflow-hidden border border-[#00ffff]/10 shadow-[0_10px_30px_rgba(0,0,0,0.5)] hover:border-[#00ffff]/50 hover:shadow-[0_15px_40px_rgba(0,255,255,0.15)] transition-colors duration-500 group bg-[#060608] cursor-pointer relative"
+          >
+            <div className="absolute inset-0 bg-gradient-to-t from-[#00ffff]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10 pointer-events-none" />
+            <img src="/Course/Level Design.png" alt="Level Design" className="w-full h-auto object-cover group-hover:scale-110 transition-transform duration-700 ease-out" />
+          </motion.div>
         </motion.div>
       </section>
 
@@ -208,7 +265,7 @@ export default function PackageCoursePage() {
             <p className="text-[#00ffff] font-semibold tracking-[0.2em] uppercase text-xs mb-4 font-heading">
               Comprehensive Curriculum
             </p>
-            <h2 className="text-4xl md:text-5xl font-black uppercase tracking-tight font-heading">
+            <h2 className="text-4xl md:text-5xl font-black uppercase tracking-tight bangla">
               কোর্সের বিশেষ সেবাসমূহ
             </h2>
           </div>
@@ -262,7 +319,7 @@ export default function PackageCoursePage() {
             <span className="text-[#00ffff] font-semibold tracking-[0.25em] uppercase text-xs block mb-4 font-heading">
               Live Class Discussion Topics
             </span>
-            <h2 className="text-4xl md:text-5xl font-black uppercase tracking-tight font-heading mb-6">
+            <h2 className="text-4xl md:text-5xl font-black uppercase tracking-tight bangla mb-6">
               যেসব প্রশ্নের সমাধান পাবেন এই কোর্সে
             </h2>
             <p className="text-white/60 max-w-2xl mx-auto text-base leading-relaxed font-light">
@@ -361,7 +418,7 @@ export default function PackageCoursePage() {
             <span className="text-[#00ffff] font-semibold tracking-[0.2em] uppercase text-xs block mb-4 font-heading">
               Class Schedule & Timeline
             </span>
-            <h2 className="text-4xl md:text-5xl font-black uppercase tracking-tight font-heading">
+            <h2 className="text-4xl md:text-5xl font-black uppercase tracking-tight bangla">
               ক্লাসের সময়সূচী
             </h2>
           </div>
@@ -436,88 +493,92 @@ export default function PackageCoursePage() {
       {/* REGISTRATION & PAYMENT */}
       <section id="register" className="relative z-10 px-6 py-28 border-t border-white/5">
         <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-16 items-start">
+          <div className="grid lg:grid-cols-2 gap-16 items-stretch">
 
             {/* Left: Instructions */}
-            <div className="space-y-8 text-left">
-              <div>
-                <span className="text-[#00ffff] font-semibold tracking-[0.2em] uppercase text-xs block mb-4 font-heading">
-                  How to Join
-                </span>
-                <h2 className="text-4xl md:text-5xl font-black uppercase tracking-tight font-heading leading-tight mb-6">
-                  ভর্তি হওয়ার সহজ নিয়মাবলী
-                </h2>
-                <p className="text-white/60 leading-relaxed font-light">
-                  প্যাকেজিং ডিজাইন কোর্সের এই বিশেষ ব্যাচে রেজিস্ট্রেশন নিশ্চিত করতে নিচের ৩টি ধাপ অনুসরণ করুন।
-                </p>
-              </div>
-
+            <div className="text-left flex flex-col h-full">
               <div className="space-y-8">
-                <div className="flex gap-4 items-start">
-                  <div className="w-10 h-10 rounded-full bg-[#00ffff]/10 border border-[#00ffff]/20 flex items-center justify-center shrink-0 font-bold text-[#00ffff] text-sm">
-                    ১
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-bold text-white mb-1">কোর্স ফি সেন্ড মানি করুন</h3>
-                    <p className="text-white/50 text-sm leading-relaxed">
-                      নিচের যেকোনো একটি পেমেন্ট নাম্বারে কোর্স ফি <strong className="text-white font-bold">২০০০৳</strong> সেন্ড মানি করুন।
-                    </p>
-                  </div>
+                <div>
+                  <span className="text-[#00ffff] font-semibold tracking-[0.2em] uppercase text-xs block mb-4 font-heading">
+                    How to Join
+                  </span>
+                  <h2 className="text-4xl md:text-5xl font-black uppercase tracking-tight font-heading leading-tight mb-6">
+                    ভর্তি হওয়ার সহজ নিয়মাবলী
+                  </h2>
+                  <p className="text-white/60 leading-relaxed font-light">
+                    প্যাকেজিং ডিজাইন কোর্সের এই বিশেষ ব্যাচে রেজিস্ট্রেশন নিশ্চিত করতে নিচের ৩টি ধাপ অনুসরণ করুন।
+                  </p>
                 </div>
 
-                <div className="flex gap-4 items-start">
-                  <div className="w-10 h-10 rounded-full bg-[#00ffff]/10 border border-[#00ffff]/20 flex items-center justify-center shrink-0 font-bold text-[#00ffff] text-sm">
-                    ২
+                <div className="space-y-8">
+                  <div className="flex gap-4 items-start">
+                    <div className="w-10 h-10 rounded-full bg-[#00ffff]/10 border border-[#00ffff]/20 flex items-center justify-center shrink-0 font-bold text-[#00ffff] text-sm">
+                      ১
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-bold text-white mb-1 bangla">কোর্স ফি সেন্ড মানি করুন</h3>
+                      <p className="text-white/50 text-sm leading-relaxed">
+                        নিচের যেকোনো একটি পেমেন্ট নাম্বারে কোর্স ফি <strong className="text-white font-bold">২০০০৳</strong> সেন্ড মানি করুন।
+                      </p>
+                    </div>
                   </div>
-                  <div>
-                    <h3 className="text-lg font-bold text-white mb-1">ট্রানজেকশন তথ্য সংগ্রহ করুন</h3>
-                    <p className="text-white/50 text-sm leading-relaxed">
-                      পেমেন্ট সফল হওয়ার পর যে নাম্বার থেকে পেমেন্ট করেছেন সেটি এবং Transaction ID টি লিখে রাখুন।
-                    </p>
-                  </div>
-                </div>
 
-                <div className="flex gap-4 items-start">
-                  <div className="w-10 h-10 rounded-full bg-[#00ffff]/10 border border-[#00ffff]/20 flex items-center justify-center shrink-0 font-bold text-[#00ffff] text-sm">
-                    ৩
+                  <div className="flex gap-4 items-start">
+                    <div className="w-10 h-10 rounded-full bg-[#00ffff]/10 border border-[#00ffff]/20 flex items-center justify-center shrink-0 font-bold text-[#00ffff] text-sm">
+                      ২
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-bold text-white mb-1 bangla">ট্রানজেকশন তথ্য সংগ্রহ করুন</h3>
+                      <p className="text-white/50 text-sm leading-relaxed">
+                        পেমেন্ট সফল হওয়ার পর যে নাম্বার থেকে পেমেন্ট করেছেন সেটি এবং Transaction ID টি লিখে রাখুন।
+                      </p>
+                    </div>
                   </div>
-                  <div>
-                    <h3 className="text-lg font-bold text-white mb-1">রেজিস্ট্রেশন ফর্মটি পূরণ করুন</h3>
-                    <p className="text-white/50 text-sm leading-relaxed">
-                      পাশে দেওয়া ফর্মে সঠিক তথ্য এবং পেমেন্টের তথ্য দিয়ে &ldquo;রেজিস্ট্রেশন পাঠান&rdquo; বাটনে ক্লিক করুন।
-                    </p>
+
+                  <div className="flex gap-4 items-start">
+                    <div className="w-10 h-10 rounded-full bg-[#00ffff]/10 border border-[#00ffff]/20 flex items-center justify-center shrink-0 font-bold text-[#00ffff] text-sm">
+                      ৩
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-bold text-white mb-1 bangla">রেজিস্ট্রেশন ফর্মটি পূরণ করুন</h3>
+                      <p className="text-white/50 text-sm leading-relaxed">
+                        পাশে দেওয়া ফর্মে সঠিক তথ্য এবং পেমেন্টের তথ্য দিয়ে &ldquo;রেজিস্ট্রেশন পাঠান&rdquo; বাটনে ক্লিক করুন।
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>
 
               {/* Payment details card */}
-              <div className="p-8 rounded-none border border-[#00ffff]/15 bg-[#00ffff]/2 space-y-5">
-                <div className="flex items-center gap-2">
-                  <Smartphone className="w-5 h-5 text-[#00ffff]" />
-                  <h4 className="font-bold text-white uppercase tracking-wider text-sm">
-                    পেমেন্ট নাম্বার (Personal)
-                  </h4>
-                </div>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div className="bg-[#0b0b0f] border border-white/5 p-4 rounded-none">
-                    <span className="text-white/40 text-xs uppercase font-semibold">bKash Personal</span>
-                    <p className="text-white font-extrabold text-lg mt-1 tracking-wider">01980537210</p>
+              <div className="mt-auto pt-10">
+                <div className="p-8 rounded-none border border-[#00ffff]/15 bg-[#00ffff]/2 space-y-5 h-full">
+                  <div className="flex items-center gap-2">
+                    <Smartphone className="w-5 h-5 text-[#00ffff]" />
+                    <h4 className="font-bold text-white uppercase tracking-wider text-sm bangla">
+                      পেমেন্ট নাম্বার (Personal)
+                    </h4>
                   </div>
-                  <div className="bg-[#0b0b0f] border border-white/5 p-4 rounded-none">
-                    <span className="text-white/40 text-xs uppercase font-semibold">Nagad Personal</span>
-                    <p className="text-white font-extrabold text-lg mt-1 tracking-wider">01980537210</p>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div className="bg-[#0b0b0f] border border-white/5 p-4 rounded-none hover:border-[#00ffff]/30 transition-colors duration-300">
+                      <span className="text-white/40 text-xs uppercase font-semibold">bKash Personal</span>
+                      <p className="text-white font-extrabold text-lg mt-1 tracking-wider">01834473283</p>
+                    </div>
+                    <div className="bg-[#0b0b0f] border border-white/5 p-4 rounded-none hover:border-[#00ffff]/30 transition-colors duration-300">
+                      <span className="text-white/40 text-xs uppercase font-semibold">Nagad Personal</span>
+                      <p className="text-white font-extrabold text-lg mt-1 tracking-wider">01834473283</p>
+                    </div>
                   </div>
+                  <p className="text-white/40 text-xs italic">
+                    *অন্যান্য পেমেন্ট মেথড (Islami bank / Mcash / Rocket) এর জন্য যোগাযোগ করুন।
+                  </p>
                 </div>
-                <p className="text-white/40 text-xs italic">
-                  *অন্যান্য পেমেন্ট মেথড (Islami bank / Mcash / Rocket) এর জন্য যোগাযোগ করুন।
-                </p>
               </div>
             </div>
 
             {/* Right: Registration Form */}
-            <div className="relative">
+            <div className="relative h-full flex flex-col">
               <div className="absolute -inset-1 bg-gradient-to-br from-[#00ffff]/10 to-transparent rounded-none blur-xl pointer-events-none" />
-              <div className="relative p-8 sm:p-10 rounded-none border border-white/10 bg-[#0a0a0c] backdrop-blur-md">
+              <div className="relative p-8 sm:p-10 rounded-none border border-white/10 bg-[#0a0a0c] backdrop-blur-md flex-1 flex flex-col justify-center">
 
                 <h3 className="text-2xl font-black text-white mb-2 font-heading uppercase">
                   Registration Form

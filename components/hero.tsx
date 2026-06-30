@@ -401,15 +401,21 @@ export default function Hero() {
             <div className="absolute inset-0 bg-[repeating-linear-gradient(0deg,transparent,transparent_2px,rgba(0,255,255,0.015)_2px,rgba(0,255,255,0.015)_4px)] pointer-events-none z-10 group-hover:opacity-0 transition-opacity duration-500"></div>
 
             {/* The actual banner image */}
-            <div className="relative w-full overflow-hidden aspect-[16/7]">
-              <img
-                src="/Banner/Banner/Banner Ai.png"
-                alt="AI-Powered Packaging Design Masterclass — Batch 4 by Mujibur Rahman, CEO NanoGraphic"
-                className="w-full h-full object-contain transition-transform duration-700 group-hover:scale-[1.012]"
-              />
-              {/* Bottom gradient fade to integrate with page */}
-              <div className="absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-t from-[#050507] to-transparent z-10"></div>
-            </div>
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.9, delay: 0.15 }}
+              className="w-full max-w-5xl mx-auto mb-10 relative"
+            >
+              <div className="absolute -inset-1 bg-gradient-to-r from-[#00ffff]/20 via-[#0088ff]/10 to-[#00ffff]/20 rounded-2xl blur-xl pointer-events-none" />
+              <div className="relative rounded-xl overflow-hidden border border-[#00ffff]/30 shadow-[0_0_80px_rgba(0,255,255,0.15)]">
+                <img
+                  src="/Banner Ai.png"
+                  alt="Packaging Design Masterclass – Batch 4"
+                  className="w-full h-auto object-contain"
+                />
+              </div>
+            </motion.div>
           </div>
         </div>
 

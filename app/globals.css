@@ -5,8 +5,8 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
-  --font-heading: var(--font-archivo);
-  --font-sans: var(--font-space-grotesk);
+  --font-heading: var(--font-archivo), var(--font-hind-siliguri), "Hind Siliguri", sans-serif;
+  --font-sans: var(--font-space-grotesk), var(--font-hind-siliguri), "Hind Siliguri", sans-serif;
   --font-mono: var(--font-geist-mono), 'Geist Mono Fallback';
   --color-sidebar-ring: var(--sidebar-ring);
   --color-sidebar-border: var(--sidebar-border);
@@ -202,5 +202,5 @@
   font-family: var(--font-hind-siliguri);
 }
 .bangla {
-  font-family: var(--font-hind-siliguri);
+  font-family: var(--font-hind-siliguri), "Hind Siliguri", sans-serif !important;
 }

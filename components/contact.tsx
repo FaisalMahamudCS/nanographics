@@ -140,7 +140,7 @@ export default function Contact() {
               </div>
               <h3 className="font-bold text-white uppercase tracking-wider mb-2">Email</h3>
               <p className="text-white/60 hover:text-[#00ffff] transition-colors cursor-pointer text-lg font-light">
-                hello@nanographic.com
+                nanographic.info01@gmail.com
               </p>
             </div>
 
@@ -152,7 +152,7 @@ export default function Contact() {
               </div>
               <h3 className="font-bold text-white uppercase tracking-wider mb-2">Phone</h3>
               <p className="text-white/60 hover:text-[#00ffff] transition-colors cursor-pointer text-lg font-light">
-                +1 (555) 123-4567
+                01834473283
               </p>
             </div>
 
@@ -165,9 +165,8 @@ export default function Contact() {
               </div>
               <h3 className="font-bold text-white uppercase tracking-wider mb-2">Address</h3>
               <p className="text-white/60 text-lg font-light leading-relaxed">
-                123 Design Street<br />
-                Creative City, CC 12345<br />
-                United States
+                Khowaznagar, Azimpara<br />
+                Karnaphuli, Chattogram
               </p>
             </div>
 
