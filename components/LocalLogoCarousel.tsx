@@ -41,18 +41,16 @@ export const LocalLogoCarousel: React.FC = () => {
         onHoverEnd={() => controls.start(scrollAnimation)}
       >
         {duplicatedLogos.map((file, i) => (
-          <motion.div
+          <div
             key={i}
-            whileHover={{ scale: 1.1 }}
-            transition={{ duration: 0.3, ease: 'easeOut' }}
-            className="flex-shrink-0 w-48 h-48 flex items-center justify-center rounded-full bg-[#111] shadow-[0_0_20px_rgba(0,255,255,0.5)]"
+            className="flex-shrink-0 w-48 h-48 flex items-center justify-center rounded-full bg-[#111] shadow-[0_0_20px_rgba(0,255,255,0.3)] transition-all duration-300 ease-out hover:scale-110 hover:shadow-[0_0_30px_rgba(0,255,255,0.6)] cursor-pointer"
           >
             <img
               src={file}
               alt={`Partner Logo ${i + 1}`}
               className="w-32 h-32 object-contain"
             />
-          </motion.div>
+          </div>
         ))}
       </motion.div>
     </section>
