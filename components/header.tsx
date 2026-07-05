@@ -135,7 +135,7 @@ export default function Header({ activeSection, setActiveSection }: HeaderProps)
               Course Details
             </Link>
             <Link
-              href="/package-course#registration"
+              href="/package-course#register"
               className="text-xs font-bold uppercase tracking-widest px-4 py-2 rounded-full border border-[#00ffff]/60 text-[#00ffff] hover:bg-[#00ffff] hover:text-black shadow-[0_0_12px_rgba(0,255,255,0.2)] hover:shadow-[0_0_20px_rgba(0,255,255,0.5)] transition-all duration-300 ml-1 whitespace-nowrap"
             >
               Registration
