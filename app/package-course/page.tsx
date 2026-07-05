@@ -224,7 +224,14 @@ export default function PackageCoursePage() {
             className="rounded-2xl overflow-hidden border border-[#00ffff]/10 shadow-[0_10px_30px_rgba(0,0,0,0.5)] hover:border-[#00ffff]/50 hover:shadow-[0_15px_40px_rgba(0,255,255,0.15)] transition-colors duration-500 group bg-[#060608] cursor-pointer relative"
           >
             <div className="absolute inset-0 bg-gradient-to-t from-[#00ffff]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10 pointer-events-none" />
-            <img src="/Course/Box Design.png" alt="Box Design" className="w-full h-auto object-cover group-hover:scale-110 transition-transform duration-700 ease-out" />
+            <div className="relative overflow-hidden">
+              <img src="/Course/Box Design.png" alt="Box Design" className="w-full h-auto object-cover group-hover:scale-110 transition-transform duration-700 ease-out" />
+            </div>
+            <div className="p-5 bg-[#0a0a0f] border-t border-white/5 text-center group-hover:border-[#00ffff]/30 transition-colors duration-500 relative z-20">
+              <h3 className="text-white font-semibold text-lg tracking-wide group-hover:text-[#00ffff] transition-colors duration-500">
+                Box Design
+              </h3>
+            </div>
           </motion.div>
           
           {/* Card 2 */}
@@ -238,7 +245,14 @@ export default function PackageCoursePage() {
             className="rounded-2xl overflow-hidden border border-[#00ffff]/10 shadow-[0_10px_30px_rgba(0,0,0,0.5)] hover:border-[#00ffff]/50 hover:shadow-[0_15px_40px_rgba(0,255,255,0.15)] transition-colors duration-500 group bg-[#060608] cursor-pointer relative"
           >
             <div className="absolute inset-0 bg-gradient-to-t from-[#00ffff]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10 pointer-events-none" />
-            <img src="/Course/Packet Design.png" alt="Packet Design" className="w-full h-auto object-cover group-hover:scale-110 transition-transform duration-700 ease-out" />
+            <div className="relative overflow-hidden">
+              <img src="/Course/Packet Design.png" alt="Packet Design" className="w-full h-auto object-cover group-hover:scale-110 transition-transform duration-700 ease-out" />
+            </div>
+            <div className="p-5 bg-[#0a0a0f] border-t border-white/5 text-center group-hover:border-[#00ffff]/30 transition-colors duration-500 relative z-20">
+              <h3 className="text-white font-semibold text-lg tracking-wide group-hover:text-[#00ffff] transition-colors duration-500">
+                Packet Design
+              </h3>
+            </div>
           </motion.div>
 
           {/* Card 3 */}
@@ -252,7 +266,14 @@ export default function PackageCoursePage() {
             className="rounded-2xl overflow-hidden border border-[#00ffff]/10 shadow-[0_10px_30px_rgba(0,0,0,0.5)] hover:border-[#00ffff]/50 hover:shadow-[0_15px_40px_rgba(0,255,255,0.15)] transition-colors duration-500 group bg-[#060608] cursor-pointer relative"
           >
             <div className="absolute inset-0 bg-gradient-to-t from-[#00ffff]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10 pointer-events-none" />
-            <img src="/Course/Level Design.png" alt="Level Design" className="w-full h-auto object-cover group-hover:scale-110 transition-transform duration-700 ease-out" />
+            <div className="relative overflow-hidden">
+              <img src="/Course/Level Design.png" alt="Level Design" className="w-full h-auto object-cover group-hover:scale-110 transition-transform duration-700 ease-out" />
+            </div>
+            <div className="p-5 bg-[#0a0a0f] border-t border-white/5 text-center group-hover:border-[#00ffff]/30 transition-colors duration-500 relative z-20">
+              <h3 className="text-white font-semibold text-lg tracking-wide group-hover:text-[#00ffff] transition-colors duration-500">
+                Level Design
+              </h3>
+            </div>
           </motion.div>
         </motion.div>
       </section>

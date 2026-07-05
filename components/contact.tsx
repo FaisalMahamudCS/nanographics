@@ -174,16 +174,64 @@ export default function Contact() {
             <div className="pt-10">
               <h3 className="font-bold text-white uppercase tracking-wider mb-6">Follow Us</h3>
               <div className="flex gap-4">
-                {['TW', 'IN', 'IG', 'BE'].map((social) => (
+                {[
+                  {
+                    name: 'FB',
+                    href: 'https://www.facebook.com/Nanographic.bd',
+                    icon: (
+                      <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                      </svg>
+                    )
+                  },
+                  {
+                    name: 'BE',
+                    href: 'https://www.behance.net/nanographic01',
+                    icon: (
+                      <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M22 9.805h-4.894v1.077H22V9.805zM9.544 11.236c.925.32 1.488.948 1.488 1.89 0 2.213-2.115 2.646-4.52 2.646H2V6h4.51c2.146 0 4.148.608 4.148 2.378 0 1.258-.87 1.953-2.072 2.193-1.075.215 1.075.215.958.665zM4.697 7.747v2.308h1.22c.983 0 1.554-.251 1.554-1.127 0-.877-.52-1.181-1.503-1.181H4.697zm1.22 5.86c1.076 0 1.706-.298 1.706-1.252 0-.936-.63-1.228-1.706-1.228H4.697v2.48H5.918zM19.57 6c-2.824 0-4.887 1.82-4.887 4.908 0 2.923 1.97 4.864 4.836 4.864 2.822 0 4.607-1.802 4.607-4.544 0-.317-.024-.764-.075-1.037h-6.702c.15-1.44 1.134-2.197 2.348-2.197 1.275 0 2.054.51 2.348 1.417h2.247c-.55-2.222-2.3-3.411-4.722-3.411zm.09 6.275h-4.22c.205 1.206 1.173 1.728 2.227 1.728 1.133 0 1.85-.504 1.993-1.728z" />
+                      </svg>
+                    )
+                  },
+                  {
+                    name: 'YT',
+                    href: 'https://www.youtube.com/@AnyTutorialbyMujib',
+                    icon: (
+                      <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M23.498 6.163a3.003 3.003 0 0 0-2.11-2.11C19.517 3.545 12 3.545 12 3.545s-7.517 0-9.388.508a3.003 3.003 0 0 0-2.11 2.11C0 8.033 0 12 0 12s0 3.967.502 5.837a3.003 3.003 0 0 0 2.11 2.11c1.871.508 9.388.508 9.388.508s7.517 0 9.388-.508a3.003 3.003 0 0 0 2.11-2.11C24 15.967 24 12 24 12s0-3.967-.502-5.837zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+                      </svg>
+                    )
+                  },
+                  {
+                    name: 'IG',
+                    href: '#',
+                    icon: (
+                      <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+                      </svg>
+                    )
+                  },
+                  {
+                    name: 'IN',
+                    href: '#',
+                    icon: (
+                      <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+                      </svg>
+                    )
+                  },
+                ].map((social) => (
                   <a
-                    key={social}
-                    href="#"
+                    key={social.name}
+                    href={social.href}
+                    target={social.href !== '#' ? '_blank' : undefined}
+                    rel={social.href !== '#' ? 'noopener noreferrer' : undefined}
                     className="w-14 h-14 rounded-full border border-white/10 flex items-center justify-center text-white/50 hover:text-black hover:bg-[#00ffff] hover:border-[#00ffff] transition-all duration-300"
-                    aria-label={social}
+                    aria-label={social.name}
                   >
-                    <span className="text-sm font-bold uppercase">
-                      {social}
-                    </span>
+                    {social.icon}
                   </a>
                 ))}
               </div>
