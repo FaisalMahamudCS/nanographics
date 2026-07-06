@@ -756,21 +756,6 @@ export default function PackageCoursePage() {
           </div>
         </div>
       </section>
-
-      {/* FOOTER */}
-      <footer className="relative z-10 py-16 text-center text-white/30 border-t border-white/5 text-sm bg-[#030305]">
-        <div className="max-w-7xl mx-auto px-6 flex flex-col items-center gap-6">
-          <Link
-            href="/"
-            className="flex items-center gap-2 text-white/50 hover:text-[#00ffff] transition-colors cursor-pointer text-sm font-semibold uppercase tracking-wider"
-          >
-            <ArrowLeft className="w-3.5 h-3.5" />
-            <span>Home</span>
-          </Link>
-          <div className="h-px w-20 bg-white/10" />
-          <p>© 2026 NanoGraphic Studio. All rights reserved.</p>
-        </div>
-      </footer>
     </div>
   )
 }

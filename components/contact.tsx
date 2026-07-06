@@ -241,17 +241,6 @@ export default function Contact() {
             </div>
           </div>
         </div>
-
-        {/* Footer */}
-        <div className="mt-32 pt-12 border-t border-white/10 text-center flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-white/40 text-sm font-light">
-            © 2026 NanoGraphic. All rights reserved.
-          </p>
-          <div className="flex gap-8">
-            <span className="text-white/40 text-sm hover:text-[#00ffff] cursor-pointer transition-colors">Privacy Policy</span>
-            <span className="text-white/40 text-sm hover:text-[#00ffff] cursor-pointer transition-colors">Terms of Service</span>
-          </div>
-        </div>
       </div>
     </section>
   )

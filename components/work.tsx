@@ -276,7 +276,7 @@ export default function Work() {
               <div className="product-card border border-white/10 bg-[#0c0c0f] hover:border-[#00ffff]/40 transition-all duration-500 group p-4 rounded-[10px] shadow-md">
                 <div className="aspect-[3117/1402] relative overflow-hidden bg-[#050507]">
                   <img
-                    src="/Banner/Banner/Packaging Design2.png"
+                    src="/Banner/Banner/Packaging Design.png"
                     alt="Packaging Design Film"
                     className="w-full h-full object-contain transition-all duration:700 group-hover:scale-[1.02]"
                   />
@@ -288,7 +288,7 @@ export default function Work() {
                     href={getPackagingDesignPath()}
                     className="inline-flex px-5 py-2.5 rounded-full bg-[#00ffff] hover:bg-[#33ffff] hover:shadow-[0_0_15px_rgba(0,255,255,0.4)] text-black text-[9px] font-bold uppercase tracking-widest cursor-pointer shadow-md active:scale-95 transition-all"
                   >
-                    View Public
+                    View
                   </Link>
                 </div>
               </div>

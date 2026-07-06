@@ -1,6 +1,7 @@
 import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
 import { Archivo, Space_Grotesk, Hind_Siliguri } from 'next/font/google';
+import SiteFooter from '@/components/site-footer'
 import './globals.css'
 
 const archivo = Archivo({
@@ -60,6 +61,7 @@ export default function RootLayout({
     <html lang="en" className={`${archivo.variable} ${hindSiliguri.variable} ${spaceGrotesk.variable} dark scroll-smooth`}>
       <body className="font-sans antialiased bg-[#050507] text-foreground">
         {children}
+        <SiteFooter />
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
     </html>
