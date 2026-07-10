@@ -410,7 +410,7 @@ export default function Hero() {
               <div className="absolute -inset-1 bg-gradient-to-r from-[#00ffff]/20 via-[#0088ff]/10 to-[#00ffff]/20 rounded-2xl blur-xl pointer-events-none" />
               <div className="relative rounded-xl overflow-hidden border border-[#00ffff]/30 shadow-[0_0_80px_rgba(0,255,255,0.15)]">
                 <img
-                  src="/Banner Ai.png"
+                  src="/Nano web cove.jpg.jpeg"
                   alt="Packaging Design Masterclass – Batch 4"
                   className="w-full h-auto object-contain"
                 />
@@ -423,8 +423,8 @@ export default function Hero() {
         <div className="max-w-5xl mx-auto px-6 mt-0">
           <div className="border-x border-b border-[#00ffff]/15 bg-[#08080a] grid grid-cols-2 md:grid-cols-4 divide-x divide-[#ffffff07]">
             {[
-              { label: 'Registration Last Date', value: '05-August-2026' },
-              { label: 'Class Start', value: '09-August-2026' },
+              { label: 'Registration Last Date', value: '10-August-2026' },
+              { label: 'Class Start', value: '16-August-2026' },
               { label: 'Live Class On', value: 'Google Meet' },
               { label: 'Mentor', value: 'Mujibur Rahman' },
             ].map((item, i) => (

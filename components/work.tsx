@@ -5,6 +5,7 @@ import Link from 'next/link'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { getPackagingDesignPath } from '@/lib/packaging-design'
+import { getDesignPrintPath } from '@/lib/design-print'
 
 const projects = [
   {
@@ -303,7 +304,13 @@ export default function Work() {
                 </div>
                 <div className="pt-6 px-2">
                   <h4 className="font-bold text-xl text-white uppercase tracking-tight mb-2 font-heading group-hover:text-[#00ffff] transition-colors">Design and Print Support</h4>
-                  <p className="text-white/50 text-xs font-light">High strength rotogravure cylinders setup, color proofing, and industrial print support.</p>
+                  <p className="text-white/50 text-xs font-light mb-5">High strength rotogravure cylinders setup, color proofing, and industrial print support.</p>
+                  <Link
+                    href={getDesignPrintPath()}
+                    className="inline-flex px-5 py-2.5 rounded-full bg-[#00ffff] hover:bg-[#33ffff] hover:shadow-[0_0_15px_rgba(0,255,255,0.4)] text-black text-[9px] font-bold uppercase tracking-widest cursor-pointer shadow-md active:scale-95 transition-all"
+                  >
+                    View
+                  </Link>
                 </div>
               </div>
             </div>

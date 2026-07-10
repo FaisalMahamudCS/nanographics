@@ -1,0 +1,721 @@
+{
+  "id": "design-print",
+  "slug": "design-print",
+  "title": "DESIGN AND PRINT SUPPORT",
+  "description": "High strength rotogravure cylinders setup, color proofing, and industrial print support.",
+  "bannerImage": "/Banner/Banner/Design and Print Support2.png",
+  "topBanner": {
+    "title": "DESIGN AND PRINT SUPPORT",
+    "subtitle": "High strength rotogravure cylinders setup, color proofing, and industrial print support.",
+    "titleColor": "#ffffff",
+    "subtitleColor": "#ffffff",
+    "image": "/Banner/Banner/Design and Print Support2.png",
+    "textAlignment": "left"
+  },
+  "company": "NanoGraphic",
+  "published": true,
+  "contactInfo": {
+    "phone": "+880 1834 473283",
+    "email": "nanographic.info01@gmail.com",
+    "website": "www.nanographicit.com",
+    "location": "Chattogram, Bangladesh"
+  },
+  "gallery": [
+    {
+      "id": "design-print-1",
+      "name": "Print Work 1",
+      "image": "/design-print/WhatsApp Image 2026-07-08 at 10.14.39 AM.jpeg",
+      "category": "Print Support"
+    },
+    {
+      "id": "design-print-2",
+      "name": "Print Work 2",
+      "image": "/design-print/WhatsApp Image 2026-07-08 at 10.44.49 AM.jpeg",
+      "category": "Print Support"
+    },
+    {
+      "id": "design-print-3",
+      "name": "Print Work 3",
+      "image": "/design-print/WhatsApp Image 2026-07-08 at 10.45.05 AM.jpeg",
+      "category": "Print Support"
+    },
+    {
+      "id": "design-print-4",
+      "name": "Print Work 4",
+      "image": "/design-print/WhatsApp Image 2026-07-08 at 10.45.16 AM (1).jpeg",
+      "category": "Print Support"
+    },
+    {
+      "id": "design-print-5",
+      "name": "Print Work 5",
+      "image": "/design-print/WhatsApp Image 2026-07-08 at 10.45.16 AM.jpeg",
+      "category": "Print Support"
+    },
+    {
+      "id": "design-print-6",
+      "name": "Print Work 6",
+      "image": "/design-print/WhatsApp Image 2026-07-08 at 10.46.17 AM (1).jpeg",
+      "category": "Print Support"
+    },
+    {
+      "id": "design-print-7",
+      "name": "Print Work 7",
+      "image": "/design-print/WhatsApp Image 2026-07-08 at 10.46.17 AM.jpeg",
+      "category": "Print Support"
+    },
+    {
+      "id": "design-print-8",
+      "name": "Print Work 8",
+      "image": "/design-print/WhatsApp Image 2026-07-08 at 10.46.18 AM.jpeg",
+      "category": "Print Support"
+    },
+    {
+      "id": "design-print-9",
+      "name": "Print Work 9",
+      "image": "/design-print/WhatsApp Image 2026-07-08 at 10.46.19 AM (1).jpeg",
+      "category": "Print Support"
+    },
+    {
+      "id": "design-print-10",
+      "name": "Print Work 10",
+      "image": "/design-print/WhatsApp Image 2026-07-08 at 10.46.19 AM.jpeg",
+      "category": "Print Support"
+    },
+    {
+      "id": "design-print-11",
+      "name": "Print Work 11",
+      "image": "/design-print/WhatsApp Image 2026-07-08 at 10.46.20 AM (1).jpeg",
+      "category": "Print Support"
+    },
+    {
+      "id": "design-print-12",
+      "name": "Print Work 12",
+      "image": "/design-print/WhatsApp Image 2026-07-08 at 10.46.20 AM.jpeg",
+      "category": "Print Support"
+    },
+    {
+      "id": "design-print-13",
+      "name": "Print Work 13",
+      "image": "/design-print/WhatsApp Image 2026-07-08 at 10.46.21 AM (1).jpeg",
+      "category": "Print Support"
+    },
+    {
+      "id": "design-print-14",
+      "name": "Print Work 14",
+      "image": "/design-print/WhatsApp Image 2026-07-08 at 10.46.21 AM.jpeg",
+      "category": "Print Support"
+    },
+    {
+      "id": "design-print-15",
+      "name": "Print Work 15",
+      "image": "/design-print/WhatsApp Image 2026-07-08 at 10.46.22 AM.jpeg",
+      "category": "Print Support"
+    },
+    {
+      "id": "design-print-16",
+      "name": "Print Work 16",
+      "image": "/design-print/WhatsApp Image 2026-07-08 at 10.46.23 AM (1).jpeg",
+      "category": "Print Support"
+    },
+    {
+      "id": "design-print-17",
+      "name": "Print Work 17",
+      "image": "/design-print/WhatsApp Image 2026-07-08 at 10.46.23 AM.jpeg",
+      "category": "Print Support"
+    },
+    {
+      "id": "design-print-18",
+      "name": "Print Work 18",
+      "image": "/design-print/WhatsApp Image 2026-07-08 at 10.46.24 AM (1).jpeg",
+      "category": "Print Support"
+    },
+    {
+      "id": "design-print-19",
+      "name": "Print Work 19",
+      "image": "/design-print/WhatsApp Image 2026-07-08 at 10.46.24 AM.jpeg",
+      "category": "Print Support"
+    },
+    {
+      "id": "design-print-20",
+      "name": "Print Work 20",
+      "image": "/design-print/WhatsApp Image 2026-07-08 at 10.46.25 AM (1).jpeg",
+      "category": "Print Support"
+    },
+    {
+      "id": "design-print-21",
+      "name": "Print Work 21",
+      "image": "/design-print/WhatsApp Image 2026-07-08 at 10.46.25 AM.jpeg",
+      "category": "Print Support"
+    },
+    {
+      "id": "design-print-22",
+      "name": "Print Work 22",
+      "image": "/design-print/WhatsApp Image 2026-07-08 at 10.46.26 AM (1).jpeg",
+      "category": "Print Support"
+    },
+    {
+      "id": "design-print-23",
+      "name": "Print Work 23",
+      "image": "/design-print/WhatsApp Image 2026-07-08 at 10.46.26 AM (2).jpeg",
+      "category": "Print Support"
+    },
+    {
+      "id": "design-print-24",
+      "name": "Print Work 24",
+      "image": "/design-print/WhatsApp Image 2026-07-08 at 10.46.26 AM.jpeg",
+      "category": "Print Support"
+    },
+    {
+      "id": "design-print-25",
+      "name": "Print Work 25",
+      "image": "/design-print/WhatsApp Image 2026-07-08 at 10.46.27 AM (1).jpeg",
+      "category": "Print Support"
+    },
+    {
+      "id": "design-print-26",
+      "name": "Print Work 26",
+      "image": "/design-print/WhatsApp Image 2026-07-08 at 10.46.27 AM (2).jpeg",
+      "category": "Print Support"
+    },
+    {
+      "id": "design-print-27",
+      "name": "Print Work 27",
+      "image": "/design-print/WhatsApp Image 2026-07-08 at 10.46.27 AM.jpeg",
+      "category": "Print Support"
+    },
+    {
+      "id": "design-print-28",
+      "name": "Print Work 28",
+      "image": "/design-print/WhatsApp Image 2026-07-08 at 10.46.28 AM (1).jpeg",
+      "category": "Print Support"
+    },
+    {
+      "id": "design-print-29",
+      "name": "Print Work 29",
+      "image": "/design-print/WhatsApp Image 2026-07-08 at 10.46.28 AM.jpeg",
+      "category": "Print Support"
+    },
+    {
+      "id": "design-print-30",
+      "name": "Print Work 30",
+      "image": "/design-print/WhatsApp Image 2026-07-08 at 10.46.29 AM (1).jpeg",
+      "category": "Print Support"
+    },
+    {
+      "id": "design-print-31",
+      "name": "Print Work 31",
+      "image": "/design-print/WhatsApp Image 2026-07-08 at 10.46.29 AM.jpeg",
+      "category": "Print Support"
+    },
+    {
+      "id": "design-print-32",
+      "name": "Print Work 32",
+      "image": "/design-print/WhatsApp Image 2026-07-08 at 10.46.30 AM (1).jpeg",
+      "category": "Print Support"
+    },
+    {
+      "id": "design-print-33",
+      "name": "Print Work 33",
+      "image": "/design-print/WhatsApp Image 2026-07-08 at 10.46.30 AM (2).jpeg",
+      "category": "Print Support"
+    },
+    {
+      "id": "design-print-34",
+      "name": "Print Work 34",
+      "image": "/design-print/WhatsApp Image 2026-07-08 at 10.46.30 AM.jpeg",
+      "category": "Print Support"
+    },
+    {
+      "id": "design-print-35",
+      "name": "Print Work 35",
+      "image": "/design-print/WhatsApp Image 2026-07-08 at 10.46.31 AM (1).jpeg",
+      "category": "Print Support"
+    },
+    {
+      "id": "design-print-36",
+      "name": "Print Work 36",
+      "image": "/design-print/WhatsApp Image 2026-07-08 at 10.46.31 AM.jpeg",
+      "category": "Print Support"
+    },
+    {
+      "id": "design-print-37",
+      "name": "Print Work 37",
+      "image": "/design-print/WhatsApp Image 2026-07-08 at 10.46.32 AM (1).jpeg",
+      "category": "Print Support"
+    },
+    {
+      "id": "design-print-38",
+      "name": "Print Work 38",
+      "image": "/design-print/WhatsApp Image 2026-07-08 at 10.46.32 AM.jpeg",
+      "category": "Print Support"
+    },
+    {
+      "id": "design-print-39",
+      "name": "Print Work 39",
+      "image": "/design-print/WhatsApp Image 2026-07-08 at 10.46.33 AM (1).jpeg",
+      "category": "Print Support"
+    },
+    {
+      "id": "design-print-40",
+      "name": "Print Work 40",
+      "image": "/design-print/WhatsApp Image 2026-07-08 at 10.46.33 AM.jpeg",
+      "category": "Print Support"
+    },
+    {
+      "id": "design-print-41",
+      "name": "Print Work 41",
+      "image": "/design-print/WhatsApp Image 2026-07-08 at 10.46.34 AM.jpeg",
+      "category": "Print Support"
+    },
+    {
+      "id": "design-print-42",
+      "name": "Print Work 42",
+      "image": "/design-print/WhatsApp Image 2026-07-08 at 10.47.13 AM.jpeg",
+      "category": "Print Support"
+    },
+    {
+      "id": "design-print-43",
+      "name": "Print Work 43",
+      "image": "/design-print/WhatsApp Image 2026-07-08 at 10.47.14 AM (1).jpeg",
+      "category": "Print Support"
+    },
+    {
+      "id": "design-print-44",
+      "name": "Print Work 44",
+      "image": "/design-print/WhatsApp Image 2026-07-08 at 10.47.14 AM.jpeg",
+      "category": "Print Support"
+    },
+    {
+      "id": "design-print-45",
+      "name": "Print Work 45",
+      "image": "/design-print/WhatsApp Image 2026-07-08 at 10.47.15 AM (1).jpeg",
+      "category": "Print Support"
+    },
+    {
+      "id": "design-print-46",
+      "name": "Print Work 46",
+      "image": "/design-print/WhatsApp Image 2026-07-08 at 10.47.15 AM (2).jpeg",
+      "category": "Print Support"
+    },
+    {
+      "id": "design-print-47",
+      "name": "Print Work 47",
+      "image": "/design-print/WhatsApp Image 2026-07-08 at 10.47.15 AM.jpeg",
+      "category": "Print Support"
+    },
+    {
+      "id": "design-print-48",
+      "name": "Print Work 48",
+      "image": "/design-print/WhatsApp Image 2026-07-08 at 10.47.16 AM (1).jpeg",
+      "category": "Print Support"
+    },
+    {
+      "id": "design-print-49",
+      "name": "Print Work 49",
+      "image": "/design-print/WhatsApp Image 2026-07-08 at 10.47.16 AM.jpeg",
+      "category": "Print Support"
+    },
+    {
+      "id": "design-print-50",
+      "name": "Print Work 50",
+      "image": "/design-print/WhatsApp Image 2026-07-08 at 10.47.18 AM (1).jpeg",
+      "category": "Print Support"
+    },
+    {
+      "id": "design-print-51",
+      "name": "Print Work 51",
+      "image": "/design-print/WhatsApp Image 2026-07-08 at 10.47.18 AM.jpeg",
+      "category": "Print Support"
+    },
+    {
+      "id": "design-print-52",
+      "name": "Print Work 52",
+      "image": "/design-print/WhatsApp Image 2026-07-08 at 10.47.19 AM (1).jpeg",
+      "category": "Print Support"
+    },
+    {
+      "id": "design-print-53",
+      "name": "Print Work 53",
+      "image": "/design-print/WhatsApp Image 2026-07-08 at 10.47.19 AM (2).jpeg",
+      "category": "Print Support"
+    },
+    {
+      "id": "design-print-54",
+      "name": "Print Work 54",
+      "image": "/design-print/WhatsApp Image 2026-07-08 at 10.47.19 AM.jpeg",
+      "category": "Print Support"
+    },
+    {
+      "id": "design-print-55",
+      "name": "Print Work 55",
+      "image": "/design-print/WhatsApp Image 2026-07-08 at 10.47.20 AM (1).jpeg",
+      "category": "Print Support"
+    },
+    {
+      "id": "design-print-56",
+      "name": "Print Work 56",
+      "image": "/design-print/WhatsApp Image 2026-07-08 at 10.47.20 AM (2).jpeg",
+      "category": "Print Support"
+    },
+    {
+      "id": "design-print-57",
+      "name": "Print Work 57",
+      "image": "/design-print/WhatsApp Image 2026-07-08 at 10.47.20 AM.jpeg",
+      "category": "Print Support"
+    },
+    {
+      "id": "design-print-58",
+      "name": "Print Work 58",
+      "image": "/design-print/WhatsApp Image 2026-07-08 at 10.47.21 AM (1).jpeg",
+      "category": "Print Support"
+    },
+    {
+      "id": "design-print-59",
+      "name": "Print Work 59",
+      "image": "/design-print/WhatsApp Image 2026-07-08 at 10.47.21 AM (2).jpeg",
+      "category": "Print Support"
+    },
+    {
+      "id": "design-print-60",
+      "name": "Print Work 60",
+      "image": "/design-print/WhatsApp Image 2026-07-08 at 10.47.21 AM.jpeg",
+      "category": "Print Support"
+    },
+    {
+      "id": "design-print-61",
+      "name": "Print Work 61",
+      "image": "/design-print/WhatsApp Image 2026-07-08 at 10.47.22 AM (1).jpeg",
+      "category": "Print Support"
+    },
+    {
+      "id": "design-print-62",
+      "name": "Print Work 62",
+      "image": "/design-print/WhatsApp Image 2026-07-08 at 10.47.22 AM (2).jpeg",
+      "category": "Print Support"
+    },
+    {
+      "id": "design-print-63",
+      "name": "Print Work 63",
+      "image": "/design-print/WhatsApp Image 2026-07-08 at 10.47.22 AM.jpeg",
+      "category": "Print Support"
+    },
+    {
+      "id": "design-print-64",
+      "name": "Print Work 64",
+      "image": "/design-print/WhatsApp Image 2026-07-08 at 10.47.23 AM (1).jpeg",
+      "category": "Print Support"
+    },
+    {
+      "id": "design-print-65",
+      "name": "Print Work 65",
+      "image": "/design-print/WhatsApp Image 2026-07-08 at 10.47.23 AM.jpeg",
+      "category": "Print Support"
+    },
+    {
+      "id": "design-print-66",
+      "name": "Print Work 66",
+      "image": "/design-print/WhatsApp Image 2026-07-08 at 10.47.24 AM (1).jpeg",
+      "category": "Print Support"
+    },
+    {
+      "id": "design-print-67",
+      "name": "Print Work 67",
+      "image": "/design-print/WhatsApp Image 2026-07-08 at 10.47.24 AM (2).jpeg",
+      "category": "Print Support"
+    },
+    {
+      "id": "design-print-68",
+      "name": "Print Work 68",
+      "image": "/design-print/WhatsApp Image 2026-07-08 at 10.47.24 AM.jpeg",
+      "category": "Print Support"
+    },
+    {
+      "id": "design-print-69",
+      "name": "Print Work 69",
+      "image": "/design-print/WhatsApp Image 2026-07-08 at 10.47.25 AM (1).jpeg",
+      "category": "Print Support"
+    },
+    {
+      "id": "design-print-70",
+      "name": "Print Work 70",
+      "image": "/design-print/WhatsApp Image 2026-07-08 at 10.47.25 AM.jpeg",
+      "category": "Print Support"
+    },
+    {
+      "id": "design-print-71",
+      "name": "Print Work 71",
+      "image": "/design-print/WhatsApp Image 2026-07-08 at 10.47.26 AM (1).jpeg",
+      "category": "Print Support"
+    },
+    {
+      "id": "design-print-72",
+      "name": "Print Work 72",
+      "image": "/design-print/WhatsApp Image 2026-07-08 at 10.47.26 AM.jpeg",
+      "category": "Print Support"
+    },
+    {
+      "id": "design-print-73",
+      "name": "Print Work 73",
+      "image": "/design-print/WhatsApp Image 2026-07-08 at 10.47.27 AM (1).jpeg",
+      "category": "Print Support"
+    },
+    {
+      "id": "design-print-74",
+      "name": "Print Work 74",
+      "image": "/design-print/WhatsApp Image 2026-07-08 at 10.47.27 AM (2).jpeg",
+      "category": "Print Support"
+    },
+    {
+      "id": "design-print-75",
+      "name": "Print Work 75",
+      "image": "/design-print/WhatsApp Image 2026-07-08 at 10.47.27 AM.jpeg",
+      "category": "Print Support"
+    },
+    {
+      "id": "design-print-76",
+      "name": "Print Work 76",
+      "image": "/design-print/WhatsApp Image 2026-07-08 at 10.47.29 AM (1).jpeg",
+      "category": "Print Support"
+    },
+    {
+      "id": "design-print-77",
+      "name": "Print Work 77",
+      "image": "/design-print/WhatsApp Image 2026-07-08 at 10.47.29 AM (2).jpeg",
+      "category": "Print Support"
+    },
+    {
+      "id": "design-print-78",
+      "name": "Print Work 78",
+      "image": "/design-print/WhatsApp Image 2026-07-08 at 10.47.29 AM.jpeg",
+      "category": "Print Support"
+    },
+    {
+      "id": "design-print-79",
+      "name": "Print Work 79",
+      "image": "/design-print/WhatsApp Image 2026-07-08 at 10.47.30 AM (1).jpeg",
+      "category": "Print Support"
+    },
+    {
+      "id": "design-print-80",
+      "name": "Print Work 80",
+      "image": "/design-print/WhatsApp Image 2026-07-08 at 10.47.30 AM.jpeg",
+      "category": "Print Support"
+    },
+    {
+      "id": "design-print-81",
+      "name": "Print Work 81",
+      "image": "/design-print/WhatsApp Image 2026-07-08 at 10.47.31 AM (1).jpeg",
+      "category": "Print Support"
+    },
+    {
+      "id": "design-print-82",
+      "name": "Print Work 82",
+      "image": "/design-print/WhatsApp Image 2026-07-08 at 10.47.31 AM.jpeg",
+      "category": "Print Support"
+    },
+    {
+      "id": "design-print-83",
+      "name": "Print Work 83",
+      "image": "/design-print/WhatsApp Image 2026-07-08 at 10.47.32 AM.jpeg",
+      "category": "Print Support"
+    },
+    {
+      "id": "design-print-84",
+      "name": "Print Work 84",
+      "image": "/design-print/WhatsApp Image 2026-07-08 at 10.48.46 AM (1).jpeg",
+      "category": "Print Support"
+    },
+    {
+      "id": "design-print-85",
+      "name": "Print Work 85",
+      "image": "/design-print/WhatsApp Image 2026-07-08 at 10.48.46 AM.jpeg",
+      "category": "Print Support"
+    },
+    {
+      "id": "design-print-86",
+      "name": "Print Work 86",
+      "image": "/design-print/WhatsApp Image 2026-07-08 at 10.48.47 AM.jpeg",
+      "category": "Print Support"
+    },
+    {
+      "id": "design-print-87",
+      "name": "Print Work 87",
+      "image": "/design-print/WhatsApp Image 2026-07-08 at 10.48.48 AM (1).jpeg",
+      "category": "Print Support"
+    },
+    {
+      "id": "design-print-88",
+      "name": "Print Work 88",
+      "image": "/design-print/WhatsApp Image 2026-07-08 at 10.48.48 AM.jpeg",
+      "category": "Print Support"
+    },
+    {
+      "id": "design-print-89",
+      "name": "Print Work 89",
+      "image": "/design-print/WhatsApp Image 2026-07-08 at 10.48.49 AM.jpeg",
+      "category": "Print Support"
+    },
+    {
+      "id": "design-print-90",
+      "name": "Print Work 90",
+      "image": "/design-print/WhatsApp Image 2026-07-08 at 10.48.56 AM.jpeg",
+      "category": "Print Support"
+    },
+    {
+      "id": "design-print-91",
+      "name": "Print Work 91",
+      "image": "/design-print/WhatsApp Image 2026-07-08 at 10.48.57 AM (1).jpeg",
+      "category": "Print Support"
+    },
+    {
+      "id": "design-print-92",
+      "name": "Print Work 92",
+      "image": "/design-print/WhatsApp Image 2026-07-08 at 10.48.57 AM (2).jpeg",
+      "category": "Print Support"
+    },
+    {
+      "id": "design-print-93",
+      "name": "Print Work 93",
+      "image": "/design-print/WhatsApp Image 2026-07-08 at 10.48.57 AM.jpeg",
+      "category": "Print Support"
+    },
+    {
+      "id": "design-print-94",
+      "name": "Print Work 94",
+      "image": "/design-print/WhatsApp Image 2026-07-08 at 10.48.58 AM (1).jpeg",
+      "category": "Print Support"
+    },
+    {
+      "id": "design-print-95",
+      "name": "Print Work 95",
+      "image": "/design-print/WhatsApp Image 2026-07-08 at 10.48.58 AM (2).jpeg",
+      "category": "Print Support"
+    },
+    {
+      "id": "design-print-96",
+      "name": "Print Work 96",
+      "image": "/design-print/WhatsApp Image 2026-07-08 at 10.48.58 AM (3).jpeg",
+      "category": "Print Support"
+    },
+    {
+      "id": "design-print-97",
+      "name": "Print Work 97",
+      "image": "/design-print/WhatsApp Image 2026-07-08 at 10.48.58 AM.jpeg",
+      "category": "Print Support"
+    },
+    {
+      "id": "design-print-98",
+      "name": "Print Work 98",
+      "image": "/design-print/WhatsApp Image 2026-07-08 at 10.48.59 AM (1).jpeg",
+      "category": "Print Support"
+    },
+    {
+      "id": "design-print-99",
+      "name": "Print Work 99",
+      "image": "/design-print/WhatsApp Image 2026-07-08 at 10.48.59 AM (2).jpeg",
+      "category": "Print Support"
+    },
+    {
+      "id": "design-print-100",
+      "name": "Print Work 100",
+      "image": "/design-print/WhatsApp Image 2026-07-08 at 10.48.59 AM.jpeg",
+      "category": "Print Support"
+    },
+    {
+      "id": "design-print-101",
+      "name": "Print Work 101",
+      "image": "/design-print/WhatsApp Image 2026-07-08 at 10.49.00 AM (1).jpeg",
+      "category": "Print Support"
+    },
+    {
+      "id": "design-print-102",
+      "name": "Print Work 102",
+      "image": "/design-print/WhatsApp Image 2026-07-08 at 10.49.00 AM (2).jpeg",
+      "category": "Print Support"
+    },
+    {
+      "id": "design-print-103",
+      "name": "Print Work 103",
+      "image": "/design-print/WhatsApp Image 2026-07-08 at 10.49.00 AM.jpeg",
+      "category": "Print Support"
+    },
+    {
+      "id": "design-print-104",
+      "name": "Print Work 104",
+      "image": "/design-print/WhatsApp Image 2026-07-08 at 10.49.01 AM (1).jpeg",
+      "category": "Print Support"
+    },
+    {
+      "id": "design-print-105",
+      "name": "Print Work 105",
+      "image": "/design-print/WhatsApp Image 2026-07-08 at 10.49.01 AM (2).jpeg",
+      "category": "Print Support"
+    },
+    {
+      "id": "design-print-106",
+      "name": "Print Work 106",
+      "image": "/design-print/WhatsApp Image 2026-07-08 at 10.49.01 AM.jpeg",
+      "category": "Print Support"
+    },
+    {
+      "id": "design-print-107",
+      "name": "Print Work 107",
+      "image": "/design-print/WhatsApp Image 2026-07-08 at 10.49.02 AM (1).jpeg",
+      "category": "Print Support"
+    },
+    {
+      "id": "design-print-108",
+      "name": "Print Work 108",
+      "image": "/design-print/WhatsApp Image 2026-07-08 at 10.49.02 AM (2).jpeg",
+      "category": "Print Support"
+    },
+    {
+      "id": "design-print-109",
+      "name": "Print Work 109",
+      "image": "/design-print/WhatsApp Image 2026-07-08 at 10.49.02 AM.jpeg",
+      "category": "Print Support"
+    },
+    {
+      "id": "design-print-110",
+      "name": "Print Work 110",
+      "image": "/design-print/WhatsApp Image 2026-07-08 at 10.49.03 AM (1).jpeg",
+      "category": "Print Support"
+    },
+    {
+      "id": "design-print-111",
+      "name": "Print Work 111",
+      "image": "/design-print/WhatsApp Image 2026-07-08 at 10.49.03 AM (2).jpeg",
+      "category": "Print Support"
+    },
+    {
+      "id": "design-print-112",
+      "name": "Print Work 112",
+      "image": "/design-print/WhatsApp Image 2026-07-08 at 10.49.03 AM.jpeg",
+      "category": "Print Support"
+    },
+    {
+      "id": "design-print-113",
+      "name": "Print Work 113",
+      "image": "/design-print/WhatsApp Image 2026-07-08 at 10.49.04 AM (1).jpeg",
+      "category": "Print Support"
+    },
+    {
+      "id": "design-print-114",
+      "name": "Print Work 114",
+      "image": "/design-print/WhatsApp Image 2026-07-08 at 10.49.04 AM (2).jpeg",
+      "category": "Print Support"
+    },
+    {
+      "id": "design-print-115",
+      "name": "Print Work 115",
+      "image": "/design-print/WhatsApp Image 2026-07-08 at 10.49.04 AM.jpeg",
+      "category": "Print Support"
+    },
+    {
+      "id": "design-print-116",
+      "name": "Print Work 116",
+      "image": "/design-print/WhatsApp Image 2026-07-09 at 11.58.49 PM.jpeg",
+      "category": "Print Support"
+    }
+  ]
+}

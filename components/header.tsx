@@ -87,7 +87,10 @@ export default function Header({ activeSection, setActiveSection }: HeaderProps)
         top: offsetPosition,
         behavior: 'smooth'
       })
+      return
     }
+
+    window.location.href = `/#${id}`
   }
 
   return (
