@@ -1,0 +1,21 @@
+<svg width="180" height="180" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="mehvoraGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2563EB" />
+      <stop offset="50%" stop-color="#22D3EE" />
+      <stop offset="100%" stop-color="#2563EB" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="2" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+  <g style="transform: scale(85%); transform-origin: center">
+    <polygon points="100,20 170,60 170,140 100,180 30,140 30,60" stroke="url(#mehvoraGrad)" stroke-width="8" stroke-linejoin="round" fill="none" filter="url(#glow)" />
+    <path d="M 65 140 L 65 75 L 115 125 L 115 80" stroke="url(#mehvoraGrad)" stroke-width="14" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+    <path d="M 140 85 L 140 145 L 85 145 L 85 110 L 115 110" stroke="url(#mehvoraGrad)" stroke-width="14" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+  </g>
+</svg>
