@@ -21,7 +21,12 @@
     "location": "Chattogram, Bangladesh"
   },
   "gallery": [
- 
+    {
+      "id": "design-print-1",
+      "name": "Print Work 1",
+      "image": "/design-print/WhatsApp Image 2026-07-08 at 10.14.39 AM.jpeg",
+      "category": "Print Support"
+    },
     {
       "id": "design-print-2",
       "name": "Print Work 2",

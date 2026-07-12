@@ -1,29 +1,55 @@
 import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
-import { Inter, Space_Grotesk } from 'next/font/google'
-import { Footer } from '@/components/layout/footer'
-import { Header } from '@/components/layout/header'
-import { SmoothScroll } from '@/components/layout/smooth-scroll'
-import { createMetadata, organizationJsonLd } from '@/lib/seo'
+import { Archivo, Space_Grotesk, Hind_Siliguri } from 'next/font/google';
+import SiteFooter from '@/components/site-footer'
 import './globals.css'
 
-const inter = Inter({
-  variable: '--font-inter',
+const archivo = Archivo({
+  variable: '--font-archivo',
   subsets: ['latin'],
-  weight: ['300', '400', '500', '600', '700'],
+  weight: ['300', '400', '500', '600', '700', '800', '900'],
 })
 
 const spaceGrotesk = Space_Grotesk({
   variable: '--font-space-grotesk',
   subsets: ['latin'],
-  weight: ['400', '500', '600', '700'],
+  weight: ['300', '400', '500', '600', '700'],
 })
 
-export const metadata: Metadata = createMetadata({})
+const hindSiliguri = Hind_Siliguri({
+  subsets: ['bengali'],
+  weight: ['400', '600', '700'],
+  variable: '--font-hind-siliguri',
+});
+
+export const metadata: Metadata = {
+  title: 'NanoGraphic | Design & Branding Agency',
+  description: 'Professional design agency offering branding, packaging, and web development services',
+  icons: {
+    icon: [
+      {
+        url: '/icon-light-32x32.png',
+        media: '(prefers-color-scheme: light)',
+      },
+      {
+        url: '/icon-dark-32x32.png',
+        media: '(prefers-color-scheme: dark)',
+      },
+      {
+        url: '/icon.svg',
+        type: 'image/svg+xml',
+      },
+    ],
+    apple: '/apple-icon.png',
+  },
+}
 
 export const viewport: Viewport = {
-  colorScheme: 'dark',
-  themeColor: '#030712',
+  colorScheme: 'light dark',
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: 'white' },
+    { media: '(prefers-color-scheme: dark)', color: 'black' },
+  ],
 }
 
 export default function RootLayout({
@@ -32,19 +58,10 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} ${spaceGrotesk.variable} dark scroll-smooth`}>
-      <head>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd()) }}
-        />
-      </head>
-      <body className="min-h-screen bg-background font-sans text-foreground antialiased">
-        <SmoothScroll>
-          <Header />
-          <main>{children}</main>
-          <Footer />
-        </SmoothScroll>
+    <html lang="en" className={`${archivo.variable} ${hindSiliguri.variable} ${spaceGrotesk.variable} dark scroll-smooth`}>
+      <body className="font-sans antialiased bg-[#050507] text-foreground">
+        {children}
+        <SiteFooter />
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
     </html>
