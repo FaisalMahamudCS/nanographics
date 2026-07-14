@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useRef } from 'react'
+import Link from 'next/link'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { motion } from 'framer-motion'
@@ -10,30 +11,34 @@ const departments = [
     title: 'Branding Design',
     subtitle: 'Identity & Visual Systems',
     description: 'Logos, visual systems, tone of voice, and brand guidelines that give your business a clear, confident presence across every touchpoint.',
-    image: './Branding Design.png',
-    color: 'from-[#00ffff]/20 to-[#0088ff]/10'
+    image: '/Branding Design.png',
+    color: 'from-[#00ffff]/20 to-[#0088ff]/10',
+    href: '/#contact',
   },
   {
     title: 'Packaging Design',
     subtitle: 'High CTR Visuals',
     description: 'Eye-catching thumbnails that boost click-through rates and make your content stand out in crowded feeds.',
-    image: './Packaging Design.png',
-    color: 'from-[#a855f7]/20 to-[#6366f1]/10'
+    image: '/Packaging Design.png',
+    color: 'from-[#a855f7]/20 to-[#6366f1]/10',
+    href: '/packaging-design',
   },
   {
-    title: 'Foil Printing',
-    subtitle: 'Premium Printing',
-    description: 'High-quality foil printing services for labels, packaging, and promotional materials.',
-    image: './Banner/Banner/Printing Support.png',
-    color: 'from-[#a855f7]/20 to-[#6366f1]/10'
+    title: 'Printing Support',
+    subtitle: 'Design & Print Support',
+    description: 'High-quality print support for labels, packaging, cylinders, and promotional materials.',
+    image: '/Design and Print Support2.png',
+    color: 'from-[#a855f7]/20 to-[#6366f1]/10',
+    href: '/design-print',
   },
   {
     title: 'Motion Design',
     subtitle: 'Dynamic Animation',
     description: 'Dynamic animations and motion graphics that bring your brand to life and captivate your audience.',
     image: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=1200&auto=format&fit=crop',
-    color: 'from-[#10b981]/20 to-[#3b82f6]/10'
-  }
+    color: 'from-[#10b981]/20 to-[#3b82f6]/10',
+    href: '/#contact',
+  },
 ]
 
 export default function Hero() {
@@ -388,7 +393,7 @@ export default function Hero() {
           <div className="h-px flex-1 bg-gradient-to-r from-transparent via-[#00ffff]/30 to-transparent"></div>
         </div>
 
-        {/* Banner image frame */}
+        {/* Banner image frame + info strip (no gap) */}
         <div className="max-w-5xl mx-auto px-6">
           <div className="border border-[#00ffff]/25 bg-[#0c0c0f] p-1 relative overflow-hidden group shadow-[0_0_60px_rgba(0,255,255,0.06)] hover:shadow-[0_0_80px_rgba(0,255,255,0.12)] transition-all duration-500">
             {/* Corner accents */}
@@ -400,45 +405,41 @@ export default function Hero() {
             {/* Scanline overlay (aesthetic) */}
             <div className="absolute inset-0 bg-[repeating-linear-gradient(0deg,transparent,transparent_2px,rgba(0,255,255,0.015)_2px,rgba(0,255,255,0.015)_4px)] pointer-events-none z-10 group-hover:opacity-0 transition-opacity duration-500"></div>
 
-            {/* The actual banner image */}
             <motion.div
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.9, delay: 0.15 }}
-              className="w-full max-w-5xl mx-auto mb-10 relative"
+              className="w-full relative"
             >
-              <div className="absolute -inset-1 bg-gradient-to-r from-[#00ffff]/20 via-[#0088ff]/10 to-[#00ffff]/20 rounded-2xl blur-xl pointer-events-none" />
-              <div className="relative rounded-xl overflow-hidden border border-[#00ffff]/30 shadow-[0_0_80px_rgba(0,255,255,0.15)]">
+              <div className="relative overflow-hidden border border-[#00ffff]/30">
                 <img
                   src="/Nano web cove.jpg.jpeg"
                   alt="Packaging Design Masterclass – Batch 4"
-                  className="w-full h-auto object-contain"
+                  className="w-full h-auto object-contain block"
                 />
+              </div>
+
+              {/* Info strip — flush under banner, no margin gap */}
+              <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-[#ffffff07] border-t border-[#00ffff]/15 bg-[#08080a]">
+                {[
+                  { label: 'Registration Last Date', value: '10-August-2026' },
+                  { label: 'Class Start', value: '16-August-2026' },
+                  { label: 'Live Class On', value: 'Google Meet' },
+                  { label: 'Mentor', value: 'Mujibur Rahman' },
+                ].map((item, i) => (
+                  <div key={i} className="flex flex-col items-center justify-center py-3 px-4 gap-0.5">
+                    <span className="text-[9px] font-bold text-white/30 uppercase tracking-[0.2em]">{item.label}</span>
+                    <span className="text-xs font-bold text-[#00ffff] tracking-wide font-heading">{item.value}</span>
+                  </div>
+                ))}
               </div>
             </motion.div>
           </div>
-        </div>
 
-        {/* Info strip below banner */}
-        <div className="max-w-5xl mx-auto px-6 mt-0">
-          <div className="border-x border-b border-[#00ffff]/15 bg-[#08080a] grid grid-cols-2 md:grid-cols-4 divide-x divide-[#ffffff07]">
-            {[
-              { label: 'Registration Last Date', value: '10-August-2026' },
-              { label: 'Class Start', value: '16-August-2026' },
-              { label: 'Live Class On', value: 'Google Meet' },
-              { label: 'Mentor', value: 'Mujibur Rahman' },
-            ].map((item, i) => (
-              <div key={i} className="flex flex-col items-center justify-center py-3 px-4 gap-0.5">
-                <span className="text-[9px] font-bold text-white/30 uppercase tracking-[0.2em]">{item.label}</span>
-                <span className="text-xs font-bold text-[#00ffff] tracking-wide font-heading">{item.value}</span>
-              </div>
-            ))}
+          {/* Bottom neon divider line */}
+          <div className="mt-0">
+            <div className="h-px bg-gradient-to-r from-transparent via-[#00ffff]/40 to-transparent"></div>
           </div>
-        </div>
-
-        {/* Bottom neon divider line */}
-        <div className="max-w-5xl mx-auto px-6 mt-0">
-          <div className="h-px bg-gradient-to-r from-transparent via-[#00ffff]/40 to-transparent"></div>
         </div>
 
       </div>
@@ -530,15 +531,12 @@ export default function Hero() {
                     <p className="text-white/65 text-sm md:text-base font-light max-w-md mx-auto leading-relaxed mb-6">
                       {dept.description}
                     </p>
-                    <button
-                      onClick={() => {
-                        const el = document.getElementById('contact')
-                        if (el) el.scrollIntoView({ behavior: 'smooth' })
-                      }}
-                      className="px-7 py-3.5 rounded-full bg-[#00ffff] text-black font-heading font-bold text-xs uppercase tracking-wide shadow-[0_0_20px_rgba(0,255,255,0.3)] hover:shadow-[0_0_35px_rgba(0,255,255,0.6)] hover:scale-105 transition-all cursor-pointer active:scale-95"
+                    <Link
+                      href={dept.href}
+                      className="inline-flex px-7 py-3.5 rounded-full bg-[#00ffff] text-black font-heading font-bold text-xs uppercase tracking-wide shadow-[0_0_20px_rgba(0,255,255,0.3)] hover:shadow-[0_0_35px_rgba(0,255,255,0.6)] hover:scale-105 transition-all cursor-pointer active:scale-95"
                     >
                       View Details
-                    </button>
+                    </Link>
                   </div>
 
                 </div>

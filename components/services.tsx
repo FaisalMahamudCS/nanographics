@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useRef } from 'react'
+import Link from 'next/link'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
@@ -10,28 +11,32 @@ const services = [
     description: 'Logos, visual systems, tone of voice, and brand guidelines that give your business a clear, confident presence across every touchpoint.',
     image: '/Branding Design.png',
     icon: 'M 30 60 L 100 20 L 170 60 L 170 140 L 100 180 L 30 140 Z',
-    color: 'from-[#00ffff]/20 to-[#0088ff]/10'
+    color: 'from-[#00ffff]/20 to-[#0088ff]/10',
+    href: '/#contact',
   },
   {
     title: 'Packaging Design',
     description: 'Premium packaging design systems, layout configurations, and printed mockups tailored for high-quality retail presence.',
     image: '/Packaging Design.png',
     icon: 'M 40 40 H 160 V 160 H 40 Z M 40 80 H 160',
-    color: 'from-[#00ffff]/25 to-[#0044ff]/10'
+    color: 'from-[#00ffff]/25 to-[#0044ff]/10',
+    href: '/packaging-design',
   },
   {
     title: 'Video Editing',
     description: 'Dynamic animations, high-end video editing, and motion graphics that bring your industrial or corporate narrative to life.',
     image: '/Banner/Banner/Video Editing.png',
     icon: 'M 60 40 L 160 100 L 60 160 Z',
-    color: 'from-[#00ffff]/20 to-[#00ccff]/10'
+    color: 'from-[#00ffff]/20 to-[#00ccff]/10',
+    href: '/#contact',
   },
   {
     title: 'Printing Support',
     description: 'High-end printing solutions and technical pre-press setup that ensure your layouts print perfectly on raw packaging film.',
-    image: '/Banner/Banner/Printing Support.png',
+    image: '/Design and Print Support2.png',
     icon: 'M 40 160 H 160 V 80 H 40 Z M 60 40 H 140 V 80 H 60 Z',
-    color: 'from-[#00ffff]/25 to-[#0022ff]/10'
+    color: 'from-[#00ffff]/25 to-[#0022ff]/10',
+    href: '/design-print',
   },
 
   {
@@ -39,14 +44,16 @@ const services = [
     description: 'Precision cylinder making, 3D engraving setup, and industrial rotogravure modeling for high strength print production.',
     image: '/Cylinder Make.png',
     icon: 'M 40 60 C 40 40 160 40 160 60 V 140 C 160 160 40 160 40 140 Z M 40 60 C 40 80 160 80 160 60',
-    color: 'from-[#00ffff]/30 to-[#0066ff]/10'
+    color: 'from-[#00ffff]/30 to-[#0066ff]/10',
+    href: '/#contact',
   },
   {
     title: 'AI Powered Website &Custom Software Development ',
     description: 'Modern, responsive website designs and seamless web development blending performance, interaction, and aesthetics.',
     image: '/AI Powered Website &Custom Software Development.png',
     icon: 'M 20 60 H 180 V 140 H 20 Z M 20 60 L 100 100 L 180 60',
-    color: 'from-[#00ffff]/20 to-[#0088ff]/10'
+    color: 'from-[#00ffff]/20 to-[#0088ff]/10',
+    href: '/#contact',
   },
 ]
 
@@ -220,9 +227,12 @@ export default function Services() {
 
                     {/* View project button */}
                     <div className="pt-8">
-                      <button className="px-6 py-3 rounded-full bg-white/5 border border-white/10 text-white font-semibold text-[10px] uppercase tracking-widest hover:bg-gradient-to-r hover:from-[#00ffff] hover:to-[#0088ff] hover:text-black hover:border-transparent transition-all duration-300 shadow-sm cursor-pointer active:scale-95">
+                      <Link
+                        href={service.href}
+                        className="inline-flex px-6 py-3 rounded-full bg-white/5 border border-white/10 text-white font-semibold text-[10px] uppercase tracking-widest hover:bg-gradient-to-r hover:from-[#00ffff] hover:to-[#0088ff] hover:text-black hover:border-transparent transition-all duration-300 shadow-sm cursor-pointer active:scale-95"
+                      >
                         View Details
-                      </button>
+                      </Link>
                     </div>
                   </div>
 
