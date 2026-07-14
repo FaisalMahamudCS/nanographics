@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from 'react'
 import Header from '@/components/header'
-import { LocalLogoCarousel } from '@/components/LocalLogoCarousel'
 import Hero from '@/components/hero'
 import Services from '@/components/services'
 import Work from '@/components/work'
@@ -65,7 +64,6 @@ export default function Page() {
         <div id="services" className="scroll-mt-20">
           <Services />
         </div>
-        <LocalLogoCarousel />
 
         <Testimonials />
 

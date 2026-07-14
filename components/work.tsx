@@ -6,6 +6,7 @@ import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { getPackagingDesignPath } from '@/lib/packaging-design'
 import { getDesignPrintPath } from '@/lib/design-print'
+import { LocalLogoCarousel } from '@/components/LocalLogoCarousel'
 
 const projects = [
   {
@@ -37,7 +38,6 @@ const projects = [
 export default function Work() {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
   const containerRef = useRef<HTMLDivElement>(null)
-  const workingWithGridRef = useRef<HTMLDivElement>(null)
   const showcaseRef = useRef<HTMLDivElement>(null)
   const productsRef = useRef<HTMLDivElement>(null)
 
@@ -46,27 +46,7 @@ export default function Work() {
     if (!containerRef.current) return
 
     const ctx = gsap.context(() => {
-      // 1. Working With cards stagger animation
-      const cards = workingWithGridRef.current?.querySelectorAll('.working-card')
-      if (cards && cards.length > 0) {
-        gsap.fromTo(cards,
-          { y: 50, opacity: 0 },
-          {
-            scrollTrigger: {
-              trigger: workingWithGridRef.current,
-              start: 'top 85%',
-              toggleActions: 'play none none none',
-            },
-            y: 0,
-            opacity: 1,
-            duration: 1,
-            stagger: 0.15,
-            ease: 'power3.out'
-          }
-        )
-      }
-
-      // 2. Showcase cards: Left and Right slide in, one after another
+      // Showcase cards: Left and Right slide in, one after another
       const showcaseCards = showcaseRef.current?.querySelectorAll('.showcase-card')
       if (showcaseCards && showcaseCards.length === 2) {
         const leftCard = showcaseCards[0]
@@ -104,7 +84,7 @@ export default function Work() {
         )
       }
 
-      // 3. Products Packaging cards stagger animation
+      // Products Packaging cards stagger animation
       const productCards = productsRef.current?.querySelectorAll('.product-card')
       if (productCards && productCards.length > 0) {
         gsap.fromTo(productCards,
@@ -223,46 +203,18 @@ export default function Work() {
 
         {/* Branding Design Section (Real Projects trigger point) */}
         <div id="real-projects" className="scroll-mt-28 mt-20 pt-20 border-t border-white/5">
-          {/* Client Collaboration Categories & Working With */}
-          <div className="mb-16">
+          <div className="mb-8">
             <h3 className="text-3xl lg:text-4xl font-bold mb-4 uppercase tracking-tighter font-heading text-white">
-              Working With
+              Our Partners
             </h3>
             <p className="text-white/50 text-xs md:text-sm font-light max-w-xl leading-relaxed">
-              We collaborate with diverse industrial sectors to deliver retail-ready packaging design and precision cylinder print plates.
+              Trusted by local and export brands across packaging, print, and industrial product lines.
             </p>
           </div>
 
-          <div ref={workingWithGridRef} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-24">
-            {[
-              { title: 'Export Company', desc: 'Global shipping standards & compliance', img: '/port.png' },
-              { title: 'Local Company', desc: 'Regional supply chains & retail distribution', img: '/file_000000001e2c71fab1ca1db4e6b1949f.png' },
-              { title: 'Oil Company', desc: 'Industrial lubricants & durability labels', img: '/Banner/Banner/Oil Company.jpeg' },
-
-            ].map((client, idx) => (
-              <div key={idx} className="working-card group relative overflow-hidden border border-white/10 hover:border-[#00ffff]/40 transition-all duration-500 bg-[#0c0c0f] min-h-[160px] flex flex-col justify-end p-6 rounded-none shadow-md">
-                {/* Background Image Layer */}
-                <div className="absolute inset-0 z-0">
-                  <img
-                    src={client.img}
-                    alt={client.title}
-                    className="w-full h-full object-contain opacity-70 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0c0c0f] via-[#0c0c0f]/80 to-transparent" />
-                </div>
-
-                {/* Content Layer */}
-                <div className="relative z-10">
-                  <div className="absolute top-[-24px] right-[-24px] w-2 h-2 border-t border-r border-transparent group-hover:border-[#00ffff] transition-all duration-300"></div>
-                  <p className="text-[#00ffff] font-bold text-base uppercase mb-1.5 font-heading tracking-tight group-hover:text-white transition-colors duration-300">{client.title}</p>
-                  <p className="text-white/60 text-[11px] font-light leading-snug group-hover:text-white/90 transition-colors duration-300">{client.desc}</p>
-                </div>
-              </div>
-            ))}
+          <div className="-mx-6 mb-16">
+            <LocalLogoCarousel embedded />
           </div>
-
-          {/* Company Logo Use Showcase */}
-
 
           {/* Products Packaging Section */}
           <div className="mt-28 border-t border-white/5 pt-20">
@@ -275,7 +227,7 @@ export default function Work() {
 
             <div ref={productsRef} className="grid md:grid-cols-2 gap-8 items-stretch">
               <div className="product-card h-full flex flex-col border border-white/10 bg-[#0c0c0f] hover:border-[#00ffff]/40 transition-all duration-500 group p-4 rounded-[10px] shadow-md">
-                <div className="aspect-[1499/1049] w-full relative overflow-hidden bg-[#050507] rounded-[6px]">
+                <div className="relative w-full h-[220px] sm:h-[260px] md:h-[280px] overflow-hidden bg-[#050507] rounded-[6px]">
                   <img
                     src="/Packaging Design.png"
                     alt="Packaging Design Film"
@@ -295,7 +247,7 @@ export default function Work() {
               </div>
 
               <div className="product-card h-full flex flex-col border border-white/10 bg-[#0c0c0f] hover:border-[#00ffff]/40 transition-all duration-500 group p-4 rounded-[10px] shadow-md">
-                <div className="aspect-video w-full relative overflow-hidden bg-[#050507] rounded-[6px]">
+                <div className="relative w-full h-[220px] sm:h-[260px] md:h-[280px] overflow-hidden bg-[#050507] rounded-[6px]">
                   <img
                     src="/Design and Print Support2.png"
                     alt="Design and Print cylinders"
