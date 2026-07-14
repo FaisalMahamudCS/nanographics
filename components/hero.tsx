@@ -5,6 +5,7 @@ import Link from 'next/link'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { motion } from 'framer-motion'
+import { SERVICE_ROUTES } from '@/lib/service-routes'
 
 const departments = [
   {
@@ -13,7 +14,7 @@ const departments = [
     description: 'Logos, visual systems, tone of voice, and brand guidelines that give your business a clear, confident presence across every touchpoint.',
     image: '/Branding Design.png',
     color: 'from-[#00ffff]/20 to-[#0088ff]/10',
-    href: '/#contact',
+    href: SERVICE_ROUTES.contact,
   },
   {
     title: 'Packaging Design',
@@ -21,7 +22,7 @@ const departments = [
     description: 'Eye-catching thumbnails that boost click-through rates and make your content stand out in crowded feeds.',
     image: '/Packaging Design.png',
     color: 'from-[#a855f7]/20 to-[#6366f1]/10',
-    href: '/packaging-design',
+    href: SERVICE_ROUTES.packagingDesign,
   },
   {
     title: 'Printing Support',
@@ -29,15 +30,15 @@ const departments = [
     description: 'High-quality print support for labels, packaging, cylinders, and promotional materials.',
     image: '/Design and Print Support2.png',
     color: 'from-[#a855f7]/20 to-[#6366f1]/10',
-    href: '/design-print',
+    href: SERVICE_ROUTES.designPrint,
   },
   {
-    title: 'Motion Design',
-    subtitle: 'Dynamic Animation',
-    description: 'Dynamic animations and motion graphics that bring your brand to life and captivate your audience.',
-    image: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=1200&auto=format&fit=crop',
+    title: 'AI Website & Software',
+    subtitle: 'AI Powered Development',
+    description: 'Modern AI-powered websites and custom software built for performance, scale, and growth.',
+    image: '/AI Powered Website &Custom Software Development.png',
     color: 'from-[#10b981]/20 to-[#3b82f6]/10',
-    href: '/#contact',
+    href: SERVICE_ROUTES.aiWebsite,
   },
 ]
 
@@ -412,11 +413,13 @@ export default function Hero() {
               className="w-full relative"
             >
               <div className="relative overflow-hidden border border-[#00ffff]/30">
-                <img
-                  src="/Nano web cove.jpg.jpeg"
-                  alt="Packaging Design Masterclass – Batch 4"
-                  className="w-full h-auto object-contain block"
-                />
+                <Link href={SERVICE_ROUTES.packageCourse} className="block">
+                  <img
+                    src="/Nano web cove.jpg.jpeg"
+                    alt="Packaging Design Masterclass – Batch 4"
+                    className="w-full h-auto object-contain block"
+                  />
+                </Link>
               </div>
 
               {/* Info strip — flush under banner, no margin gap */}
@@ -432,6 +435,15 @@ export default function Hero() {
                     <span className="text-xs font-bold text-[#00ffff] tracking-wide font-heading">{item.value}</span>
                   </div>
                 ))}
+              </div>
+
+              <div className="flex justify-center py-4 bg-[#08080a] border-t border-[#00ffff]/10">
+                <Link
+                  href={SERVICE_ROUTES.packageCourse}
+                  className="inline-flex px-7 py-3 rounded-full bg-[#00ffff] text-black font-heading font-bold text-xs uppercase tracking-wide shadow-[0_0_20px_rgba(0,255,255,0.3)] hover:shadow-[0_0_35px_rgba(0,255,255,0.6)] hover:scale-105 transition-all"
+                >
+                  View Course Details
+                </Link>
               </div>
             </motion.div>
           </div>

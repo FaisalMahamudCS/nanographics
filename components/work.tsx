@@ -7,6 +7,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { getPackagingDesignPath } from '@/lib/packaging-design'
 import { getDesignPrintPath } from '@/lib/design-print'
 import { LocalLogoCarousel } from '@/components/LocalLogoCarousel'
+import { SERVICE_ROUTES } from '@/lib/service-routes'
 
 const projects = [
   {
@@ -14,25 +15,29 @@ const projects = [
     description: 'Brand Identity & Packaging',
     scope: 'Printed flexible packaging rolls for snacks, biscuits, and beverages.',
     image: '/Banner/Banner/Food Company.jpeg',
+    href: getPackagingDesignPath(),
   },
   {
     title: 'Oil Company',
     description: 'Corporate cylinders & film',
     scope: 'High strength, clarity-optimized rotogravure cylinders & film packaging.',
     image: '/Banner/Banner/Oil Company.jpeg',
+    href: getDesignPrintPath(),
   },
   {
     title: 'Printing & Packaging',
     description: 'Industrial Print Campaigns',
     scope: 'Marketing collateral, factory process posters, and showroom branding.',
     image: '/Banner/Banner/Printing Support.png',
+    href: getDesignPrintPath(),
   },
   {
     title: 'Logo Make',
     description: 'Vector Brand Identity',
     scope: 'Precision vector logo marks, type systems, and complete branding manuals.',
     image: '/Banner/Banner/Branding Logo.png',
-  }
+    href: SERVICE_ROUTES.contact,
+  },
 ]
 
 export default function Work() {
@@ -167,9 +172,12 @@ export default function Work() {
                     <p className="text-white/60 text-xs font-light leading-relaxed max-w-sm mb-4">
                       {project.scope}
                     </p>
-                    <button className="px-5 py-2.5 rounded-full bg-[#00ffff] hover:bg-[#33ffff] hover:shadow-[0_0_15px_rgba(0,255,255,0.4)] text-black text-[9px] font-bold uppercase tracking-widest cursor-pointer shadow-md active:scale-95 transition-all">
+                    <Link
+                      href={project.href}
+                      className="inline-flex px-5 py-2.5 rounded-full bg-[#00ffff] hover:bg-[#33ffff] hover:shadow-[0_0_15px_rgba(0,255,255,0.4)] text-black text-[9px] font-bold uppercase tracking-widest cursor-pointer shadow-md active:scale-95 transition-all"
+                    >
                       View Project
-                    </button>
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -180,8 +188,9 @@ export default function Work() {
         {/* Mobile Swipeable Carousel */}
         <div className="flex md:hidden gap-4 overflow-x-auto snap-x snap-mandatory pb-6 -mx-6 px-6 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden mb-20">
           {projects.map((project, index) => (
-            <div
+            <Link
               key={index}
+              href={project.href}
               className="snap-center shrink-0 w-[85%] aspect-[1500/1050] rounded-[10px] overflow-hidden bg-[#0c0c0f] border border-white/5 relative"
             >
               <img
@@ -197,7 +206,7 @@ export default function Work() {
                   {project.title}
                 </h3>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
 

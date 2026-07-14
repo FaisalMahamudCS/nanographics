@@ -4,6 +4,7 @@ import { useEffect, useRef } from 'react'
 import Link from 'next/link'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { SERVICE_ROUTES } from '@/lib/service-routes'
 
 const services = [
   {
@@ -12,7 +13,7 @@ const services = [
     image: '/Branding Design.png',
     icon: 'M 30 60 L 100 20 L 170 60 L 170 140 L 100 180 L 30 140 Z',
     color: 'from-[#00ffff]/20 to-[#0088ff]/10',
-    href: '/#contact',
+    href: SERVICE_ROUTES.contact,
   },
   {
     title: 'Packaging Design',
@@ -20,7 +21,7 @@ const services = [
     image: '/Packaging Design.png',
     icon: 'M 40 40 H 160 V 160 H 40 Z M 40 80 H 160',
     color: 'from-[#00ffff]/25 to-[#0044ff]/10',
-    href: '/packaging-design',
+    href: SERVICE_ROUTES.packagingDesign,
   },
   {
     title: 'Video Editing',
@@ -28,7 +29,7 @@ const services = [
     image: '/Banner/Banner/Video Editing.png',
     icon: 'M 60 40 L 160 100 L 60 160 Z',
     color: 'from-[#00ffff]/20 to-[#00ccff]/10',
-    href: '/#contact',
+    href: SERVICE_ROUTES.contact,
   },
   {
     title: 'Printing Support',
@@ -36,7 +37,7 @@ const services = [
     image: '/Design and Print Support2.png',
     icon: 'M 40 160 H 160 V 80 H 40 Z M 60 40 H 140 V 80 H 60 Z',
     color: 'from-[#00ffff]/25 to-[#0022ff]/10',
-    href: '/design-print',
+    href: SERVICE_ROUTES.designPrint,
   },
 
   {
@@ -45,15 +46,15 @@ const services = [
     image: '/Cylinder Make.png',
     icon: 'M 40 60 C 40 40 160 40 160 60 V 140 C 160 160 40 160 40 140 Z M 40 60 C 40 80 160 80 160 60',
     color: 'from-[#00ffff]/30 to-[#0066ff]/10',
-    href: '/#contact',
+    href: SERVICE_ROUTES.contact,
   },
   {
-    title: 'AI Powered Website &Custom Software Development ',
+    title: 'AI Powered Website & Custom Software Development',
     description: 'Modern, responsive website designs and seamless web development blending performance, interaction, and aesthetics.',
     image: '/AI Powered Website &Custom Software Development.png',
     icon: 'M 20 60 H 180 V 140 H 20 Z M 20 60 L 100 100 L 180 60',
     color: 'from-[#00ffff]/20 to-[#0088ff]/10',
-    href: '/#contact',
+    href: SERVICE_ROUTES.aiWebsite,
   },
 ]
 
@@ -194,9 +195,41 @@ export default function Services() {
                 ref={(el) => {
                   if (el) cardsRef.current[index] = el
                 }}
-                className="w-full min-h-[50vh] md:h-[70vh] md:sticky flex items-center justify-center py-4 md:py-8"
+                className={`w-full md:sticky flex items-center justify-center py-4 md:py-8 ${
+                  service.layout === 'banner'
+                    ? 'min-h-[60vh] md:min-h-[85vh]'
+                    : 'min-h-[50vh] md:h-[70vh]'
+                }`}
                 style={{ top: `${topOffset}px`, zIndex: index + 10 }}
               >
+                {service.layout === 'banner' ? (
+                  <div className="card-inner relative w-full h-full rounded-none bg-[#0b0b0d] border border-white/5 overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.6)] flex flex-col transition-colors duration-500 hover:border-[#00ffff]/20 group">
+                    <div className={`absolute -right-20 -bottom-20 w-80 h-80 rounded-none bg-gradient-to-br ${service.color} blur-[80px] opacity-60 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none`} />
+
+                    <div className="card-media relative w-full grow min-h-[320px] md:min-h-0 bg-[#060608]">
+                      <img
+                        src={service.image}
+                        alt={service.title}
+                        className="absolute inset-0 w-full h-full object-contain transition-transform duration-700 ease-out group-hover:scale-[1.01]"
+                      />
+                    </div>
+
+                    <div className="card-content relative z-10 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 p-5 md:p-6 border-t border-white/10 bg-[#0b0b0d]/95">
+                      <div>
+                        <p className="text-[#00ffff] text-[10px] font-bold tracking-[0.25em] uppercase mb-1">Our Services</p>
+                        <h3 className="text-lg md:text-2xl font-bold uppercase tracking-tight text-white font-heading">
+                          {service.title}
+                        </h3>
+                      </div>
+                      <Link
+                        href={service.href}
+                        className="inline-flex self-start sm:self-auto px-6 py-3 rounded-full bg-[#00ffff] text-black font-semibold text-[10px] uppercase tracking-widest hover:bg-[#33ffff] hover:shadow-[0_0_20px_rgba(0,255,255,0.4)] transition-all duration-300 shadow-sm cursor-pointer active:scale-95"
+                      >
+                        View Details
+                      </Link>
+                    </div>
+                  </div>
+                ) : (
                  <div className={`card-inner relative w-full h-full rounded-none bg-[#0b0b0d] border border-white/5 overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.6)] flex flex-col ${
                   index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
                 } items-stretch gap-0 transition-colors duration-500 hover:border-[#00ffff]/20 group`}>
@@ -246,6 +279,7 @@ export default function Services() {
                   </div>
 
                 </div>
+                )}
               </div>
             )
           })}

@@ -1,0 +1,61 @@
+{
+  "id": "ai-website",
+  "slug": "ai-website",
+  "title": "AI POWERED WEBSITE & CUSTOM SOFTWARE DEVELOPMENT",
+  "description": "Modern, responsive website designs and seamless web development blending performance, interaction, and aesthetics.",
+  "bannerImage": "/AI Powered Website &Custom Software Development.png",
+  "company": "NanoGraphic",
+  "published": true,
+  "topBanner": {
+    "title": "AI POWERED WEBSITE & CUSTOM SOFTWARE DEVELOPMENT",
+    "subtitle": "Innovate. Build. Elevate. AI-powered websites and custom software built for speed, scale, and growth.",
+    "titleColor": "#ffffff",
+    "subtitleColor": "#ffffff",
+    "image": "/AI Powered Website &Custom Software Development.png",
+    "textAlignment": "left"
+  },
+  "services": [
+    {
+      "id": "ai-integration",
+      "title": "AI Integration",
+      "description": "Smart automation and AI features that save time and improve business decisions."
+    },
+    {
+      "id": "website-development",
+      "title": "Website Development",
+      "description": "Fast, modern, and mobile-friendly websites designed for conversion."
+    },
+    {
+      "id": "custom-software",
+      "title": "Custom Software Development",
+      "description": "Tailored software solutions built for your unique workflow."
+    },
+    {
+      "id": "ecommerce",
+      "title": "E-Commerce Solutions",
+      "description": "Online stores with secure payments and smooth shopping experiences."
+    },
+    {
+      "id": "mobile-app",
+      "title": "Mobile App Development",
+      "description": "iOS and Android apps with clean UI and strong performance."
+    },
+    {
+      "id": "cloud-api",
+      "title": "Cloud & API Solutions",
+      "description": "Scalable cloud systems and secure API integrations."
+    }
+  ],
+  "features": [
+    "Fast Delivery",
+    "Secure & Scalable",
+    "High Quality Code",
+    "Dedicated Support"
+  ],
+  "contactInfo": {
+    "phone": "+880 1834 473283",
+    "email": "nanographic.info01@gmail.com",
+    "website": "www.nanographicit.com",
+    "location": "Chattogram, Bangladesh"
+  }
+}
