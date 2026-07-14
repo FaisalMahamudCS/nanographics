@@ -37,7 +37,7 @@ export const LocalLogoCarousel: React.FC<LocalLogoCarouselProps> = ({ embedded =
         <h2 className="text-center text-2xl font-bold text-[#00ffff] mb-6">Our Partners</h2>
       )}
       <motion.div
-        className="flex gap-8 items-center"
+        className="flex gap-10 sm:gap-12 items-center"
         style={{ width: 'max-content' }}
         animate={controls}
         onHoverStart={() => controls.stop()}
@@ -46,12 +46,12 @@ export const LocalLogoCarousel: React.FC<LocalLogoCarouselProps> = ({ embedded =
         {duplicatedLogos.map((file, i) => (
           <div
             key={i}
-            className="flex-shrink-0 w-40 h-40 sm:w-48 sm:h-48 flex items-center justify-center rounded-full bg-[#111] border border-white/10 shadow-[0_0_20px_rgba(0,255,255,0.2)] transition-all duration-300 ease-out hover:scale-110 hover:border-[#00ffff]/40 hover:shadow-[0_0_30px_rgba(0,255,255,0.5)] cursor-pointer"
+            className="flex-shrink-0 w-56 h-56 sm:w-64 sm:h-64 md:w-72 md:h-72 flex items-center justify-center rounded-full bg-[#111] border border-white/10 shadow-[0_0_20px_rgba(0,255,255,0.2)] transition-all duration-300 ease-out hover:scale-105 hover:border-[#00ffff]/40 hover:shadow-[0_0_30px_rgba(0,255,255,0.5)] cursor-pointer"
           >
             <img
               src={file}
               alt={`Partner Logo ${i + 1}`}
-              className="w-28 h-28 sm:w-32 sm:h-32 object-contain"
+              className="w-40 h-40 sm:w-48 sm:h-48 md:w-56 md:h-56 object-contain"
             />
           </div>
         ))}
