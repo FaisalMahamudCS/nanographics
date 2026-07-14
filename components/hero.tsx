@@ -10,22 +10,22 @@ const departments = [
     title: 'Branding Design',
     subtitle: 'Identity & Visual Systems',
     description: 'Logos, visual systems, tone of voice, and brand guidelines that give your business a clear, confident presence across every touchpoint.',
-    image: 'https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?q=80&w=1200&auto=format&fit=crop',
+    image: './Branding Design.png',
     color: 'from-[#00ffff]/20 to-[#0088ff]/10'
   },
   {
-    title: 'Thumbnail Design',
+    title: 'Packaging Design',
     subtitle: 'High CTR Visuals',
     description: 'Eye-catching thumbnails that boost click-through rates and make your content stand out in crowded feeds.',
-    image: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=1200&auto=format&fit=crop',
+    image: './Packaging Design.png',
     color: 'from-[#a855f7]/20 to-[#6366f1]/10'
   },
   {
-    title: 'Video Editing',
-    subtitle: 'High-End Production',
-    description: 'Professional video editing that transforms raw footage into polished, engaging content ready for any platform.',
-    image: 'https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?q=80&w=1200&auto=format&fit=crop',
-    color: 'from-[#f43f5e]/20 to-[#d946ef]/10'
+    title: 'Foil Printing',
+    subtitle: 'Premium Printing',
+    description: 'High-quality foil printing services for labels, packaging, and promotional materials.',
+    image: './Banner/Banner/Printing Support.png',
+    color: 'from-[#a855f7]/20 to-[#6366f1]/10'
   },
   {
     title: 'Motion Design',

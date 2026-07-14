@@ -26,11 +26,11 @@ export default function PortfolioGalleryPage({ data }: PortfolioGalleryPageProps
       <main className="relative z-10 w-full pt-28 sm:pt-32">
         <section className="max-w-7xl mx-auto px-6 pb-8">
           <div className="product-card border border-white/10 bg-[#0c0c0f] p-4 rounded-[10px] shadow-md">
-            <div className="aspect-[3117/1402] relative overflow-hidden bg-[#050507] rounded-[6px]">
+            <div className="aspect-video relative overflow-hidden bg-[#050507] rounded-[6px]">
               <img
                 src={bannerImage}
                 alt={topBanner.title}
-                className="w-full h-full object-contain"
+                className="absolute inset-0 w-full h-full object-cover"
               />
             </div>
             <div className="pt-6 px-2">

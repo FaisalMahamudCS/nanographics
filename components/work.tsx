@@ -21,7 +21,7 @@ const projects = [
     image: '/Banner/Banner/Oil Company.jpeg',
   },
   {
-    title: 'Poster Make',
+    title: 'Printing & Packaging',
     description: 'Industrial Print Campaigns',
     scope: 'Marketing collateral, factory process posters, and showroom branding.',
     image: '/Banner/Banner/Printing Support.png',
@@ -273,41 +273,41 @@ export default function Work() {
               Explore our core packaging production workflows, combining digital design layout with high-speed physical print support.
             </p>
 
-            <div ref={productsRef} className="grid md:grid-cols-2 gap-8">
-              <div className="product-card border border-white/10 bg-[#0c0c0f] hover:border-[#00ffff]/40 transition-all duration-500 group p-4 rounded-[10px] shadow-md">
-                <div className="aspect-[3117/1402] relative overflow-hidden bg-[#050507]">
+            <div ref={productsRef} className="grid md:grid-cols-2 gap-8 items-stretch">
+              <div className="product-card h-full flex flex-col border border-white/10 bg-[#0c0c0f] hover:border-[#00ffff]/40 transition-all duration-500 group p-4 rounded-[10px] shadow-md">
+                <div className="aspect-video w-full relative overflow-hidden bg-[#050507] rounded-[6px]">
                   <img
-                    src="/Banner/Banner/Packaging Design.png"
+                    src="/Nano web cove.jpg.jpeg"
                     alt="Packaging Design Film"
-                    className="w-full h-full object-contain transition-all duration:700 group-hover:scale-[1.02]"
+                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.02]"
                   />
                 </div>
-                <div className="pt-6 px-2">
+                <div className="pt-6 px-2 flex flex-col grow">
                   <h4 className="font-bold text-xl text-white uppercase tracking-tight mb-2 font-heading group-hover:text-[#00ffff] transition-colors">Packaging Design</h4>
-                  <p className="text-white/50 text-xs font-light mb-5">Flexible film rolls, bags, and pouches designed for snacks, chips, spices, and confectionery products.</p>
+                  <p className="text-white/50 text-xs font-light mb-5 grow">Flexible film rolls, bags, and pouches designed for snacks, chips, spices, and confectionery products.</p>
                   <Link
                     href={getPackagingDesignPath()}
-                    className="inline-flex px-5 py-2.5 rounded-full bg-[#00ffff] hover:bg-[#33ffff] hover:shadow-[0_0_15px_rgba(0,255,255,0.4)] text-black text-[9px] font-bold uppercase tracking-widest cursor-pointer shadow-md active:scale-95 transition-all"
+                    className="inline-flex self-start px-5 py-2.5 rounded-full bg-[#00ffff] hover:bg-[#33ffff] hover:shadow-[0_0_15px_rgba(0,255,255,0.4)] text-black text-[9px] font-bold uppercase tracking-widest cursor-pointer shadow-md active:scale-95 transition-all"
                   >
                     View
                   </Link>
                 </div>
               </div>
 
-              <div className="product-card border border-white/10 bg-[#0c0c0f] hover:border-[#00ffff]/40 transition-all duration-500 group p-4 rounded-[10px] shadow-md">
-                <div className="aspect-[3117/1402] relative overflow-hidden bg-[#050507]">
+              <div className="product-card h-full flex flex-col border border-white/10 bg-[#0c0c0f] hover:border-[#00ffff]/40 transition-all duration-500 group p-4 rounded-[10px] shadow-md">
+                <div className="aspect-video w-full relative overflow-hidden bg-[#050507] rounded-[6px]">
                   <img
                     src="/Banner/Banner/Design and Print Support2.png"
                     alt="Design and Print cylinders"
-                    className="w-full h-full object-contain transition-all duration:700 group-hover:scale-[1.02]"
+                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.02]"
                   />
                 </div>
-                <div className="pt-6 px-2">
+                <div className="pt-6 px-2 flex flex-col grow">
                   <h4 className="font-bold text-xl text-white uppercase tracking-tight mb-2 font-heading group-hover:text-[#00ffff] transition-colors">Design and Print Support</h4>
-                  <p className="text-white/50 text-xs font-light mb-5">High strength rotogravure cylinders setup, color proofing, and industrial print support.</p>
+                  <p className="text-white/50 text-xs font-light mb-5 grow">High strength rotogravure cylinders setup, color proofing, and industrial print support.</p>
                   <Link
                     href={getDesignPrintPath()}
-                    className="inline-flex px-5 py-2.5 rounded-full bg-[#00ffff] hover:bg-[#33ffff] hover:shadow-[0_0_15px_rgba(0,255,255,0.4)] text-black text-[9px] font-bold uppercase tracking-widest cursor-pointer shadow-md active:scale-95 transition-all"
+                    className="inline-flex self-start px-5 py-2.5 rounded-full bg-[#00ffff] hover:bg-[#33ffff] hover:shadow-[0_0_15px_rgba(0,255,255,0.4)] text-black text-[9px] font-bold uppercase tracking-widest cursor-pointer shadow-md active:scale-95 transition-all"
                   >
                     View
                   </Link>

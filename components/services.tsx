@@ -8,7 +8,7 @@ const services = [
   {
     title: 'Branding Design',
     description: 'Logos, visual systems, tone of voice, and brand guidelines that give your business a clear, confident presence across every touchpoint.',
-    image: '/Banner/Banner/Branding Design.png',
+    image: './Branding Design.png',
     icon: 'M 30 60 L 100 20 L 170 60 L 170 140 L 100 180 L 30 140 Z',
     color: 'from-[#00ffff]/20 to-[#0088ff]/10'
   },
