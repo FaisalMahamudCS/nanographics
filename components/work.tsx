@@ -275,11 +275,11 @@ export default function Work() {
 
             <div ref={productsRef} className="grid md:grid-cols-2 gap-8 items-stretch">
               <div className="product-card h-full flex flex-col border border-white/10 bg-[#0c0c0f] hover:border-[#00ffff]/40 transition-all duration-500 group p-4 rounded-[10px] shadow-md">
-                <div className="aspect-video w-full relative overflow-hidden bg-[#050507] rounded-[6px]">
+                <div className="aspect-[1499/1049] w-full relative overflow-hidden bg-[#050507] rounded-[6px]">
                   <img
-                    src="/Nano web cove.jpg.jpeg"
+                    src="/Packaging Design.png"
                     alt="Packaging Design Film"
-                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.02]"
+                    className="absolute inset-0 w-full h-full object-contain transition-transform duration-700 group-hover:scale-[1.02]"
                   />
                 </div>
                 <div className="pt-6 px-2 flex flex-col grow">
@@ -299,7 +299,7 @@ export default function Work() {
                   <img
                     src="/Banner/Banner/Design and Print Support2.png"
                     alt="Design and Print cylinders"
-                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.02]"
+                    className="absolute inset-0 w-full h-full object-contain transition-transform duration-700 group-hover:scale-[1.02]"
                   />
                 </div>
                 <div className="pt-6 px-2 flex flex-col grow">

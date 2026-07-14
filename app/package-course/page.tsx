@@ -200,7 +200,7 @@ export default function PackageCoursePage() {
         </motion.div>
 
         {/* 3 Course Highlight Images */}
-        <motion.div 
+        <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-50px" }}
@@ -214,7 +214,7 @@ export default function PackageCoursePage() {
           className="w-full max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 mt-16 perspective-[1000px]"
         >
           {/* Card 1 */}
-          <motion.div 
+          <motion.div
             variants={{
               hidden: { opacity: 0, y: 50, rotateX: 10 },
               visible: { opacity: 1, y: 0, rotateX: 0, transition: { duration: 0.8, ease: [0.21, 0.47, 0.32, 0.98] } }
@@ -233,9 +233,9 @@ export default function PackageCoursePage() {
               </h3>
             </div>
           </motion.div>
-          
+
           {/* Card 2 */}
-          <motion.div 
+          <motion.div
             variants={{
               hidden: { opacity: 0, y: 50, rotateX: 10 },
               visible: { opacity: 1, y: 0, rotateX: 0, transition: { duration: 0.8, ease: [0.21, 0.47, 0.32, 0.98] } }
@@ -256,7 +256,7 @@ export default function PackageCoursePage() {
           </motion.div>
 
           {/* Card 3 */}
-          <motion.div 
+          <motion.div
             variants={{
               hidden: { opacity: 0, y: 50, rotateX: 10 },
               visible: { opacity: 1, y: 0, rotateX: 0, transition: { duration: 0.8, ease: [0.21, 0.47, 0.32, 0.98] } }
@@ -291,7 +291,7 @@ export default function PackageCoursePage() {
             </h2>
           </div>
 
-          <motion.div 
+          <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-50px" }}
@@ -316,7 +316,7 @@ export default function PackageCoursePage() {
                   whileHover={{ y: -8 }}
                   className="group p-8 rounded-none border border-white/5 bg-[#0a0a0c] hover:border-[#00ffff]/30 hover:bg-[#00ffff]/5 transition-colors duration-300 flex flex-col items-start text-left cursor-pointer shadow-lg hover:shadow-[0_10px_30px_rgba(0,255,255,0.08)]"
                 >
-                  <motion.div 
+                  <motion.div
                     whileHover={{ scale: 1.15, rotate: 5 }}
                     transition={{ type: "spring", stiffness: 300, damping: 15 }}
                     className="w-12 h-12 rounded-none bg-[#00ffff]/10 flex items-center justify-center mb-6 group-hover:bg-[#00ffff] transition-colors duration-300"
@@ -444,7 +444,7 @@ export default function PackageCoursePage() {
             </h2>
           </div>
 
-          <motion.div 
+          <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-50px" }}
@@ -488,7 +488,7 @@ export default function PackageCoursePage() {
                   whileHover={{ y: -5, scale: 1.02 }}
                   className="p-8 rounded-none border border-white/5 bg-[#0a0a0d] text-center flex flex-col items-center hover:border-[#00ffff]/30 hover:bg-[#00ffff]/5 transition-colors duration-300 shadow-lg hover:shadow-[0_10px_30px_rgba(0,255,255,0.08)] cursor-pointer group"
                 >
-                  <motion.div 
+                  <motion.div
                     whileHover={{ scale: 1.15, rotate: 10 }}
                     transition={{ type: "spring", stiffness: 300 }}
                     className="w-12 h-12 rounded-none bg-white/5 flex items-center justify-center mb-5 group-hover:bg-[#00ffff]/20 transition-colors duration-300"

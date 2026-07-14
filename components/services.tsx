@@ -8,14 +8,14 @@ const services = [
   {
     title: 'Branding Design',
     description: 'Logos, visual systems, tone of voice, and brand guidelines that give your business a clear, confident presence across every touchpoint.',
-    image: './Branding Design.png',
+    image: '/Branding Design.png',
     icon: 'M 30 60 L 100 20 L 170 60 L 170 140 L 100 180 L 30 140 Z',
     color: 'from-[#00ffff]/20 to-[#0088ff]/10'
   },
   {
     title: 'Packaging Design',
     description: 'Premium packaging design systems, layout configurations, and printed mockups tailored for high-quality retail presence.',
-    image: '/Banner/Banner/Packaging Design.png',
+    image: '/Packaging Design.png',
     icon: 'M 40 40 H 160 V 160 H 40 Z M 40 80 H 160',
     color: 'from-[#00ffff]/25 to-[#0044ff]/10'
   },
@@ -37,14 +37,14 @@ const services = [
   {
     title: 'Cylinder Make',
     description: 'Precision cylinder making, 3D engraving setup, and industrial rotogravure modeling for high strength print production.',
-    image: '/Banner/Banner/Cylinder Make.png',
+    image: '/Cylinder Make.png',
     icon: 'M 40 60 C 40 40 160 40 160 60 V 140 C 160 160 40 160 40 140 Z M 40 60 C 40 80 160 80 160 60',
     color: 'from-[#00ffff]/30 to-[#0066ff]/10'
   },
   {
     title: 'AI Powered Website &Custom Software Development ',
     description: 'Modern, responsive website designs and seamless web development blending performance, interaction, and aesthetics.',
-    image: '/Banner/Banner/AI Powered Website &Custom Software Development.png',
+    image: '/AI Powered Website &Custom Software Development.png',
     icon: 'M 20 60 H 180 V 140 H 20 Z M 20 60 L 100 100 L 180 60',
     color: 'from-[#00ffff]/20 to-[#0088ff]/10'
   },
@@ -192,13 +192,13 @@ export default function Services() {
               >
                  <div className={`card-inner relative w-full h-full rounded-none bg-[#0b0b0d] border border-white/5 overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.6)] flex flex-col ${
                   index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
-                } items-center gap-6 md:gap-10 p-6 md:p-10 transition-colors duration-500 hover:border-[#00ffff]/20 group`}>
+                } items-stretch gap-0 transition-colors duration-500 hover:border-[#00ffff]/20 group`}>
 
                   {/* Subtle corner card glow */}
                   <div className={`absolute -right-20 -bottom-20 w-80 h-80 rounded-none bg-gradient-to-br ${service.color} blur-[80px] opacity-60 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none`}></div>
 
                   {/* Left content column */}
-                  <div className="card-content flex-1 flex flex-col justify-between z-10 py-2">
+                  <div className="card-content flex-1 flex flex-col justify-between z-10 p-6 md:p-10">
                     <div className="space-y-6">
                       {/* Icon */}
                       <div className="w-14 h-14 rounded-none bg-white/5 border border-white/10 flex items-center justify-center text-[#00ffff] group-hover:bg-[#00ffff] group-hover:text-black transition-all duration-300 shadow-md">
@@ -226,12 +226,12 @@ export default function Services() {
                     </div>
                   </div>
 
-                  {/* Right full-bleed media column */}
-                  <div className="card-media flex-1 relative rounded-none overflow-hidden bg-[#060608] w-full flex items-center justify-center p-4">
+                  {/* Right full-bleed media column — show full banner, no crop */}
+                  <div className="card-media flex-1 relative w-full min-h-[240px] md:min-h-0 self-stretch bg-[#060608]">
                     <img
                       src={service.image}
                       alt={service.title}
-                      className="w-full h-auto max-h-[50vh] object-contain transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+                      className="absolute inset-0 w-full h-full object-contain transition-transform duration-700 ease-out group-hover:scale-[1.02]"
                     />
                   </div>
 

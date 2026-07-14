@@ -3,13 +3,15 @@
   "slug": "packaging-design",
   "title": "PACKAGING DESIGN",
   "description": "Flexible film rolls, bags, and pouches designed for snacks, chips, spices, and confectionery products.",
-  "bannerImage": "/Nano web cove.jpg.jpeg",
+  "bannerImage": "/Packaging Design.png",
+  "bannerAspect": "1499/1049",
+  "galleryAspect": "1499/1049",
   "topBanner": {
     "title": "PACKAGING DESIGN",
     "subtitle": "Flexible film rolls, bags, and pouches designed for snacks, chips, spices, and confectionery products.",
     "titleColor": "#ffffff",
     "subtitleColor": "#ffffff",
-    "image": "/Nano web cove.jpg.jpeg",
+    "image": "/Packaging Design.png",
     "textAlignment": "left"
   },
   "company": "NanoGraphic",
@@ -21,39 +23,209 @@
     "location": "Chattogram, Bangladesh"
   },
   "gallery": [
-    { "id": "abc", "name": "ABC", "image": "/Packaging Design/ABC.png", "category": "Snacks" },
-    { "id": "bk-paratha", "name": "BK Paratha", "image": "/Packaging Design/BK Paratha.png", "category": "Food" },
-    { "id": "biroin-rice", "name": "Biroin Rice", "image": "/Packaging Design/Biroin rice.png", "category": "Rice" },
-    { "id": "bis1", "name": "Biscuit", "image": "/Packaging Design/Bis1.png", "category": "Confectionery" },
-    { "id": "brade", "name": "Brade", "image": "/Packaging Design/Brade.png", "category": "Food" },
-    { "id": "butter-bis", "name": "Butter Biscuit", "image": "/Packaging Design/Butter bis.png", "category": "Confectionery" },
-    { "id": "bbq-noo", "name": "BBQ Noodles", "image": "/Packaging Design/bbq Noo.png", "category": "Noodles" },
-    { "id": "bsp-bis", "name": "BSP Biscuit", "image": "/Packaging Design/bsp Bis.png", "category": "Confectionery" },
-    { "id": "cake-2", "name": "Cake", "image": "/Packaging Design/cake 2.png", "category": "Confectionery" },
-    { "id": "cocolat", "name": "Chocolate", "image": "/Packaging Design/cocolat.png", "category": "Confectionery" },
-    { "id": "copy-mix", "name": "Copy Mix", "image": "/Packaging Design/copy mix.png", "category": "Spices" },
-    { "id": "dry-chilli-bay", "name": "Dry Chilli Bay", "image": "/Packaging Design/Dry chilli bay.png", "category": "Spices" },
-    { "id": "gold-tea", "name": "Gold Tea", "image": "/Packaging Design/Gold Tea.png", "category": "Beverages" },
-    { "id": "hinta", "name": "Hinta", "image": "/Packaging Design/Hinta.png", "category": "Food" },
-    { "id": "ice-1", "name": "Ice Cream", "image": "/Packaging Design/Ice 1.png", "category": "Frozen" },
-    { "id": "ice-2", "name": "Ice Cream 2", "image": "/Packaging Design/ice 2.png", "category": "Frozen" },
-    { "id": "oil", "name": "Cooking Oil", "image": "/Packaging Design/oil.png", "category": "Oil" },
-    { "id": "paratha", "name": "Paratha", "image": "/Packaging Design/Paratha .png", "category": "Food" },
-    { "id": "puffer-rice", "name": "Puffer Rice", "image": "/Packaging Design/Puffer rice.png", "category": "Rice" },
-    { "id": "ramen-noodles", "name": "Ramen Noodles", "image": "/Packaging Design/Ramen noodles.png", "category": "Noodles" },
-    { "id": "rice", "name": "Rice", "image": "/Packaging Design/Rice.png", "category": "Rice" },
-    { "id": "sanya-fried", "name": "Sanya Fried", "image": "/Packaging Design/Sanya Fried TM.png", "category": "Snacks" },
-    { "id": "sas1", "name": "Sauce 1", "image": "/Packaging Design/Sas1.png", "category": "Sauces" },
-    { "id": "sas2", "name": "Sauce 2", "image": "/Packaging Design/Sas2.png", "category": "Sauces" },
-    { "id": "shangu", "name": "Shangu", "image": "/Packaging Design/Shangu.jpg", "category": "Spices" },
-    { "id": "shera-spice-jpg", "name": "Shera Spice", "image": "/Packaging Design/Shera Spice.jpg", "category": "Spices" },
-    { "id": "shera-spice-png", "name": "Shera Spice", "image": "/Packaging Design/Shera Spice.png", "category": "Spices" },
-    { "id": "spice-box", "name": "Spice Box", "image": "/Packaging Design/Spice Box.png", "category": "Spices" },
-    { "id": "spice-jar", "name": "Spice Jar", "image": "/Packaging Design/Spice Jar.png", "category": "Spices" },
-    { "id": "spice-masala", "name": "Spice Masala", "image": "/Packaging Design/spice masala1.jpg", "category": "Spices" },
-    { "id": "sugar", "name": "Sugar", "image": "/Packaging Design/Sugar.png", "category": "Food" },
-    { "id": "tasty", "name": "Tasty", "image": "/Packaging Design/Tasty.png", "category": "Snacks" },
-    { "id": "tea-mix", "name": "Tea Mix", "image": "/Packaging Design/Tea mix.png", "category": "Beverages" },
-    { "id": "toast", "name": "Toast", "image": "/Packaging Design/toast.png", "category": "Snacks" }
+    {
+      "id": "abc",
+      "name": "ABC",
+      "image": "/Packaging Design/ABC.png",
+      "category": "Snacks"
+    },
+    {
+      "id": "bbq-noo",
+      "name": "bbq Noo",
+      "image": "/Packaging Design/bbq Noo.png",
+      "category": "Noodles"
+    },
+    {
+      "id": "biroin-rice",
+      "name": "Biroin rice",
+      "image": "/Packaging Design/Biroin rice.png",
+      "category": "Rice"
+    },
+    {
+      "id": "bis1",
+      "name": "Bis1",
+      "image": "/Packaging Design/Bis1.png",
+      "category": "Confectionery"
+    },
+    {
+      "id": "bk-paratha",
+      "name": "BK Paratha",
+      "image": "/Packaging Design/BK Paratha.png",
+      "category": "Food"
+    },
+    {
+      "id": "brade",
+      "name": "Brade",
+      "image": "/Packaging Design/Brade.png",
+      "category": "Food"
+    },
+    {
+      "id": "bsp-bis",
+      "name": "bsp Bis",
+      "image": "/Packaging Design/bsp Bis.png",
+      "category": "Confectionery"
+    },
+    {
+      "id": "butter-bis",
+      "name": "Butter bis",
+      "image": "/Packaging Design/Butter bis.png",
+      "category": "Confectionery"
+    },
+    {
+      "id": "cake-2",
+      "name": "cake 2",
+      "image": "/Packaging Design/cake 2.png",
+      "category": "Confectionery"
+    },
+    {
+      "id": "cocolat",
+      "name": "cocolat",
+      "image": "/Packaging Design/cocolat.png",
+      "category": "Confectionery"
+    },
+    {
+      "id": "copy-mix",
+      "name": "copy mix",
+      "image": "/Packaging Design/copy mix.png",
+      "category": "Spices"
+    },
+    {
+      "id": "dry-chilli-bay",
+      "name": "Dry chilli bay",
+      "image": "/Packaging Design/Dry chilli bay.png",
+      "category": "Spices"
+    },
+    {
+      "id": "gold-tea",
+      "name": "Gold Tea",
+      "image": "/Packaging Design/Gold Tea.png",
+      "category": "Beverages"
+    },
+    {
+      "id": "hinta",
+      "name": "Hinta",
+      "image": "/Packaging Design/Hinta.png",
+      "category": "Food"
+    },
+    {
+      "id": "ice-1",
+      "name": "Ice 1",
+      "image": "/Packaging Design/Ice 1.png",
+      "category": "Frozen"
+    },
+    {
+      "id": "ice-2",
+      "name": "ice 2",
+      "image": "/Packaging Design/ice 2.png",
+      "category": "Frozen"
+    },
+    {
+      "id": "oil",
+      "name": "oil",
+      "image": "/Packaging Design/oil.png",
+      "category": "Oil"
+    },
+    {
+      "id": "paratha",
+      "name": "Paratha",
+      "image": "/Packaging Design/Paratha .png",
+      "category": "Food"
+    },
+    {
+      "id": "puffer-rice",
+      "name": "Puffer rice",
+      "image": "/Packaging Design/Puffer rice.png",
+      "category": "Rice"
+    },
+    {
+      "id": "ramen-noodles",
+      "name": "Ramen noodles",
+      "image": "/Packaging Design/Ramen noodles.png",
+      "category": "Noodles"
+    },
+    {
+      "id": "rice",
+      "name": "Rice",
+      "image": "/Packaging Design/Rice.png",
+      "category": "Rice"
+    },
+    {
+      "id": "sanya-fried-tm",
+      "name": "Sanya Fried TM",
+      "image": "/Packaging Design/Sanya Fried TM.png",
+      "category": "Snacks"
+    },
+    {
+      "id": "sas1",
+      "name": "Sas1",
+      "image": "/Packaging Design/Sas1.png",
+      "category": "Sauces"
+    },
+    {
+      "id": "sas2",
+      "name": "Sas2",
+      "image": "/Packaging Design/Sas2.png",
+      "category": "Sauces"
+    },
+    {
+      "id": "shangu",
+      "name": "Shangu",
+      "image": "/Packaging Design/Shangu.jpg",
+      "category": "Spices"
+    },
+    {
+      "id": "shera-spice",
+      "name": "Shera Spice",
+      "image": "/Packaging Design/Shera Spice.jpg",
+      "category": "Spices"
+    },
+    {
+      "id": "shera-spice",
+      "name": "Shera Spice",
+      "image": "/Packaging Design/Shera Spice.png",
+      "category": "Spices"
+    },
+    {
+      "id": "spice-box",
+      "name": "Spice Box",
+      "image": "/Packaging Design/Spice Box.png",
+      "category": "Spices"
+    },
+    {
+      "id": "spice-jar",
+      "name": "Spice Jar",
+      "image": "/Packaging Design/Spice Jar.png",
+      "category": "Spices"
+    },
+    {
+      "id": "spice-masala1",
+      "name": "spice masala1",
+      "image": "/Packaging Design/spice masala1.jpg",
+      "category": "Spices"
+    },
+    {
+      "id": "sugar",
+      "name": "Sugar",
+      "image": "/Packaging Design/Sugar.png",
+      "category": "Food"
+    },
+    {
+      "id": "tasty",
+      "name": "Tasty",
+      "image": "/Packaging Design/Tasty.png",
+      "category": "Snacks"
+    },
+    {
+      "id": "tea-mix",
+      "name": "Tea mix",
+      "image": "/Packaging Design/Tea mix.png",
+      "category": "Beverages"
+    },
+    {
+      "id": "toast",
+      "name": "toast",
+      "image": "/Packaging Design/toast.png",
+      "category": "Snacks"
+    }
   ]
 }

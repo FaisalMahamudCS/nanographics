@@ -13,9 +13,13 @@ interface PortfolioGalleryPageProps {
   data: PortfolioPageData
 }
 
+function aspectStyle(aspect?: string, fallback = '16 / 9') {
+  return { aspectRatio: aspect?.includes('/') ? aspect.replace('/', ' / ') : fallback }
+}
+
 export default function PortfolioGalleryPage({ data }: PortfolioGalleryPageProps) {
   const [activeSection, setActiveSection] = useState('work')
-  const { topBanner, gallery } = data
+  const { topBanner, gallery, bannerAspect, galleryAspect } = data
   const categories = getGalleryCategories(gallery)
   const bannerImage = encodePublicAssetPath(topBanner.image)
 
@@ -26,11 +30,14 @@ export default function PortfolioGalleryPage({ data }: PortfolioGalleryPageProps
       <main className="relative z-10 w-full pt-28 sm:pt-32">
         <section className="max-w-7xl mx-auto px-6 pb-8">
           <div className="product-card border border-white/10 bg-[#0c0c0f] p-4 rounded-[10px] shadow-md">
-            <div className="aspect-video relative overflow-hidden bg-[#050507] rounded-[6px]">
+            <div
+              className="relative w-full overflow-hidden bg-[#050507] rounded-[6px]"
+              style={aspectStyle(bannerAspect, '16 / 9')}
+            >
               <img
                 src={bannerImage}
                 alt={topBanner.title}
-                className="absolute inset-0 w-full h-full object-cover"
+                className="absolute inset-0 w-full h-full object-contain"
               />
             </div>
             <div className="pt-6 px-2">
@@ -64,7 +71,7 @@ export default function PortfolioGalleryPage({ data }: PortfolioGalleryPageProps
             </div>
           </div>
 
-          <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4">
             {gallery.map((item, index) => (
               <motion.div
                 key={item.id}
@@ -72,23 +79,18 @@ export default function PortfolioGalleryPage({ data }: PortfolioGalleryPageProps
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.15 }}
                 transition={{ duration: 0.5, delay: 0.06 * (index % 6), ease: 'easeOut' }}
-                className="product-card border border-white/10 bg-[#0c0c0f] hover:border-[#00ffff]/40 transition-all duration-500 group p-4 rounded-[10px] shadow-md"
+                className="product-card border border-white/10 bg-[#0c0c0f] hover:border-[#00ffff]/40 transition-all duration-500 group overflow-hidden rounded-[10px] shadow-md"
               >
-                <div className="aspect-[4/5] relative overflow-hidden bg-[#050507] rounded-[6px]">
+                <div
+                  className="relative w-full overflow-hidden bg-[#050507]"
+                  style={aspectStyle(galleryAspect, '1499 / 1049')}
+                >
                   <img
                     src={encodePublicAssetPath(item.image)}
                     alt={item.name}
                     loading="lazy"
-                    className="w-full h-full object-contain transition-all duration-700 group-hover:scale-[1.02]"
+                    className="absolute inset-0 w-full h-full object-contain transition-transform duration-700 group-hover:scale-[1.03]"
                   />
-                </div>
-                <div className="pt-6 px-2">
-                  <p className="text-[#00ffff] text-[10px] font-bold tracking-widest uppercase mb-1">
-                    {item.category}
-                  </p>
-                  <h3 className="font-bold text-lg sm:text-xl text-white uppercase tracking-tight font-heading group-hover:text-[#00ffff] transition-colors">
-                    {item.name}
-                  </h3>
                 </div>
               </motion.div>
             ))}
