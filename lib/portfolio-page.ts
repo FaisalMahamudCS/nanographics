@@ -29,6 +29,7 @@ export interface PortfolioPageData {
   bannerImage: string
   bannerAspect?: string
   galleryAspect?: string
+  galleryColumns?: number
   topBanner: PortfolioTopBanner
   company: string
   published: boolean

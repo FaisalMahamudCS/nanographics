@@ -297,7 +297,7 @@ export default function Work() {
               <div className="product-card h-full flex flex-col border border-white/10 bg-[#0c0c0f] hover:border-[#00ffff]/40 transition-all duration-500 group p-4 rounded-[10px] shadow-md">
                 <div className="aspect-video w-full relative overflow-hidden bg-[#050507] rounded-[6px]">
                   <img
-                    src="/Banner/Banner/Design and Print Support2.png"
+                    src="/Design and Print Support2.png"
                     alt="Design and Print cylinders"
                     className="absolute inset-0 w-full h-full object-contain transition-transform duration-700 group-hover:scale-[1.02]"
                   />

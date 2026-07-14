@@ -17,11 +17,18 @@ function aspectStyle(aspect?: string, fallback = '16 / 9') {
   return { aspectRatio: aspect?.includes('/') ? aspect.replace('/', ' / ') : fallback }
 }
 
+const columnClasses: Record<number, string> = {
+  2: 'grid-cols-2',
+  3: 'grid-cols-2 md:grid-cols-3',
+  4: 'grid-cols-2 md:grid-cols-3 lg:grid-cols-4',
+}
+
 export default function PortfolioGalleryPage({ data }: PortfolioGalleryPageProps) {
   const [activeSection, setActiveSection] = useState('work')
-  const { topBanner, gallery, bannerAspect, galleryAspect } = data
+  const { topBanner, gallery, bannerAspect, galleryAspect, galleryColumns = 3 } = data
   const categories = getGalleryCategories(gallery)
   const bannerImage = encodePublicAssetPath(topBanner.image)
+  const gridCols = columnClasses[galleryColumns] ?? columnClasses[3]
 
   return (
     <div className="min-h-screen bg-[#050507] text-white overflow-x-hidden selection:bg-[#06b6d4] selection:text-black">
@@ -71,14 +78,14 @@ export default function PortfolioGalleryPage({ data }: PortfolioGalleryPageProps
             </div>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4">
+          <div className={`grid ${gridCols} gap-3 sm:gap-4`}>
             {gallery.map((item, index) => (
               <motion.div
                 key={item.id}
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.15 }}
-                transition={{ duration: 0.5, delay: 0.06 * (index % 6), ease: 'easeOut' }}
+                transition={{ duration: 0.5, delay: 0.06 * (index % galleryColumns), ease: 'easeOut' }}
                 className="product-card border border-white/10 bg-[#0c0c0f] hover:border-[#00ffff]/40 transition-all duration-500 group overflow-hidden rounded-[10px] shadow-md"
               >
                 <div

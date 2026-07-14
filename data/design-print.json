@@ -3,13 +3,16 @@
   "slug": "design-print",
   "title": "DESIGN AND PRINT SUPPORT",
   "description": "High strength rotogravure cylinders setup, color proofing, and industrial print support.",
-  "bannerImage": "/Banner/Banner/Design and Print Support2.png",
+  "bannerImage": "/Design and Print Support2.png",
+  "bannerAspect": "3117/1402",
+  "galleryAspect": "3/4",
+  "galleryColumns": 4,
   "topBanner": {
     "title": "DESIGN AND PRINT SUPPORT",
     "subtitle": "High strength rotogravure cylinders setup, color proofing, and industrial print support.",
     "titleColor": "#ffffff",
     "subtitleColor": "#ffffff",
-    "image": "/Banner/Banner/Design and Print Support2.png",
+    "image": "/Design and Print Support2.png",
     "textAlignment": "left"
   },
   "company": "NanoGraphic",
