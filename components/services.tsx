@@ -195,41 +195,9 @@ export default function Services() {
                 ref={(el) => {
                   if (el) cardsRef.current[index] = el
                 }}
-                className={`w-full md:sticky flex items-center justify-center py-4 md:py-8 ${
-                  service.layout === 'banner'
-                    ? 'min-h-[60vh] md:min-h-[85vh]'
-                    : 'min-h-[50vh] md:h-[70vh]'
-                }`}
+                className="w-full min-h-[50vh] md:h-[70vh] md:sticky flex items-center justify-center py-4 md:py-8"
                 style={{ top: `${topOffset}px`, zIndex: index + 10 }}
               >
-                {service.layout === 'banner' ? (
-                  <div className="card-inner relative w-full h-full rounded-none bg-[#0b0b0d] border border-white/5 overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.6)] flex flex-col transition-colors duration-500 hover:border-[#00ffff]/20 group">
-                    <div className={`absolute -right-20 -bottom-20 w-80 h-80 rounded-none bg-gradient-to-br ${service.color} blur-[80px] opacity-60 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none`} />
-
-                    <div className="card-media relative w-full grow min-h-[320px] md:min-h-0 bg-[#060608]">
-                      <img
-                        src={service.image}
-                        alt={service.title}
-                        className="absolute inset-0 w-full h-full object-contain transition-transform duration-700 ease-out group-hover:scale-[1.01]"
-                      />
-                    </div>
-
-                    <div className="card-content relative z-10 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 p-5 md:p-6 border-t border-white/10 bg-[#0b0b0d]/95">
-                      <div>
-                        <p className="text-[#00ffff] text-[10px] font-bold tracking-[0.25em] uppercase mb-1">Our Services</p>
-                        <h3 className="text-lg md:text-2xl font-bold uppercase tracking-tight text-white font-heading">
-                          {service.title}
-                        </h3>
-                      </div>
-                      <Link
-                        href={service.href}
-                        className="inline-flex self-start sm:self-auto px-6 py-3 rounded-full bg-[#00ffff] text-black font-semibold text-[10px] uppercase tracking-widest hover:bg-[#33ffff] hover:shadow-[0_0_20px_rgba(0,255,255,0.4)] transition-all duration-300 shadow-sm cursor-pointer active:scale-95"
-                      >
-                        View Details
-                      </Link>
-                    </div>
-                  </div>
-                ) : (
                  <div className={`card-inner relative w-full h-full rounded-none bg-[#0b0b0d] border border-white/5 overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.6)] flex flex-col ${
                   index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
                 } items-stretch gap-0 transition-colors duration-500 hover:border-[#00ffff]/20 group`}>
@@ -262,7 +230,7 @@ export default function Services() {
                     <div className="pt-8">
                       <Link
                         href={service.href}
-                        className="inline-flex px-6 py-3 rounded-full bg-white/5 border border-white/10 text-white font-semibold text-[10px] uppercase tracking-widest hover:bg-gradient-to-r hover:from-[#00ffff] hover:to-[#0088ff] hover:text-black hover:border-transparent transition-all duration-300 shadow-sm cursor-pointer active:scale-95"
+                        className="inline-flex px-6 py-3 rounded-full bg-[#00ffff] text-black font-semibold text-[10px] uppercase tracking-widest hover:bg-[#33ffff] hover:shadow-[0_0_20px_rgba(0,255,255,0.4)] transition-all duration-300 shadow-sm cursor-pointer active:scale-95"
                       >
                         View Details
                       </Link>
@@ -279,7 +247,6 @@ export default function Services() {
                   </div>
 
                 </div>
-                )}
               </div>
             )
           })}
