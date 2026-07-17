@@ -48,10 +48,10 @@ export default function PortfolioGalleryPage({ data }: PortfolioGalleryPageProps
               />
             </div>
             <div className="pt-6 px-2">
-              <span className="text-[#00ffff] text-xs font-semibold tracking-[0.25em] mb-3 uppercase block font-heading">
+              <span className="text-[#00ffff] text-xs font-semibold tracking-wide mb-3 uppercase block font-heading">
                 Portfolio
               </span>
-              <h1 className="font-bold text-2xl sm:text-3xl lg:text-4xl text-white uppercase tracking-tight mb-3 font-heading">
+              <h1 className="font-bold text-2xl sm:text-3xl lg:text-4xl text-white uppercase tracking-normal mb-3 font-heading">
                 {topBanner.title}
               </h1>
               <p className="text-white/50 text-xs md:text-sm font-light leading-relaxed max-w-2xl">
@@ -63,14 +63,14 @@ export default function PortfolioGalleryPage({ data }: PortfolioGalleryPageProps
 
         <section className="max-w-7xl mx-auto px-6 pb-24">
           <div className="mb-10">
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#00ffff] mb-3 font-heading">
+            <p className="text-xs font-semibold uppercase tracking-wide text-[#00ffff] mb-3 font-heading">
               Product Categories
             </p>
             <div className="flex flex-wrap gap-2">
               {categories.map((category) => (
                 <span
                   key={category}
-                  className="px-3 py-1 rounded-full border border-[#00ffff]/30 bg-[#00ffff]/10 text-[#00ffff] text-xs font-semibold uppercase tracking-wide"
+                  className="px-3 py-1 rounded-full border border-[#00ffff]/30 bg-[#00ffff]/10 text-[#00ffff] text-xs font-semibold uppercase tracking-normal"
                 >
                   {category}
                 </span>

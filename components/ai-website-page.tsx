@@ -50,10 +50,10 @@ export default function AiWebsitePage({ data }: AiWebsitePageProps) {
 
         <section className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-12">
-            <span className="text-[#00ffff] text-xs font-semibold tracking-[0.25em] mb-3 uppercase block font-heading">
+            <span className="text-[#00ffff] text-xs font-semibold tracking-wide mb-3 uppercase block font-heading">
               {company}
             </span>
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black uppercase tracking-tighter font-heading text-white mb-4 max-w-4xl mx-auto">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black uppercase tracking-normal font-heading text-white mb-4 max-w-4xl mx-auto">
               {topBanner.title}
             </h1>
             <p className="text-sm md:text-base text-white/50 font-light leading-relaxed max-w-2xl mx-auto">
@@ -63,7 +63,7 @@ export default function AiWebsitePage({ data }: AiWebsitePageProps) {
 
           <div className="flex items-center gap-4 mb-10">
             <div className="h-px flex-1 bg-gradient-to-r from-transparent via-[#00ffff]/40 to-transparent" />
-            <h2 className="text-[#00ffff] text-sm sm:text-base font-bold tracking-[0.3em] uppercase font-heading shrink-0">
+            <h2 className="text-[#00ffff] text-sm sm:text-base font-bold tracking-wide uppercase font-heading shrink-0">
               Our Services
             </h2>
             <div className="h-px flex-1 bg-gradient-to-r from-transparent via-[#00ffff]/40 to-transparent" />
@@ -100,7 +100,7 @@ export default function AiWebsitePage({ data }: AiWebsitePageProps) {
                   className="border border-white/10 bg-[#0a0a0a] rounded-[10px] px-4 py-5 flex flex-col items-center text-center gap-3"
                 >
                   <Icon className="size-6 text-[#00ffff]" />
-                  <p className="text-[11px] sm:text-xs font-bold uppercase tracking-wider text-white/80">
+                  <p className="text-[11px] sm:text-xs font-bold uppercase tracking-wide text-white/80">
                     {feature}
                   </p>
                 </div>
@@ -122,7 +122,7 @@ export default function AiWebsitePage({ data }: AiWebsitePageProps) {
             </div>
             <Link
               href="/#contact"
-              className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-[#00ffff] text-black font-bold text-xs uppercase tracking-widest hover:bg-[#33ffff] hover:shadow-[0_0_25px_rgba(0,255,255,0.4)] transition-all"
+              className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-full bg-[#00ffff] text-black font-bold text-xs uppercase tracking-wide hover:bg-[#33ffff] hover:shadow-[0_0_25px_rgba(0,255,255,0.4)] transition-all"
             >
               Get Started
               <ArrowRight className="size-4" />
