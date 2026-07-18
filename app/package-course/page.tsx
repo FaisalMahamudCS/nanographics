@@ -68,17 +68,48 @@ export default function PackageCoursePage() {
   const [searchQuery, setSearchQuery] = useState('')
   const [form, setForm] = useState({ name: '', email: '', phone: '', paymentMethod: '', senderNo: '', transactionId: '' })
   const [submitted, setSubmitted] = useState(false)
+  const [submitting, setSubmitting] = useState(false)
+  const [error, setError] = useState('')
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target
     setForm((prev) => ({ ...prev, [name]: value }))
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    // Simulated form submission
-    console.log('Registration submitted:', form)
-    setSubmitted(true)
+
+    const endpoint = process.env.NEXT_PUBLIC_REGISTRATION_ENDPOINT
+    if (!endpoint) {
+      setError('রেজিস্ট্রেশন সিস্টেম এখনো কনফিগার করা হয়নি। অনুগ্রহ করে সরাসরি WhatsApp-এ যোগাযোগ করুন।')
+      return
+    }
+
+    setSubmitting(true)
+    setError('')
+
+    try {
+      // Send the data as URL query params (not the body). Apps Script web apps
+      // 302-redirect POSTs, which drops the request body — but query params
+      // survive the redirect, so e.parameter is always populated in the script.
+      const params = new URLSearchParams({
+        ...form,
+        submittedAt: new Date().toISOString(),
+      })
+
+      await fetch(`${endpoint}?${params.toString()}`, {
+        method: 'POST',
+        mode: 'no-cors',
+      })
+
+      setSubmitted(true)
+      setForm({ name: '', email: '', phone: '', paymentMethod: '', senderNo: '', transactionId: '' })
+    } catch (err) {
+      console.error('Registration submission failed:', err)
+      setError('জমা দিতে সমস্যা হয়েছে। ইন্টারনেট সংযোগ চেক করে আবার চেষ্টা করুন।')
+    } finally {
+      setSubmitting(false)
+    }
   }
 
   const filteredQuestions = courseQuestions.filter((item) =>
@@ -741,11 +772,18 @@ export default function PackageCoursePage() {
                         </div>
                       </div>
 
+                      {error && (
+                        <p className="text-red-400 text-xs leading-relaxed text-center bg-red-500/10 border border-red-500/20 px-4 py-3 rounded-none">
+                          {error}
+                        </p>
+                      )}
+
                       <button
                         type="submit"
-                        className="w-full mt-6 px-8 py-4 bg-[#00ffff] text-black font-bold uppercase tracking-wider rounded-full hover:bg-[#33ffff] hover:shadow-[0_0_30px_rgba(0,255,255,0.4)] hover:scale-[1.02] transition-all duration-300 text-sm cursor-pointer"
+                        disabled={submitting}
+                        className="w-full mt-6 px-8 py-4 bg-[#00ffff] text-black font-bold uppercase tracking-wider rounded-full hover:bg-[#33ffff] hover:shadow-[0_0_30px_rgba(0,255,255,0.4)] hover:scale-[1.02] transition-all duration-300 text-sm cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed disabled:hover:scale-100 disabled:hover:shadow-none"
                       >
-                        রেজিস্ট্রেশন পাঠান
+                        {submitting ? 'পাঠানো হচ্ছে...' : 'রেজিস্ট্রেশন পাঠান'}
                       </button>
                     </motion.form>
                   )}
