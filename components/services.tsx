@@ -33,7 +33,7 @@ const services = [
   },
   {
     title: 'Printing Support',
-    description: 'High-end printing solutions and technical pre-press setup that ensure your layouts print perfectly on raw packaging film.',
+    description: 'High-quality print support for labels, packaging, cylinders, and promotional materials.',
     image: '/Design and Print Support2.png',
     icon: 'M 40 160 H 160 V 80 H 40 Z M 60 40 H 140 V 80 H 60 Z',
     color: 'from-[#00ffff]/25 to-[#0022ff]/10',
@@ -168,12 +168,12 @@ export default function Services() {
           <span className="text-[#00ffff] text-xs font-semibold tracking-[0.25em] mb-4 uppercase block font-heading">
             WHAT WE DO
           </span>
-          <h2 ref={titleRef} className="text-5xl lg:text-7xl font-black leading-none uppercase tracking-tighter font-heading">
+          <h2 ref={titleRef} className="text-5xl lg:text-7xl font-black leading-none tracking-tighter font-display">
             <span className="block overflow-hidden h-fit">
               <span className="inline-block text-white services-title-word">Premium Design</span>
             </span>
             <span className="block overflow-hidden h-fit mt-2">
-              <span className="inline-block text-gradient bg-clip-text text-transparent bg-gradient-to-r from-[#00ffff] to-[#0088ff] font-extrabold services-title-word">
+              <span className="inline-block text-gradient-cyan font-extrabold services-title-word">
                 Solutions
               </span>
             </span>
@@ -216,7 +216,7 @@ export default function Services() {
                       </div>
 
                       {/* Header */}
-                      <h3 className="text-2xl md:text-3xl font-bold uppercase tracking-tight text-white font-heading group-hover:text-[#00ffff] transition-colors duration-300">
+                      <h3 className="text-2xl md:text-3xl font-bold tracking-tight text-white font-heading group-hover:text-[#00ffff] transition-colors duration-300">
                         {service.title}
                       </h3>
 

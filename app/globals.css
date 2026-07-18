@@ -6,6 +6,7 @@
 
 @theme inline {
   --font-heading: var(--font-archivo), var(--font-hind-siliguri), "Hind Siliguri", sans-serif;
+  --font-display: var(--font-neue-power), var(--font-archivo), var(--font-hind-siliguri), sans-serif;
   --font-sans: var(--font-space-grotesk), var(--font-hind-siliguri), "Hind Siliguri", sans-serif;
   --font-mono: var(--font-geist-mono), 'Geist Mono Fallback';
   --color-sidebar-ring: var(--sidebar-ring);
@@ -195,6 +196,20 @@
 .animate-scroll-y-1:hover,
 .animate-scroll-y-2:hover {
   animation-play-state: paused;
+}
+
+/* Big display headings — NeuePower Ultra */
+.font-display {
+  font-family: var(--font-neue-power), var(--font-archivo), var(--font-hind-siliguri), sans-serif;
+}
+
+/* Unified cyan → blue heading gradient (use everywhere for consistency) */
+.text-gradient-cyan {
+  background-image: linear-gradient(to right, #00ffff, #0088ff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
 }
 
 /* Bengali text styling */
