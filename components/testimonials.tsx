@@ -59,7 +59,7 @@ export default function Testimonials() {
             <span className="text-[#00ffff] text-xs font-semibold tracking-[0.25em] mb-4 uppercase block font-heading">
               TESTIMONIALS
             </span>
-            <h2 className="text-4xl md:text-6xl font-black uppercase tracking-tight leading-[0.95] font-display mb-6">
+            <h2 className="text-4xl md:text-6xl font-black uppercase tracking-[0.04em] leading-[0.95] font-display mb-6">
               What clients say <br className="hidden md:block"/>
               <span className="text-gradient-cyan">
                 about our studio

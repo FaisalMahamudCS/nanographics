@@ -82,7 +82,7 @@ export default function Contact() {
           <p className="text-[#00ffff] text-sm font-semibold tracking-widest mb-4 uppercase">
             GET IN TOUCH
           </p>
-          <h2 className="text-5xl lg:text-7xl font-bold mb-6 uppercase tracking-tighter leading-none font-display">
+          <h2 className="text-5xl lg:text-7xl font-bold mb-6 uppercase tracking-[0.04em] leading-none font-display">
             <span className="text-white">Let&apos;s Work</span>
             <br />
             <span className="text-gradient-cyan">Together</span>

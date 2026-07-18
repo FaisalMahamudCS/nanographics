@@ -324,7 +324,7 @@ export default function Hero() {
         </div>
 
         <div className="relative w-full flex flex-col items-center mb-8">
-          <h1 ref={heroTextRef} className="text-[clamp(4.2rem,17vw,240px)] font-black uppercase leading-[0.82] tracking-tighter text-center z-20 font-display select-none drop-shadow-2xl">
+          <h1 ref={heroTextRef} className="text-[clamp(4.2rem,17vw,240px)] font-black uppercase leading-[0.82] tracking-[0.06em] text-center z-20 font-display select-none drop-shadow-2xl">
             <span className="block overflow-hidden h-fit">
               <span className="block text-gradient-cyan word-anim-inner">Nano</span>
             </span>

@@ -198,9 +198,11 @@
   animation-play-state: paused;
 }
 
-/* Big display headings — NeuePower Ultra */
+/* Big display headings — NeuePower Ultra (NANO GRAPHIC style) */
 .font-display {
   font-family: var(--font-neue-power), var(--font-archivo), var(--font-hind-siliguri), sans-serif;
+  font-weight: 900;
+  text-transform: uppercase;
 }
 
 /* Unified cyan → blue heading gradient (use everywhere for consistency) */

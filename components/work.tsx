@@ -121,7 +121,7 @@ export default function Work() {
           <span className="text-[#00ffff] text-xs font-semibold tracking-[0.25em] mb-4 uppercase block font-heading">
             PORTFOLIO
           </span>
-          <h2 className="text-5xl lg:text-7xl font-black mb-6 uppercase tracking-tighter leading-none font-heading">
+          <h2 className="text-5xl lg:text-7xl font-black mb-6 uppercase tracking-[0.04em] leading-none font-display">
             <span className="text-white">Selected</span>
             <br />
             <span className="text-[#00ffff]">
@@ -163,7 +163,7 @@ export default function Work() {
                   <span className="text-[#00ffff] text-[10px] font-bold tracking-widest uppercase mb-1">
                     {project.description}
                   </span>
-                  <h3 className="text-2xl font-bold text-white uppercase tracking-tight font-heading group-hover:text-[#00ffff] transition-colors duration-300">
+                  <h3 className="text-2xl font-bold text-white uppercase tracking-[0.04em] font-display group-hover:text-[#00ffff] transition-colors duration-300">
                     {project.title}
                   </h3>
 
@@ -202,7 +202,7 @@ export default function Work() {
                 <span className="text-[#00ffff] text-[9px] font-bold tracking-widest uppercase mb-1">
                   {project.description}
                 </span>
-                <h3 className="text-xl font-bold text-white uppercase tracking-tight font-heading">
+                <h3 className="text-xl font-bold text-white uppercase tracking-[0.04em] font-display">
                   {project.title}
                 </h3>
               </div>
@@ -213,7 +213,7 @@ export default function Work() {
         {/* Branding Design Section (Real Projects trigger point) */}
         <div id="real-projects" className="scroll-mt-28 mt-20 pt-20 border-t border-white/5">
           <div className="mb-8">
-            <h3 className="text-3xl lg:text-4xl font-bold mb-4 uppercase tracking-tighter font-heading text-white">
+            <h3 className="text-3xl lg:text-4xl font-bold mb-4 uppercase tracking-[0.04em] font-display text-white">
               Our Partners
             </h3>
             <p className="text-white/50 text-xs md:text-sm font-light max-w-xl leading-relaxed">
@@ -227,7 +227,7 @@ export default function Work() {
 
           {/* Products Packaging Section */}
           <div className="mt-28 border-t border-white/5 pt-20">
-            <h3 className="text-3xl lg:text-4xl font-bold mb-4 uppercase tracking-tighter font-heading text-white">
+            <h3 className="text-3xl lg:text-4xl font-bold mb-4 uppercase tracking-[0.04em] font-display text-white">
               Products Packaging All Work
             </h3>
             <p className="text-white/50 text-xs md:text-sm font-light max-w-xl leading-relaxed mb-12">
@@ -244,7 +244,7 @@ export default function Work() {
                   />
                 </div>
                 <div className="pt-6 px-2 flex flex-col grow">
-                  <h4 className="font-bold text-xl text-white uppercase tracking-tight mb-2 font-heading group-hover:text-[#00ffff] transition-colors">Packaging Design</h4>
+                  <h4 className="font-bold text-xl text-white uppercase tracking-[0.04em] mb-2 font-display group-hover:text-[#00ffff] transition-colors">Packaging Design</h4>
                   <p className="text-white/50 text-xs font-light mb-5 grow">Flexible film rolls, bags, and pouches designed for snacks, chips, spices, and confectionery products.</p>
                   <Link
                     href={getPackagingDesignPath()}
@@ -259,13 +259,13 @@ export default function Work() {
                 <div className="relative w-full h-[220px] sm:h-[260px] md:h-[280px] overflow-hidden bg-[#050507] rounded-[6px]">
                   <img
                     src="/Design and Print Support2.png"
-                    alt="Design and Print cylinders"
+                    alt="Printing Support"
                     className="absolute inset-0 w-full h-full object-contain transition-transform duration-700 group-hover:scale-[1.02]"
                   />
                 </div>
                 <div className="pt-6 px-2 flex flex-col grow">
-                  <h4 className="font-bold text-xl text-white uppercase tracking-tight mb-2 font-heading group-hover:text-[#00ffff] transition-colors">Design and Print Support</h4>
-                  <p className="text-white/50 text-xs font-light mb-5 grow">High strength rotogravure cylinders setup, color proofing, and industrial print support.</p>
+                  <h4 className="font-bold text-xl text-white uppercase tracking-[0.04em] mb-2 font-display group-hover:text-[#00ffff] transition-colors">Printing Support</h4>
+                  <p className="text-white/50 text-xs font-light mb-5 grow">High-quality print support for labels, packaging, cylinders, and promotional materials.</p>
                   <Link
                     href={getDesignPrintPath()}
                     className="inline-flex self-start px-5 py-2.5 rounded-full bg-[#00ffff] hover:bg-[#33ffff] hover:shadow-[0_0_15px_rgba(0,255,255,0.4)] text-black text-[9px] font-bold uppercase tracking-widest cursor-pointer shadow-md active:scale-95 transition-all"

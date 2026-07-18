@@ -168,7 +168,7 @@ export default function Services() {
           <span className="text-[#00ffff] text-xs font-semibold tracking-[0.25em] mb-4 uppercase block font-heading">
             WHAT WE DO
           </span>
-          <h2 ref={titleRef} className="text-5xl lg:text-7xl font-black leading-none tracking-tighter font-display">
+          <h2 ref={titleRef} className="text-5xl lg:text-7xl font-black leading-none uppercase tracking-[0.04em] font-display">
             <span className="block overflow-hidden h-fit">
               <span className="inline-block text-white services-title-word">Premium Design</span>
             </span>
@@ -216,7 +216,7 @@ export default function Services() {
                       </div>
 
                       {/* Header */}
-                      <h3 className="text-2xl md:text-3xl font-bold tracking-tight text-white font-heading group-hover:text-[#00ffff] transition-colors duration-300">
+                      <h3 className="text-2xl md:text-3xl font-bold uppercase tracking-[0.04em] text-white font-display group-hover:text-[#00ffff] transition-colors duration-300">
                         {service.title}
                       </h3>
 

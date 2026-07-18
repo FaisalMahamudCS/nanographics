@@ -141,7 +141,7 @@ export default function PackageCoursePage() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
-          className="text-[clamp(2rem,6vw,5rem)] font-black uppercase leading-[0.9] tracking-tighter mb-5 font-display"
+          className="text-[clamp(2rem,6vw,5rem)] font-black uppercase leading-[0.9] tracking-[0.04em] mb-5 font-display"
         >
           <span className="text-gradient-cyan">
             Packaging Design
