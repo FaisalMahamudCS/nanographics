@@ -4,5 +4,7 @@ export const SERVICE_ROUTES = {
   designPrint: '/design-print',
   aiWebsite: '/ai-website',
   packageCourse: '/package-course',
+  /** Short URL for Facebook / ads */
+  courseLanding: '/course',
   contact: '/#contact',
 } as const

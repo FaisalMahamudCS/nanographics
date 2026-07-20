@@ -1,4 +1,17 @@
+'use client'
+
+import { usePathname } from 'next/navigation'
+
 export default function SiteFooter() {
+  const pathname = usePathname()
+  const isCourseLanding =
+    pathname === '/package-course' ||
+    pathname === '/course' ||
+    pathname?.startsWith('/package-course/') ||
+    pathname?.startsWith('/course/')
+
+  if (isCourseLanding) return null
+
   return (
     <footer className="relative z-10 w-full bg-[#050507] border-t border-white/10 py-12 px-6">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left">
