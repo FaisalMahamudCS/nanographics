@@ -1,8 +1,16 @@
 import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
 import { Archivo, Space_Grotesk, Hind_Siliguri } from 'next/font/google';
+import localFont from 'next/font/local';
 import SiteFooter from '@/components/site-footer'
 import './globals.css'
+
+const neuePower = localFont({
+  src: './fonts/NeuePower-Ultra.ttf',
+  variable: '--font-neue-power',
+  weight: '900',
+  display: 'swap',
+})
 
 const archivo = Archivo({
   variable: '--font-archivo',
@@ -58,7 +66,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={`${archivo.variable} ${hindSiliguri.variable} ${spaceGrotesk.variable} dark scroll-smooth`}>
+    <html lang="en" className={`${archivo.variable} ${hindSiliguri.variable} ${spaceGrotesk.variable} ${neuePower.variable} dark scroll-smooth`}>
       <body className="font-sans antialiased bg-[#050507] text-foreground">
         {children}
         <SiteFooter />
