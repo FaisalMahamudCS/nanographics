@@ -74,7 +74,7 @@ export default function Contact() {
   }
 
   return (
-    <section className="min-h-screen pt-32 pb-20 px-6 bg-[#050505] text-white overflow-hidden relative">
+    <section className="min-h-0 md:min-h-screen pt-24 md:pt-32 pb-16 md:pb-20 px-4 sm:px-6 bg-[#050505] text-white overflow-hidden relative">
       <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-[#00ffff]/5 blur-[150px] pointer-events-none rounded-full" />
 
       <div className="max-w-7xl mx-auto relative z-10">

@@ -114,7 +114,7 @@ export default function Work() {
   }, [])
 
   return (
-    <section ref={containerRef} className="min-h-screen pt-32 pb-24 px-6 bg-[#050507] text-white">
+    <section ref={containerRef} className="min-h-0 md:min-h-screen pt-24 md:pt-32 pb-16 md:pb-24 px-4 sm:px-6 bg-[#050507] text-white">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="mb-20">
@@ -134,7 +134,7 @@ export default function Work() {
         </div>
 
         {/* Desktop Interactive Expanding Accordion Gallery */}
-        <div className="hidden md:flex w-full items-stretch gap-4 h-[32rem] mb-28">
+        <div className="hidden md:flex w-full items-stretch gap-4 h-[32rem] mb-16">
           {projects.map((project, index) => {
             const isHovered = hoveredIndex === index
             const isAnyHovered = hoveredIndex !== null
@@ -186,7 +186,7 @@ export default function Work() {
         </div>
 
         {/* Mobile Swipeable Carousel */}
-        <div className="flex md:hidden gap-4 overflow-x-auto snap-x snap-mandatory pb-6 -mx-6 px-6 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden mb-20">
+        <div className="flex md:hidden gap-4 overflow-x-auto snap-x snap-mandatory pb-6 -mx-4 px-4 sm:-mx-6 sm:px-6 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden mb-12">
           {projects.map((project, index) => (
             <Link
               key={index}

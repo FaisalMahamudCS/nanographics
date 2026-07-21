@@ -157,18 +157,18 @@ export default function Services() {
   return (
     <section
       ref={containerRef}
-      className="relative w-full py-32 bg-[#050507] text-white overflow-hidden"
+      className="relative w-full py-16 md:py-32 bg-[#050507] text-white overflow-hidden"
     >
       {/* Background patterns */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff02_1px,transparent_1px),linear-gradient(to_bottom,#ffffff02_1px,transparent_1px)] bg-[size:6rem_6rem] pointer-events-none z-0"></div>
 
-      <div className="max-w-7xl mx-auto relative z-10 px-6">
+      <div className="max-w-7xl mx-auto relative z-10 px-4 sm:px-6">
         {/* Section Header */}
-        <div className="text-center mb-28">
-          <span className="text-[#00ffff] text-xs font-semibold tracking-[0.25em] mb-4 uppercase block font-heading">
+        <div className="text-center mb-12 md:mb-28">
+          <span className="text-[#00ffff] text-xs font-semibold tracking-wide mb-3 md:mb-4 uppercase block font-heading">
             WHAT WE DO
           </span>
-          <h2 ref={titleRef} className="text-5xl lg:text-7xl font-black leading-none uppercase tracking-[0.04em] font-display">
+          <h2 ref={titleRef} className="text-4xl lg:text-7xl font-black leading-none uppercase tracking-[0.04em] font-display">
             <span className="block overflow-hidden h-fit">
               <span className="inline-block text-white services-title-word">Premium Design</span>
             </span>
@@ -184,7 +184,7 @@ export default function Services() {
         </div>
 
         {/* Stacked Cards Layout */}
-        <div className="flex flex-col gap-24 md:gap-0 relative">
+        <div className="flex flex-col gap-10 md:gap-0 relative">
           {services.map((service, index) => {
             // Staggered top offsets on sticky view for desktop stacking
             const topOffset = 80 + index * 24 // Stagger overlaps nicely

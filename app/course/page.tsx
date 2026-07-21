@@ -19,9 +19,9 @@ export const metadata: Metadata = {
     description,
     images: [
       {
-        url: '/Banner Ai.png',
-        width: 1672,
-        height: 941,
+        url: '/Nano web cove.jpg.jpeg',
+        width: 3000,
+        height: 1500,
         alt: 'Packaging Design Masterclass Batch 4 – NanoGraphic',
       },
     ],
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title,
     description,
-    images: ['/Banner Ai.png'],
+    images: ['/Nano web cove.jpg.jpeg'],
   },
   robots: { index: true, follow: true },
   alternates: { canonical: '/course' },

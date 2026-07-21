@@ -149,7 +149,7 @@ export default function PackageCoursePage() {
           <div className="absolute -inset-1 bg-gradient-to-r from-[#00ffff]/20 via-[#0088ff]/10 to-[#00ffff]/20 rounded-2xl blur-xl pointer-events-none" />
           <div className="relative rounded-xl overflow-hidden border border-[#00ffff]/30 shadow-[0_0_80px_rgba(0,255,255,0.15)]">
             <img
-              src="/Banner Ai.png"
+              src="/Nano web cove.jpg.jpeg"
               alt="Packaging Design Masterclass – Batch 4"
               className="w-full h-auto object-contain"
             />
@@ -231,7 +231,7 @@ export default function PackageCoursePage() {
               transition: { staggerChildren: 0.2 }
             }
           }}
-          className="w-full max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 mt-16 perspective-[1000px]"
+          className="w-full max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 mt-8 md:mt-16 perspective-[1000px]"
         >
           {/* Card 1 */}
           <motion.div
@@ -300,13 +300,13 @@ export default function PackageCoursePage() {
 
 
       {/* COURSE DETAILS / FEATURES */}
-      <section className="relative z-10 px-6 py-24 bg-[#07070a] border-y border-white/5">
+      <section className="relative z-10 px-4 sm:px-6 py-12 md:py-24 bg-[#07070a] border-y border-white/5">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-20">
-            <p className="text-[#00ffff] font-semibold tracking-[0.2em] uppercase text-xs mb-4 font-heading">
+          <div className="text-center mb-10 md:mb-20">
+            <p className="text-[#00ffff] font-semibold tracking-wide uppercase text-xs mb-3 md:mb-4 font-heading">
               Comprehensive Curriculum
             </p>
-            <h2 className="text-4xl md:text-5xl font-black uppercase tracking-tight bangla">
+            <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tight bangla">
               কোর্সের বিশেষ সেবাসমূহ
             </h2>
           </div>
@@ -354,13 +354,13 @@ export default function PackageCoursePage() {
       </section>
 
       {/* QUESTIONS SECTION (NO ANSWERS) */}
-      <section id="questions" className="relative z-10 px-6 py-28">
+      <section id="questions" className="relative z-10 px-4 sm:px-6 py-14 md:py-28">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <span className="text-[#00ffff] font-semibold tracking-[0.25em] uppercase text-xs block mb-4 font-heading">
+          <div className="text-center mb-8 md:mb-16">
+            <span className="text-[#00ffff] font-semibold tracking-wide uppercase text-xs block mb-3 md:mb-4 font-heading">
               Live Class Discussion Topics
             </span>
-            <h2 className="text-4xl md:text-5xl font-black uppercase tracking-tight bangla mb-6">
+            <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tight bangla mb-4 md:mb-6">
               যেসব প্রশ্নের সমাধান পাবেন এই কোর্সে
             </h2>
             <p className="text-white/60 max-w-2xl mx-auto text-base leading-relaxed font-light">
@@ -453,13 +453,13 @@ export default function PackageCoursePage() {
       </section>
 
       {/* SCHEDULE DETAILS */}
-      <section className="relative z-10 px-6 py-24 bg-[#07070a] border-t border-white/5">
+      <section className="relative z-10 px-4 sm:px-6 py-12 md:py-24 bg-[#07070a] border-t border-white/5">
         <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-16">
-            <span className="text-[#00ffff] font-semibold tracking-[0.2em] uppercase text-xs block mb-4 font-heading">
+          <div className="text-center mb-8 md:mb-16">
+            <span className="text-[#00ffff] font-semibold tracking-wide uppercase text-xs block mb-3 md:mb-4 font-heading">
               Class Schedule & Timeline
             </span>
-            <h2 className="text-4xl md:text-5xl font-black uppercase tracking-tight bangla">
+            <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tight bangla">
               ক্লাসের সময়সূচী
             </h2>
           </div>
@@ -532,9 +532,9 @@ export default function PackageCoursePage() {
       </section>
 
       {/* REGISTRATION & PAYMENT */}
-      <section id="register" className="relative z-10 px-6 py-28 border-t border-white/5 scroll-mt-20">
+      <section id="register" className="relative z-10 px-4 sm:px-6 py-14 md:py-28 border-t border-white/5 scroll-mt-20">
         <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-16 items-stretch">
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-stretch">
 
             {/* Left: Instructions */}
             <div className="text-left flex flex-col h-full">

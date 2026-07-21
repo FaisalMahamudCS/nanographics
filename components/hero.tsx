@@ -288,19 +288,19 @@ export default function Hero() {
       <div className="fixed inset-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:4.5rem_4.5rem] pointer-events-none z-0"></div>
 
       {/* 1. Hero Section */}
-      <section className="relative z-10 w-full min-h-[85vh] flex flex-col items-center justify-center pt-32 pb-20 px-6 group">
-        <div className="relative w-full max-w-5xl mx-auto mb-8 text-[#00ffff] font-semibold tracking-[0.25em] uppercase text-xs md:text-sm tracking-[0.3em] opacity-90 font-heading">
-          <span className="flex justify-center gap-1.5 mb-4 overflow-hidden h-fit">
+      <section className="relative z-10 w-full min-h-0 md:min-h-[85vh] flex flex-col items-center justify-center pt-24 pb-10 md:pt-32 md:pb-20 px-4 sm:px-6 group">
+        <div className="relative w-full max-w-5xl mx-auto mb-4 md:mb-8 text-[#00ffff] font-semibold tracking-wide uppercase text-xs md:text-sm opacity-90 font-heading">
+          <span className="flex justify-center gap-1.5 mb-3 md:mb-4 overflow-hidden h-fit">
             {['Brand', '·', 'Digital', '·', 'Campaigns'].map((word, i) => (
                <span key={i} className="inline-block translate-y-full opacity-0 brand-tag-word">{word}</span>
             ))}
           </span>
-          <div className="relative h-12 w-full overflow-visible pointer-events-none">
+          <div className="relative h-10 md:h-12 w-full overflow-visible pointer-events-none">
             {/* AI Icon — floats top → bottom */}
             <motion.img
               src="/Icon/Ai Icon.svg"
               alt="AI Icon"
-              className="absolute left-[15%] top-0 h-10 w-10 md:h-14 md:w-14"
+              className="absolute left-[10%] sm:left-[15%] top-0 h-8 w-8 md:h-14 md:w-14"
               animate={{ y: [0, 30, 0] }}
               transition={{
                 duration: 4,
@@ -312,7 +312,7 @@ export default function Hero() {
             <motion.img
               src="/Icon/Ps Icon.svg"
               alt="Photoshop Icon"
-              className="absolute right-[15%] top-0 h-10 w-10 md:h-14 md:w-14"
+              className="absolute right-[10%] sm:right-[15%] top-0 h-8 w-8 md:h-14 md:w-14"
               animate={{ x: [0, 30, 0] }}
               transition={{
                 duration: 5,
@@ -323,8 +323,8 @@ export default function Hero() {
           </div>
         </div>
 
-        <div className="relative w-full flex flex-col items-center mb-8">
-          <h1 ref={heroTextRef} className="text-[clamp(4.2rem,17vw,240px)] font-black uppercase leading-[0.82] tracking-[0.06em] text-center z-20 font-display select-none drop-shadow-2xl">
+        <div className="relative w-full flex flex-col items-center mb-4 md:mb-8">
+          <h1 ref={heroTextRef} className="text-[clamp(3.2rem,15vw,240px)] font-black uppercase leading-[0.82] tracking-tight text-center z-20 font-display select-none drop-shadow-2xl">
             <span className="block overflow-hidden h-fit">
               <span className="block text-gradient-cyan word-anim-inner">Nano</span>
             </span>
@@ -337,7 +337,7 @@ export default function Hero() {
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-0 pointer-events-none opacity-20 blur-[2px]">
             <div
               ref={logoContainerRef}
-              className="w-48 h-48 md:w-[26rem] md:h-[26rem] rounded-none flex items-center justify-center filter drop-shadow-[0_0_25px_rgba(0,255,255,0.4)]"
+              className="w-36 h-36 md:w-[26rem] md:h-[26rem] rounded-none flex items-center justify-center filter drop-shadow-[0_0_25px_rgba(0,255,255,0.4)]"
             >
               <svg
                 viewBox="0 0 276.89 239.96"
@@ -360,20 +360,20 @@ export default function Hero() {
           </div>
         </div>
 
-        <p ref={heroSubtextRef} className="mt-14 max-w-xl text-center text-sm md:text-lg font-light text-white/60 leading-relaxed z-20">
+        <p ref={heroSubtextRef} className="mt-6 md:mt-14 max-w-xl text-center text-sm md:text-lg font-light text-white/60 leading-relaxed z-20 px-2">
           A design agency for bold brands—identity, digital, and campaigns crafted to feel unmistakably yours.
         </p>
 
-        <div className="mt-10 flex flex-col sm:flex-row gap-5 z-20">
+        <div className="mt-6 md:mt-10 flex flex-col sm:flex-row gap-3 sm:gap-5 z-20 w-full max-w-sm sm:max-w-none sm:w-auto">
           <button
             onClick={scrollToWork}
-            className="cta-btn px-8 py-4 rounded-full bg-gradient-to-r from-[#00ffff] to-[#0088ff] text-black font-bold uppercase tracking-wider text-xs shadow-[0_0_20px_rgba(0,255,255,0.3)] hover:shadow-[0_0_35px_rgba(0,255,255,0.6)] hover:scale-105 transition-all duration-300 cursor-pointer"
+            className="cta-btn px-8 py-3.5 md:py-4 rounded-full bg-gradient-to-r from-[#00ffff] to-[#0088ff] text-black font-bold uppercase tracking-wide text-xs shadow-[0_0_20px_rgba(0,255,255,0.3)] hover:shadow-[0_0_35px_rgba(0,255,255,0.6)] hover:scale-105 transition-all duration-300 cursor-pointer"
           >
             See Our Work
           </button>
           <button
             onClick={scrollToServices}
-            className="cta-btn px-8 py-4 rounded-full border border-white/10 text-white font-bold uppercase tracking-wider text-xs hover:bg-white/5 hover:border-[#00ffff]/30 transition-all duration-300 backdrop-blur-md cursor-pointer"
+            className="cta-btn px-8 py-3.5 md:py-4 rounded-full border border-white/10 text-white font-bold uppercase tracking-wide text-xs hover:bg-white/5 hover:border-[#00ffff]/30 transition-all duration-300 backdrop-blur-md cursor-pointer"
           >
             Our Services
           </button>
@@ -381,12 +381,12 @@ export default function Hero() {
       </section>
 
       {/* Masterclass Banner Promo — now second */}
-      <div className="w-full pt-0 pb-16 z-20 relative">
+      <div className="w-full pt-2 md:pt-0 pb-8 md:pb-16 z-20 relative">
 
         {/* Label bar above banner */}
-        <div className="max-w-5xl mx-auto px-6 mb-3 flex items-center gap-4">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 mb-2 md:mb-3 flex items-center gap-2 md:gap-4">
           <div className="h-px flex-1 bg-gradient-to-r from-transparent via-[#00ffff]/30 to-transparent"></div>
-          <span className="flex items-center gap-2 text-[#00ffff] text-[10px] font-bold tracking-[0.35em] uppercase font-heading select-none">
+          <span className="flex items-center gap-1.5 md:gap-2 text-[#00ffff] text-[9px] md:text-[10px] font-bold tracking-wide uppercase font-heading select-none shrink-0">
             <span className="inline-block w-1.5 h-1.5 bg-[#00ffff] rounded-full animate-pulse"></span>
             Live Masterclass · Batch 4
             <span className="inline-block w-1.5 h-1.5 bg-[#00ffff] rounded-full animate-pulse"></span>
@@ -394,14 +394,14 @@ export default function Hero() {
           <div className="h-px flex-1 bg-gradient-to-r from-transparent via-[#00ffff]/30 to-transparent"></div>
         </div>
 
-        {/* Banner image frame + info strip (no gap) */}
-        <div className="max-w-5xl mx-auto px-6">
-          <div className="border border-[#00ffff]/25 bg-[#0c0c0f] p-1 relative overflow-hidden group shadow-[0_0_60px_rgba(0,255,255,0.06)] hover:shadow-[0_0_80px_rgba(0,255,255,0.12)] transition-all duration-500">
+        {/* Banner image frame + CTA (dates already in banner art — no duplicate strip on mobile) */}
+        <div className="max-w-5xl mx-auto px-3 sm:px-6">
+          <div className="border border-[#00ffff]/25 bg-[#0c0c0f] p-0.5 sm:p-1 relative overflow-hidden group shadow-[0_0_60px_rgba(0,255,255,0.06)] hover:shadow-[0_0_80px_rgba(0,255,255,0.12)] transition-all duration-500">
             {/* Corner accents */}
-            <div className="absolute top-0 left-0 w-6 h-6 border-t-2 border-l-2 border-[#00ffff]/70 z-10"></div>
-            <div className="absolute top-0 right-0 w-6 h-6 border-t-2 border-r-2 border-[#00ffff]/70 z-10"></div>
-            <div className="absolute bottom-0 left-0 w-6 h-6 border-b-2 border-l-2 border-[#00ffff]/70 z-10"></div>
-            <div className="absolute bottom-0 right-0 w-6 h-6 border-b-2 border-r-2 border-[#00ffff]/70 z-10"></div>
+            <div className="absolute top-0 left-0 w-4 h-4 sm:w-6 sm:h-6 border-t-2 border-l-2 border-[#00ffff]/70 z-10"></div>
+            <div className="absolute top-0 right-0 w-4 h-4 sm:w-6 sm:h-6 border-t-2 border-r-2 border-[#00ffff]/70 z-10"></div>
+            <div className="absolute bottom-0 left-0 w-4 h-4 sm:w-6 sm:h-6 border-b-2 border-l-2 border-[#00ffff]/70 z-10"></div>
+            <div className="absolute bottom-0 right-0 w-4 h-4 sm:w-6 sm:h-6 border-b-2 border-r-2 border-[#00ffff]/70 z-10"></div>
 
             {/* Scanline overlay (aesthetic) */}
             <div className="absolute inset-0 bg-[repeating-linear-gradient(0deg,transparent,transparent_2px,rgba(0,255,255,0.015)_2px,rgba(0,255,255,0.015)_4px)] pointer-events-none z-10 group-hover:opacity-0 transition-opacity duration-500"></div>
@@ -412,18 +412,18 @@ export default function Hero() {
               transition={{ duration: 0.9, delay: 0.15 }}
               className="w-full relative"
             >
-              <div className="relative overflow-hidden border border-[#00ffff]/30">
-                <Link href={SERVICE_ROUTES.packageCourse} className="block">
+              <div className="relative overflow-hidden border border-[#00ffff]/30 bg-black">
+                <Link href={SERVICE_ROUTES.courseLanding} className="block">
                   <img
                     src="/Nano web cove.jpg.jpeg"
                     alt="Packaging Design Masterclass – Batch 4"
-                    className="w-full h-auto object-contain block"
+                    className="w-full h-auto object-contain object-center block"
                   />
                 </Link>
               </div>
 
-              {/* Info strip — flush under banner, no margin gap */}
-              <div className="grid grid-cols-2 md:grid-cols-4 divide-x divide-[#ffffff07] border-t border-[#00ffff]/15 bg-[#08080a]">
+              {/* Info strip — desktop only (banner already shows dates) */}
+              <div className="hidden md:grid grid-cols-4 divide-x divide-[#ffffff07] border-t border-[#00ffff]/15 bg-[#08080a]">
                 {[
                   { label: 'Registration Last Date', value: '10-August-2026' },
                   { label: 'Class Start', value: '16-August-2026' },
@@ -431,38 +431,33 @@ export default function Hero() {
                   { label: 'Mentor', value: 'Mujibur Rahman' },
                 ].map((item, i) => (
                   <div key={i} className="flex flex-col items-center justify-center py-3 px-4 gap-0.5">
-                    <span className="text-[9px] font-bold text-white/30 uppercase tracking-[0.2em]">{item.label}</span>
+                    <span className="text-[9px] font-bold text-white/30 uppercase tracking-wide">{item.label}</span>
                     <span className="text-xs font-bold text-[#00ffff] tracking-wide font-heading">{item.value}</span>
                   </div>
                 ))}
               </div>
 
-              <div className="flex justify-center py-4 bg-[#08080a] border-t border-[#00ffff]/10">
+              <div className="flex justify-center py-3 md:py-4 bg-[#08080a] border-t border-[#00ffff]/10 px-3">
                 <Link
-                  href={SERVICE_ROUTES.packageCourse}
-                  className="inline-flex px-7 py-3 rounded-full bg-[#00ffff] text-black font-heading font-bold text-xs uppercase tracking-wide shadow-[0_0_20px_rgba(0,255,255,0.3)] hover:shadow-[0_0_35px_rgba(0,255,255,0.6)] hover:scale-105 transition-all"
+                  href={SERVICE_ROUTES.courseLanding}
+                  className="inline-flex w-full sm:w-auto justify-center px-6 md:px-7 py-3 rounded-full bg-[#00ffff] text-black font-heading font-bold text-xs uppercase tracking-wide shadow-[0_0_20px_rgba(0,255,255,0.3)] hover:shadow-[0_0_35px_rgba(0,255,255,0.6)] hover:scale-105 transition-all"
                 >
                   View Course Details
                 </Link>
               </div>
             </motion.div>
           </div>
-
-          {/* Bottom neon divider line */}
-          <div className="mt-0">
-            <div className="h-px bg-gradient-to-r from-transparent via-[#00ffff]/40 to-transparent"></div>
-          </div>
         </div>
 
       </div>
 
       {/* 2. About / Philosophy Section */}
-      <section ref={aboutRef} className="relative z-10 w-full py-32 px-6 border-t border-white/5 bg-[#08080a]">
+      <section ref={aboutRef} className="relative z-10 w-full py-16 md:py-32 px-4 sm:px-6 border-t border-white/5 bg-[#08080a]">
         <div className="max-w-4xl mx-auto text-center">
-          <span className="text-[#00ffff] font-semibold tracking-[0.2em] uppercase text-xs mb-6 block font-heading">
+          <span className="text-[#00ffff] font-semibold tracking-wide uppercase text-xs mb-4 md:mb-6 block font-heading">
             OUR PHILOSOPHY
           </span>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold uppercase text-white mb-8 tracking-tight font-heading leading-tight">
+          <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold uppercase text-white mb-5 md:mb-8 tracking-tight font-heading leading-tight">
             <span className="block overflow-hidden h-fit">
               <span className="inline-block about-title-inner">A Legacy of Excellence,</span>
             </span>
@@ -473,7 +468,7 @@ export default function Hero() {
               <span className="inline-block about-title-inner">Everything We Do.</span>
             </span>
           </h2>
-          <p className="about-desc text-white/60 text-sm sm:text-lg mb-12 max-w-2xl mx-auto leading-relaxed font-light">
+          <p className="about-desc text-white/60 text-sm sm:text-lg mb-8 md:mb-12 max-w-2xl mx-auto leading-relaxed font-light">
             From day one, our mission has been to create solutions that inspire, empower, and make a difference. With a commitment to quality and creativity, we turn ideas into functional, beautiful realities.
           </p>
         </div>
@@ -486,14 +481,14 @@ export default function Hero() {
       <section ref={deptsRef} className="relative z-10 w-full bg-[#050507] text-white" id="what-we-do">
 
         {/* Section Header — scrolls normally before the pinned stack */}
-        <div className="w-full shrink-0 flex flex-col items-center justify-center px-6 pt-20 pb-10 md:pt-28 md:pb-14 text-center">
-          <span className="text-[#00ffff] text-xs font-semibold tracking-[0.25em] uppercase font-heading block">
+        <div className="w-full shrink-0 flex flex-col items-center justify-center px-4 sm:px-6 pt-12 pb-8 md:pt-28 md:pb-14 text-center">
+          <span className="text-[#00ffff] text-xs font-semibold tracking-wide uppercase font-heading block">
             Capabilities
           </span>
-          <h2 className="mt-4 text-4xl md:text-6xl font-bold uppercase text-white tracking-tight font-heading">
+          <h2 className="mt-3 md:mt-4 text-3xl md:text-6xl font-bold uppercase text-white tracking-tight font-heading">
             What we do
           </h2>
-          <p className="mt-5 max-w-2xl text-sm md:text-lg font-light text-white/70 leading-relaxed">
+          <p className="mt-3 md:mt-5 max-w-2xl text-sm md:text-lg font-light text-white/70 leading-relaxed">
             NanoGraphic helps brands show up with clarity—crafting identity systems, digital experiences,
             and campaign creative that feel bold, cohesive, and ready for the real world.
           </p>
