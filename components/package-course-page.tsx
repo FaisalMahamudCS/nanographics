@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import Link from 'next/link'
+import Header from '@/components/header'
 import { Hind_Siliguri } from 'next/font/google'
 import { motion, AnimatePresence } from 'framer-motion'
 import {
@@ -65,6 +65,7 @@ const features = [
 ]
 
 export default function PackageCoursePage() {
+  const [activeSection, setActiveSection] = useState('course')
   const [searchQuery, setSearchQuery] = useState('')
   const [form, setForm] = useState({ name: '', email: '', phone: '', paymentMethod: '', senderNo: '', transactionId: '' })
   const [submitted, setSubmitted] = useState(false)
@@ -76,7 +77,6 @@ export default function PackageCoursePage() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    // Simulated form submission
     console.log('Registration submitted:', form)
     setSubmitted(true)
   }
@@ -86,54 +86,29 @@ export default function PackageCoursePage() {
   )
 
   return (
-    <div className={`min-h-screen bg-[#050507] text-white overflow-x-hidden selection:bg-[#00ffff] selection:text-black pb-24 md:pb-0 ${hindSiliguri.variable}`} style={{ fontFamily: 'var(--font-space-grotesk), var(--font-hind-siliguri), sans-serif' }}>
-      {/* Visual background elements */}
-      <div className="fixed inset-0 bg-[linear-gradient(to_right,#ffffff02_1px,transparent_1px),linear-gradient(to_bottom,#ffffff02_1px,transparent_1px)] bg-[size:4.5rem_4.5rem] pointer-events-none z-0" />
-      <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-[#00ffff]/5 blur-[120px] pointer-events-none rounded-full" />
-      <div className="absolute top-1/2 right-1/4 w-[600px] h-[600px] bg-[#0088ff]/5 blur-[150px] pointer-events-none rounded-full" />
+    <div
+      className={`relative w-full max-w-[100vw] min-h-screen bg-[#050507] text-white overflow-x-hidden selection:bg-[#00ffff] selection:text-black pb-[4.75rem] md:pb-0 ${hindSiliguri.variable}`}
+      style={{ fontFamily: 'var(--font-space-grotesk), var(--font-hind-siliguri), sans-serif' }}
+    >
+      <div className="pointer-events-none absolute inset-0 overflow-hidden z-0" aria-hidden>
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff02_1px,transparent_1px),linear-gradient(to_bottom,#ffffff02_1px,transparent_1px)] bg-[size:4.5rem_4.5rem]" />
+        <div className="absolute top-0 left-0 w-64 h-64 sm:w-[500px] sm:h-[500px] bg-[#00ffff]/5 blur-[80px] sm:blur-[120px] rounded-full -translate-x-1/3 -translate-y-1/4" />
+        <div className="absolute top-1/2 right-0 w-64 h-64 sm:w-[600px] sm:h-[600px] bg-[#0088ff]/5 blur-[80px] sm:blur-[150px] rounded-full translate-x-1/3" />
+      </div>
 
-      {/* Landing header — mobile-first for ad traffic */}
-      <header className="fixed top-0 inset-x-0 z-50 border-b border-white/10 bg-[#050507]/90 backdrop-blur-xl">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 h-14 sm:h-16 flex items-center justify-between gap-3">
-          <Link
-            href="/"
-            className="flex items-center gap-2 text-white/80 hover:text-white transition-colors min-w-0"
-          >
-            <span className="font-heading font-bold text-sm sm:text-base uppercase tracking-wide truncate">
-              NanoGraphic
-            </span>
-          </Link>
-          <div className="flex items-center gap-2 shrink-0">
-            <a
-              href="https://wa.me/8801834473283?text=Packaging%20Design%20Masterclass%20Batch%204%20%E0%A6%B0%E0%A7%87%E0%A6%9C%E0%A6%BF%E0%A6%B8%E0%A7%8D%E0%A6%9F%E0%A7%8D%E0%A6%B0%E0%A7%87%E0%A6%B6%E0%A6%A8"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hidden sm:inline-flex items-center gap-1.5 px-3 py-2 rounded-full border border-white/15 text-white/80 text-xs font-semibold hover:border-[#00ffff]/40 hover:text-[#00ffff] transition-all"
-            >
-              <MessageCircle className="w-3.5 h-3.5" />
-              WhatsApp
-            </a>
-            <a
-              href="#register"
-              className="inline-flex items-center px-4 sm:px-5 py-2 rounded-full bg-[#00ffff] text-black text-xs font-bold uppercase tracking-wide shadow-[0_0_20px_rgba(0,255,255,0.25)] hover:bg-[#33ffff] transition-all"
-            >
-              রেজিস্ট্রেশন
-            </a>
-          </div>
-        </div>
-      </header>
+      <Header activeSection={activeSection} setActiveSection={setActiveSection} />
 
       {/* HERO SECTION */}
-      <section className="relative z-10 flex flex-col items-center px-4 sm:px-6 pt-20 sm:pt-28 pb-10 sm:pb-16 text-center">
+      <section className="relative z-10 flex flex-col items-center px-4 sm:px-6 pt-20 sm:pt-28 pb-8 sm:pb-14 text-center w-full">
 
         {/* Badge */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 rounded-full bg-[#00ffff]/10 border border-[#00ffff]/30 mb-4 sm:mb-6"
+          className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 rounded-full bg-[#00ffff]/10 border border-[#00ffff]/30 mb-3 sm:mb-5"
         >
-          <Flame className="w-4 h-4 text-[#00ffff] animate-pulse" />
+          <Flame className="w-3.5 h-3.5 text-[#00ffff] animate-pulse" />
           <span className="text-[#00ffff] text-[10px] sm:text-xs font-semibold tracking-wide uppercase font-heading">
             চতুর্থ ব্যাচ · Batch 04 · Registration Open
           </span>
@@ -144,12 +119,12 @@ export default function PackageCoursePage() {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 0.15 }}
-          className="w-full max-w-5xl mx-auto mb-6 sm:mb-10 relative"
+          className="w-full max-w-5xl mx-auto mb-5 sm:mb-8 relative"
         >
           <div className="absolute -inset-1 bg-gradient-to-r from-[#00ffff]/20 via-[#0088ff]/10 to-[#00ffff]/20 rounded-2xl blur-xl pointer-events-none" />
-          <div className="relative rounded-xl overflow-hidden border border-[#00ffff]/30 shadow-[0_0_80px_rgba(0,255,255,0.15)]">
+          <div className="relative rounded-lg sm:rounded-xl overflow-hidden border border-[#00ffff]/30 shadow-[0_0_80px_rgba(0,255,255,0.15)] bg-black">
             <img
-              src="/Nano web cove.jpg.jpeg"
+              src="/Banner Ai.png"
               alt="Packaging Design Masterclass – Batch 4"
               className="w-full h-auto object-contain"
             />
@@ -161,7 +136,7 @@ export default function PackageCoursePage() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
-          className="text-[clamp(1.75rem,7vw,5rem)] font-black uppercase leading-[0.95] tracking-tight mb-4 sm:mb-5 font-heading"
+          className="text-[clamp(1.75rem,7vw,5rem)] font-black leading-[0.95] tracking-tight mb-4 sm:mb-5 font-heading"
         >
           <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#00ffff] to-[#0088ff]">
             Packaging Design
@@ -207,7 +182,7 @@ export default function PackageCoursePage() {
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5, delay: 0.45 }}
-          className="inline-flex items-center gap-4 sm:gap-5 px-5 sm:px-8 py-3.5 sm:py-4 border border-[#00ffff]/30 bg-gradient-to-r from-[#00ffff]/5 to-transparent backdrop-blur-md shadow-[0_0_20px_rgba(0,255,255,0.15)] hover:shadow-[0_0_30px_rgba(0,255,255,0.25)] hover:border-[#00ffff]/60 transition-all duration-300 rounded-full group mb-10 sm:mb-16"
+          className="w-full max-w-sm sm:max-w-md inline-flex items-center gap-3 sm:gap-5 px-4 sm:px-8 py-3 sm:py-4 border border-[#00ffff]/30 bg-gradient-to-r from-[#00ffff]/5 to-transparent backdrop-blur-md rounded-2xl sm:rounded-full group mb-8 sm:mb-16"
         >
           <div className="flex flex-col text-left">
             <span className="text-[#00ffff] text-2xl sm:text-3xl font-black font-heading leading-none group-hover:scale-110 transition-transform origin-left">২০০০৳</span>
@@ -231,24 +206,24 @@ export default function PackageCoursePage() {
               transition: { staggerChildren: 0.2 }
             }
           }}
-          className="w-full max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 mt-8 md:mt-16 perspective-[1000px]"
+          className="w-full max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 mt-8 md:mt-16"
         >
           {/* Card 1 */}
           <motion.div
             variants={{
-              hidden: { opacity: 0, y: 50, rotateX: 10 },
-              visible: { opacity: 1, y: 0, rotateX: 0, transition: { duration: 0.8, ease: [0.21, 0.47, 0.32, 0.98] } }
+              hidden: { opacity: 0, y: 40 },
+              visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.21, 0.47, 0.32, 0.98] } }
             }}
-            whileHover={{ y: -10, scale: 1.02 }}
+            whileHover={{ y: -6 }}
             transition={{ type: "spring", stiffness: 300, damping: 20 }}
             className="rounded-2xl overflow-hidden border border-[#00ffff]/10 shadow-[0_10px_30px_rgba(0,0,0,0.5)] hover:border-[#00ffff]/50 hover:shadow-[0_15px_40px_rgba(0,255,255,0.15)] transition-colors duration-500 group bg-[#060608] cursor-pointer relative"
           >
             <div className="absolute inset-0 bg-gradient-to-t from-[#00ffff]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10 pointer-events-none" />
             <div className="relative overflow-hidden">
-              <img src="/Course/Box Design.png" alt="Box Design" className="w-full h-auto object-cover group-hover:scale-110 transition-transform duration-700 ease-out" />
+              <img src="/Course/Box Design.png" alt="Box Design" className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700 ease-out" />
             </div>
-            <div className="p-5 bg-[#0a0a0f] border-t border-white/5 text-center group-hover:border-[#00ffff]/30 transition-colors duration-500 relative z-20">
-              <h3 className="text-white font-semibold text-lg tracking-wide group-hover:text-[#00ffff] transition-colors duration-500">
+            <div className="p-4 sm:p-5 bg-[#0a0a0f] border-t border-white/5 text-center group-hover:border-[#00ffff]/30 transition-colors duration-500 relative z-20">
+              <h3 className="text-white font-semibold text-base sm:text-lg tracking-wide group-hover:text-[#00ffff] transition-colors duration-500">
                 Box Design
               </h3>
             </div>
@@ -257,19 +232,19 @@ export default function PackageCoursePage() {
           {/* Card 2 */}
           <motion.div
             variants={{
-              hidden: { opacity: 0, y: 50, rotateX: 10 },
-              visible: { opacity: 1, y: 0, rotateX: 0, transition: { duration: 0.8, ease: [0.21, 0.47, 0.32, 0.98] } }
+              hidden: { opacity: 0, y: 40 },
+              visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.21, 0.47, 0.32, 0.98] } }
             }}
-            whileHover={{ y: -10, scale: 1.02 }}
+            whileHover={{ y: -6 }}
             transition={{ type: "spring", stiffness: 300, damping: 20 }}
             className="rounded-2xl overflow-hidden border border-[#00ffff]/10 shadow-[0_10px_30px_rgba(0,0,0,0.5)] hover:border-[#00ffff]/50 hover:shadow-[0_15px_40px_rgba(0,255,255,0.15)] transition-colors duration-500 group bg-[#060608] cursor-pointer relative"
           >
             <div className="absolute inset-0 bg-gradient-to-t from-[#00ffff]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10 pointer-events-none" />
             <div className="relative overflow-hidden">
-              <img src="/Course/Packet Design.png" alt="Packet Design" className="w-full h-auto object-cover group-hover:scale-110 transition-transform duration-700 ease-out" />
+              <img src="/Course/Packet Design.png" alt="Packet Design" className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700 ease-out" />
             </div>
-            <div className="p-5 bg-[#0a0a0f] border-t border-white/5 text-center group-hover:border-[#00ffff]/30 transition-colors duration-500 relative z-20">
-              <h3 className="text-white font-semibold text-lg tracking-wide group-hover:text-[#00ffff] transition-colors duration-500">
+            <div className="p-4 sm:p-5 bg-[#0a0a0f] border-t border-white/5 text-center group-hover:border-[#00ffff]/30 transition-colors duration-500 relative z-20">
+              <h3 className="text-white font-semibold text-base sm:text-lg tracking-wide group-hover:text-[#00ffff] transition-colors duration-500">
                 Packet Design
               </h3>
             </div>
@@ -278,19 +253,19 @@ export default function PackageCoursePage() {
           {/* Card 3 */}
           <motion.div
             variants={{
-              hidden: { opacity: 0, y: 50, rotateX: 10 },
-              visible: { opacity: 1, y: 0, rotateX: 0, transition: { duration: 0.8, ease: [0.21, 0.47, 0.32, 0.98] } }
+              hidden: { opacity: 0, y: 40 },
+              visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.21, 0.47, 0.32, 0.98] } }
             }}
-            whileHover={{ y: -10, scale: 1.02 }}
+            whileHover={{ y: -6 }}
             transition={{ type: "spring", stiffness: 300, damping: 20 }}
             className="rounded-2xl overflow-hidden border border-[#00ffff]/10 shadow-[0_10px_30px_rgba(0,0,0,0.5)] hover:border-[#00ffff]/50 hover:shadow-[0_15px_40px_rgba(0,255,255,0.15)] transition-colors duration-500 group bg-[#060608] cursor-pointer relative"
           >
             <div className="absolute inset-0 bg-gradient-to-t from-[#00ffff]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10 pointer-events-none" />
             <div className="relative overflow-hidden">
-              <img src="/Course/Level Design.png" alt="Level Design" className="w-full h-auto object-cover group-hover:scale-110 transition-transform duration-700 ease-out" />
+              <img src="/Course/Level Design.png" alt="Level Design" className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700 ease-out" />
             </div>
-            <div className="p-5 bg-[#0a0a0f] border-t border-white/5 text-center group-hover:border-[#00ffff]/30 transition-colors duration-500 relative z-20">
-              <h3 className="text-white font-semibold text-lg tracking-wide group-hover:text-[#00ffff] transition-colors duration-500">
+            <div className="p-4 sm:p-5 bg-[#0a0a0f] border-t border-white/5 text-center group-hover:border-[#00ffff]/30 transition-colors duration-500 relative z-20">
+              <h3 className="text-white font-semibold text-base sm:text-lg tracking-wide group-hover:text-[#00ffff] transition-colors duration-500">
                 Level Design
               </h3>
             </div>
@@ -300,13 +275,13 @@ export default function PackageCoursePage() {
 
 
       {/* COURSE DETAILS / FEATURES */}
-      <section className="relative z-10 px-4 sm:px-6 py-12 md:py-24 bg-[#07070a] border-y border-white/5">
-        <div className="max-w-6xl mx-auto">
+      <section className="relative z-10 px-4 sm:px-6 py-12 md:py-24 bg-[#07070a] border-y border-white/5 w-full">
+        <div className="max-w-6xl mx-auto w-full">
           <div className="text-center mb-10 md:mb-20">
             <p className="text-[#00ffff] font-semibold tracking-wide uppercase text-xs mb-3 md:mb-4 font-heading">
               Comprehensive Curriculum
             </p>
-            <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tight bangla">
+            <h2 className="text-3xl md:text-5xl font-black tracking-tight bangla">
               কোর্সের বিশেষ সেবাসমূহ
             </h2>
           </div>
@@ -319,10 +294,10 @@ export default function PackageCoursePage() {
               hidden: { opacity: 0 },
               visible: {
                 opacity: 1,
-                transition: { staggerChildren: 0.15 }
+                transition: { staggerChildren: 0.12 }
               }
             }}
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-6 w-full"
           >
             {features.map((feat, index) => {
               const Icon = feat.icon
@@ -330,20 +305,15 @@ export default function PackageCoursePage() {
                 <motion.div
                   key={index}
                   variants={{
-                    hidden: { opacity: 0, y: 40 },
-                    visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.21, 0.47, 0.32, 0.98] } }
+                    hidden: { opacity: 0, y: 28 },
+                    visible: { opacity: 1, y: 0, transition: { duration: 0.55, ease: [0.21, 0.47, 0.32, 0.98] } }
                   }}
-                  whileHover={{ y: -8 }}
-                  className="group p-8 rounded-none border border-white/5 bg-[#0a0a0c] hover:border-[#00ffff]/30 hover:bg-[#00ffff]/5 transition-colors duration-300 flex flex-col items-start text-left cursor-pointer shadow-lg hover:shadow-[0_10px_30px_rgba(0,255,255,0.08)]"
+                  className="group p-4 sm:p-6 md:p-8 border border-white/5 bg-[#0a0a0c] hover:border-[#00ffff]/30 hover:bg-[#00ffff]/5 transition-colors duration-300 flex flex-col items-start text-left w-full min-w-0"
                 >
-                  <motion.div
-                    whileHover={{ scale: 1.15, rotate: 5 }}
-                    transition={{ type: "spring", stiffness: 300, damping: 15 }}
-                    className="w-12 h-12 rounded-none bg-[#00ffff]/10 flex items-center justify-center mb-6 group-hover:bg-[#00ffff] transition-colors duration-300"
-                  >
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-[#00ffff]/10 flex items-center justify-center mb-4 sm:mb-6 group-hover:bg-[#00ffff] transition-colors duration-300 shrink-0">
                     <Icon className="w-5 h-5 text-[#00ffff] group-hover:text-black transition-colors duration-300" />
-                  </motion.div>
-                  <h3 className="text-lg font-bold text-white mb-2 group-hover:text-[#00ffff] transition-colors font-heading uppercase tracking-wide">
+                  </div>
+                  <h3 className="text-sm sm:text-base md:text-lg font-bold text-white group-hover:text-[#00ffff] transition-colors font-heading tracking-wide break-words leading-snug">
                     {feat.title}
                   </h3>
                 </motion.div>
@@ -354,13 +324,13 @@ export default function PackageCoursePage() {
       </section>
 
       {/* QUESTIONS SECTION (NO ANSWERS) */}
-      <section id="questions" className="relative z-10 px-4 sm:px-6 py-14 md:py-28">
-        <div className="max-w-7xl mx-auto">
+      <section id="questions" className="relative z-10 px-4 sm:px-6 py-14 md:py-28 w-full overflow-x-hidden">
+        <div className="max-w-7xl mx-auto w-full min-w-0">
           <div className="text-center mb-8 md:mb-16">
             <span className="text-[#00ffff] font-semibold tracking-wide uppercase text-xs block mb-3 md:mb-4 font-heading">
               Live Class Discussion Topics
             </span>
-            <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tight bangla mb-4 md:mb-6">
+            <h2 className="text-3xl md:text-5xl font-black tracking-tight bangla mb-4 md:mb-6">
               যেসব প্রশ্নের সমাধান পাবেন এই কোর্সে
             </h2>
             <p className="text-white/60 max-w-2xl mx-auto text-base leading-relaxed font-light">
@@ -436,15 +406,16 @@ export default function PackageCoursePage() {
                 y: { duration: 0.6 },
                 boxShadow: { duration: 3, repeat: Infinity, ease: "easeInOut" }
               }}
-              className="inline-flex items-center gap-4 px-8 py-5 rounded-full bg-[#00ffff]/5 border border-[#00ffff]/25 backdrop-blur-md"
+              className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4 px-5 py-4 sm:px-8 sm:py-5 rounded-2xl sm:rounded-full bg-[#00ffff]/5 border border-[#00ffff]/25 backdrop-blur-md max-w-xl mx-auto text-left sm:text-center"
             >
               <motion.div
                 animate={{ scale: [1, 1.15, 1] }}
                 transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                className="shrink-0"
               >
-                <Check className="w-6 h-6 shrink-0 text-[#00ffff]" />
+                <Check className="w-6 h-6 text-[#00ffff]" />
               </motion.div>
-              <span className="text-[#00ffff] font-semibold text-lg md:text-xl">
+              <span className="text-[#00ffff] font-semibold text-sm sm:text-lg md:text-xl leading-snug">
                 সকল প্রশ্নের বিস্তারিত উত্তর ও সমাধান নিয়ে আপনাদের সাথে দেখা হবে লাইভ ক্লাসে।
               </span>
             </motion.div>
@@ -453,13 +424,13 @@ export default function PackageCoursePage() {
       </section>
 
       {/* SCHEDULE DETAILS */}
-      <section className="relative z-10 px-4 sm:px-6 py-12 md:py-24 bg-[#07070a] border-t border-white/5">
-        <div className="max-w-4xl mx-auto">
+      <section className="relative z-10 px-4 sm:px-6 py-12 md:py-24 bg-[#07070a] border-t border-white/5 w-full overflow-x-hidden">
+        <div className="max-w-4xl mx-auto w-full min-w-0">
           <div className="text-center mb-8 md:mb-16">
             <span className="text-[#00ffff] font-semibold tracking-wide uppercase text-xs block mb-3 md:mb-4 font-heading">
               Class Schedule & Timeline
             </span>
-            <h2 className="text-3xl md:text-5xl font-black uppercase tracking-tight bangla">
+            <h2 className="text-3xl md:text-5xl font-black tracking-tight bangla">
               ক্লাসের সময়সূচী
             </h2>
           </div>
@@ -532,8 +503,8 @@ export default function PackageCoursePage() {
       </section>
 
       {/* REGISTRATION & PAYMENT */}
-      <section id="register" className="relative z-10 px-4 sm:px-6 py-14 md:py-28 border-t border-white/5 scroll-mt-20">
-        <div className="max-w-7xl mx-auto">
+      <section id="register" className="relative z-10 px-4 sm:px-6 py-14 md:py-28 border-t border-white/5 scroll-mt-20 w-full overflow-x-hidden">
+        <div className="max-w-7xl mx-auto w-full min-w-0">
           <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-stretch">
 
             {/* Left: Instructions */}
@@ -543,7 +514,7 @@ export default function PackageCoursePage() {
                   <span className="text-[#00ffff] font-semibold tracking-[0.2em] uppercase text-xs block mb-4 font-heading">
                     How to Join
                   </span>
-                  <h2 className="text-4xl md:text-5xl font-black uppercase tracking-tight font-heading leading-tight mb-6">
+                  <h2 className="text-4xl md:text-5xl font-black tracking-tight font-heading leading-tight mb-6">
                     ভর্তি হওয়ার সহজ নিয়মাবলী
                   </h2>
                   <p className="text-white/60 leading-relaxed font-light">
@@ -595,7 +566,7 @@ export default function PackageCoursePage() {
                 <div className="p-8 rounded-none border border-[#00ffff]/15 bg-[#00ffff]/2 space-y-5 h-full">
                   <div className="flex items-center gap-2">
                     <Smartphone className="w-5 h-5 text-[#00ffff]" />
-                    <h4 className="font-bold text-white uppercase tracking-wider text-sm bangla">
+                    <h4 className="font-bold text-white tracking-wider text-sm bangla">
                       পেমেন্ট নাম্বার (Personal)
                     </h4>
                   </div>
@@ -621,7 +592,7 @@ export default function PackageCoursePage() {
               <div className="absolute -inset-1 bg-gradient-to-br from-[#00ffff]/10 to-transparent rounded-none blur-xl pointer-events-none" />
               <div className="relative p-8 sm:p-10 rounded-none border border-white/10 bg-[#0a0a0c] backdrop-blur-md flex-1 flex flex-col justify-center">
 
-                <h3 className="text-2xl font-black text-white mb-2 font-heading uppercase">
+                <h3 className="text-2xl font-black text-white mb-2 font-heading">
                   Registration Form
                 </h3>
                 <p className="text-white/50 text-sm mb-8">
@@ -781,7 +752,7 @@ export default function PackageCoursePage() {
       <footer className="relative z-10 border-t border-white/10 px-6 py-10 bg-[#050507]">
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
           <div>
-            <p className="font-heading font-bold text-white uppercase tracking-wide text-sm mb-1">NanoGraphic</p>
+            <p className="font-heading font-bold text-white tracking-wide text-sm mb-1">NanoGraphic</p>
             <p className="text-white/40 text-xs">Packaging Design Masterclass · Batch 04</p>
           </div>
           <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-6 text-xs text-white/50">
@@ -803,21 +774,21 @@ export default function PackageCoursePage() {
         </div>
       </footer>
 
-      {/* Sticky mobile CTA — always visible for Facebook ad traffic */}
-      <div className="md:hidden fixed bottom-0 inset-x-0 z-50 border-t border-[#00ffff]/20 bg-[#050507]/95 backdrop-blur-xl px-4 py-3 safe-area-pb">
-        <div className="flex items-center gap-2">
+      {/* Sticky mobile CTA */}
+      <div className="md:hidden fixed bottom-0 left-0 right-0 z-50 w-full max-w-[100vw] px-3 pb-[max(0.5rem,env(safe-area-inset-bottom))] pt-2 bg-gradient-to-t from-[#050507] via-[#050507]/95 to-transparent">
+        <div className="flex items-center gap-2 w-full rounded-full border border-white/10 bg-[#0a0a0c]/95 backdrop-blur-xl p-1.5 shadow-[0_-8px_30px_rgba(0,0,0,0.5)]">
           <a
             href="https://wa.me/8801834473283?text=Packaging%20Design%20Masterclass%20Batch%204%20%E0%A6%B0%E0%A7%87%E0%A6%9C%E0%A6%BF%E0%A6%B8%E0%A7%8D%E0%A6%9F%E0%A7%8D%E0%A6%B0%E0%A7%87%E0%A6%B6%E0%A6%A8"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center justify-center w-12 h-12 rounded-full border border-white/15 text-[#00ffff] shrink-0"
-            aria-label="WhatsApp"
+            className="flex items-center justify-center w-11 h-11 rounded-full border border-white/10 text-[#00ffff] shrink-0 bg-white/5"
+            aria-label="Chat on WhatsApp"
           >
-            <MessageCircle className="w-5 h-5" />
+            <MessageCircle className="w-5 h-5" strokeWidth={2} />
           </a>
           <a
             href="#register"
-            className="flex-1 h-12 rounded-full bg-[#00ffff] text-black font-bold text-sm uppercase tracking-wide flex items-center justify-center shadow-[0_0_25px_rgba(0,255,255,0.35)]"
+            className="flex-1 min-w-0 h-11 rounded-full bg-[#00ffff] text-black font-bold text-[11px] uppercase tracking-wide flex items-center justify-center px-2"
           >
             রেজিস্ট্রেশন — ২০০০৳
           </a>

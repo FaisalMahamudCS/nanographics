@@ -79,10 +79,10 @@ export default function Contact() {
 
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="text-center mb-20">
-          <p className="text-[#00ffff] text-sm font-semibold tracking-widest mb-4 uppercase">
-            GET IN TOUCH
+          <p className="text-[#00ffff] text-sm font-semibold tracking-wide mb-4">
+            Get in touch
           </p>
-          <h2 className="text-5xl lg:text-7xl font-bold mb-6 uppercase tracking-[0.04em] leading-none font-display">
+          <h2 className="text-5xl lg:text-7xl font-bold mb-6 tracking-normal leading-none font-heading normal-case">
             <span className="text-white">Let&apos;s Work</span>
             <br />
             <span className="text-gradient-cyan">Together</span>
@@ -179,7 +179,7 @@ export default function Contact() {
                     <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
                   </svg>
                 </div>
-                <h3 className="font-bold text-white uppercase tracking-wider mb-2">Phone</h3>
+                <h3 className="font-bold text-white tracking-wider mb-2">Phone</h3>
                 <p className="text-white/60 hover:text-[#00ffff] transition-colors cursor-pointer text-lg font-light">
                   01834473283
                 </p>
@@ -192,7 +192,7 @@ export default function Contact() {
                     <circle cx="12" cy="10" r="3" />
                   </svg>
                 </div>
-                <h3 className="font-bold text-white uppercase tracking-wider mb-2">Address</h3>
+                <h3 className="font-bold text-white tracking-wider mb-2">Address</h3>
                 <p className="text-white/60 text-lg font-light leading-relaxed">
                   Khowaznagar, Azimpara<br />
                   Karnaphuli, Chattogram
@@ -207,7 +207,7 @@ export default function Contact() {
                   <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
                 </svg>
               </div>
-              <h3 className="font-bold text-white uppercase tracking-wider mb-2">Email</h3>
+              <h3 className="font-bold text-white tracking-wider mb-2">Email</h3>
               <p className="text-white/60 hover:text-[#00ffff] transition-colors cursor-pointer text-lg font-light break-all">
                 nanographic.info01@gmail.com
               </p>
@@ -218,7 +218,7 @@ export default function Contact() {
         {/* Follow Us — separate full-width row */}
         <div className="mt-10 p-8 sm:p-10 rounded-2xl border border-white/10 bg-[#0a0a0a] hover:border-[#00ffff]/50 transition-colors duration-500">
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-6">
-            <h3 className="font-bold text-white uppercase tracking-wider text-xl">Follow Us</h3>
+            <h3 className="font-bold text-white tracking-wider text-xl">Follow Us</h3>
             <div className="flex flex-wrap gap-4">
               {socialLinks.map((social) => (
                 <a

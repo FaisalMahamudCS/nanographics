@@ -12,7 +12,7 @@ const departments = [
     title: 'Branding Design',
     subtitle: 'Identity & Visual Systems',
     description: 'Logos, visual systems, tone of voice, and brand guidelines that give your business a clear, confident presence across every touchpoint.',
-    image: '/Branding Design.png',
+    image: '/Banner/Banner/Branding Design.png',
     color: 'from-[#00ffff]/20 to-[#0088ff]/10',
     href: SERVICE_ROUTES.contact,
   },
@@ -20,7 +20,7 @@ const departments = [
     title: 'Packaging Design',
     subtitle: 'High CTR Visuals',
     description: 'Eye-catching thumbnails that boost click-through rates and make your content stand out in crowded feeds.',
-    image: '/Packaging Design.png',
+    image: '/Banner/Banner/Packaging Design.png',
     color: 'from-[#a855f7]/20 to-[#6366f1]/10',
     href: SERVICE_ROUTES.packagingDesign,
   },
@@ -28,7 +28,7 @@ const departments = [
     title: 'Printing Support',
     subtitle: 'Design & Print Support',
     description: 'High-quality print support for labels, packaging, cylinders, and promotional materials.',
-    image: '/Design and Print Support2.png',
+    image: '/Banner/Banner/Design and Print Support2.png',
     color: 'from-[#a855f7]/20 to-[#6366f1]/10',
     href: SERVICE_ROUTES.designPrint,
   },
@@ -324,14 +324,14 @@ export default function Hero() {
         </div>
 
         <div className="relative w-full flex flex-col items-center mb-4 md:mb-8">
-          <h1 ref={heroTextRef} className="text-[clamp(3.2rem,15vw,240px)] font-black uppercase leading-[0.82] tracking-tight text-center z-20 font-display select-none drop-shadow-2xl">
+          <h2 ref={heroTextRef} className="text-[clamp(3.2rem,15vw,240px)] font-black leading-[0.82] tracking-tight text-center z-20 font-heading select-none drop-shadow-2xl">
             <span className="block overflow-hidden h-fit">
               <span className="block text-gradient-cyan word-anim-inner">Nano</span>
             </span>
             <span className="block overflow-hidden h-fit">
               <span className="block text-white word-anim-inner drop-shadow-[0_0_15px_rgba(255,255,255,0.2)]">Graphic</span>
             </span>
-          </h1>
+          </h2>
 
           {/* Interlocking NG Logo in Center (Subtle Background Glow) */}
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-0 pointer-events-none opacity-20 blur-[2px]">
@@ -386,7 +386,7 @@ export default function Hero() {
         {/* Label bar above banner */}
         <div className="max-w-5xl mx-auto px-4 sm:px-6 mb-2 md:mb-3 flex items-center gap-2 md:gap-4">
           <div className="h-px flex-1 bg-gradient-to-r from-transparent via-[#00ffff]/30 to-transparent"></div>
-          <span className="flex items-center gap-1.5 md:gap-2 text-[#00ffff] text-[9px] md:text-[10px] font-bold tracking-wide uppercase font-heading select-none shrink-0">
+          <span className="flex items-center gap-1.5 md:gap-2 text-[#00ffff] text-[9px] md:text-[10px] font-bold tracking-wide font-heading select-none shrink-0">
             <span className="inline-block w-1.5 h-1.5 bg-[#00ffff] rounded-full animate-pulse"></span>
             Live Masterclass · Batch 4
             <span className="inline-block w-1.5 h-1.5 bg-[#00ffff] rounded-full animate-pulse"></span>
@@ -440,7 +440,7 @@ export default function Hero() {
               <div className="flex justify-center py-3 md:py-4 bg-[#08080a] border-t border-[#00ffff]/10 px-3">
                 <Link
                   href={SERVICE_ROUTES.courseLanding}
-                  className="inline-flex w-full sm:w-auto justify-center px-6 md:px-7 py-3 rounded-full bg-[#00ffff] text-black font-heading font-bold text-xs uppercase tracking-wide shadow-[0_0_20px_rgba(0,255,255,0.3)] hover:shadow-[0_0_35px_rgba(0,255,255,0.6)] hover:scale-105 transition-all"
+                  className="inline-flex w-full sm:w-auto justify-center px-6 md:px-7 py-3 rounded-full bg-[#00ffff] text-black font-heading font-bold text-xs tracking-wide shadow-[0_0_20px_rgba(0,255,255,0.3)] hover:shadow-[0_0_35px_rgba(0,255,255,0.6)] hover:scale-105 transition-all"
                 >
                   View Course Details
                 </Link>
@@ -454,10 +454,10 @@ export default function Hero() {
       {/* 2. About / Philosophy Section */}
       <section ref={aboutRef} className="relative z-10 w-full py-16 md:py-32 px-4 sm:px-6 border-t border-white/5 bg-[#08080a]">
         <div className="max-w-4xl mx-auto text-center">
-          <span className="text-[#00ffff] font-semibold tracking-wide uppercase text-xs mb-4 md:mb-6 block font-heading">
-            OUR PHILOSOPHY
+          <span className="text-[#00ffff] font-semibold tracking-wide text-xs mb-4 md:mb-6 block font-heading">
+            Our Philosophy
           </span>
-          <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold uppercase text-white mb-5 md:mb-8 tracking-tight font-heading leading-tight">
+          <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold text-white mb-5 md:mb-8 tracking-tight font-heading leading-tight">
             <span className="block overflow-hidden h-fit">
               <span className="inline-block about-title-inner">A Legacy of Excellence,</span>
             </span>
@@ -482,11 +482,11 @@ export default function Hero() {
 
         {/* Section Header — scrolls normally before the pinned stack */}
         <div className="w-full shrink-0 flex flex-col items-center justify-center px-4 sm:px-6 pt-12 pb-8 md:pt-28 md:pb-14 text-center">
-          <span className="text-[#00ffff] text-xs font-semibold tracking-wide uppercase font-heading block">
+          <span className="text-[#00ffff] text-xs font-semibold tracking-wide font-heading block">
             Capabilities
           </span>
-          <h2 className="mt-3 md:mt-4 text-3xl md:text-6xl font-bold uppercase text-white tracking-tight font-heading">
-            What we do
+          <h2 className="mt-3 md:mt-4 text-3xl md:text-6xl font-bold text-white tracking-tight font-heading">
+            What We Do
           </h2>
           <p className="mt-3 md:mt-5 max-w-2xl text-sm md:text-lg font-light text-white/70 leading-relaxed">
             NanoGraphic helps brands show up with clarity—crafting identity systems, digital experiences,
@@ -522,17 +522,17 @@ export default function Hero() {
 
                   {/* Card counter */}
                   <div className="absolute top-6 left-7 z-20">
-                    <span className="text-[10px] font-bold tracking-[0.35em] uppercase text-white/30 font-heading">
+                    <span className="text-[10px] font-bold tracking-[0.35em] text-white/30 font-heading">
                       {String(index + 1).padStart(2, '0')} / {String(departments.length).padStart(2, '0')}
                     </span>
                   </div>
 
                   {/* Content */}
                   <div className="absolute bottom-0 left-0 right-0 p-8 md:p-10 text-center z-10">
-                    <p className="text-[#00ffff] text-[10px] font-bold tracking-[0.3em] uppercase font-heading mb-2">
+                    <p className="text-[#00ffff] text-[10px] font-bold tracking-[0.3em] font-heading mb-2">
                       {dept.subtitle}
                     </p>
-                    <h3 className="font-heading text-3xl md:text-5xl font-black text-white uppercase tracking-tight leading-none mb-3">
+                    <h3 className="font-heading text-3xl md:text-5xl font-black text-white tracking-tight leading-none mb-3">
                       {dept.title}
                     </h3>
                     <p className="text-white/65 text-sm md:text-base font-light max-w-md mx-auto leading-relaxed mb-6">
@@ -540,7 +540,7 @@ export default function Hero() {
                     </p>
                     <Link
                       href={dept.href}
-                      className="inline-flex px-7 py-3.5 rounded-full bg-[#00ffff] text-black font-heading font-bold text-xs uppercase tracking-wide shadow-[0_0_20px_rgba(0,255,255,0.3)] hover:shadow-[0_0_35px_rgba(0,255,255,0.6)] hover:scale-105 transition-all cursor-pointer active:scale-95"
+                      className="inline-flex px-7 py-3.5 rounded-full bg-[#00ffff] text-black font-heading font-bold text-xs tracking-wide shadow-[0_0_20px_rgba(0,255,255,0.3)] hover:shadow-[0_0_35px_rgba(0,255,255,0.6)] hover:scale-105 transition-all cursor-pointer active:scale-95"
                     >
                       View Details
                     </Link>
@@ -559,11 +559,11 @@ export default function Hero() {
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col md:flex-row items-end justify-between mb-20">
             <div>
-              <span className="text-[#00ffff] font-semibold tracking-widest uppercase text-xs mb-4 block font-heading">
-                THE CREATORS
+              <span className="text-[#00ffff] font-semibold tracking-wide text-xs mb-4 block font-heading">
+                The Creators
               </span>
-              <h2 className="text-4xl md:text-6xl font-bold uppercase tracking-tight text-white leading-none font-heading">
-                Meet<br/>The Team
+              <h2 className="text-4xl md:text-6xl font-bold tracking-tight text-white leading-none font-heading">
+                Meet the Team
               </h2>
             </div>
             <p className="mt-8 md:mt-0 text-white/50 max-w-sm text-sm md:text-base font-light leading-relaxed">
@@ -601,7 +601,7 @@ export default function Hero() {
                     className="w-full h-auto object-contain transition-all duration-700 rounded-[9px]"
                   />
                 </div>
-                <h3 className="text-lg font-bold text-white uppercase tracking-wide group-hover:text-[#00ffff] transition-colors font-heading">
+                <h3 className="text-lg font-bold text-white tracking-wide group-hover:text-[#00ffff] transition-colors font-heading">
                   {member.name}
                 </h3>
                 <p className="text-white/40 text-[10px] font-bold tracking-widest uppercase mt-1">

@@ -17,7 +17,7 @@ import {
   ArrowRight,
 } from 'lucide-react'
 import type { AiWebsiteData } from '@/lib/ai-website'
-import { encodePublicAssetPath } from '@/lib/portfolio-page'
+import { encodePublicAssetPath, toTitleCase } from '@/lib/portfolio-page'
 
 const serviceIcons = [Bot, Code2, Cpu, ShoppingCart, Smartphone, Cloud]
 const featureIcons = [Zap, ShieldCheck, BadgeCheck, Headphones]
@@ -40,7 +40,7 @@ export default function AiWebsitePage({ data }: AiWebsitePageProps) {
           <div className="border border-white/10 bg-[#0c0c0f] p-3 sm:p-4 rounded-[10px] shadow-md">
             <div className="relative w-full overflow-hidden bg-[#050507] rounded-[6px] aspect-[1499/1049]">
               <img
-                src={bannerImage}
+                src="/AI Powered Website &Custom Software Development.png"
                 alt={topBanner.title}
                 className="absolute inset-0 w-full h-full object-contain"
               />
@@ -53,8 +53,8 @@ export default function AiWebsitePage({ data }: AiWebsitePageProps) {
             <span className="text-[#00ffff] text-xs font-semibold tracking-wide mb-3 uppercase block font-heading">
               {company}
             </span>
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black uppercase tracking-normal font-heading text-white mb-4 max-w-4xl mx-auto">
-              {topBanner.title}
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-normal font-heading text-white mb-4 max-w-4xl mx-auto">
+              {toTitleCase(topBanner.title)}
             </h1>
             <p className="text-sm md:text-base text-white/50 font-light leading-relaxed max-w-2xl mx-auto">
               {topBanner.subtitle}
@@ -63,7 +63,7 @@ export default function AiWebsitePage({ data }: AiWebsitePageProps) {
 
           <div className="flex items-center gap-4 mb-10">
             <div className="h-px flex-1 bg-gradient-to-r from-transparent via-[#00ffff]/40 to-transparent" />
-            <h2 className="text-[#00ffff] text-sm sm:text-base font-bold tracking-wide uppercase font-heading shrink-0">
+            <h2 className="text-[#00ffff] text-sm sm:text-base font-bold tracking-wide font-heading shrink-0">
               Our Services
             </h2>
             <div className="h-px flex-1 bg-gradient-to-r from-transparent via-[#00ffff]/40 to-transparent" />
@@ -80,7 +80,7 @@ export default function AiWebsitePage({ data }: AiWebsitePageProps) {
                   <div className="w-12 h-12 rounded-none border border-[#00ffff]/40 bg-[#00ffff]/10 flex items-center justify-center mb-4 text-[#00ffff] group-hover:bg-[#00ffff] group-hover:text-black transition-colors">
                     <Icon className="size-6" />
                   </div>
-                  <h3 className="font-bold text-white uppercase tracking-tight font-heading mb-2 group-hover:text-[#00ffff] transition-colors">
+                  <h3 className="font-bold text-white tracking-tight font-heading mb-2 group-hover:text-[#00ffff] transition-colors">
                     {item.title}
                   </h3>
                   <p className="text-white/50 text-xs sm:text-sm font-light leading-relaxed">
@@ -110,7 +110,7 @@ export default function AiWebsitePage({ data }: AiWebsitePageProps) {
 
           <div className="border border-white/10 bg-[#0c0c0f] rounded-[10px] p-6 sm:p-8 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
             <div>
-              <h3 className="text-xl sm:text-2xl font-bold uppercase tracking-tight font-heading text-white mb-3">
+              <h3 className="text-xl sm:text-2xl font-bold tracking-tight font-heading text-white mb-3">
                 Let&apos;s Build Something Amazing
               </h3>
               <div className="grid sm:grid-cols-2 gap-2 text-sm text-white/55">

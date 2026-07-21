@@ -6,6 +6,7 @@ import { motion } from 'framer-motion'
 import {
   encodePublicAssetPath,
   getGalleryCategories,
+  toTitleCase,
   type PortfolioPageData,
 } from '@/lib/portfolio-page'
 
@@ -51,8 +52,8 @@ export default function PortfolioGalleryPage({ data }: PortfolioGalleryPageProps
               <span className="text-[#00ffff] text-xs font-semibold tracking-wide mb-3 uppercase block font-heading">
                 Portfolio
               </span>
-              <h1 className="font-bold text-2xl sm:text-3xl lg:text-4xl text-white uppercase tracking-normal mb-3 font-display">
-                {topBanner.title}
+              <h1 className="font-bold text-2xl sm:text-3xl lg:text-4xl text-white tracking-normal mb-3 font-heading">
+                {toTitleCase(topBanner.title)}
               </h1>
               <p className="text-white/50 text-xs md:text-sm font-light leading-relaxed max-w-2xl">
                 {topBanner.subtitle}

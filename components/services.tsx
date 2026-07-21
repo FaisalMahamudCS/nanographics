@@ -165,10 +165,10 @@ export default function Services() {
       <div className="max-w-7xl mx-auto relative z-10 px-4 sm:px-6">
         {/* Section Header */}
         <div className="text-center mb-12 md:mb-28">
-          <span className="text-[#00ffff] text-xs font-semibold tracking-wide mb-3 md:mb-4 uppercase block font-heading">
-            WHAT WE DO
+          <span className="text-[#00ffff] text-xs font-semibold tracking-wide mb-3 md:mb-4 block font-heading">
+            What We Do
           </span>
-          <h2 ref={titleRef} className="text-4xl lg:text-7xl font-black leading-none uppercase tracking-[0.04em] font-display">
+          <h2 ref={titleRef} className="text-4xl lg:text-7xl font-black leading-none tracking-[0.04em] font-heading">
             <span className="block overflow-hidden h-fit">
               <span className="inline-block text-white services-title-word">Premium Design</span>
             </span>
@@ -216,7 +216,7 @@ export default function Services() {
                       </div>
 
                       {/* Header */}
-                      <h3 className="text-2xl md:text-3xl font-bold uppercase tracking-[0.04em] text-white font-display group-hover:text-[#00ffff] transition-colors duration-300">
+                      <h3 className="text-2xl md:text-3xl font-bold tracking-[0.04em] text-white font-heading group-hover:text-[#00ffff] transition-colors duration-300">
                         {service.title}
                       </h3>
 

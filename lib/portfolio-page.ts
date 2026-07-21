@@ -48,3 +48,13 @@ export function encodePublicAssetPath(path: string): string {
 export function getGalleryCategories(gallery: PortfolioGalleryItem[]): string[] {
   return [...new Set(gallery.map((item) => item.category))].sort()
 }
+
+/** Display helper — Title Case for English ALL CAPS headings from CMS/JSON */
+export function toTitleCase(text: string): string {
+  if (!text) return text
+  if (/[\u0980-\u09FF]/.test(text) && !/[A-Za-z]{3,}/.test(text)) return text
+  return text.replace(/[A-Za-z][A-Za-z']*/g, (word) => {
+    if (word.length <= 2 && word === word.toUpperCase()) return word // AI, UI
+    return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()
+  })
+}

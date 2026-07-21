@@ -56,13 +56,13 @@ export default function Testimonials() {
           
           {/* Left Description Column */}
           <div className="flex-1 text-center lg:text-left text-white max-w-xl">
-            <span className="text-[#00ffff] text-xs font-semibold tracking-[0.25em] mb-4 uppercase block font-heading">
-              TESTIMONIALS
+            <span className="text-[#00ffff] text-xs font-semibold tracking-wide mb-4 block font-heading">
+              Testimonials
             </span>
-            <h2 className="text-4xl md:text-6xl font-black uppercase tracking-[0.04em] leading-[0.95] font-display mb-6">
-              What clients say <br className="hidden md:block"/>
+            <h2 className="text-4xl md:text-6xl font-black tracking-[0.04em] leading-[0.95] font-heading mb-6">
+              What Clients Say <br className="hidden md:block"/>
               <span className="text-gradient-cyan">
-                about our studio
+                About Our Studio
               </span>
             </h2>
             <p className="text-sm md:text-base text-white/50 leading-relaxed font-light">
