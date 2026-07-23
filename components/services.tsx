@@ -165,10 +165,10 @@ export default function Services() {
       <div className="max-w-7xl mx-auto relative z-10 px-4 sm:px-6">
         {/* Section Header */}
         <div className="text-center mb-12 md:mb-28">
-          <span className="text-[#00ffff] text-xs font-semibold tracking-wide mb-3 md:mb-4 block font-heading">
+          <span className="section-eyebrow mb-3 md:mb-4 block">
             What We Do
           </span>
-          <h2 ref={titleRef} className="text-4xl lg:text-7xl font-black leading-none tracking-[0.04em] font-heading">
+          <h2 ref={titleRef} className="section-title">
             <span className="block overflow-hidden h-fit">
               <span className="inline-block text-white services-title-word">Premium Design</span>
             </span>
@@ -216,7 +216,7 @@ export default function Services() {
                       </div>
 
                       {/* Header */}
-                      <h3 className="text-2xl md:text-3xl font-bold tracking-[0.04em] text-white font-heading group-hover:text-[#00ffff] transition-colors duration-300">
+                      <h3 className="font-neue text-2xl md:text-4xl text-white group-hover:text-[#00ffff] transition-colors duration-300 leading-[0.95]">
                         {service.title}
                       </h3>
 
@@ -244,6 +244,17 @@ export default function Services() {
                       alt={service.title}
                       className="absolute inset-0 w-full h-full object-contain transition-transform duration-700 ease-out group-hover:scale-[1.02]"
                     />
+                    {/* Play affordance for the Video Editing showcase */}
+                    {service.title === 'Video Editing' && (
+                      <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                        <span className="relative flex items-center justify-center w-16 h-16 md:w-20 md:h-20 rounded-full bg-[#00ffff]/90 text-black shadow-[0_0_40px_rgba(0,255,255,0.55)] transition-transform duration-500 group-hover:scale-110">
+                          <span className="absolute inset-0 rounded-full bg-[#00ffff]/40 animate-ping" />
+                          <svg viewBox="0 0 24 24" className="relative w-7 h-7 md:w-8 md:h-8 fill-current translate-x-0.5" aria-hidden="true">
+                            <path d="M8 5v14l11-7z" />
+                          </svg>
+                        </span>
+                      </div>
+                    )}
                   </div>
 
                 </div>

@@ -324,7 +324,7 @@ export default function Hero() {
         </div>
 
         <div className="relative w-full flex flex-col items-center mb-4 md:mb-8">
-          <h2 ref={heroTextRef} className="text-[clamp(3.2rem,15vw,240px)] font-black leading-[0.82] tracking-tight text-center z-20 font-heading select-none drop-shadow-2xl">
+          <h2 ref={heroTextRef} className="text-[clamp(3.6rem,16vw,260px)] leading-[0.8] tracking-[0.01em] text-center z-20 font-brand select-none drop-shadow-2xl">
             <span className="block overflow-hidden h-fit">
               <span className="block text-gradient-cyan word-anim-inner">Nano</span>
             </span>
@@ -454,10 +454,10 @@ export default function Hero() {
       {/* 2. About / Philosophy Section */}
       <section ref={aboutRef} className="relative z-10 w-full py-16 md:py-32 px-4 sm:px-6 border-t border-white/5 bg-[#08080a]">
         <div className="max-w-4xl mx-auto text-center">
-          <span className="text-[#00ffff] font-semibold tracking-wide text-xs mb-4 md:mb-6 block font-heading">
+          <span className="section-eyebrow mb-4 md:mb-6 block">
             Our Philosophy
           </span>
-          <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold text-white mb-5 md:mb-8 tracking-tight font-heading leading-tight">
+          <h2 className="section-title text-white mb-5 md:mb-8">
             <span className="block overflow-hidden h-fit">
               <span className="inline-block about-title-inner">A Legacy of Excellence,</span>
             </span>
@@ -482,10 +482,10 @@ export default function Hero() {
 
         {/* Section Header — scrolls normally before the pinned stack */}
         <div className="w-full shrink-0 flex flex-col items-center justify-center px-4 sm:px-6 pt-12 pb-8 md:pt-28 md:pb-14 text-center">
-          <span className="text-[#00ffff] text-xs font-semibold tracking-wide font-heading block">
+          <span className="section-eyebrow block">
             Capabilities
           </span>
-          <h2 className="mt-3 md:mt-4 text-3xl md:text-6xl font-bold text-white tracking-tight font-heading">
+          <h2 className="mt-3 md:mt-4 section-title text-white">
             What We Do
           </h2>
           <p className="mt-3 md:mt-5 max-w-2xl text-sm md:text-lg font-light text-white/70 leading-relaxed">
@@ -532,7 +532,7 @@ export default function Hero() {
                     <p className="text-[#00ffff] text-[10px] font-bold tracking-[0.3em] font-heading mb-2">
                       {dept.subtitle}
                     </p>
-                    <h3 className="font-heading text-3xl md:text-5xl font-black text-white tracking-tight leading-none mb-3">
+                    <h3 className="font-neue text-3xl md:text-5xl text-white leading-none mb-3">
                       {dept.title}
                     </h3>
                     <p className="text-white/65 text-sm md:text-base font-light max-w-md mx-auto leading-relaxed mb-6">
@@ -559,10 +559,10 @@ export default function Hero() {
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col md:flex-row items-end justify-between mb-20">
             <div>
-              <span className="text-[#00ffff] font-semibold tracking-wide text-xs mb-4 block font-heading">
+              <span className="section-eyebrow mb-4 block">
                 The Creators
               </span>
-              <h2 className="text-4xl md:text-6xl font-bold tracking-tight text-white leading-none font-heading">
+              <h2 className="section-title text-white">
                 Meet the Team
               </h2>
             </div>

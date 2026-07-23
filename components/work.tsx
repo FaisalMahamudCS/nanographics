@@ -118,13 +118,13 @@ export default function Work() {
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <div className="mb-20">
-          <span className="text-[#00ffff] text-xs font-semibold tracking-wide mb-4 block font-heading">
+          <span className="section-eyebrow mb-4 block">
             Portfolio
           </span>
-          <h2 className="text-5xl lg:text-7xl font-black mb-6 tracking-[0.04em] leading-none font-heading">
+          <h2 className="section-title mb-6">
             <span className="text-white">Selected</span>
             <br />
-            <span className="text-[#00ffff]">
+            <span className="text-gradient-cyan">
               Work
             </span>
           </h2>
@@ -163,7 +163,7 @@ export default function Work() {
                   <span className="text-[#00ffff] text-[10px] font-bold tracking-widest uppercase mb-1">
                     {project.description}
                   </span>
-                  <h3 className="text-2xl font-bold text-white tracking-[0.04em] font-heading group-hover:text-[#00ffff] transition-colors duration-300">
+                  <h3 className="font-neue text-2xl md:text-3xl text-white group-hover:text-[#00ffff] transition-colors duration-300">
                     {project.title}
                   </h3>
 
@@ -202,7 +202,7 @@ export default function Work() {
                 <span className="text-[#00ffff] text-[9px] font-bold tracking-widest uppercase mb-1">
                   {project.description}
                 </span>
-                <h3 className="text-xl font-bold text-white tracking-[0.04em] font-heading">
+                <h3 className="font-neue text-2xl text-white">
                   {project.title}
                 </h3>
               </div>
@@ -213,7 +213,7 @@ export default function Work() {
         {/* Branding Design Section (Real Projects trigger point) */}
         <div id="real-projects" className="scroll-mt-28 mt-20 pt-20 border-t border-white/5">
           <div className="mb-8">
-            <h3 className="text-3xl lg:text-4xl font-bold mb-4 tracking-[0.04em] font-heading text-white">
+            <h3 className="section-title text-white mb-4">
               Our Partners
             </h3>
             <p className="text-white/50 text-xs md:text-sm font-light max-w-xl leading-relaxed">
@@ -227,7 +227,7 @@ export default function Work() {
 
           {/* Products Packaging Section */}
           <div className="mt-28 border-t border-white/5 pt-20">
-            <h3 className="text-3xl lg:text-4xl font-bold mb-4 tracking-[0.04em] font-heading text-white">
+            <h3 className="section-title text-white mb-4">
               Products Packaging All Work
             </h3>
             <p className="text-white/50 text-xs md:text-sm font-light max-w-xl leading-relaxed mb-12">
@@ -237,6 +237,13 @@ export default function Work() {
             <div ref={productsRef} className="grid md:grid-cols-2 gap-8 items-stretch">
               <div className="product-card h-full flex flex-col border border-white/10 bg-[#0c0c0f] hover:border-[#00ffff]/40 transition-all duration-500 group p-4 rounded-[10px] shadow-md">
                 <div className="relative w-full h-[220px] sm:h-[260px] md:h-[280px] overflow-hidden bg-[#050507] rounded-[6px]">
+                  {/* Icon badge */}
+                  <div className="absolute top-3 left-3 z-10 w-10 h-10 rounded-full bg-black/60 border border-[#00ffff]/40 backdrop-blur-sm flex items-center justify-center text-[#00ffff]">
+                    <svg viewBox="0 0 24 24" className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                      <path d="m7.5 4.27 9 5.15M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z" />
+                      <path d="m3.3 7 8.7 5 8.7-5M12 22V12" />
+                    </svg>
+                  </div>
                   <img
                     src="/Packaging Design2.png"
                     alt="Packaging Design Film"
@@ -244,7 +251,7 @@ export default function Work() {
                   />
                 </div>
                 <div className="pt-6 px-2 flex flex-col grow">
-                  <h4 className="font-bold text-xl text-white tracking-[0.04em] mb-2 font-heading group-hover:text-[#00ffff] transition-colors">Packaging Design</h4>
+                  <h4 className="font-neue text-2xl text-white mb-2 group-hover:text-[#00ffff] transition-colors">Packaging Design</h4>
                   <p className="text-white/50 text-xs font-light mb-5 grow">Flexible film rolls, bags, and pouches designed for snacks, chips, spices, and confectionery products.</p>
                   <Link
                     href={getPackagingDesignPath()}
@@ -256,15 +263,32 @@ export default function Work() {
               </div>
 
               <div className="product-card h-full flex flex-col border border-white/10 bg-[#0c0c0f] hover:border-[#00ffff]/40 transition-all duration-500 group p-4 rounded-[10px] shadow-md">
-                <div className="relative w-full h-[220px] sm:h-[260px] md:h-[280px] overflow-hidden bg-[#050507] rounded-[6px]">
-                  <img
-                    src="/Design and Print Support2.png"
-                    alt="Printing Support"
-                    className="absolute inset-0 w-full h-full object-contain transition-transform duration-700 group-hover:scale-[1.02]"
-                  />
+                {/* Two-image layout per revision brief */}
+                <div className="relative w-full h-[220px] sm:h-[260px] md:h-[280px] grid grid-cols-2 gap-2">
+                  {/* Icon badge */}
+                  <div className="absolute top-3 left-3 z-10 w-10 h-10 rounded-full bg-black/60 border border-[#00ffff]/40 backdrop-blur-sm flex items-center justify-center text-[#00ffff]">
+                    <svg viewBox="0 0 24 24" className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                      <path d="M6 9V2h12v7M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2" />
+                      <rect x="6" y="14" width="12" height="8" rx="1" />
+                    </svg>
+                  </div>
+                  <div className="relative overflow-hidden bg-[#050507] rounded-[6px]">
+                    <img
+                      src="/Print1.png"
+                      alt="Printing support — press output"
+                      className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
+                    />
+                  </div>
+                  <div className="relative overflow-hidden bg-[#050507] rounded-[6px]">
+                    <img
+                      src="/Print2.png"
+                      alt="Printing support — finished labels"
+                      className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
+                    />
+                  </div>
                 </div>
                 <div className="pt-6 px-2 flex flex-col grow">
-                  <h4 className="font-bold text-xl text-white tracking-[0.04em] mb-2 font-heading group-hover:text-[#00ffff] transition-colors">Printing Support</h4>
+                  <h4 className="font-neue text-2xl text-white mb-2 group-hover:text-[#00ffff] transition-colors">Printing Support</h4>
                   <p className="text-white/50 text-xs font-light mb-5 grow">High-quality print support for labels, packaging, cylinders, and promotional materials.</p>
                   <Link
                     href={getDesignPrintPath()}

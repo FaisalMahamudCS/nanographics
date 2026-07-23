@@ -136,7 +136,7 @@ export default function PackageCoursePage() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
-          className="text-[clamp(1.75rem,7vw,5rem)] font-black leading-[0.95] tracking-tight mb-4 sm:mb-5 font-heading"
+          className="text-[clamp(2.1rem,8vw,6rem)] font-black leading-[0.95] tracking-tight mb-4 sm:mb-5 font-heading"
         >
           <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#00ffff] to-[#0088ff]">
             Packaging Design
@@ -223,7 +223,7 @@ export default function PackageCoursePage() {
               <img src="/Course/Box Design.png" alt="Box Design" className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700 ease-out" />
             </div>
             <div className="p-4 sm:p-5 bg-[#0a0a0f] border-t border-white/5 text-center group-hover:border-[#00ffff]/30 transition-colors duration-500 relative z-20">
-              <h3 className="text-white font-semibold text-base sm:text-lg tracking-wide group-hover:text-[#00ffff] transition-colors duration-500">
+              <h3 className="text-white font-semibold text-lg sm:text-xl tracking-wide group-hover:text-[#00ffff] transition-colors duration-500">
                 Box Design
               </h3>
             </div>
@@ -244,7 +244,7 @@ export default function PackageCoursePage() {
               <img src="/Course/Packet Design.png" alt="Packet Design" className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700 ease-out" />
             </div>
             <div className="p-4 sm:p-5 bg-[#0a0a0f] border-t border-white/5 text-center group-hover:border-[#00ffff]/30 transition-colors duration-500 relative z-20">
-              <h3 className="text-white font-semibold text-base sm:text-lg tracking-wide group-hover:text-[#00ffff] transition-colors duration-500">
+              <h3 className="text-white font-semibold text-lg sm:text-xl tracking-wide group-hover:text-[#00ffff] transition-colors duration-500">
                 Packet Design
               </h3>
             </div>
@@ -265,7 +265,7 @@ export default function PackageCoursePage() {
               <img src="/Course/Level Design.png" alt="Level Design" className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700 ease-out" />
             </div>
             <div className="p-4 sm:p-5 bg-[#0a0a0f] border-t border-white/5 text-center group-hover:border-[#00ffff]/30 transition-colors duration-500 relative z-20">
-              <h3 className="text-white font-semibold text-base sm:text-lg tracking-wide group-hover:text-[#00ffff] transition-colors duration-500">
+              <h3 className="text-white font-semibold text-lg sm:text-xl tracking-wide group-hover:text-[#00ffff] transition-colors duration-500">
                 Level Design
               </h3>
             </div>
@@ -281,7 +281,7 @@ export default function PackageCoursePage() {
             <p className="text-[#00ffff] font-semibold tracking-wide uppercase text-xs mb-3 md:mb-4 font-heading">
               Comprehensive Curriculum
             </p>
-            <h2 className="text-3xl md:text-5xl font-black tracking-tight bangla">
+            <h2 className="text-4xl md:text-6xl font-black tracking-tight bangla">
               কোর্সের বিশেষ সেবাসমূহ
             </h2>
           </div>
@@ -313,7 +313,7 @@ export default function PackageCoursePage() {
                   <div className="w-10 h-10 sm:w-12 sm:h-12 bg-[#00ffff]/10 flex items-center justify-center mb-4 sm:mb-6 group-hover:bg-[#00ffff] transition-colors duration-300 shrink-0">
                     <Icon className="w-5 h-5 text-[#00ffff] group-hover:text-black transition-colors duration-300" />
                   </div>
-                  <h3 className="text-sm sm:text-base md:text-lg font-bold text-white group-hover:text-[#00ffff] transition-colors font-heading tracking-wide break-words leading-snug">
+                  <h3 className="text-base sm:text-lg md:text-xl font-bold text-white group-hover:text-[#00ffff] transition-colors font-heading tracking-wide break-words leading-snug">
                     {feat.title}
                   </h3>
                 </motion.div>
@@ -330,7 +330,7 @@ export default function PackageCoursePage() {
             <span className="text-[#00ffff] font-semibold tracking-wide uppercase text-xs block mb-3 md:mb-4 font-heading">
               Live Class Discussion Topics
             </span>
-            <h2 className="text-3xl md:text-5xl font-black tracking-tight bangla mb-4 md:mb-6">
+            <h2 className="text-4xl md:text-6xl font-black tracking-tight bangla mb-4 md:mb-6">
               যেসব প্রশ্নের সমাধান পাবেন এই কোর্সে
             </h2>
             <p className="text-white/60 max-w-2xl mx-auto text-base leading-relaxed font-light">
@@ -430,7 +430,7 @@ export default function PackageCoursePage() {
             <span className="text-[#00ffff] font-semibold tracking-wide uppercase text-xs block mb-3 md:mb-4 font-heading">
               Class Schedule & Timeline
             </span>
-            <h2 className="text-3xl md:text-5xl font-black tracking-tight bangla">
+            <h2 className="text-4xl md:text-6xl font-black tracking-tight bangla">
               ক্লাসের সময়সূচী
             </h2>
           </div>
@@ -514,7 +514,7 @@ export default function PackageCoursePage() {
                   <span className="text-[#00ffff] font-semibold tracking-[0.2em] uppercase text-xs block mb-4 font-heading">
                     How to Join
                   </span>
-                  <h2 className="text-4xl md:text-5xl font-black tracking-tight font-heading leading-tight mb-6">
+                  <h2 className="section-title leading-tight mb-6">
                     ভর্তি হওয়ার সহজ নিয়মাবলী
                   </h2>
                   <p className="text-white/60 leading-relaxed font-light">

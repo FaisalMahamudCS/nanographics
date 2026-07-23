@@ -44,6 +44,16 @@ const col2Testimonials = [
   }
 ]
 
+const Stars = () => (
+  <div className="flex gap-0.5 mb-3" aria-label="5 out of 5 stars">
+    {Array.from({ length: 5 }).map((_, i) => (
+      <svg key={i} viewBox="0 0 24 24" className="w-3.5 h-3.5 fill-[#00ffff]" aria-hidden="true">
+        <path d="M12 2l2.9 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 7.1-1.01z" />
+      </svg>
+    ))}
+  </div>
+)
+
 export default function Testimonials() {
   // Duplicate arrays to make scrolling animation infinite
   const column1 = [...col1Testimonials, ...col1Testimonials, ...col1Testimonials]
@@ -56,10 +66,10 @@ export default function Testimonials() {
           
           {/* Left Description Column */}
           <div className="flex-1 text-center lg:text-left text-white max-w-xl">
-            <span className="text-[#00ffff] text-xs font-semibold tracking-wide mb-4 block font-heading">
+            <span className="section-eyebrow mb-4 block">
               Testimonials
             </span>
-            <h2 className="text-4xl md:text-6xl font-black tracking-[0.04em] leading-[0.95] font-heading mb-6">
+            <h2 className="section-title mb-6">
               What Clients Say <br className="hidden md:block"/>
               <span className="text-gradient-cyan">
                 About Our Studio
@@ -81,6 +91,7 @@ export default function Testimonials() {
                     key={idx} 
                     className="p-6 md:p-8 rounded-none border border-white/5 bg-white/[0.02] backdrop-blur-xl shadow-xl w-full text-white hover:bg-white/[0.06] hover:border-[#00ffff]/20 transition-all duration-300 group cursor-pointer"
                   >
+                    <Stars />
                     <div className="text-xs md:text-sm leading-relaxed text-white/70 font-light">
                       “{item.quote}”
                     </div>
@@ -112,6 +123,7 @@ export default function Testimonials() {
                     key={idx} 
                     className="p-6 md:p-8 rounded-none border border-white/5 bg-white/[0.02] backdrop-blur-xl shadow-xl w-full text-white hover:bg-white/[0.06] hover:border-[#00ffff]/20 transition-all duration-300 group cursor-pointer"
                   >
+                    <Stars />
                     <div className="text-xs md:text-sm leading-relaxed text-white/70 font-light">
                       “{item.quote}”
                     </div>

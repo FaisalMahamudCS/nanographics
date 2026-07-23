@@ -160,7 +160,7 @@ export default function Header({ activeSection, setActiveSection }: HeaderProps)
                   : 'border border-[#00ffff]/50 text-[#00ffff] hover:bg-[#00ffff] hover:text-black'
               }`}
             >
-              Course
+              Course Details
             </Link>
 
             {navItems.slice(2).map((item) => (
@@ -213,7 +213,7 @@ export default function Header({ activeSection, setActiveSection }: HeaderProps)
                 href={SERVICE_ROUTES.courseLanding}
                 className="h-9 px-3 rounded-full border border-[#00ffff]/45 text-[#00ffff] text-[10px] font-bold uppercase tracking-wide flex items-center"
               >
-                Course
+                Course Details
               </Link>
             )}
             <button
@@ -259,7 +259,7 @@ export default function Header({ activeSection, setActiveSection }: HeaderProps)
                   : 'border border-[#00ffff]/50 text-[#00ffff]'
               }`}
             >
-              Packaging Course
+              Course Details
             </Link>
             {onCoursePage && (
               <a

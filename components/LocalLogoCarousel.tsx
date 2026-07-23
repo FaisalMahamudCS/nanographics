@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { motion, useAnimationControls } from 'framer-motion'
+import { motion, useAnimationControls, useReducedMotion } from 'framer-motion'
 
 const localLogos = Array.from({ length: 35 }, (_, i) => `/Local Logo/Local Company logo-${String(i + 1).padStart(2, '0')}.svg`)
 const exportLogos = Array.from({ length: 34 }, (_, i) => `/Export logo/Export Logo-${String(i + 1).padStart(2, '0')}.svg`)
@@ -14,6 +14,7 @@ interface LocalLogoCarouselProps {
 
 export const LocalLogoCarousel: React.FC<LocalLogoCarouselProps> = ({ embedded = false }) => {
   const controls = useAnimationControls()
+  const prefersReducedMotion = useReducedMotion()
 
   const scrollAnimation = {
     x: ['0%', '-50%'],
@@ -21,37 +22,53 @@ export const LocalLogoCarousel: React.FC<LocalLogoCarouselProps> = ({ embedded =
       x: {
         repeat: Infinity,
         repeatType: 'loop' as const,
-        duration: 120,
+        duration: 90,
         ease: 'linear' as const,
       },
     },
   }
 
   useEffect(() => {
+    if (prefersReducedMotion) {
+      controls.set({ x: '0%' })
+      return
+    }
     controls.start(scrollAnimation)
-  }, [controls])
+  }, [controls, prefersReducedMotion])
 
   return (
-    <section className={`overflow-hidden py-8 ${embedded ? 'my-0 bg-transparent' : 'my-16 bg-[#090909]'}`}>
+    <section
+      aria-label="Our partner brands"
+      className={`relative overflow-hidden py-8 ${embedded ? 'my-0 bg-transparent' : 'my-16 bg-[#090909]'}`}
+    >
       {!embedded && (
-        <h2 className="text-center text-2xl font-bold text-[#00ffff] mb-6">Our Partners</h2>
+        <h2 className="section-title text-center text-[#00ffff] mb-6">Our Partners</h2>
       )}
+
+      {/* Edge fades — like the reference marquee, logos glide in/out softly */}
+      <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 sm:w-28 bg-gradient-to-r from-[#050507] to-transparent" />
+      <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 sm:w-28 bg-gradient-to-l from-[#050507] to-transparent" />
+
       <motion.div
-        className="flex gap-10 sm:gap-12 items-center"
+        className="flex gap-8 sm:gap-10 items-center"
         style={{ width: 'max-content' }}
         animate={controls}
-        onHoverStart={() => controls.stop()}
-        onHoverEnd={() => controls.start(scrollAnimation)}
+        onHoverStart={() => !prefersReducedMotion && controls.stop()}
+        onHoverEnd={() => !prefersReducedMotion && controls.start(scrollAnimation)}
       >
         {duplicatedLogos.map((file, i) => (
           <div
             key={i}
-            className="flex-shrink-0 w-56 h-56 sm:w-64 sm:h-64 md:w-72 md:h-72 flex items-center justify-center rounded-full bg-[#111] border border-white/10 shadow-[0_0_20px_rgba(0,255,255,0.2)] transition-all duration-300 ease-out hover:scale-105 hover:border-[#00ffff]/40 hover:shadow-[0_0_30px_rgba(0,255,255,0.5)] cursor-pointer"
+            className="group relative flex-shrink-0 w-40 h-40 sm:w-48 sm:h-48 md:w-52 md:h-52 flex items-center justify-center rounded-full bg-[#0f0f12] border border-white/10 shadow-[0_0_20px_rgba(0,255,255,0.12)] transition-all duration-300 ease-out hover:scale-105 hover:border-[#00ffff]/40 hover:shadow-[0_0_30px_rgba(0,255,255,0.4)]"
           >
+            {/* Soft light disc so dark/low-contrast logos stay visible on the dark ring */}
+            <div className="absolute inset-4 rounded-full bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.06),transparent_70%)] group-hover:bg-[radial-gradient(circle_at_center,rgba(0,255,255,0.08),transparent_70%)] transition-colors duration-300" />
+            {/* Generous padding keeps every logo fully inside the ring — never cropped */}
             <img
               src={file}
-              alt={`Partner Logo ${i + 1}`}
-              className="w-40 h-40 sm:w-48 sm:h-48 md:w-56 md:h-56 object-contain"
+              alt={`Partner logo ${(i % logos.length) + 1}`}
+              loading="lazy"
+              className="relative z-10 w-[62%] h-[62%] object-contain drop-shadow-[0_0_10px_rgba(0,0,0,0.35)]"
             />
           </div>
         ))}

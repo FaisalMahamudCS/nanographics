@@ -50,6 +50,8 @@ const socialLinks = [
   },
 ]
 
+type SubmitState = 'idle' | 'submitting' | 'success'
+
 export default function Contact() {
   const [formData, setFormData] = useState({
     name: '',
@@ -57,6 +59,7 @@ export default function Contact() {
     company: '',
     message: '',
   })
+  const [status, setStatus] = useState<SubmitState>('idle')
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target
@@ -68,9 +71,14 @@ export default function Contact() {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    console.log('Form submitted:', formData)
-    setFormData({ name: '', email: '', company: '', message: '' })
-    alert('Thank you for your message! We will get back to you soon.')
+    if (status === 'submitting') return
+    setStatus('submitting')
+    // Simulate send; wire to a real endpoint/email service when available.
+    setTimeout(() => {
+      setFormData({ name: '', email: '', company: '', message: '' })
+      setStatus('success')
+      setTimeout(() => setStatus('idle'), 3500)
+    }, 900)
   }
 
   return (
@@ -79,10 +87,10 @@ export default function Contact() {
 
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="text-center mb-20">
-          <p className="text-[#00ffff] text-sm font-semibold tracking-wide mb-4">
+          <p className="section-eyebrow mb-4">
             Get in touch
           </p>
-          <h2 className="text-5xl lg:text-7xl font-bold mb-6 tracking-normal leading-none font-heading normal-case">
+          <h2 className="section-title mb-6">
             <span className="text-white">Let&apos;s Work</span>
             <br />
             <span className="text-gradient-cyan">Together</span>
@@ -163,9 +171,42 @@ export default function Contact() {
 
               <button
                 type="submit"
-                className="w-full mt-auto px-8 py-5 bg-[#00ffff] text-black font-bold uppercase tracking-widest text-sm rounded-full hover:bg-[#33ffff] hover:shadow-[0_0_30px_rgba(0,255,255,0.4)] hover:-translate-y-1 transition-all duration-300 cursor-pointer"
+                disabled={status === 'submitting'}
+                aria-live="polite"
+                className={`group relative w-full mt-auto overflow-hidden px-8 py-5 rounded-full font-bold uppercase tracking-widest text-sm transition-all duration-300 cursor-pointer disabled:cursor-wait
+                  ${status === 'success'
+                    ? 'bg-[#00e676] text-black'
+                    : 'bg-gradient-to-r from-[#00ffff] to-[#0088ff] text-black hover:shadow-[0_0_36px_rgba(0,255,255,0.55)] hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.99]'}`}
               >
-                Send Message
+                {/* Sheen sweep on hover */}
+                <span className="pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/40 to-transparent group-hover:translate-x-full transition-transform duration-700 ease-out" />
+                <span className="relative z-10 flex items-center justify-center gap-2.5">
+                  {status === 'submitting' && (
+                    <>
+                      <svg className="w-5 h-5 animate-spin" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="3" />
+                        <path className="opacity-90" d="M12 2a10 10 0 0 1 10 10" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
+                      </svg>
+                      Sending…
+                    </>
+                  )}
+                  {status === 'success' && (
+                    <>
+                      <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                        <path d="M20 6 9 17l-5-5" />
+                      </svg>
+                      Message Sent
+                    </>
+                  )}
+                  {status === 'idle' && (
+                    <>
+                      Send Message
+                      <svg className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                        <path d="M5 12h14M13 6l6 6-6 6" />
+                      </svg>
+                    </>
+                  )}
+                </span>
               </button>
             </form>
           </div>

@@ -7,6 +7,7 @@
 @theme inline {
   --font-heading: var(--font-archivo), var(--font-hind-siliguri), "Hind Siliguri", sans-serif;
   --font-display: var(--font-neue-power), var(--font-archivo), var(--font-hind-siliguri), sans-serif;
+  --font-brand: var(--font-bebas-neue), var(--font-archivo), sans-serif;
   --font-sans: var(--font-space-grotesk), var(--font-hind-siliguri), "Hind Siliguri", sans-serif;
   --font-mono: var(--font-geist-mono), 'Geist Mono Fallback';
   --color-sidebar-ring: var(--sidebar-ring);
@@ -203,6 +204,73 @@
   font-family: var(--font-neue-power), var(--font-archivo), var(--font-hind-siliguri), sans-serif;
   font-weight: 900;
   text-transform: uppercase;
+}
+
+/* Hero wordmark — Bebas Neue (per design spec) */
+.font-brand {
+  font-family: var(--font-bebas-neue), var(--font-archivo), sans-serif;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+}
+
+/*
+ * Unified section title system.
+ * Every major section heading uses the SAME font (Neue Power Ultra)
+ * and the SAME responsive size for a consistent rhythm across the site.
+ * Content should be authored in Title Case.
+ */
+.section-title {
+  font-family: var(--font-neue-power), var(--font-archivo), var(--font-hind-siliguri), sans-serif;
+  font-weight: 900;
+  font-size: clamp(2.25rem, 5.5vw, 4.25rem);
+  line-height: 0.95;
+  letter-spacing: 0.01em;
+  text-transform: none; /* Title Case, authored in markup */
+}
+
+/* Neue Power Ultra family for smaller titles (cards, sub-headings) — Title Case */
+.font-neue {
+  font-family: var(--font-neue-power), var(--font-archivo), var(--font-hind-siliguri), sans-serif;
+  font-weight: 900;
+  letter-spacing: 0.01em;
+}
+
+/* Small cyan eyebrow/kicker above section titles — unified */
+.section-eyebrow {
+  font-family: var(--font-archivo), sans-serif;
+  color: #00ffff;
+  font-weight: 700;
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+/* Visible keyboard focus ring on all interactive elements (a11y) */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid #00ffff;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Respect user motion preferences (a11y — high severity per design guide) */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+  .animate-scroll-y-1,
+  .animate-scroll-y-2 {
+    animation: none !important;
+  }
 }
 
 /* Unified cyan → blue heading gradient (use everywhere for consistency) */

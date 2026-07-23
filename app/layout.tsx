@@ -1,6 +1,6 @@
 import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
-import { Archivo, Space_Grotesk, Hind_Siliguri } from 'next/font/google';
+import { Archivo, Space_Grotesk, Hind_Siliguri, Bebas_Neue } from 'next/font/google';
 import localFont from 'next/font/local';
 import SiteFooter from '@/components/site-footer'
 import './globals.css'
@@ -28,6 +28,13 @@ const hindSiliguri = Hind_Siliguri({
   subsets: ['bengali'],
   weight: ['400', '600', '700'],
   variable: '--font-hind-siliguri',
+});
+
+const bebasNeue = Bebas_Neue({
+  subsets: ['latin'],
+  weight: '400',
+  variable: '--font-bebas-neue',
+  display: 'swap',
 });
 
 export const metadata: Metadata = {
@@ -66,7 +73,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={`${archivo.variable} ${hindSiliguri.variable} ${spaceGrotesk.variable} ${neuePower.variable} dark scroll-smooth overflow-x-hidden`}>
+    <html lang="en" className={`${archivo.variable} ${hindSiliguri.variable} ${spaceGrotesk.variable} ${neuePower.variable} ${bebasNeue.variable} dark scroll-smooth overflow-x-hidden`}>
       <body className="font-sans antialiased bg-[#050507] text-foreground overflow-x-hidden max-w-[100vw]">
         {children}
         <SiteFooter />
