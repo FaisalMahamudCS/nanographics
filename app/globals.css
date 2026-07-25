@@ -199,6 +199,35 @@
   animation-play-state: paused;
 }
 
+/* Brand "scribble ring" animation (Olympic Our-Brands style) */
+@keyframes brand-ring-spin {
+  to { transform: rotate(360deg); }
+}
+@keyframes brand-ring-spin-rev {
+  to { transform: rotate(-360deg); }
+}
+.brand-ring {
+  transform-origin: 50% 50%;
+  animation: brand-ring-spin 16s linear infinite;
+}
+.brand-ring-rev {
+  transform-origin: 50% 50%;
+  animation: brand-ring-spin-rev 22s linear infinite;
+}
+/* Spin up + glow on hover of the parent .brand-disc */
+.brand-ring,
+.brand-ring-rev {
+  transition: filter 0.35s ease, opacity 0.35s ease;
+}
+.brand-disc:hover .brand-ring {
+  animation-duration: 5s;
+  filter: drop-shadow(0 0 7px rgba(255, 255, 255, 0.55));
+}
+.brand-disc:hover .brand-ring-rev {
+  animation-duration: 7s;
+  filter: drop-shadow(0 0 8px rgba(0, 255, 255, 0.6));
+}
+
 /* Big display headings — NeuePower Ultra (NANO GRAPHIC style) */
 .font-display {
   font-family: var(--font-neue-power), var(--font-archivo), var(--font-hind-siliguri), sans-serif;

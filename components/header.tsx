@@ -135,7 +135,7 @@ export default function Header({ activeSection, setActiveSection }: HeaderProps)
               <div className="absolute inset-0 bg-[#00ffff]/20 blur-xl rounded-full group-hover:bg-[#00ffff]/40 transition-colors duration-500" />
               <LogoIcon svgRef={logoRef} className="w-7 h-7 relative z-10 transition-transform duration-500 group-hover:scale-110" />
             </div>
-            <span className="text-xs font-semibold tracking-wide text-white uppercase font-heading">
+            <span className="text-base leading-none font-normal tracking-[0.12em] text-white uppercase font-brand pt-0.5">
               NanoGraphic
             </span>
           </button>
@@ -195,7 +195,7 @@ export default function Header({ activeSection, setActiveSection }: HeaderProps)
             onClick={() => handleNavClick('home')}
           >
             <LogoIcon className="w-6 h-6 shrink-0" />
-            <span className="text-[11px] font-semibold tracking-wide text-white uppercase font-heading truncate">
+            <span className="text-sm leading-none font-normal tracking-[0.1em] text-white uppercase font-brand truncate pt-0.5">
               NanoGraphic
             </span>
           </button>

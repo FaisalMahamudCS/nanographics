@@ -12,6 +12,32 @@ interface LocalLogoCarouselProps {
   embedded?: boolean
 }
 
+/**
+ * Hand-drawn "scribble" rings that rotate around each brand — inspired by the
+ * Olympic "Our Brands" section. Two SVG layers spin in opposite directions;
+ * broken stroke-dasharrays give the sketchy, hand-drawn look.
+ */
+const ScribbleRings = () => (
+  <>
+    <svg
+      viewBox="0 0 100 100"
+      className="brand-ring absolute inset-0 w-full h-full pointer-events-none"
+      aria-hidden="true"
+    >
+      <circle cx="50" cy="50" r="47" fill="none" stroke="rgba(255,255,255,0.85)" strokeWidth="1.4" strokeLinecap="round" strokeDasharray="34 10 20 8 46 12 26 9" />
+      <circle cx="50" cy="50" r="43.5" fill="none" stroke="rgba(255,255,255,0.45)" strokeWidth="0.8" strokeLinecap="round" strokeDasharray="14 8 30 10 22 7" />
+    </svg>
+    <svg
+      viewBox="0 0 100 100"
+      className="brand-ring-rev absolute inset-0 w-full h-full pointer-events-none"
+      aria-hidden="true"
+    >
+      <circle cx="50" cy="50" r="48.5" fill="none" stroke="rgba(0,255,255,0.7)" strokeWidth="1" strokeLinecap="round" strokeDasharray="8 12 40 14 28 10 18 9" />
+      <circle cx="50" cy="50" r="45.5" fill="none" stroke="rgba(0,255,255,0.35)" strokeWidth="0.7" strokeLinecap="round" strokeDasharray="24 10 16 12 34 8" />
+    </svg>
+  </>
+)
+
 export const LocalLogoCarousel: React.FC<LocalLogoCarouselProps> = ({ embedded = false }) => {
   const controls = useAnimationControls()
   const prefersReducedMotion = useReducedMotion()
@@ -39,18 +65,18 @@ export const LocalLogoCarousel: React.FC<LocalLogoCarouselProps> = ({ embedded =
   return (
     <section
       aria-label="Our partner brands"
-      className={`relative overflow-hidden py-8 ${embedded ? 'my-0 bg-transparent' : 'my-16 bg-[#090909]'}`}
+      className={`relative overflow-hidden py-10 ${embedded ? 'my-0 bg-transparent' : 'my-16 bg-[#090909]'}`}
     >
       {!embedded && (
         <h2 className="section-title text-center text-[#00ffff] mb-6">Our Partners</h2>
       )}
 
-      {/* Edge fades — like the reference marquee, logos glide in/out softly */}
+      {/* Edge fades — logos glide in/out softly like the reference marquee */}
       <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 sm:w-28 bg-gradient-to-r from-[#050507] to-transparent" />
       <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 sm:w-28 bg-gradient-to-l from-[#050507] to-transparent" />
 
       <motion.div
-        className="flex gap-8 sm:gap-10 items-center"
+        className="flex gap-8 sm:gap-12 items-center py-3"
         style={{ width: 'max-content' }}
         animate={controls}
         onHoverStart={() => !prefersReducedMotion && controls.stop()}
@@ -59,17 +85,23 @@ export const LocalLogoCarousel: React.FC<LocalLogoCarouselProps> = ({ embedded =
         {duplicatedLogos.map((file, i) => (
           <div
             key={i}
-            className="group relative flex-shrink-0 w-40 h-40 sm:w-48 sm:h-48 md:w-52 md:h-52 flex items-center justify-center rounded-full bg-[#0f0f12] border border-white/10 shadow-[0_0_20px_rgba(0,255,255,0.12)] transition-all duration-300 ease-out hover:scale-105 hover:border-[#00ffff]/40 hover:shadow-[0_0_30px_rgba(0,255,255,0.4)]"
+            className="brand-disc group relative flex-shrink-0 w-40 h-40 sm:w-48 sm:h-48 md:w-52 md:h-52 flex items-center justify-center transition-transform duration-300 ease-out hover:scale-105"
           >
-            {/* Soft light disc so dark/low-contrast logos stay visible on the dark ring */}
-            <div className="absolute inset-4 rounded-full bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.06),transparent_70%)] group-hover:bg-[radial-gradient(circle_at_center,rgba(0,255,255,0.08),transparent_70%)] transition-colors duration-300" />
-            {/* Generous padding keeps every logo fully inside the ring — never cropped */}
-            <img
-              src={file}
-              alt={`Partner logo ${(i % logos.length) + 1}`}
-              loading="lazy"
-              className="relative z-10 w-[62%] h-[62%] object-contain drop-shadow-[0_0_10px_rgba(0,0,0,0.35)]"
-            />
+            {/* Animated hand-drawn scribble rings */}
+            <ScribbleRings />
+
+            {/* Inner disc holding the logo */}
+            <div className="absolute inset-[10%] rounded-full bg-[#0f0f12] border border-white/10 shadow-[0_0_22px_rgba(0,255,255,0.15)] group-hover:shadow-[0_0_34px_rgba(0,255,255,0.45)] transition-shadow duration-300 flex items-center justify-center overflow-hidden">
+              {/* Soft light disc so dark/low-contrast logos stay visible */}
+              <div className="absolute inset-3 rounded-full bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.06),transparent_70%)] group-hover:bg-[radial-gradient(circle_at_center,rgba(0,255,255,0.08),transparent_70%)] transition-colors duration-300" />
+              {/* Generous padding keeps every logo fully inside — never cropped */}
+              <img
+                src={file}
+                alt={`Partner logo ${(i % logos.length) + 1}`}
+                loading="lazy"
+                className="relative z-10 w-[62%] h-[62%] object-contain drop-shadow-[0_0_10px_rgba(0,0,0,0.35)]"
+              />
+            </div>
           </div>
         ))}
       </motion.div>
