@@ -517,12 +517,30 @@ export default function Hero() {
                     />
                   </div>
 
+                  {/* Gradient overlay — bottom only, so the banner art stays visible and the text stays readable */}
+                  <div className="absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-black via-black/85 to-transparent" />
 
-                  {/* View Details — the banner art is self-contained, so only a small CTA sits in the corner */}
-                  <div className="absolute bottom-5 right-5 md:bottom-7 md:right-7 z-20">
+                  {/* Card counter */}
+                  <div className="absolute top-6 left-7 z-20">
+                    <span className="text-[10px] font-bold tracking-[0.35em] text-white/30 font-heading">
+                      {String(index + 1).padStart(2, '0')} / {String(departments.length).padStart(2, '0')}
+                    </span>
+                  </div>
+
+                  {/* Content */}
+                  <div className="absolute bottom-0 left-0 right-0 p-8 md:p-10 text-center z-10">
+                    <p className="text-[#00ffff] text-[10px] font-bold tracking-[0.3em] font-heading mb-2">
+                      {dept.subtitle}
+                    </p>
+                    <h3 className="font-neue text-3xl md:text-5xl text-white leading-none mb-3">
+                      {dept.title}
+                    </h3>
+                    <p className="text-white/65 text-sm md:text-base font-light max-w-md mx-auto leading-relaxed mb-6">
+                      {dept.description}
+                    </p>
                     <Link
                       href={dept.href}
-                      className="inline-flex px-6 py-3 rounded-full bg-[#00ffff] text-black font-heading font-bold text-[11px] tracking-wide shadow-[0_0_20px_rgba(0,255,255,0.35)] hover:shadow-[0_0_35px_rgba(0,255,255,0.6)] hover:scale-105 transition-all cursor-pointer active:scale-95"
+                      className="inline-flex px-7 py-3.5 rounded-full bg-[#00ffff] text-black font-heading font-bold text-xs tracking-wide shadow-[0_0_20px_rgba(0,255,255,0.3)] hover:shadow-[0_0_35px_rgba(0,255,255,0.6)] hover:scale-105 transition-all cursor-pointer active:scale-95"
                     >
                       View Details
                     </Link>
