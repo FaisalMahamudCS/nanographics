@@ -101,11 +101,15 @@ export default function Services() {
             start: 'top top',
             end: 'bottom top',
             scrub: true,
+            onUpdate: (self) => {
+              // Prevent faded sticky cards from blocking clicks on the card above
+              ;(inner as HTMLElement).style.pointerEvents = self.progress > 0.15 ? 'none' : 'auto'
+            },
           },
           scale: 0.94,
           opacity: 0.5,
           y: -15,
-          ease: 'none'
+          ease: 'none',
         })
       })
 
@@ -206,44 +210,46 @@ export default function Services() {
                   <div className={`absolute -right-20 -bottom-20 w-80 h-80 rounded-none bg-gradient-to-br ${service.color} blur-[80px] opacity-60 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none`}></div>
 
                   {/* Left content column */}
-                  <div className="card-content flex-1 flex flex-col justify-between z-10 p-6 md:p-10">
-                    <div className="space-y-6">
+                  <div className="card-content flex-1 flex flex-col z-10 p-6 md:p-10 min-h-0">
+                    <div className="flex flex-col h-full min-h-0 gap-5 md:gap-6">
                       {/* Icon */}
-                      <div className="w-14 h-14 rounded-none bg-white/5 border border-white/10 flex items-center justify-center text-[#00ffff] group-hover:bg-[#00ffff] group-hover:text-black transition-all duration-300 shadow-md">
+                      <div className="w-14 h-14 shrink-0 rounded-none bg-white/5 border border-white/10 flex items-center justify-center text-[#00ffff] group-hover:bg-[#00ffff] group-hover:text-black transition-all duration-300 shadow-md">
                         <svg viewBox="0 0 200 200" className="w-6 h-6 fill-none stroke-current stroke-[8] stroke-linejoin-round">
                           <path d={service.icon} />
                         </svg>
                       </div>
 
                       {/* Header */}
-                      <h3 className="font-neue text-2xl md:text-4xl text-white group-hover:text-[#00ffff] transition-colors duration-300 leading-[0.95]">
+                      <h3 className="font-neue text-xl sm:text-2xl md:text-3xl lg:text-4xl text-white group-hover:text-[#00ffff] transition-colors duration-300 leading-[1.05] shrink-0">
                         {service.title}
                       </h3>
 
                       {/* Description */}
-                      <p className="text-white/50 text-xs md:text-sm font-light leading-relaxed max-w-md">
+                      <p className="text-white/50 text-xs md:text-sm font-light leading-relaxed max-w-md shrink-0">
                         {service.description}
                       </p>
-                    </div>
 
-                    {/* View project button */}
-                    <div className="pt-8">
-                      <Link
-                        href={service.href}
-                        className="inline-flex px-6 py-3 rounded-full bg-[#00ffff] text-black font-semibold text-[10px] uppercase tracking-widest hover:bg-[#33ffff] hover:shadow-[0_0_20px_rgba(0,255,255,0.4)] transition-all duration-300 shadow-sm cursor-pointer active:scale-95"
-                      >
-                        View Details
-                      </Link>
+                      {/* View Details — kept in flow under copy so long titles cannot push it off-card */}
+                      <div className="pt-2 md:mt-auto relative z-20 shrink-0">
+                        <Link
+                          href={service.href}
+                          className="inline-flex px-6 py-3 rounded-full bg-[#00ffff] text-black font-semibold text-[10px] uppercase tracking-widest hover:bg-[#33ffff] hover:shadow-[0_0_20px_rgba(0,255,255,0.4)] transition-all duration-300 shadow-sm cursor-pointer active:scale-95"
+                        >
+                          View Details
+                        </Link>
+                      </div>
                     </div>
                   </div>
 
                   {/* Right full-bleed media column — show full banner, no crop */}
                   <div className="card-media flex-1 relative w-full min-h-[240px] md:min-h-0 self-stretch bg-[#060608]">
-                    <img
-                      src={service.image}
-                      alt={service.title}
-                      className="absolute inset-0 w-full h-full object-contain transition-transform duration-700 ease-out group-hover:scale-[1.02]"
-                    />
+                    <Link href={service.href} className="absolute inset-0 block" aria-label={`View ${service.title}`}>
+                      <img
+                        src={encodeURI(service.image)}
+                        alt={service.title}
+                        className="absolute inset-0 w-full h-full object-contain transition-transform duration-700 ease-out group-hover:scale-[1.02]"
+                      />
+                    </Link>
                     {/* Play affordance for the Video Editing showcase */}
                     {service.title === 'Video Editing' && (
                       <div className="absolute inset-0 flex items-center justify-center pointer-events-none">

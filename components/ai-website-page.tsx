@@ -53,7 +53,7 @@ export default function AiWebsitePage({ data }: AiWebsitePageProps) {
           <div className="border border-white/10 bg-[#0c0c0f] p-3 sm:p-4 rounded-[10px] shadow-md">
             <div className="relative w-full overflow-hidden bg-[#050507] rounded-[6px] aspect-[1499/1049]">
               <img
-                src="/AI Powered Website &Custom Software Development.png"
+                src={bannerImage}
                 alt={topBanner.title}
                 className="absolute inset-0 w-full h-full object-contain"
               />
