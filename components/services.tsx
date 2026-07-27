@@ -34,7 +34,7 @@ const services = [
   {
     title: 'Printing Support',
     description: 'High-quality print support for labels, packaging, cylinders, and promotional materials.',
-    image: '/Design and Print Support2.png',
+    image: '/Printing Support.png',
     icon: 'M 40 160 H 160 V 80 H 40 Z M 60 40 H 140 V 80 H 60 Z',
     color: 'from-[#00ffff]/25 to-[#0022ff]/10',
     href: SERVICE_ROUTES.designPrint,

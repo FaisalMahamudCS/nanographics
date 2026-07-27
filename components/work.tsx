@@ -263,8 +263,7 @@ export default function Work() {
               </div>
 
               <div className="product-card h-full flex flex-col border border-white/10 bg-[#0c0c0f] hover:border-[#00ffff]/40 transition-all duration-500 group p-4 rounded-[10px] shadow-md">
-                {/* Two-image layout per revision brief */}
-                <div className="relative w-full h-[220px] sm:h-[260px] md:h-[280px] grid grid-cols-2 gap-2">
+                <div className="relative w-full h-[220px] sm:h-[260px] md:h-[280px] overflow-hidden bg-[#050507] rounded-[6px]">
                   {/* Icon badge */}
                   <div className="absolute top-3 left-3 z-10 w-10 h-10 rounded-full bg-black/60 border border-[#00ffff]/40 backdrop-blur-sm flex items-center justify-center text-[#00ffff]">
                     <svg viewBox="0 0 24 24" className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -272,20 +271,11 @@ export default function Work() {
                       <rect x="6" y="14" width="12" height="8" rx="1" />
                     </svg>
                   </div>
-                  <div className="relative overflow-hidden bg-[#050507] rounded-[6px]">
-                    <img
-                      src="/Print1.png"
-                      alt="Printing support — press output"
-                      className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
-                    />
-                  </div>
-                  <div className="relative overflow-hidden bg-[#050507] rounded-[6px]">
-                    <img
-                      src="/Print2.png"
-                      alt="Printing support — finished labels"
-                      className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.04]"
-                    />
-                  </div>
+                  <img
+                    src="/Design and Print Support2.png"
+                    alt="Design and Print Support"
+                    className="absolute inset-0 w-full h-full object-contain transition-transform duration-700 group-hover:scale-[1.02]"
+                  />
                 </div>
                 <div className="pt-6 px-2 flex flex-col grow">
                   <h4 className="font-neue text-2xl text-white mb-2 group-hover:text-[#00ffff] transition-colors">Printing Support</h4>

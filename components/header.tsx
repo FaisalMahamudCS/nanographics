@@ -22,6 +22,10 @@ export default function Header({ activeSection, setActiveSection }: HeaderProps)
     pathname?.startsWith('/course/') ||
     pathname?.startsWith('/package-course/')
 
+  // On course pages the register form is on the same page (#register);
+  // elsewhere (home, service pages) point to the course page's register section.
+  const registerHref = onCoursePage ? '#register' : `${SERVICE_ROUTES.courseLanding}#register`
+
   const LogoIcon = ({
     className = 'w-8 h-8',
     svgRef,
@@ -174,14 +178,12 @@ export default function Header({ activeSection, setActiveSection }: HeaderProps)
               </button>
             ))}
 
-            {onCoursePage && (
-              <a
-                href="#register"
-                className="ml-1 text-[11px] font-bold uppercase tracking-wide px-3.5 py-2 rounded-full bg-[#00ffff] text-black hover:bg-[#33ffff] shadow-[0_0_12px_rgba(0,255,255,0.3)] transition-all"
-              >
-                Register
-              </a>
-            )}
+            <a
+              href={registerHref}
+              className="ml-1 text-[11px] font-bold uppercase tracking-wide px-3.5 py-2 rounded-full bg-[#00ffff] text-black hover:bg-[#33ffff] shadow-[0_0_12px_rgba(0,255,255,0.3)] transition-all"
+            >
+              Register
+            </a>
           </div>
         </nav>
       </div>
@@ -201,21 +203,12 @@ export default function Header({ activeSection, setActiveSection }: HeaderProps)
           </button>
 
           <div className="flex items-center gap-1.5 shrink-0">
-            {onCoursePage ? (
-              <a
-                href="#register"
-                className="h-9 px-3.5 rounded-full bg-[#00ffff] text-black text-[10px] font-bold uppercase tracking-wide flex items-center"
-              >
-                Register
-              </a>
-            ) : (
-              <Link
-                href={SERVICE_ROUTES.courseLanding}
-                className="h-9 px-3 rounded-full border border-[#00ffff]/45 text-[#00ffff] text-[10px] font-bold uppercase tracking-wide flex items-center"
-              >
-                Course Details
-              </Link>
-            )}
+            <a
+              href={registerHref}
+              className="h-9 px-3.5 rounded-full bg-[#00ffff] text-black text-[10px] font-bold uppercase tracking-wide flex items-center"
+            >
+              Register
+            </a>
             <button
               type="button"
               aria-label={mobileMenuOpen ? 'Close menu' : 'Open menu'}
@@ -261,15 +254,13 @@ export default function Header({ activeSection, setActiveSection }: HeaderProps)
             >
               Course Details
             </Link>
-            {onCoursePage && (
-              <a
-                href="#register"
-                onClick={() => setMobileMenuOpen(false)}
-                className="w-full text-center text-xs font-bold uppercase tracking-wide py-3 rounded-full bg-[#00ffff]/15 border border-[#00ffff]/40 text-[#00ffff]"
-              >
-                Registration Form
-              </a>
-            )}
+            <a
+              href={registerHref}
+              onClick={() => setMobileMenuOpen(false)}
+              className="w-full text-center text-xs font-bold uppercase tracking-wide py-3 rounded-full bg-[#00ffff]/15 border border-[#00ffff]/40 text-[#00ffff]"
+            >
+              Registration Form
+            </a>
           </div>
         )}
       </div>

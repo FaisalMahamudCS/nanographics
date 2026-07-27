@@ -28,7 +28,7 @@ const departments = [
     title: 'Printing Support',
     subtitle: 'Design & Print Support',
     description: 'High-quality print support for labels, packaging, cylinders, and promotional materials.',
-    image: '/Banner/Banner/Design and Print Support2.png',
+    image: '/Banner/Banner/Printing Support.png',
     color: 'from-[#a855f7]/20 to-[#6366f1]/10',
     href: SERVICE_ROUTES.designPrint,
   },
@@ -415,7 +415,7 @@ export default function Hero() {
               <div className="relative overflow-hidden border border-[#00ffff]/30 bg-black">
                 <Link href={SERVICE_ROUTES.courseLanding} className="block">
                   <img
-                    src="/Nano web cove.jpg.jpeg"
+                    src="/Nano web cove.jpg (4).jpeg"
                     alt="Packaging Design Masterclass – Batch 4"
                     className="w-full h-auto object-contain object-center block"
                   />
