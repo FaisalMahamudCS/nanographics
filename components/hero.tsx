@@ -2,10 +2,13 @@
 
 import { useEffect, useRef } from 'react'
 import Link from 'next/link'
+import dynamic from 'next/dynamic'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { motion } from 'framer-motion'
 import { SERVICE_ROUTES } from '@/lib/service-routes'
+
+const Logo3D = dynamic(() => import('@/components/logo-3d'), { ssr: false })
 
 const departments = [
   {
@@ -295,43 +298,35 @@ export default function Hero() {
                <span key={i} className="inline-block translate-y-full opacity-0 brand-tag-word">{word}</span>
             ))}
           </span>
-          <div className="relative h-10 md:h-12 w-full overflow-visible pointer-events-none">
-            {/* AI Icon — floats top → bottom */}
-            <motion.img
-              src="/Icon/Ai Icon.svg"
-              alt="AI Icon"
-              className="absolute left-[10%] sm:left-[15%] top-0 h-8 w-8 md:h-14 md:w-14"
-              animate={{ y: [0, 30, 0] }}
-              transition={{
-                duration: 4,
-                ease: 'easeInOut',
-                repeat: Infinity,
-              }}
-            />
-            {/* Ps Icon — floats left → right */}
-            <motion.img
-              src="/Icon/Ps Icon.svg"
-              alt="Photoshop Icon"
-              className="absolute right-[10%] sm:right-[15%] top-0 h-8 w-8 md:h-14 md:w-14"
-              animate={{ x: [0, 30, 0] }}
-              transition={{
-                duration: 5,
-                ease: 'easeInOut',
-                repeat: Infinity,
-              }}
-            />
-          </div>
         </div>
 
         <div className="relative w-full flex flex-col items-center mb-4 md:mb-8">
-          <h2 ref={heroTextRef} className="text-[clamp(3.6rem,16vw,260px)] leading-[0.8] tracking-[0.01em] text-center z-20 font-brand select-none drop-shadow-2xl">
-            <span className="block overflow-hidden h-fit">
-              <span className="block text-gradient-cyan word-anim-inner">Nano</span>
-            </span>
-            <span className="block overflow-hidden h-fit">
+          <div
+            ref={heroTextRef}
+            className="relative z-20 w-full text-[clamp(2.8rem,14vw,240px)] leading-[0.8] tracking-[0.01em] text-center font-brand select-none drop-shadow-2xl"
+          >
+            {/* [Ps] tight against N ····· O tight against [Ai] */}
+            <div className="flex items-center justify-center gap-1 sm:gap-1.5 md:gap-2">
+              <Logo3D
+                src="/Photoshop_Logo_3D_Ico.glb"
+                label="3D"
+                className="shrink-0"
+                modelScale={1}
+              />
+              <h2 className="overflow-hidden h-fit m-0 font-brand text-[length:inherit] leading-[inherit] tracking-[inherit]">
+                <span className="block text-gradient-cyan word-anim-inner">Nano</span>
+              </h2>
+              <Logo3D
+                src="/Ai_logo.glb"
+                label="3D"
+                className="shrink-0"
+                modelScale={1}
+              />
+            </div>
+            <div className="overflow-hidden h-fit">
               <span className="block text-white word-anim-inner drop-shadow-[0_0_15px_rgba(255,255,255,0.2)]">Graphic</span>
-            </span>
-          </h2>
+            </div>
+          </div>
 
           {/* Interlocking NG Logo in Center (Subtle Background Glow) */}
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-0 pointer-events-none opacity-20 blur-[2px]">
