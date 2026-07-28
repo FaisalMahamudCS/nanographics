@@ -1,5 +1,6 @@
-import React, { useEffect } from 'react'
-import { motion, useAnimationControls, useReducedMotion } from 'framer-motion'
+﻿'use client'
+
+import React, { useEffect, useRef, useState } from 'react'
 
 const localLogos = Array.from({ length: 35 }, (_, i) => `/Local Logo/Local Company logo-${String(i + 1).padStart(2, '0')}.svg`)
 const exportLogos = Array.from({ length: 34 }, (_, i) => `/Export logo/Export Logo-${String(i + 1).padStart(2, '0')}.svg`)
@@ -8,15 +9,13 @@ const desktopLogos = Array.from({ length: 4 }, (_, i) => `/Desktop/logo-${String
 const logos = [...localLogos, ...exportLogos, ...desktopLogos]
 const duplicatedLogos = [...logos, ...logos]
 
+/** Pixels per second — fast continuous marquee */
+const AUTO_SCROLL_SPEED = 140
+
 interface LocalLogoCarouselProps {
   embedded?: boolean
 }
 
-/**
- * Hand-drawn "scribble" rings that rotate around each brand — inspired by the
- * Olympic "Our Brands" section. Two SVG layers spin in opposite directions;
- * broken stroke-dasharrays give the sketchy, hand-drawn look.
- */
 const ScribbleRings = () => (
   <>
     <svg
@@ -39,72 +38,148 @@ const ScribbleRings = () => (
 )
 
 export const LocalLogoCarousel: React.FC<LocalLogoCarouselProps> = ({ embedded = false }) => {
-  const controls = useAnimationControls()
-  const prefersReducedMotion = useReducedMotion()
-
-  const scrollAnimation = {
-    x: ['0%', '-50%'],
-    transition: {
-      x: {
-        repeat: Infinity,
-        repeatType: 'loop' as const,
-        duration: 90,
-        ease: 'linear' as const,
-      },
-    },
-  }
+  const scrollerRef = useRef<HTMLDivElement>(null)
+  const pausedRef = useRef(false)
+  const draggingRef = useRef(false)
+  const dragStartX = useRef(0)
+  const dragScrollLeft = useRef(0)
+  const resumeTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null)
+  const [isDragging, setIsDragging] = useState(false)
 
   useEffect(() => {
-    if (prefersReducedMotion) {
-      controls.set({ x: '0%' })
-      return
+    const el = scrollerRef.current
+    if (!el) return
+
+    let raf = 0
+    let last = performance.now()
+
+    const tick = (now: number) => {
+      const dt = Math.min((now - last) / 1000, 0.05)
+      last = now
+
+      if (!pausedRef.current && !draggingRef.current) {
+        el.scrollLeft += AUTO_SCROLL_SPEED * dt
+        const half = el.scrollWidth / 2
+        if (half > 0 && el.scrollLeft >= half) {
+          el.scrollLeft -= half
+        }
+      }
+
+      raf = requestAnimationFrame(tick)
     }
-    controls.start(scrollAnimation)
-  }, [controls, prefersReducedMotion])
+
+    raf = requestAnimationFrame(tick)
+
+    const onWheelNative = (e: WheelEvent) => {
+      const delta = Math.abs(e.deltaY) > Math.abs(e.deltaX) ? e.deltaY : e.deltaX
+      if (delta === 0) return
+      e.preventDefault()
+      el.scrollLeft += delta
+      const half = el.scrollWidth / 2
+      if (half > 0 && el.scrollLeft >= half) el.scrollLeft -= half
+      if (el.scrollLeft < 0) el.scrollLeft += half
+      pausedRef.current = true
+      if (resumeTimerRef.current) clearTimeout(resumeTimerRef.current)
+      resumeTimerRef.current = setTimeout(() => {
+        if (!draggingRef.current) pausedRef.current = false
+      }, 900)
+    }
+
+    el.addEventListener('wheel', onWheelNative, { passive: false })
+
+    return () => {
+      cancelAnimationFrame(raf)
+      el.removeEventListener('wheel', onWheelNative)
+      if (resumeTimerRef.current) clearTimeout(resumeTimerRef.current)
+    }
+  }, [])
+
+  const clearResumeTimer = () => {
+    if (resumeTimerRef.current) {
+      clearTimeout(resumeTimerRef.current)
+      resumeTimerRef.current = null
+    }
+  }
+
+  const pause = () => {
+    pausedRef.current = true
+  }
+
+  const resume = () => {
+    if (!draggingRef.current) pausedRef.current = false
+  }
+
+  const onPointerDown = (e: React.PointerEvent<HTMLDivElement>) => {
+    const el = scrollerRef.current
+    if (!el) return
+    draggingRef.current = true
+    pausedRef.current = true
+    clearResumeTimer()
+    setIsDragging(true)
+    dragStartX.current = e.clientX
+    dragScrollLeft.current = el.scrollLeft
+    el.setPointerCapture(e.pointerId)
+  }
+
+  const onPointerMove = (e: React.PointerEvent<HTMLDivElement>) => {
+    if (!draggingRef.current || !scrollerRef.current) return
+    const dx = e.clientX - dragStartX.current
+    scrollerRef.current.scrollLeft = dragScrollLeft.current - dx
+  }
+
+  const onPointerUp = (e: React.PointerEvent<HTMLDivElement>) => {
+    const el = scrollerRef.current
+    draggingRef.current = false
+    setIsDragging(false)
+    pausedRef.current = false
+    el?.releasePointerCapture(e.pointerId)
+  }
 
   return (
     <section
       aria-label="Our partner brands"
-      className={`relative overflow-hidden py-10 ${embedded ? 'my-0 bg-transparent' : 'my-16 bg-[#090909]'}`}
+      className={`relative overflow-hidden py-8 ${embedded ? 'my-0 bg-transparent' : 'my-16 bg-[#090909]'}`}
     >
       {!embedded && (
         <h2 className="section-title text-center text-[#00ffff] mb-6">Our Partners</h2>
       )}
 
-      {/* Edge fades — logos glide in/out softly like the reference marquee */}
-      <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-16 sm:w-28 bg-gradient-to-r from-[#050507] to-transparent" />
-      <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-16 sm:w-28 bg-gradient-to-l from-[#050507] to-transparent" />
+      <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-12 sm:w-20 bg-gradient-to-r from-[#050507] to-transparent" />
+      <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-12 sm:w-20 bg-gradient-to-l from-[#050507] to-transparent" />
 
-      <motion.div
-        className="flex gap-8 sm:gap-12 items-center py-3"
-        style={{ width: 'max-content' }}
-        animate={controls}
-        onHoverStart={() => !prefersReducedMotion && controls.stop()}
-        onHoverEnd={() => !prefersReducedMotion && controls.start(scrollAnimation)}
+      <div
+        ref={scrollerRef}
+        className={`flex gap-5 sm:gap-7 items-center py-2 overflow-x-auto overscroll-x-contain select-none [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden ${
+          isDragging ? 'cursor-grabbing' : 'cursor-grab'
+        }`}
+        style={{ touchAction: 'pan-x' }}
+        onMouseEnter={pause}
+        onMouseLeave={resume}
+        onPointerDown={onPointerDown}
+        onPointerMove={onPointerMove}
+        onPointerUp={onPointerUp}
+        onPointerCancel={onPointerUp}
       >
         {duplicatedLogos.map((file, i) => (
           <div
             key={i}
-            className="brand-disc group relative flex-shrink-0 w-40 h-40 sm:w-48 sm:h-48 md:w-52 md:h-52 flex items-center justify-center transition-transform duration-300 ease-out hover:scale-105"
+            className="brand-disc group relative flex-shrink-0 w-28 h-28 sm:w-32 sm:h-32 md:w-36 md:h-36 flex items-center justify-center transition-transform duration-300 ease-out hover:scale-105"
           >
-            {/* Animated hand-drawn scribble rings */}
             <ScribbleRings />
 
-            {/* Inner disc holding the logo */}
-            <div className="absolute inset-[10%] rounded-full bg-[#0f0f12] border border-white/10 shadow-[0_0_22px_rgba(0,255,255,0.15)] group-hover:shadow-[0_0_34px_rgba(0,255,255,0.45)] transition-shadow duration-300 flex items-center justify-center overflow-hidden">
-              {/* Soft light disc so dark/low-contrast logos stay visible */}
-              <div className="absolute inset-3 rounded-full bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.06),transparent_70%)] group-hover:bg-[radial-gradient(circle_at_center,rgba(0,255,255,0.08),transparent_70%)] transition-colors duration-300" />
-              {/* Generous padding keeps every logo fully inside — never cropped */}
+            <div className="absolute inset-[10%] rounded-full bg-[#0f0f12] border border-white/10 shadow-[0_0_18px_rgba(0,255,255,0.12)] group-hover:shadow-[0_0_28px_rgba(0,255,255,0.4)] transition-shadow duration-300 flex items-center justify-center overflow-hidden">
+              <div className="absolute inset-2.5 rounded-full bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.06),transparent_70%)] group-hover:bg-[radial-gradient(circle_at_center,rgba(0,255,255,0.08),transparent_70%)] transition-colors duration-300" />
               <img
                 src={file}
                 alt={`Partner logo ${(i % logos.length) + 1}`}
                 loading="lazy"
-                className="relative z-10 w-[62%] h-[62%] object-contain drop-shadow-[0_0_10px_rgba(0,0,0,0.35)]"
+                draggable={false}
+                className="relative z-10 w-[62%] h-[62%] object-contain drop-shadow-[0_0_10px_rgba(0,0,0,0.35)] pointer-events-none"
               />
             </div>
           </div>
         ))}
-      </motion.div>
+      </div>
     </section>
   )
 }
