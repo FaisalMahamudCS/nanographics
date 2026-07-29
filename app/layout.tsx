@@ -1,8 +1,9 @@
-import { Analytics } from '@vercel/analytics/next'
+﻿import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
 import { Archivo, Space_Grotesk, Hind_Siliguri, Bebas_Neue } from 'next/font/google';
 import localFont from 'next/font/local';
 import SiteFooter from '@/components/site-footer'
+import MetaPixel from '@/components/meta-pixel'
 import './globals.css'
 
 const neuePower = localFont({
@@ -40,6 +41,13 @@ const bebasNeue = Bebas_Neue({
 export const metadata: Metadata = {
   title: 'NanoGraphic | Design & Branding Agency',
   description: 'Professional design agency offering branding, packaging, and web development services',
+  verification: {
+    other: {
+      'facebook-domain-verification':
+        process.env.NEXT_PUBLIC_FACEBOOK_DOMAIN_VERIFICATION ??
+        'kjmfnsfdduxu68bwneahjtakujyrrm',
+    },
+  },
   icons: {
     icon: [
       {
@@ -77,6 +85,7 @@ export default function RootLayout({
       <body className="font-sans antialiased bg-[#050507] text-foreground overflow-x-hidden max-w-[100vw]">
         {children}
         <SiteFooter />
+        <MetaPixel />
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>
     </html>
