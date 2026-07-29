@@ -309,7 +309,6 @@ export default function Hero() {
             <div className="flex items-center justify-center gap-1 sm:gap-1.5 md:gap-2">
               <Logo3D
                 src="/Photoshop_Logo_3D_Ico.glb"
-                label="3D"
                 className="shrink-0"
                 modelScale={1}
               />
@@ -318,7 +317,6 @@ export default function Hero() {
               </h2>
               <Logo3D
                 src="/Ai_logo.glb"
-                label="3D"
                 className="shrink-0"
                 modelScale={1}
               />
