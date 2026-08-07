@@ -69,16 +69,40 @@ export default function PackageCoursePage() {
   const [searchQuery, setSearchQuery] = useState('')
   const [form, setForm] = useState({ name: '', email: '', phone: '', paymentMethod: '', senderNo: '', transactionId: '' })
   const [submitted, setSubmitted] = useState(false)
+  const [submitting, setSubmitting] = useState(false)
+  const [submitError, setSubmitError] = useState('')
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target
     setForm((prev) => ({ ...prev, [name]: value }))
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    console.log('Registration submitted:', form)
-    setSubmitted(true)
+    if (submitting) return
+    setSubmitting(true)
+    setSubmitError('')
+
+    try {
+      const res = await fetch('/api/registration', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          ...form,
+          submittedAt: new Date().toISOString(),
+        }),
+      })
+      const data = (await res.json().catch(() => ({}))) as { ok?: boolean; error?: string }
+      if (!res.ok || data.ok === false) {
+        throw new Error(data.error || 'Registration failed. Please try again.')
+      }
+      setSubmitted(true)
+      setForm({ name: '', email: '', phone: '', paymentMethod: '', senderNo: '', transactionId: '' })
+    } catch (err) {
+      setSubmitError(err instanceof Error ? err.message : 'Registration failed. Please try again.')
+    } finally {
+      setSubmitting(false)
+    }
   }
 
   const filteredQuestions = courseQuestions.filter((item) =>
@@ -732,11 +756,18 @@ export default function PackageCoursePage() {
                         </div>
                       </div>
 
+                      {submitError && (
+                        <p className="text-red-400 text-xs leading-relaxed border border-red-400/30 bg-red-400/5 px-4 py-3">
+                          {submitError}
+                        </p>
+                      )}
+
                       <button
                         type="submit"
-                        className="w-full mt-6 px-8 py-4 bg-[#00ffff] text-black font-bold uppercase tracking-wider rounded-full hover:bg-[#33ffff] hover:shadow-[0_0_30px_rgba(0,255,255,0.4)] hover:scale-[1.02] transition-all duration-300 text-sm cursor-pointer"
+                        disabled={submitting}
+                        className="w-full mt-6 px-8 py-4 bg-[#00ffff] text-black font-bold uppercase tracking-wider rounded-full hover:bg-[#33ffff] hover:shadow-[0_0_30px_rgba(0,255,255,0.4)] hover:scale-[1.02] transition-all duration-300 text-sm cursor-pointer disabled:opacity-60 disabled:hover:scale-100 disabled:cursor-wait"
                       >
-                        রেজিস্ট্রেশন পাঠান
+                        {submitting ? 'পাঠানো হচ্ছে…' : 'রেজিস্ট্রেশন পাঠান'}
                       </button>
                     </motion.form>
                   )}
