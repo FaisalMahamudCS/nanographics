@@ -76,7 +76,7 @@ export default function CertificateVerifyPage() {
             </span>
             <h1 className="section-title text-white mb-3">Verify Certificate</h1>
             <p className="text-white/50 text-sm font-light leading-relaxed">
-               আইডি দিয়ে সার্টিফিকেট যাচাই করুন।
+               আইডি দিয়ে সার্টিফিকেট যাচাই করুন। 
             </p>
           </div>
 
