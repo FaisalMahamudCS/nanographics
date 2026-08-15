@@ -112,7 +112,7 @@ export default function Logo3D({
       onPointerCancel={onPointerUp}
     >
       <div
-        className={`relative w-9 h-9 sm:w-11 sm:h-11 md:w-14 md:h-14 lg:w-16 lg:h-16 transition-transform duration-300 ${
+        className={`relative w-16 h-16 sm:w-20 sm:h-20 md:w-28 md:h-28 lg:w-32 lg:h-32 transition-transform duration-300 ${
           interactive ? 'scale-110 cursor-grab active:cursor-grabbing' : 'cursor-pointer'
         }`}
         style={{ touchAction: 'none' }}
