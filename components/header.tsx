@@ -166,6 +166,16 @@ export default function Header({ activeSection, setActiveSection }: HeaderProps)
             >
               Course Details
             </Link>
+            <Link
+              href={SERVICE_ROUTES.certificate}
+              className={`text-[11px] font-bold uppercase tracking-wide px-3 py-2 rounded-full transition-all duration-300 whitespace-nowrap ${
+                pathname === SERVICE_ROUTES.certificate
+                  ? 'bg-white text-black'
+                  : 'border border-white/15 text-white/70 hover:text-white hover:border-white/40'
+              }`}
+            >
+              Certificate
+            </Link>
 
             {navItems.slice(2).map((item) => (
               <button
@@ -253,6 +263,17 @@ export default function Header({ activeSection, setActiveSection }: HeaderProps)
               }`}
             >
               Course Details
+            </Link>
+            <Link
+              href={SERVICE_ROUTES.certificate}
+              onClick={() => setMobileMenuOpen(false)}
+              className={`w-full text-center text-xs font-bold uppercase tracking-wide py-3 rounded-full transition-all ${
+                pathname === SERVICE_ROUTES.certificate
+                  ? 'bg-white text-black'
+                  : 'border border-white/15 text-white/80'
+              }`}
+            >
+              Verify Certificate
             </Link>
             <a
               href={registerHref}

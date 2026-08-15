@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import Header from '@/components/header'
+import { SERVICE_ROUTES } from '@/lib/service-routes'
 import { Hind_Siliguri } from 'next/font/google'
 import { motion, AnimatePresence } from 'framer-motion'
 import {
@@ -787,6 +788,12 @@ export default function PackageCoursePage() {
             <p className="text-white/40 text-xs">Packaging Design Masterclass · Batch 04</p>
           </div>
           <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-6 text-xs text-white/50">
+            <a
+              href={SERVICE_ROUTES.certificate}
+              className="hover:text-[#00ffff] transition-colors"
+            >
+              Verify Certificate
+            </a>
             <a href="tel:+8801834473283" className="hover:text-[#00ffff] transition-colors">
               +880 1834 473283
             </a>

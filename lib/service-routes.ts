@@ -6,5 +6,7 @@ export const SERVICE_ROUTES = {
   packageCourse: '/package-course',
   /** Short URL for Facebook / ads */
   courseLanding: '/course',
+  /** Public certificate ID lookup (reads Google Sheet) */
+  certificate: '/certificate',
   contact: '/#contact',
 } as const

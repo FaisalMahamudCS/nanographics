@@ -1,27 +1,32 @@
 /**
- * Google Apps Script: Package Course Registration -> Google Sheet
+ * Google Apps Script: two tabs in the same spreadsheet
  *
- * SETUP (one time, ~3 minutes):
- * 1. Create a new Google Sheet (e.g. "Course Registrations").
- * 2. In the Sheet menu: Extensions -> Apps Script.
- * 3. Delete any starter code, paste this whole file, then Save.
- * 4. Click "Deploy" -> "New deployment".
- *      - Type: Web app
- *      - Description: registration endpoint
- *      - Execute as: Me
- *      - Who has access: Anyone
- *    Click Deploy, authorize, and COPY the Web app URL
- *    (looks like https://script.google.com/macros/s/AKfy.../exec).
- * 5. In your Next.js project root, create a file named ".env.local" with:
- *      NEXT_PUBLIC_REGISTRATION_ENDPOINT=https://script.google.com/macros/s/AKfy.../exec
- *    Then restart `npm run dev`.
+ *   Tab 1: Registrations  — course form submissions
+ *   Tab 2: Certificates   — issued certificates (public lookup)
  *
- * NOTE: If you change this script later, redeploy via
- *       Deploy -> Manage deployments -> Edit -> New version.
+ * SETUP / UPDATE:
+ * 1. Open the existing Google Sheet.
+ * 2. Keep current registration data on the first sheet.
+ *    (This script will use a tab named "Registrations", or the first tab
+ *     if that name is not there yet — existing rows stay.)
+ * 3. Extensions -> Apps Script -> paste this file -> Save.
+ * 4. Run doGet once in the editor (or submit a test registration) so it
+ *    can create the "Certificates" tab automatically.
+ * 5. Deploy -> Manage deployments -> Edit -> Version: New version -> Deploy.
+ *
+ * CERTIFICATES TAB (fill this yourself when you issue a cert):
+ *   Certificate ID | Full Name | Email | WhatsApp | Course | Batch | Status | Issued At | Notes
+ * Example Certificate ID: NG-B04-0001
+ *
+ * Registration POST JSON: { name, email, phone, paymentMethod, senderNo, transactionId, submittedAt }
+ * Certificate GET: ?action=lookup&id=NG-B04-0001
+ * Public lookup reads ONLY the Certificates tab. No payment fields are returned.
  */
 
-// Column order written to the sheet. Keep in sync with the form fields.
-var HEADERS = [
+var REG_SHEET_NAME = 'Registrations';
+var CERT_SHEET_NAME = 'Certificates';
+
+var REG_HEADERS = [
   'Timestamp',
   'Full Name',
   'Email',
@@ -29,35 +34,135 @@ var HEADERS = [
   'Payment Method',
   'Sender Number',
   'Transaction ID',
+  'Course',
+  'Batch',
+  'Status',
 ];
+
+var CERT_HEADERS = [
+  'Certificate ID',
+  'Full Name',
+  'Email',
+  'WhatsApp',
+  'Course',
+  'Batch',
+  'Status',
+  'Issued At',
+  'Notes',
+];
+
+var DEFAULT_COURSE = 'Packaging Design Masterclass';
+var DEFAULT_BATCH = 'Batch 04';
+
+function parseBody(e) {
+  var p = {};
+  if (e && e.postData && e.postData.contents) {
+    try {
+      p = JSON.parse(e.postData.contents);
+    } catch (parseErr) {
+      p = {};
+    }
+  }
+  if (e && e.parameter) {
+    for (var key in e.parameter) {
+      if (p[key] === undefined) p[key] = e.parameter[key];
+    }
+  }
+  return p;
+}
+
+function jsonOut(obj) {
+  return ContentService
+    .createTextOutput(JSON.stringify(obj))
+    .setMimeType(ContentService.MimeType.JSON);
+}
+
+function headerMap(sheet, expectedLen) {
+  var lastCol = Math.max(sheet.getLastColumn(), expectedLen || 1);
+  var headers = sheet.getRange(1, 1, 1, lastCol).getValues()[0];
+  var map = {};
+  for (var i = 0; i < headers.length; i++) {
+    var key = String(headers[i] || '').trim().toLowerCase();
+    if (key) map[key] = i;
+  }
+  return { headers: headers, map: map, lastCol: lastCol };
+}
+
+function ensureHeaders(sheet, headers) {
+  if (sheet.getLastRow() === 0) {
+    sheet.appendRow(headers);
+    return;
+  }
+
+  var info = headerMap(sheet, headers.length);
+  var missing = [];
+  for (var i = 0; i < headers.length; i++) {
+    if (info.map[headers[i].toLowerCase()] === undefined) {
+      missing.push(headers[i]);
+    }
+  }
+  if (!missing.length) return;
+
+  var startCol = info.lastCol + 1;
+  if (!String(info.headers[info.lastCol - 1] || '').trim()) {
+    startCol = info.lastCol;
+  }
+  sheet.getRange(1, startCol, 1, missing.length).setValues([missing]);
+}
+
+function col(info, name, fallbackIndex) {
+  var idx = info.map[String(name).toLowerCase()];
+  return idx === undefined ? fallbackIndex : idx;
+}
+
+/**
+ * Registrations: use a tab named "Registrations" if it exists.
+ * Otherwise keep the first tab (where old form rows already live).
+ */
+function getRegistrationSheet() {
+  var ss = SpreadsheetApp.getActiveSpreadsheet();
+  var named = ss.getSheetByName(REG_SHEET_NAME);
+  if (named) return named;
+
+  var first = ss.getSheets()[0];
+  // Don't rename a Certificates tab by mistake.
+  if (first.getName() !== CERT_SHEET_NAME) {
+    try {
+      first.setName(REG_SHEET_NAME);
+    } catch (renameErr) {
+      // Name may already be taken or protected — keep using first sheet.
+    }
+    return first;
+  }
+
+  var created = ss.insertSheet(REG_SHEET_NAME);
+  created.appendRow(REG_HEADERS);
+  return created;
+}
+
+function getCertificateSheet() {
+  var ss = SpreadsheetApp.getActiveSpreadsheet();
+  var named = ss.getSheetByName(CERT_SHEET_NAME);
+  if (named) {
+    ensureHeaders(named, CERT_HEADERS);
+    return named;
+  }
+
+  var created = ss.insertSheet(CERT_SHEET_NAME);
+  created.appendRow(CERT_HEADERS);
+  created.setFrozenRows(1);
+  return created;
+}
 
 function doPost(e) {
   var lock = LockService.getScriptLock();
-  lock.waitLock(30000); // avoid two submissions writing the same row
+  lock.waitLock(30000);
 
   try {
-    var sheet = SpreadsheetApp.getActiveSpreadsheet().getSheets()[0];
+    var sheet = getRegistrationSheet();
+    ensureHeaders(sheet, REG_HEADERS);
 
-    // Write header row once, on an empty sheet.
-    if (sheet.getLastRow() === 0) {
-      sheet.appendRow(HEADERS);
-    }
-
-    // Read the JSON body first (most reliable), then fall back to form params.
-    var p = {};
-    if (e && e.postData && e.postData.contents) {
-      try {
-        p = JSON.parse(e.postData.contents);
-      } catch (parseErr) {
-        p = {};
-      }
-    }
-    if (e && e.parameter) {
-      for (var key in e.parameter) {
-        if (p[key] === undefined) p[key] = e.parameter[key];
-      }
-    }
-
+    var p = parseBody(e);
     var timestamp = p.submittedAt || new Date().toISOString();
 
     sheet.appendRow([
@@ -68,25 +173,79 @@ function doPost(e) {
       p.paymentMethod || '',
       p.senderNo || '',
       p.transactionId || '',
+      p.course || DEFAULT_COURSE,
+      p.batch || DEFAULT_BATCH,
+      p.status || 'Registered',
     ]);
 
-    return ContentService
-      .createTextOutput(JSON.stringify({ ok: true }))
-      .setMimeType(ContentService.MimeType.JSON);
+    return jsonOut({ ok: true, tab: REG_SHEET_NAME });
   } catch (err) {
-    return ContentService
-      .createTextOutput(JSON.stringify({ ok: false, error: String(err) }))
-      .setMimeType(ContentService.MimeType.JSON);
+    return jsonOut({ ok: false, error: String(err) });
   } finally {
     lock.releaseLock();
   }
 }
 
-// Optional: lets you open the /exec URL in a browser to confirm it's live.
-// The version tag below proves the LATEST code is deployed. If the browser
-// shows an older/missing tag, you deployed without picking "New version".
-function doGet() {
+function lookupCertificate(rawId) {
+  var id = String(rawId || '').trim();
+  if (!id) {
+    return jsonOut({ ok: false, found: false, error: 'Certificate ID is required' });
+  }
+
+  var sheet = getCertificateSheet();
+  var lastRow = sheet.getLastRow();
+  if (lastRow < 2) {
+    return jsonOut({ ok: true, found: false, tab: CERT_SHEET_NAME });
+  }
+
+  var info = headerMap(sheet, CERT_HEADERS.length);
+  var width = Math.max(info.lastCol, CERT_HEADERS.length);
+  var values = sheet.getRange(2, 1, lastRow - 1, width).getValues();
+  var needle = id.toLowerCase();
+
+  var certCol = col(info, 'Certificate ID', 0);
+  var nameCol = col(info, 'Full Name', 1);
+  var courseCol = col(info, 'Course', 4);
+  var batchCol = col(info, 'Batch', 5);
+  var statusCol = col(info, 'Status', 6);
+  var issuedCol = col(info, 'Issued At', 7);
+
+  for (var r = 0; r < values.length; r++) {
+    var row = values[r];
+    var certId = String(row[certCol] || '').trim();
+    if (!certId || certId.toLowerCase() !== needle) continue;
+
+    var status = String(row[statusCol] || '').trim();
+    return jsonOut({
+      ok: true,
+      found: true,
+      tab: CERT_SHEET_NAME,
+      student: {
+        certificateId: certId,
+        name: String(row[nameCol] || '').trim(),
+        course: String(row[courseCol] || DEFAULT_COURSE).trim() || DEFAULT_COURSE,
+        batch: String(row[batchCol] || DEFAULT_BATCH).trim() || DEFAULT_BATCH,
+        status: status || 'Issued',
+        issuedAt: String(row[issuedCol] || '').trim(),
+      },
+    });
+  }
+
+  return jsonOut({ ok: true, found: false, tab: CERT_SHEET_NAME });
+}
+
+function doGet(e) {
+  var action = (e && e.parameter && e.parameter.action) || '';
+  var id = (e && e.parameter && (e.parameter.id || e.parameter.certificateId)) || '';
+  if (action === 'lookup' || id) {
+    return lookupCertificate(id);
+  }
+
+  // Touch both tabs so they exist after deploy.
+  getRegistrationSheet();
+  getCertificateSheet();
+
   return ContentService
-    .createTextOutput('Registration endpoint is running. v2-json')
+    .createTextOutput('Registration + Certificates tabs ready. v4-tabs')
     .setMimeType(ContentService.MimeType.TEXT);
 }
